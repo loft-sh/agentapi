@@ -4,6 +4,43 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
+const (
+	SleepModeForceAnnotation          = "sleepmode.loft.sh/force"
+	SleepModeForceDurationAnnotation  = "sleepmode.loft.sh/force-duration"
+	SleepModeSleepAfterAnnotation     = "sleepmode.loft.sh/sleep-after"
+	SleepModeDeleteAfterAnnotation    = "sleepmode.loft.sh/delete-after"
+	SleepModeDeleteAllPodsAnnotation  = "sleepmode.loft.sh/delete-all-pods"
+	SleepModeSleepScheduleAnnotation  = "sleepmode.loft.sh/sleep-schedule"
+	SleepModeWakeupScheduleAnnotation = "sleepmode.loft.sh/wakeup-schedule"
+	SleepModeTimezoneAnnotation       = "sleepmode.loft.sh/timezone"
+
+	SleepModeLastActivityAnnotation      = "sleepmode.loft.sh/last-activity"
+	SleepModeLastActivityAnnotationInfo  = "sleepmode.loft.sh/last-activity-info"
+	SleepModeSleepingSinceAnnotation     = "sleepmode.loft.sh/sleeping-since"
+	SleepModeCurrentEpochStartAnnotation = "sleepmode.loft.sh/current-epoch-start"
+	SleepModeCurrentEpochSleptAnnotation = "sleepmode.loft.sh/current-epoch-slept"
+	SleepModeLastEpochStartAnnotation    = "sleepmode.loft.sh/last-epoch-start"
+	SleepModeLastEpochSleptAnnotation    = "sleepmode.loft.sh/last-epoch-slept"
+	SleepModeScheduledSleepAnnotation    = "sleepmode.loft.sh/scheduled-sleep"
+	SleepModeScheduledWakeupAnnotation   = "sleepmode.loft.sh/scheduled-wakeup"
+	SleepModeSleepTypeAnnotation         = "sleepmode.loft.sh/sleep-type"
+
+	// Not yet in spec annotations
+	SleepModeIgnoreAll                     = "sleepmode.loft.sh/ignore-all"
+	SleepModeIgnoreGroupsAnnotation        = "sleepmode.loft.sh/ignore-groups"
+	SleepModeIgnoreVClustersAnnotation     = "sleepmode.loft.sh/ignore-vclusters"
+	SleepModeIgnoreResourcesAnnotation     = "sleepmode.loft.sh/ignore-resources"
+	SleepModeIgnoreVerbsAnnotation         = "sleepmode.loft.sh/ignore-verbs"
+	SleepModeIgnoreResourceVerbsAnnotation = "sleepmode.loft.sh/ignore-resource-verbs" // format: myresource.mygroup=create update delete, myresource2.mygroup=create update
+	SleepModeIgnoreResourceNamesAnnotation = "sleepmode.loft.sh/ignore-resource-names" // format: myresource.mygroup=name1 name2
+	SleepModeIgnoreActiveConnections       = "sleepmode.loft.sh/ignore-active-connections"
+
+	SleepTypeInactivity     = "inactivitySleep"
+	SleepTypeForced         = "forcedSleep"
+	SleepTypeForcedDuration = "forcedDurationSleep"
+	SleepTypeScheduled      = "scheduledSleep"
+)
+
 // +genclient
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
