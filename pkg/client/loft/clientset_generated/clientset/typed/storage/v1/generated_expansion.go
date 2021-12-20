@@ -2,16 +2,4 @@
 
 package v1
 
-type ClusterQuotaExpansion interface{}
-
-type LocalClusterAccessExpansion interface{}
-
-type LocalClusterRoleTemplateExpansion interface{}
-
-type LocalSpaceConstraintExpansion interface{}
-
-type LocalTeamExpansion interface{}
-
-type LocalUserExpansion interface{}
-
 type VirtualClusterExpansion interface{}

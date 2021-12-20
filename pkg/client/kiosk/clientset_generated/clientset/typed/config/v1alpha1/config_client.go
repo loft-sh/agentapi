@@ -3,8 +3,8 @@
 package v1alpha1
 
 import (
-	v1alpha1 "github.com/loft-sh/agentapi/v2/pkg/apis/kiosk/config/v1alpha1"
-	"github.com/loft-sh/agentapi/v2/pkg/client/kiosk/clientset_generated/clientset/scheme"
+	v1alpha1 "github.com/loft-sh/agentapi/pkg/apis/kiosk/config/v1alpha1"
+	"github.com/loft-sh/agentapi/pkg/client/kiosk/clientset_generated/clientset/scheme"
 	rest "k8s.io/client-go/rest"
 )
 

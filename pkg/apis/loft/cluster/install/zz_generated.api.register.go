@@ -3,8 +3,8 @@
 package install
 
 import (
-	"github.com/loft-sh/agentapi/v2/pkg/apis/loft/cluster"
-	v1 "github.com/loft-sh/agentapi/v2/pkg/apis/loft/cluster/v1"
+	"github.com/loft-sh/agentapi/pkg/apis/loft/cluster"
+	v1 "github.com/loft-sh/agentapi/pkg/apis/loft/cluster/v1"
 	"github.com/loft-sh/apiserver/pkg/builders"
 	"k8s.io/apimachinery/pkg/runtime"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
@@ -22,18 +22,14 @@ func Install(scheme *runtime.Scheme) {
 
 func addKnownTypes(scheme *runtime.Scheme) error {
 	scheme.AddKnownTypes(cluster.SchemeGroupVersion,
-		&cluster.ChartInfo{},
-		&cluster.ChartInfoList{},
-		&cluster.ClusterQuota{},
-		&cluster.ClusterQuotaList{},
+		&cluster.Account{},
+		&cluster.AccountList{},
+		&cluster.AccountClusterRoles{},
 		&cluster.HelmRelease{},
 		&cluster.HelmReleaseList{},
-		&cluster.LocalClusterAccess{},
-		&cluster.LocalClusterAccessList{},
+		&cluster.HelmReleaseRollback{},
 		&cluster.SleepModeConfig{},
 		&cluster.SleepModeConfigList{},
-		&cluster.Space{},
-		&cluster.SpaceList{},
 		&cluster.VirtualCluster{},
 		&cluster.VirtualClusterList{},
 	)

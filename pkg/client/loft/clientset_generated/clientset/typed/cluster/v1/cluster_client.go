@@ -3,19 +3,16 @@
 package v1
 
 import (
-	v1 "github.com/loft-sh/agentapi/v2/pkg/apis/loft/cluster/v1"
-	"github.com/loft-sh/agentapi/v2/pkg/client/loft/clientset_generated/clientset/scheme"
+	v1 "github.com/loft-sh/agentapi/pkg/apis/loft/cluster/v1"
+	"github.com/loft-sh/agentapi/pkg/client/loft/clientset_generated/clientset/scheme"
 	rest "k8s.io/client-go/rest"
 )
 
 type ClusterV1Interface interface {
 	RESTClient() rest.Interface
-	ChartInfosGetter
-	ClusterQuotasGetter
+	AccountsGetter
 	HelmReleasesGetter
-	LocalClusterAccessesGetter
 	SleepModeConfigsGetter
-	SpacesGetter
 	VirtualClustersGetter
 }
 
@@ -24,28 +21,16 @@ type ClusterV1Client struct {
 	restClient rest.Interface
 }
 
-func (c *ClusterV1Client) ChartInfos() ChartInfoInterface {
-	return newChartInfos(c)
-}
-
-func (c *ClusterV1Client) ClusterQuotas() ClusterQuotaInterface {
-	return newClusterQuotas(c)
+func (c *ClusterV1Client) Accounts() AccountInterface {
+	return newAccounts(c)
 }
 
 func (c *ClusterV1Client) HelmReleases(namespace string) HelmReleaseInterface {
 	return newHelmReleases(c, namespace)
 }
 
-func (c *ClusterV1Client) LocalClusterAccesses() LocalClusterAccessInterface {
-	return newLocalClusterAccesses(c)
-}
-
 func (c *ClusterV1Client) SleepModeConfigs(namespace string) SleepModeConfigInterface {
 	return newSleepModeConfigs(c, namespace)
-}
-
-func (c *ClusterV1Client) Spaces() SpaceInterface {
-	return newSpaces(c)
 }
 
 func (c *ClusterV1Client) VirtualClusters(namespace string) VirtualClusterInterface {

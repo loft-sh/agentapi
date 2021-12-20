@@ -3,49 +3,19 @@
 package v1
 
 import (
-	v1 "github.com/loft-sh/agentapi/v2/pkg/apis/loft/storage/v1"
-	"github.com/loft-sh/agentapi/v2/pkg/client/loft/clientset_generated/clientset/scheme"
+	v1 "github.com/loft-sh/agentapi/pkg/apis/loft/storage/v1"
+	"github.com/loft-sh/agentapi/pkg/client/loft/clientset_generated/clientset/scheme"
 	rest "k8s.io/client-go/rest"
 )
 
 type StorageV1Interface interface {
 	RESTClient() rest.Interface
-	ClusterQuotasGetter
-	LocalClusterAccessesGetter
-	LocalClusterRoleTemplatesGetter
-	LocalSpaceConstraintsGetter
-	LocalTeamsGetter
-	LocalUsersGetter
 	VirtualClustersGetter
 }
 
 // StorageV1Client is used to interact with features provided by the storage.loft.sh group.
 type StorageV1Client struct {
 	restClient rest.Interface
-}
-
-func (c *StorageV1Client) ClusterQuotas() ClusterQuotaInterface {
-	return newClusterQuotas(c)
-}
-
-func (c *StorageV1Client) LocalClusterAccesses() LocalClusterAccessInterface {
-	return newLocalClusterAccesses(c)
-}
-
-func (c *StorageV1Client) LocalClusterRoleTemplates() LocalClusterRoleTemplateInterface {
-	return newLocalClusterRoleTemplates(c)
-}
-
-func (c *StorageV1Client) LocalSpaceConstraints() LocalSpaceConstraintInterface {
-	return newLocalSpaceConstraints(c)
-}
-
-func (c *StorageV1Client) LocalTeams() LocalTeamInterface {
-	return newLocalTeams(c)
-}
-
-func (c *StorageV1Client) LocalUsers() LocalUserInterface {
-	return newLocalUsers(c)
 }
 
 func (c *StorageV1Client) VirtualClusters(namespace string) VirtualClusterInterface {

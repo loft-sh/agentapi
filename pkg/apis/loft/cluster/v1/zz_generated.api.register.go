@@ -3,7 +3,7 @@
 package v1
 
 import (
-	"github.com/loft-sh/agentapi/v2/pkg/apis/loft/cluster"
+	"github.com/loft-sh/agentapi/pkg/apis/loft/cluster"
 	"github.com/loft-sh/apiserver/pkg/builders"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
@@ -13,18 +13,14 @@ import (
 func addKnownTypes(scheme *runtime.Scheme) error {
 	// TODO this will get cleaned up with the scheme types are fixed
 	scheme.AddKnownTypes(SchemeGroupVersion,
-		&ChartInfo{},
-		&ChartInfoList{},
-		&ClusterQuota{},
-		&ClusterQuotaList{},
+		&Account{},
+		&AccountList{},
+		&AccountClusterRoles{},
 		&HelmRelease{},
 		&HelmReleaseList{},
-		&LocalClusterAccess{},
-		&LocalClusterAccessList{},
+		&HelmReleaseRollback{},
 		&SleepModeConfig{},
 		&SleepModeConfigList{},
-		&Space{},
-		&SpaceList{},
 		&VirtualCluster{},
 		&VirtualClusterList{},
 	)
@@ -33,12 +29,19 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 
 var (
 	ApiVersion = builders.NewApiVersion("cluster.loft.sh", "v1").WithResources(
-		cluster.ClusterChartInfoStorage,
-		cluster.ClusterClusterQuotaStorage,
+		cluster.ClusterAccountStorage,
+		builders.NewApiResourceWithStorage(
+			cluster.InternalAccountClusterRolesREST,
+			func() runtime.Object { return &AccountClusterRoles{} }, // Register versioned resource
+			nil,
+			cluster.NewAccountClusterRolesREST),
 		cluster.ClusterHelmReleaseStorage,
-		cluster.ClusterLocalClusterAccessStorage,
+		builders.NewApiResourceWithStorage(
+			cluster.InternalHelmReleaseRollbackREST,
+			func() runtime.Object { return &HelmReleaseRollback{} }, // Register versioned resource
+			nil,
+			cluster.NewHelmReleaseRollbackREST),
 		cluster.ClusterSleepModeConfigStorage,
-		cluster.ClusterSpaceStorage,
 		cluster.ClusterVirtualClusterStorage,
 	)
 
@@ -73,18 +76,18 @@ func Resource(resource string) schema.GroupResource {
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-type ChartInfoList struct {
+type AccountList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []ChartInfo `json:"items"`
+	Items           []Account `json:"items"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-type ClusterQuotaList struct {
+type AccountClusterRolesList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []ClusterQuota `json:"items"`
+	Items           []AccountClusterRoles `json:"items"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
@@ -97,10 +100,10 @@ type HelmReleaseList struct {
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-type LocalClusterAccessList struct {
+type HelmReleaseRollbackList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []LocalClusterAccess `json:"items"`
+	Items           []HelmReleaseRollback `json:"items"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
@@ -109,14 +112,6 @@ type SleepModeConfigList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
 	Items           []SleepModeConfig `json:"items"`
-}
-
-// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
-
-type SpaceList struct {
-	metav1.TypeMeta `json:",inline"`
-	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []Space `json:"items"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

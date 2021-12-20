@@ -3,7 +3,7 @@
 package fake
 
 import (
-	v1alpha1 "github.com/loft-sh/agentapi/v2/pkg/client/kiosk/clientset_generated/clientset/typed/config/v1alpha1"
+	v1alpha1 "github.com/loft-sh/agentapi/pkg/client/kiosk/clientset_generated/clientset/typed/config/v1alpha1"
 	rest "k8s.io/client-go/rest"
 	testing "k8s.io/client-go/testing"
 )

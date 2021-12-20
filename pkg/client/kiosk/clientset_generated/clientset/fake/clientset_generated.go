@@ -3,9 +3,11 @@
 package fake
 
 import (
-	clientset "github.com/loft-sh/agentapi/v2/pkg/client/kiosk/clientset_generated/clientset"
-	configv1alpha1 "github.com/loft-sh/agentapi/v2/pkg/client/kiosk/clientset_generated/clientset/typed/config/v1alpha1"
-	fakeconfigv1alpha1 "github.com/loft-sh/agentapi/v2/pkg/client/kiosk/clientset_generated/clientset/typed/config/v1alpha1/fake"
+	clientset "github.com/loft-sh/agentapi/pkg/client/kiosk/clientset_generated/clientset"
+	configv1alpha1 "github.com/loft-sh/agentapi/pkg/client/kiosk/clientset_generated/clientset/typed/config/v1alpha1"
+	fakeconfigv1alpha1 "github.com/loft-sh/agentapi/pkg/client/kiosk/clientset_generated/clientset/typed/config/v1alpha1/fake"
+	tenancyv1alpha1 "github.com/loft-sh/agentapi/pkg/client/kiosk/clientset_generated/clientset/typed/tenancy/v1alpha1"
+	faketenancyv1alpha1 "github.com/loft-sh/agentapi/pkg/client/kiosk/clientset_generated/clientset/typed/tenancy/v1alpha1/fake"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/discovery"
@@ -63,4 +65,9 @@ var _ clientset.Interface = &Clientset{}
 // ConfigV1alpha1 retrieves the ConfigV1alpha1Client
 func (c *Clientset) ConfigV1alpha1() configv1alpha1.ConfigV1alpha1Interface {
 	return &fakeconfigv1alpha1.FakeConfigV1alpha1{Fake: &c.Fake}
+}
+
+// TenancyV1alpha1 retrieves the TenancyV1alpha1Client
+func (c *Clientset) TenancyV1alpha1() tenancyv1alpha1.TenancyV1alpha1Interface {
+	return &faketenancyv1alpha1.FakeTenancyV1alpha1{Fake: &c.Fake}
 }

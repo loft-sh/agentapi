@@ -1,3 +1,4 @@
+
 /*
 Copyright 2020 DevSpace Technologies Inc.
 
@@ -18,3 +19,4 @@ limitations under the License.
 // +domain=kiosk.sh
 
 package kiosk
+

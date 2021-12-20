@@ -3,7 +3,7 @@
 package fake
 
 import (
-	v1 "github.com/loft-sh/agentapi/v2/pkg/client/loft/clientset_generated/clientset/typed/cluster/v1"
+	v1 "github.com/loft-sh/agentapi/pkg/client/loft/clientset_generated/clientset/typed/cluster/v1"
 	rest "k8s.io/client-go/rest"
 	testing "k8s.io/client-go/testing"
 )
@@ -12,28 +12,16 @@ type FakeClusterV1 struct {
 	*testing.Fake
 }
 
-func (c *FakeClusterV1) ChartInfos() v1.ChartInfoInterface {
-	return &FakeChartInfos{c}
-}
-
-func (c *FakeClusterV1) ClusterQuotas() v1.ClusterQuotaInterface {
-	return &FakeClusterQuotas{c}
+func (c *FakeClusterV1) Accounts() v1.AccountInterface {
+	return &FakeAccounts{c}
 }
 
 func (c *FakeClusterV1) HelmReleases(namespace string) v1.HelmReleaseInterface {
 	return &FakeHelmReleases{c, namespace}
 }
 
-func (c *FakeClusterV1) LocalClusterAccesses() v1.LocalClusterAccessInterface {
-	return &FakeLocalClusterAccesses{c}
-}
-
 func (c *FakeClusterV1) SleepModeConfigs(namespace string) v1.SleepModeConfigInterface {
 	return &FakeSleepModeConfigs{c, namespace}
-}
-
-func (c *FakeClusterV1) Spaces() v1.SpaceInterface {
-	return &FakeSpaces{c}
 }
 
 func (c *FakeClusterV1) VirtualClusters(namespace string) v1.VirtualClusterInterface {

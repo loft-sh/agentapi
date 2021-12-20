@@ -5,7 +5,8 @@ package clientset
 import (
 	"fmt"
 
-	configv1alpha1 "github.com/loft-sh/agentapi/v2/pkg/client/kiosk/clientset_generated/clientset/typed/config/v1alpha1"
+	configv1alpha1 "github.com/loft-sh/agentapi/pkg/client/kiosk/clientset_generated/clientset/typed/config/v1alpha1"
+	tenancyv1alpha1 "github.com/loft-sh/agentapi/pkg/client/kiosk/clientset_generated/clientset/typed/tenancy/v1alpha1"
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"
@@ -14,18 +15,25 @@ import (
 type Interface interface {
 	Discovery() discovery.DiscoveryInterface
 	ConfigV1alpha1() configv1alpha1.ConfigV1alpha1Interface
+	TenancyV1alpha1() tenancyv1alpha1.TenancyV1alpha1Interface
 }
 
 // Clientset contains the clients for groups. Each group has exactly one
 // version included in a Clientset.
 type Clientset struct {
 	*discovery.DiscoveryClient
-	configV1alpha1 *configv1alpha1.ConfigV1alpha1Client
+	configV1alpha1  *configv1alpha1.ConfigV1alpha1Client
+	tenancyV1alpha1 *tenancyv1alpha1.TenancyV1alpha1Client
 }
 
 // ConfigV1alpha1 retrieves the ConfigV1alpha1Client
 func (c *Clientset) ConfigV1alpha1() configv1alpha1.ConfigV1alpha1Interface {
 	return c.configV1alpha1
+}
+
+// TenancyV1alpha1 retrieves the TenancyV1alpha1Client
+func (c *Clientset) TenancyV1alpha1() tenancyv1alpha1.TenancyV1alpha1Interface {
+	return c.tenancyV1alpha1
 }
 
 // Discovery retrieves the DiscoveryClient
@@ -53,6 +61,10 @@ func NewForConfig(c *rest.Config) (*Clientset, error) {
 	if err != nil {
 		return nil, err
 	}
+	cs.tenancyV1alpha1, err = tenancyv1alpha1.NewForConfig(&configShallowCopy)
+	if err != nil {
+		return nil, err
+	}
 
 	cs.DiscoveryClient, err = discovery.NewDiscoveryClientForConfig(&configShallowCopy)
 	if err != nil {
@@ -66,6 +78,7 @@ func NewForConfig(c *rest.Config) (*Clientset, error) {
 func NewForConfigOrDie(c *rest.Config) *Clientset {
 	var cs Clientset
 	cs.configV1alpha1 = configv1alpha1.NewForConfigOrDie(c)
+	cs.tenancyV1alpha1 = tenancyv1alpha1.NewForConfigOrDie(c)
 
 	cs.DiscoveryClient = discovery.NewDiscoveryClientForConfigOrDie(c)
 	return &cs
@@ -75,6 +88,7 @@ func NewForConfigOrDie(c *rest.Config) *Clientset {
 func New(c rest.Interface) *Clientset {
 	var cs Clientset
 	cs.configV1alpha1 = configv1alpha1.New(c)
+	cs.tenancyV1alpha1 = tenancyv1alpha1.New(c)
 
 	cs.DiscoveryClient = discovery.NewDiscoveryClient(c)
 	return &cs

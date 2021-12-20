@@ -1,16 +1,19 @@
-module github.com/loft-sh/agentapi/v2
+module github.com/loft-sh/agentapi
 
 go 1.13
 
 require (
+	github.com/ghodss/yaml v1.0.0 // indirect
 	github.com/go-openapi/spec v0.20.1
-	github.com/loft-sh/apiserver v0.0.0-20210607160412-10c99558fdeb
+	github.com/loft-sh/apiserver v0.0.0-20210607160412-10c99558fdeb // indirect
 	k8s.io/api v0.21.1
+	k8s.io/apiextensions-apiserver v0.21.1 // indirect
 	k8s.io/apimachinery v0.21.1
-	k8s.io/apiserver v0.21.1
+	k8s.io/apiserver v0.21.1 // indirect
 	k8s.io/client-go v0.21.1
 	k8s.io/kube-openapi v0.0.0-20210527164424-3c818078ee3d
 	sigs.k8s.io/controller-runtime v0.9.0
+	sigs.k8s.io/controller-tools v0.5.0 // indirect
 )
 
 replace (

@@ -26,7 +26,7 @@ type TemplateResources struct {
 	// manifest represents kubernetes resources that will be deployed into the target namespace
 	// +optional
 	Manifests []EmbeddedResource `json:"manifests,omitempty"`
-
+	
 	// remote manifests holds urls that should be deployed as part of the template
 	// +optional
 	RemoteManifests []RemoteManifest `json:"remoteManifests,omitempty"`
@@ -40,7 +40,7 @@ type RemoteManifest struct {
 	// URL is the path to the remote manifest
 	// +optional
 	URL string `json:"url,omitempty"`
-
+	
 	// Insecure determines if the remote location uses an insecure
 	// TLS certificate.
 	// +optional
@@ -119,7 +119,7 @@ type HelmChartRepository struct {
 	// The password to use for the selected repository
 	// +optional
 	Password *HelmSecretRef `json:"password,omitempty"`
-
+	
 	// Determines if the remote location uses an insecure
 	// TLS certificate.
 	// +optional

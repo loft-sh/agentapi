@@ -9,6 +9,7 @@ import (
 
 // +k8s:openapi-gen=true
 // +resource:path=helmreleases,rest=HelmReleaseREST
+// +subresource:request=HelmReleaseRollback,path=rollback,kind=HelmReleaseRollback,rest=HelmReleaseRollbackREST
 type HelmRelease struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
@@ -18,28 +19,21 @@ type HelmRelease struct {
 }
 
 type HelmReleaseSpec struct {
-	// Chart holds information about a chart that should get deployed
-	// +optional
+	// Chart holds information about a chart
 	Chart Chart `json:"chart,omitempty"`
 
 	// Manifests holds kube manifests that will be deployed as a chart
 	// +optional
 	Manifests string `json:"manifests,omitempty"`
 
-	// Values is the set of extra Values added to the chart.
-	// These values merge with the default values inside of the chart.
-	// You can use golang templating in here with values from parameters.
+	// Config is the set of extra Values added to the chart.
+	// These values override the default values inside of the chart.
 	// +optional
-	Values string `json:"values,omitempty"`
+	Config string `json:"config,omitempty"`
 
-	// Parameters are additional helm chart values that will get merged
-	// with config and are then used to deploy the helm chart.
+	// If tls certificate checks for the chart download should be skipped
 	// +optional
-	Parameters string `json:"parameters,omitempty"`
-
-	// Annotations are extra annotations for this helm release
-	// +optional
-	Annotations map[string]string `json:"annotations,omitempty"`
+	InsecureSkipTlsVerify bool `json:"insecureSkipTlsVerify,omitempty"`
 }
 
 type HelmReleaseStatus struct {
@@ -75,10 +69,6 @@ type Chart struct {
 	// The password that is required for this repository
 	// +optional
 	Password string `json:"password,omitempty"`
-
-	// If tls certificate checks for the chart download should be skipped
-	// +optional
-	InsecureSkipTlsVerify bool `json:"insecureSkipTlsVerify,omitempty"`
 }
 
 // Info describes release information.
@@ -195,7 +185,4 @@ type Metadata struct {
 	// Specifies the chart type: application or library
 	// +optional
 	Type string `json:"type,omitempty"`
-	// Urls where to find the chart contents
-	// +optional
-	Urls []string `json:"urls,omitempty"`
 }

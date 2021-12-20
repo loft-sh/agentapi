@@ -22,4 +22,4 @@ limitations under the License.
 // +k8s:deepcopy-gen=package,register
 // +k8s:defaulter-gen=TypeMeta
 // +groupName=config.kiosk.sh
-package v1alpha1 // import "github.com/loft-sh/agentapi/v2/pkg/apis/kiosk/config/v1alpha1"
+package v1alpha1 // import "github.com/loft-sh/agentapi/pkg/apis/kiosk/config/v1alpha1"

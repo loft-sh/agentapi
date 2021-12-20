@@ -3,37 +3,13 @@
 package fake
 
 import (
-	v1 "github.com/loft-sh/agentapi/v2/pkg/client/loft/clientset_generated/clientset/typed/storage/v1"
+	v1 "github.com/loft-sh/agentapi/pkg/client/loft/clientset_generated/clientset/typed/storage/v1"
 	rest "k8s.io/client-go/rest"
 	testing "k8s.io/client-go/testing"
 )
 
 type FakeStorageV1 struct {
 	*testing.Fake
-}
-
-func (c *FakeStorageV1) ClusterQuotas() v1.ClusterQuotaInterface {
-	return &FakeClusterQuotas{c}
-}
-
-func (c *FakeStorageV1) LocalClusterAccesses() v1.LocalClusterAccessInterface {
-	return &FakeLocalClusterAccesses{c}
-}
-
-func (c *FakeStorageV1) LocalClusterRoleTemplates() v1.LocalClusterRoleTemplateInterface {
-	return &FakeLocalClusterRoleTemplates{c}
-}
-
-func (c *FakeStorageV1) LocalSpaceConstraints() v1.LocalSpaceConstraintInterface {
-	return &FakeLocalSpaceConstraints{c}
-}
-
-func (c *FakeStorageV1) LocalTeams() v1.LocalTeamInterface {
-	return &FakeLocalTeams{c}
-}
-
-func (c *FakeStorageV1) LocalUsers() v1.LocalUserInterface {
-	return &FakeLocalUsers{c}
 }
 
 func (c *FakeStorageV1) VirtualClusters(namespace string) v1.VirtualClusterInterface {
