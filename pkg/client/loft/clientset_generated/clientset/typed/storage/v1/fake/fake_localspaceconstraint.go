@@ -94,7 +94,7 @@ func (c *FakeLocalSpaceConstraints) UpdateStatus(ctx context.Context, localSpace
 // Delete takes name of the localSpaceConstraint and deletes it. Returns an error if one occurs.
 func (c *FakeLocalSpaceConstraints) Delete(ctx context.Context, name string, opts v1.DeleteOptions) error {
 	_, err := c.Fake.
-		Invokes(testing.NewRootDeleteAction(localspaceconstraintsResource, name), &storagev1.LocalSpaceConstraint{})
+		Invokes(testing.NewRootDeleteActionWithOptions(localspaceconstraintsResource, name, opts), &storagev1.LocalSpaceConstraint{})
 	return err
 }
 

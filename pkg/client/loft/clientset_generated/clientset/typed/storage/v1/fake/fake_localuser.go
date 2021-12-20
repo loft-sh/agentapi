@@ -94,7 +94,7 @@ func (c *FakeLocalUsers) UpdateStatus(ctx context.Context, localUser *storagev1.
 // Delete takes name of the localUser and deletes it. Returns an error if one occurs.
 func (c *FakeLocalUsers) Delete(ctx context.Context, name string, opts v1.DeleteOptions) error {
 	_, err := c.Fake.
-		Invokes(testing.NewRootDeleteAction(localusersResource, name), &storagev1.LocalUser{})
+		Invokes(testing.NewRootDeleteActionWithOptions(localusersResource, name, opts), &storagev1.LocalUser{})
 	return err
 }
 

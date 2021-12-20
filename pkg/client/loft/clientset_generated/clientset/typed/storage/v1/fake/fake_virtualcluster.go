@@ -101,7 +101,7 @@ func (c *FakeVirtualClusters) UpdateStatus(ctx context.Context, virtualCluster *
 // Delete takes name of the virtualCluster and deletes it. Returns an error if one occurs.
 func (c *FakeVirtualClusters) Delete(ctx context.Context, name string, opts v1.DeleteOptions) error {
 	_, err := c.Fake.
-		Invokes(testing.NewDeleteAction(virtualclustersResource, c.ns, name), &storagev1.VirtualCluster{})
+		Invokes(testing.NewDeleteActionWithOptions(virtualclustersResource, c.ns, name, opts), &storagev1.VirtualCluster{})
 
 	return err
 }
