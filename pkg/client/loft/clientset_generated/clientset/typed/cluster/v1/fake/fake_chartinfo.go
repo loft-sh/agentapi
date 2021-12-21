@@ -94,7 +94,7 @@ func (c *FakeChartInfos) UpdateStatus(ctx context.Context, chartInfo *clusterv1.
 // Delete takes name of the chartInfo and deletes it. Returns an error if one occurs.
 func (c *FakeChartInfos) Delete(ctx context.Context, name string, opts v1.DeleteOptions) error {
 	_, err := c.Fake.
-		Invokes(testing.NewRootDeleteAction(chartinfosResource, name), &clusterv1.ChartInfo{})
+		Invokes(testing.NewRootDeleteActionWithOptions(chartinfosResource, name, opts), &clusterv1.ChartInfo{})
 	return err
 }
 

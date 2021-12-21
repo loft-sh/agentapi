@@ -101,7 +101,7 @@ func (c *FakeSleepModeConfigs) UpdateStatus(ctx context.Context, sleepModeConfig
 // Delete takes name of the sleepModeConfig and deletes it. Returns an error if one occurs.
 func (c *FakeSleepModeConfigs) Delete(ctx context.Context, name string, opts v1.DeleteOptions) error {
 	_, err := c.Fake.
-		Invokes(testing.NewDeleteAction(sleepmodeconfigsResource, c.ns, name), &clusterv1.SleepModeConfig{})
+		Invokes(testing.NewDeleteActionWithOptions(sleepmodeconfigsResource, c.ns, name, opts), &clusterv1.SleepModeConfig{})
 
 	return err
 }

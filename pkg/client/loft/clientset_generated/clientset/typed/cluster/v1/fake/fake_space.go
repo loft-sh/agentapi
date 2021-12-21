@@ -94,7 +94,7 @@ func (c *FakeSpaces) UpdateStatus(ctx context.Context, space *clusterv1.Space, o
 // Delete takes name of the space and deletes it. Returns an error if one occurs.
 func (c *FakeSpaces) Delete(ctx context.Context, name string, opts v1.DeleteOptions) error {
 	_, err := c.Fake.
-		Invokes(testing.NewRootDeleteAction(spacesResource, name), &clusterv1.Space{})
+		Invokes(testing.NewRootDeleteActionWithOptions(spacesResource, name, opts), &clusterv1.Space{})
 	return err
 }
 

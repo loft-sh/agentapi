@@ -94,7 +94,7 @@ func (c *FakeLocalClusterAccesses) UpdateStatus(ctx context.Context, localCluste
 // Delete takes name of the localClusterAccess and deletes it. Returns an error if one occurs.
 func (c *FakeLocalClusterAccesses) Delete(ctx context.Context, name string, opts v1.DeleteOptions) error {
 	_, err := c.Fake.
-		Invokes(testing.NewRootDeleteAction(localclusteraccessesResource, name), &storagev1.LocalClusterAccess{})
+		Invokes(testing.NewRootDeleteActionWithOptions(localclusteraccessesResource, name, opts), &storagev1.LocalClusterAccess{})
 	return err
 }
 

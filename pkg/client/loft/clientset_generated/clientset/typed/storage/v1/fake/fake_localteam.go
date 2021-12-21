@@ -94,7 +94,7 @@ func (c *FakeLocalTeams) UpdateStatus(ctx context.Context, localTeam *storagev1.
 // Delete takes name of the localTeam and deletes it. Returns an error if one occurs.
 func (c *FakeLocalTeams) Delete(ctx context.Context, name string, opts v1.DeleteOptions) error {
 	_, err := c.Fake.
-		Invokes(testing.NewRootDeleteAction(localteamsResource, name), &storagev1.LocalTeam{})
+		Invokes(testing.NewRootDeleteActionWithOptions(localteamsResource, name, opts), &storagev1.LocalTeam{})
 	return err
 }
 
