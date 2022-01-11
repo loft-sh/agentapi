@@ -1458,6 +1458,8 @@ func Convert_cluster_VirtualClusterSpec_To_v1_VirtualClusterSpec(in *cluster.Vir
 
 func autoConvert_v1_VirtualClusterStatus_To_cluster_VirtualClusterStatus(in *VirtualClusterStatus, out *cluster.VirtualClusterStatus, s conversion.Scope) error {
 	out.VirtualClusterStatus = in.VirtualClusterStatus
+	out.SyncerPod = (*corev1.Pod)(unsafe.Pointer(in.SyncerPod))
+	out.ClusterPod = (*corev1.Pod)(unsafe.Pointer(in.ClusterPod))
 	out.SleepModeConfig = (*cluster.SleepModeConfig)(unsafe.Pointer(in.SleepModeConfig))
 	return nil
 }
@@ -1469,6 +1471,8 @@ func Convert_v1_VirtualClusterStatus_To_cluster_VirtualClusterStatus(in *Virtual
 
 func autoConvert_cluster_VirtualClusterStatus_To_v1_VirtualClusterStatus(in *cluster.VirtualClusterStatus, out *VirtualClusterStatus, s conversion.Scope) error {
 	out.VirtualClusterStatus = in.VirtualClusterStatus
+	out.SyncerPod = (*corev1.Pod)(unsafe.Pointer(in.SyncerPod))
+	out.ClusterPod = (*corev1.Pod)(unsafe.Pointer(in.ClusterPod))
 	out.SleepModeConfig = (*SleepModeConfig)(unsafe.Pointer(in.SleepModeConfig))
 	return nil
 }

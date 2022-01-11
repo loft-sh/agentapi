@@ -2,6 +2,7 @@ package v1
 
 import (
 	storagev1 "github.com/loft-sh/agentapi/v2/pkg/apis/loft/storage/v1"
+	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -25,6 +26,14 @@ type VirtualClusterSpec struct {
 
 type VirtualClusterStatus struct {
 	storagev1.VirtualClusterStatus `json:",inline"`
+
+	// SyncerPod is the syncer pod
+	// +optional
+	SyncerPod *corev1.Pod `json:"syncerPod,omitempty"`
+
+	// ClusterPod is the cluster pod
+	// +optional
+	ClusterPod *corev1.Pod `json:"clusterPod,omitempty"`
 
 	// SleepModeConfig is the sleep mode config of the space
 	// +optional
