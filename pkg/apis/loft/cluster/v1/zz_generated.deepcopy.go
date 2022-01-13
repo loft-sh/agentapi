@@ -1022,6 +1022,16 @@ func (in *VirtualClusterSpec) DeepCopy() *VirtualClusterSpec {
 func (in *VirtualClusterStatus) DeepCopyInto(out *VirtualClusterStatus) {
 	*out = *in
 	in.VirtualClusterStatus.DeepCopyInto(&out.VirtualClusterStatus)
+	if in.SyncerPod != nil {
+		in, out := &in.SyncerPod, &out.SyncerPod
+		*out = new(corev1.Pod)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.ClusterPod != nil {
+		in, out := &in.ClusterPod, &out.ClusterPod
+		*out = new(corev1.Pod)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.SleepModeConfig != nil {
 		in, out := &in.SleepModeConfig, &out.SleepModeConfig
 		*out = new(SleepModeConfig)

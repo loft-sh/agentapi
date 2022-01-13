@@ -481,6 +481,8 @@ type VirtualClusterSpec struct {
 
 type VirtualClusterStatus struct {
 	storagev1.VirtualClusterStatus
+	SyncerPod       *corev1.Pod
+	ClusterPod      *corev1.Pod
 	SleepModeConfig *SleepModeConfig
 }
 
