@@ -29,6 +29,10 @@ func (in *VirtualCluster) SetConditions(conditions Conditions) {
 }
 
 type VirtualClusterSpec struct {
+	// Access defines the access of users and teams to the virtual cluster.
+	// +optional
+	Access VirtualClusterAccess `json:"access,omitempty"`
+
 	// The helm release configuration for the virtual cluster. This is optional, but
 	// when filled, loft will deploy the specified chart for the given
 	// +optional
@@ -43,6 +47,38 @@ type VirtualClusterSpec struct {
 	// the cli & ui to access the virtual clusters
 	// +optional
 	KubeConfigRef *SecretRef `json:"kubeConfigRef,omitempty"`
+}
+
+type VirtualClusterAccess struct {
+	// If enabled, service account tokens will not be allowed to access this virtual cluster
+	// through the Loft gateway.
+	// +optional
+	DisableServiceAccountsAuth bool `json:"disableServiceAccountsAuth,omitempty"`
+
+	// Specifies which cluster role should get applied to users or teams that do not
+	// match a rule below.
+	// +optional
+	DefaultClusterRole string `json:"defaultClusterRole,omitempty"`
+
+	// Rules defines which users and teams should have which access to the virtual
+	// cluster. If no rule matches an authenticated incoming user, the user will get cluster admin
+	// access.
+	// +optional
+	Rules []VirtualClusterAccessRule `json:"rules,omitempty"`
+}
+
+type VirtualClusterAccessRule struct {
+	// Users this rule matches. * means all users.
+	// +optional
+	Users []string `json:"users,omitempty"`
+
+	// Teams that this rule matches.
+	// +optional
+	Teams []string `json:"teams,omitempty"`
+
+	// ClusterRole is the cluster role that should be assigned to the
+	// +optional
+	ClusterRole string `json:"clusterRole,omitempty"`
 }
 
 // SecretRef is the reference to a secret containing the user password
