@@ -161,6 +161,10 @@ type LastActivityInfo struct {
 	// +optional
 	Subject string `json:"subject,omitempty"`
 
+	// Host is the host where this activity was recorded
+	// +optional
+	Host string `json:"host,omitempty"`
+
 	// Verb is the verb that was used for the request
 	// +optional
 	Verb string `json:"verb,omitempty"`

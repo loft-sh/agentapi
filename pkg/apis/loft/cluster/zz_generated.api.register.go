@@ -330,6 +330,7 @@ type Info struct {
 
 type LastActivityInfo struct {
 	Subject        string
+	Host           string
 	Verb           string
 	APIGroup       string
 	Resource       string

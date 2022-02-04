@@ -880,6 +880,7 @@ func Convert_cluster_Info_To_v1_Info(in *cluster.Info, out *Info, s conversion.S
 
 func autoConvert_v1_LastActivityInfo_To_cluster_LastActivityInfo(in *LastActivityInfo, out *cluster.LastActivityInfo, s conversion.Scope) error {
 	out.Subject = in.Subject
+	out.Host = in.Host
 	out.Verb = in.Verb
 	out.APIGroup = in.APIGroup
 	out.Resource = in.Resource
@@ -896,6 +897,7 @@ func Convert_v1_LastActivityInfo_To_cluster_LastActivityInfo(in *LastActivityInf
 
 func autoConvert_cluster_LastActivityInfo_To_v1_LastActivityInfo(in *cluster.LastActivityInfo, out *LastActivityInfo, s conversion.Scope) error {
 	out.Subject = in.Subject
+	out.Host = in.Host
 	out.Verb = in.Verb
 	out.APIGroup = in.APIGroup
 	out.Resource = in.Resource

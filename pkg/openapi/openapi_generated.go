@@ -2766,6 +2766,13 @@ func schema_apis_loft_cluster_v1_LastActivityInfo(ref common.ReferenceCallback) 
 							Format:      "",
 						},
 					},
+					"host": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Host is the host where this activity was recorded",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
 					"verb": {
 						SchemaProps: spec.SchemaProps{
 							Description: "Verb is the verb that was used for the request",
@@ -5446,7 +5453,7 @@ func schema_apis_loft_storage_v1_VirtualClusterAccess(ref common.ReferenceCallba
 					},
 					"rules": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Rules defines which users and teams should have which access to the virtual cluster. If no rule matches an incoming user, the user will get cluster admin access.",
+							Description: "Rules defines which users and teams should have which access to the virtual cluster. If no rule matches an authenticated incoming user, the user will get cluster admin access.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
