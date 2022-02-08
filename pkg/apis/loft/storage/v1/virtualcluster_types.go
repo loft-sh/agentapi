@@ -31,7 +31,7 @@ func (in *VirtualCluster) SetConditions(conditions Conditions) {
 type VirtualClusterSpec struct {
 	// Access defines the access of users and teams to the virtual cluster.
 	// +optional
-	Access VirtualClusterAccess `json:"access,omitempty"`
+	Access *VirtualClusterAccess `json:"access,omitempty"`
 
 	// The helm release configuration for the virtual cluster. This is optional, but
 	// when filled, loft will deploy the specified chart for the given
