@@ -30,7 +30,7 @@ type LocalSpaceConstraintSpec struct {
 
 	// SpaceTemplate holds the space configuration
 	// +optional
-	SpaceTemplate SpaceTemplate `json:"spaceTemplate,omitempty"`
+	SpaceTemplate ConstraintSpaceTemplate `json:"spaceTemplate,omitempty"`
 
 	// Sync specifies if spaces that were created through this space constraint
 	// object should get synced with this object.
@@ -38,9 +38,10 @@ type LocalSpaceConstraintSpec struct {
 	Sync bool `json:"sync,omitempty"`
 }
 
-// SpaceTemplate defines properties how many spaces can be owned by the account and how they should be created
-type SpaceTemplate struct {
-	// The enforced metadata of the space to create. Currently only annotations and labels are supported
+// ConstraintSpaceTemplate defines properties how many spaces can be owned by the account and how they should be created
+type ConstraintSpaceTemplate struct {
+	// The enforced metadata of the space to create. Currently, only annotations and labels are supported
+	// +kubebuilder:pruning:PreserveUnknownFields
 	// +optional
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
