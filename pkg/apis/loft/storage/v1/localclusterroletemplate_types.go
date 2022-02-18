@@ -36,6 +36,7 @@ type LocalClusterRoleTemplateSpec struct {
 
 type ClusterRoleTemplateTemplate struct {
 	// Standard object's metadata.
+	// +kubebuilder:pruning:PreserveUnknownFields
 	// +optional
 	metav1.ObjectMeta `json:"metadata,omitempty" protobuf:"bytes,1,opt,name=metadata"`
 

@@ -59,6 +59,7 @@ type AccountSpace struct {
 // AccountSpaceTemplate defines a space template
 type AccountSpaceTemplate struct {
 	// The default metadata of the space to create
+	// +kubebuilder:pruning:PreserveUnknownFields
 	// +optional
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 }
@@ -66,6 +67,7 @@ type AccountSpaceTemplate struct {
 // AccountTemplateInstanceTemplate defines a template instance template
 type AccountTemplateInstanceTemplate struct {
 	// The metadata of the template instance to create
+	// +kubebuilder:pruning:PreserveUnknownFields
 	// +optional
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
