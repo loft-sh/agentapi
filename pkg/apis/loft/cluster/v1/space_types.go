@@ -62,6 +62,18 @@ type SpaceStatus struct {
 	SpaceConstraintStatus *SpaceConstraintNamespaceStatus `json:"spaceConstraintStatus,omitempty"`
 }
 
+type TemplateSyncStatus struct {
+	// Template is the json string of the template that was applied
+	Template string `json:"template,omitempty"`
+
+	// Phase indicates the current phase the template is in
+	Phase string `json:"phase,omitempty"`
+}
+
+const (
+	OutOfSyncPhase = "OutOfSync"
+)
+
 type SpaceConstraintNamespaceStatus struct {
 	// SpaceConstraint are the applied space constraints
 	SpaceConstraint string `json:"spaceConstraint,omitempty"`
