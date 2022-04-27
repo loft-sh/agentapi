@@ -30,6 +30,10 @@ type SpaceSpec struct {
 	// +optional
 	Team string `json:"team,omitempty"`
 
+	// Objects are Kubernetes style yamls that should get deployed into the space
+	// +optional
+	Objects string `json:"objects,omitempty"`
+
 	// Finalizers is an opaque list of values that must be empty to permanently remove object from storage.
 	// More info: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
 	// +optional
@@ -60,6 +64,10 @@ type SpaceStatus struct {
 	// SpaceConstraintStatus describes the space constraint status.
 	// +optional
 	SpaceConstraintStatus *SpaceConstraintNamespaceStatus `json:"spaceConstraintStatus,omitempty"`
+
+	// SpaceObjectsStats describes the status of applying space objects.
+	// +optional
+	SpaceObjectsStatus *SpaceObjectsNamespaceStatus `json:"spaceObjectsStatus,omitempty"`
 }
 
 type TemplateSyncStatus struct {
@@ -102,7 +110,21 @@ type SpaceConstraintNamespaceStatus struct {
 	// AppliedMetadata is the metadata that was applied on the space
 	AppliedMetadata AppliedMetadata `json:"appliedMetadata,omitempty"`
 
-	// AppliedObjects are the objects that were applied on this namespace
+	// AppliedObjects are the objects that were applied on this namespace by the space constraint
+	AppliedObjects []AppliedObject `json:"appliedObjects,omitempty"`
+}
+
+type SpaceObjectsNamespaceStatus struct {
+	// Phase the namespace is in
+	Phase string `json:"phase,omitempty"`
+
+	// Reason why this namespace is in the current phase
+	Reason string `json:"reason,omitempty"`
+
+	// Message is the human-readable message why this space is in this phase
+	Message string `json:"message,omitempty"`
+
+	// AppliedObjects are the objects that were applied on this namespace by the space spec objects
 	AppliedObjects []AppliedObject `json:"appliedObjects,omitempty"`
 }
 
