@@ -47,6 +47,10 @@ type VirtualClusterSpec struct {
 	// the cli & ui to access the virtual clusters
 	// +optional
 	KubeConfigRef *SecretRef `json:"kubeConfigRef,omitempty"`
+
+	// Objects are Kubernetes style yamls that should get deployed into the virtual cluster
+	// +optional
+	Objects string `json:"objects,omitempty"`
 }
 
 type VirtualClusterAccess struct {
