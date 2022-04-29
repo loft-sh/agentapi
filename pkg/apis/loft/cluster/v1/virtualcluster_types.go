@@ -38,4 +38,8 @@ type VirtualClusterStatus struct {
 	// SleepModeConfig is the sleep mode config of the space
 	// +optional
 	SleepModeConfig *SleepModeConfig `json:"sleepModeConfig,omitempty"`
+
+	// TemplateSyncStatus describes the template sync status
+	// +optional
+	TemplateSyncStatus *TemplateSyncStatus `json:"templateSyncStatus,omitempty"`
 }

@@ -65,9 +65,13 @@ type SpaceStatus struct {
 	// +optional
 	SpaceConstraintStatus *SpaceConstraintNamespaceStatus `json:"spaceConstraintStatus,omitempty"`
 
-	// SpaceObjectsStats describes the status of applying space objects.
+	// SpaceObjectsStatus describes the status of applying space objects.
 	// +optional
 	SpaceObjectsStatus *SpaceObjectsNamespaceStatus `json:"spaceObjectsStatus,omitempty"`
+
+	// TemplateSyncStatus describes the template sync status
+	// +optional
+	TemplateSyncStatus *TemplateSyncStatus `json:"templateSyncStatus,omitempty"`
 }
 
 type TemplateSyncStatus struct {

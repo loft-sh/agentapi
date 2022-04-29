@@ -446,9 +446,17 @@ type SpaceConstraintNamespaceStatus struct {
 	AppliedObjects     []AppliedObject
 }
 
+type SpaceObjectsNamespaceStatus struct {
+	Phase          string
+	Reason         string
+	Message        string
+	AppliedObjects []AppliedObject
+}
+
 type SpaceSpec struct {
 	User       string
 	Team       string
+	Objects    string
 	Finalizers []corev1.FinalizerName
 }
 
@@ -458,6 +466,13 @@ type SpaceStatus struct {
 	Owner                 *UserOrTeam
 	SpaceConstraint       *EntityInfo
 	SpaceConstraintStatus *SpaceConstraintNamespaceStatus
+	SpaceObjectsStatus    *SpaceObjectsNamespaceStatus
+	TemplateSyncStatus    *TemplateSyncStatus
+}
+
+type TemplateSyncStatus struct {
+	Template string
+	Phase    string
 }
 
 type UserOrTeam struct {
@@ -482,9 +497,10 @@ type VirtualClusterSpec struct {
 
 type VirtualClusterStatus struct {
 	storagev1.VirtualClusterStatus
-	SyncerPod       *corev1.Pod
-	ClusterPod      *corev1.Pod
-	SleepModeConfig *SleepModeConfig
+	SyncerPod          *corev1.Pod
+	ClusterPod         *corev1.Pod
+	SleepModeConfig    *SleepModeConfig
+	TemplateSyncStatus *TemplateSyncStatus
 }
 
 //
