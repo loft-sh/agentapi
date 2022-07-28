@@ -25,6 +25,7 @@ const (
 	SleepModeScheduledWakeupAnnotation   = "sleepmode.loft.sh/scheduled-wakeup"
 	SleepModeSleepTypeAnnotation         = "sleepmode.loft.sh/sleep-type"
 	SleepModeDisableIngressWakeup        = "sleepmode.loft.sh/disable-ingress-wakeup"
+	SleepModeResourceLock                = "sleepmode.loft.sh/resource-lock"
 
 	// Not yet in spec annotations
 	SleepModeIgnoreAll                     = "sleepmode.loft.sh/ignore-all"
