@@ -6,8 +6,7 @@ import (
 )
 
 const (
-	SpaceNonDeletableAnnotation = "loft.sh/non-deletable"
-	SpacePodSecurityAnnotation  = "policy.loft.sh/pod-security"
+	SpacePodSecurityLabel = "policy.loft.sh/pod-security"
 )
 
 // +genclient

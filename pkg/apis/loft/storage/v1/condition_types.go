@@ -10,9 +10,6 @@ const (
 	// ReadyCondition defines the Ready condition type that summarizes the operational state of the virtual cluster API object.
 	ReadyCondition ConditionType = "Ready"
 
-	// ControlPlaneInitializedCondition defines the initialized condition type if the virtual cluster is reachable.
-	ControlPlaneInitializedCondition ConditionType = "ControlPlaneInitialized"
-
 	// ControlPlaneReadyCondition defines the ready condition type if the virtual cluster is reachable.
 	ControlPlaneReadyCondition ConditionType = "ControlPlaneReady"
 

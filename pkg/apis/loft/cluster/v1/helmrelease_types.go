@@ -1,6 +1,7 @@
 package v1
 
 import (
+	storagev1 "github.com/loft-sh/agentapi/v2/pkg/apis/loft/storage/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -18,13 +19,44 @@ type HelmRelease struct {
 }
 
 type HelmReleaseSpec struct {
+	HelmReleaseConfig `json:",inline"`
+}
+
+type HelmReleaseStatus struct {
+	// Revision is an int which represents the revision of the release.
+	Revision int `json:"version,omitempty"`
+
+	// Info provides information about a release
+	// +optional
+	Info *Info `json:"info,omitempty"`
+
+	// Metadata provides information about a chart
+	// +optional
+	Metadata *Metadata `json:"metadata,omitempty"`
+}
+
+type HelmReleaseApp struct {
+	// Name is the name of the app this release refers to
+	// +optional
+	Name string `json:"name,omitempty"`
+
+	// Revision is the revision of the app this release refers to
+	// +optional
+	Revision string `json:"version,omitempty"`
+}
+
+type HelmReleaseConfig struct {
 	// Chart holds information about a chart that should get deployed
 	// +optional
-	Chart Chart `json:"chart,omitempty"`
+	Chart storagev1.Chart `json:"chart,omitempty"`
 
 	// Manifests holds kube manifests that will be deployed as a chart
 	// +optional
 	Manifests string `json:"manifests,omitempty"`
+
+	// Bash holds the bash script to execute in a container in the target
+	// +optional
+	Bash *Bash `json:"bash,omitempty"`
 
 	// Values is the set of extra Values added to the chart.
 	// These values merge with the default values inside of the chart.
@@ -42,43 +74,18 @@ type HelmReleaseSpec struct {
 	Annotations map[string]string `json:"annotations,omitempty"`
 }
 
-type HelmReleaseStatus struct {
-	// Revision is an int which represents the revision of the release.
-	Revision int `json:"version,omitempty"`
-
-	// Info provides information about a release
+type Bash struct {
+	// Script is the script to execute.
 	// +optional
-	Info *Info `json:"info,omitempty"`
+	Script string `json:"script,omitempty"`
 
-	// Metadata provides information about a chart
+	// Image is the image to use for this app
 	// +optional
-	Metadata *Metadata `json:"metadata,omitempty"`
-}
+	Image string `json:"image,omitempty"`
 
-// Chart describes a chart
-type Chart struct {
-	// Name is the chart name in the repository
-	Name string `json:"name,omitempty"`
-
-	// Version is the chart version in the repository
+	// ClusterRole is the cluster role to use for this job
 	// +optional
-	Version string `json:"version,omitempty"`
-
-	// RepoURL is the repo url where the chart can be found
-	// +optional
-	RepoURL string `json:"repoURL,omitempty"`
-
-	// The username that is required for this repository
-	// +optional
-	Username string `json:"username,omitempty"`
-
-	// The password that is required for this repository
-	// +optional
-	Password string `json:"password,omitempty"`
-
-	// If tls certificate checks for the chart download should be skipped
-	// +optional
-	InsecureSkipTlsVerify bool `json:"insecureSkipTlsVerify,omitempty"`
+	ClusterRole string `json:"clusterRole,omitempty"`
 }
 
 // Info describes release information.
