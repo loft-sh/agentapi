@@ -231,13 +231,10 @@ type AppliedObject struct {
 	Name       string
 }
 
-type Chart struct {
-	Name                  string
-	Version               string
-	RepoURL               string
-	Username              string
-	Password              string
-	InsecureSkipTlsVerify bool
+type Bash struct {
+	Script      string
+	Image       string
+	ClusterRole string
 }
 
 // +genclient
@@ -252,7 +249,7 @@ type ChartInfo struct {
 }
 
 type ChartInfoSpec struct {
-	Chart Chart
+	Chart storagev1.Chart
 }
 
 type ChartInfoStatus struct {
@@ -284,6 +281,7 @@ type ClusterQuotaStatus struct {
 type EntityInfo struct {
 	Name        string
 	DisplayName string
+	Icon        string
 	Username    string
 	Email       string
 	Subject     string
@@ -305,12 +303,17 @@ type HelmRelease struct {
 	Status HelmReleaseStatus
 }
 
-type HelmReleaseSpec struct {
-	Chart       Chart
+type HelmReleaseConfig struct {
+	Chart       storagev1.Chart
 	Manifests   string
+	Bash        *Bash
 	Values      string
 	Parameters  string
 	Annotations map[string]string
+}
+
+type HelmReleaseSpec struct {
+	HelmReleaseConfig
 }
 
 type HelmReleaseStatus struct {
@@ -399,14 +402,22 @@ type SleepModeConfig struct {
 }
 
 type SleepModeConfigSpec struct {
-	ForceSleep         bool
-	ForceSleepDuration *int64
-	DeleteAllPods      bool
-	DeleteAfter        int64
-	SleepAfter         int64
-	SleepSchedule      string
-	WakeupSchedule     string
-	Timezone           string
+	ForceSleep              bool
+	ForceSleepDuration      *int64
+	DeleteAllPods           bool
+	DeleteAfter             int64
+	SleepAfter              int64
+	SleepSchedule           string
+	WakeupSchedule          string
+	Timezone                string
+	IgnoreActiveConnections bool
+	IgnoreAll               bool
+	IgnoreVClusters         bool
+	IgnoreGroups            string
+	IgnoreVerbs             string
+	IgnoreResources         string
+	IgnoreResourceVerbs     string
+	IgnoreResourceNames     string
 }
 
 type SleepModeConfigStatus struct {

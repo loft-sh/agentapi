@@ -55,6 +55,10 @@ type EntityInfo struct {
 	// +optional
 	DisplayName string `json:"displayName,omitempty"`
 
+	// Icon is the icon of the user / team
+	// +optional
+	Icon string `json:"icon,omitempty"`
+
 	// The username that is used to login
 	// +optional
 	Username string `json:"username,omitempty"`

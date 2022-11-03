@@ -43,6 +43,30 @@ const (
 	SleepTypeScheduled      = "scheduledSleep"
 )
 
+// SleepModeConfigAnnotationKeys returns relevant annotation keys that are evaluated in
+// apimachinery/v2/pkg/sleepmode/extractSleepModeConfigs function. This is primarily used for
+// knowing which annotations to copy from spaces to vcluster instances when importing vclusters
+// to a project.
+func SleepModeConfigAnnotationKeys() []string {
+	return []string{
+		SleepModeForceDurationAnnotation,
+		SleepModeForceAnnotation,
+		SleepModeScheduledSleepAnnotation,
+		SleepModeScheduledWakeupAnnotation,
+	}
+}
+
+func SleepModeStatusAnnotationKeys() []string {
+	return []string{
+		SleepModeForceDurationAnnotation,
+		SleepModeForceAnnotation,
+		SleepModeScheduledSleepAnnotation,
+		SleepModeScheduledWakeupAnnotation,
+		SleepModeSleepingSinceAnnotation,
+		SleepModeSleepTypeAnnotation,
+	}
+}
+
 // +genclient
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
@@ -98,6 +122,38 @@ type SleepModeConfigSpec struct {
 	// The value should be a location name corresponding to a file in the IANA Time Zone database, such as "America/New_York".
 	// +optional
 	Timezone string `json:"timezone,omitempty"`
+
+	// IgnoreActiveConnections ignores active connections on the namespace
+	// +optional
+	IgnoreActiveConnections bool `json:"ignoreActiveConnections,omitempty"`
+
+	// IgnoreAll ignores all requests
+	// +optional
+	IgnoreAll bool `json:"ignoreAll,omitempty"`
+
+	// IgnoreVClusters ignores vcluster requests
+	// +optional
+	IgnoreVClusters bool `json:"ignoreVClusters,omitempty"`
+
+	// IgnoreGroups are ignored user groups
+	// +optional
+	IgnoreGroups string `json:"ignoreGroups,omitempty"`
+
+	// IgnoreVerbs are ignored request verbs
+	// +optional
+	IgnoreVerbs string `json:"ignoreVerbs,omitempty"`
+
+	// IgnoreResources are ignored request resources
+	// +optional
+	IgnoreResources string `json:"ignoreResources,omitempty"`
+
+	// IgnoreResourceVerbs are ignored resource verbs
+	// +optional
+	IgnoreResourceVerbs string `json:"ignoreResourceVerbs,omitempty"`
+
+	// IgnoreResourceNames are ignored resources and names
+	// +optional
+	IgnoreResourceNames string `json:"ignoreResourceNames,omitempty"`
 }
 
 type SleepModeConfigStatus struct {

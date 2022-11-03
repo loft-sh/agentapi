@@ -29,14 +29,9 @@ func (in *VirtualCluster) SetConditions(conditions Conditions) {
 }
 
 type VirtualClusterSpec struct {
-	// Access defines the access of users and teams to the virtual cluster.
-	// +optional
-	Access *VirtualClusterAccess `json:"access,omitempty"`
-
-	// The helm release configuration for the virtual cluster. This is optional, but
-	// when filled, loft will deploy the specified chart for the given
-	// +optional
-	HelmRelease *VirtualClusterHelmRelease `json:"helmRelease,omitempty"`
+	// VirtualClusterCommonSpec defines virtual cluster spec that is common between the virtual
+	// cluster templates, and virtual cluster
+	VirtualClusterCommonSpec `json:",inline"`
 
 	// A label selector to select the virtual cluster pod to route
 	// incoming requests to.
@@ -47,18 +42,59 @@ type VirtualClusterSpec struct {
 	// the cli & ui to access the virtual clusters
 	// +optional
 	KubeConfigRef *SecretRef `json:"kubeConfigRef,omitempty"`
-
-	// Objects are Kubernetes style yamls that should get deployed into the virtual cluster
-	// +optional
-	Objects string `json:"objects,omitempty"`
 }
 
-type VirtualClusterAccess struct {
-	// If enabled, service account tokens will not be allowed to access this virtual cluster
-	// through the Loft gateway.
-	// +optional
-	DisableServiceAccountsAuth bool `json:"disableServiceAccountsAuth,omitempty"`
+// Chart describes a chart
+type Chart struct {
+	// Name is the chart name in the repository
+	Name string `json:"name,omitempty"`
 
+	// Version is the chart version in the repository
+	// +optional
+	Version string `json:"version,omitempty"`
+
+	// RepoURL is the repo url where the chart can be found
+	// +optional
+	RepoURL string `json:"repoURL,omitempty"`
+
+	// The username that is required for this repository
+	// +optional
+	Username string `json:"username,omitempty"`
+
+	// The password that is required for this repository
+	// +optional
+	Password string `json:"password,omitempty"`
+
+	// If tls certificate checks for the chart download should be skipped
+	// +optional
+	InsecureSkipTlsVerify bool `json:"insecureSkipTlsVerify,omitempty"`
+}
+
+type TemplateHelmChart struct {
+	Chart `json:",inline"`
+
+	// ReleaseName is the preferred release name of the app
+	// +optional
+	ReleaseName string `json:"releaseName,omitempty"`
+
+	// ReleaseNamespace is the preferred release namespace of the app
+	// +optional
+	ReleaseNamespace string `json:"releaseNamespace,omitempty"`
+
+	// Values are the values that should get passed to the chart
+	// +optional
+	Values string `json:"values,omitempty"`
+
+	// Wait determines if Loft should wait during deploy for the app to become ready
+	// +optional
+	Wait bool `json:"wait,omitempty"`
+
+	// Timeout is the time to wait for any individual Kubernetes operation (like Jobs for hooks) (default 5m0s)
+	// +optional
+	Timeout string `json:"timeout,omitempty"`
+}
+
+type InstanceAccess struct {
 	// Specifies which cluster role should get applied to users or teams that do not
 	// match a rule below.
 	// +optional
@@ -68,10 +104,10 @@ type VirtualClusterAccess struct {
 	// cluster. If no rule matches an authenticated incoming user, the user will get cluster admin
 	// access.
 	// +optional
-	Rules []VirtualClusterAccessRule `json:"rules,omitempty"`
+	Rules []InstanceAccessRule `json:"rules,omitempty"`
 }
 
-type VirtualClusterAccessRule struct {
+type InstanceAccessRule struct {
 	// Users this rule matches. * means all users.
 	// +optional
 	Users []string `json:"users,omitempty"`
@@ -93,6 +129,29 @@ type SecretRef struct {
 	SecretNamespace string `json:"secretNamespace,omitempty"`
 	// +optional
 	Key string `json:"key,omitempty"`
+}
+
+type AppReference struct {
+	// Name of the target app
+	// +optional
+	Name string `json:"name,omitempty"`
+
+	// Namespace specifies in which target namespace the app should
+	// get deployed in
+	// +optional
+	Namespace string `json:"namespace,omitempty"`
+
+	// ReleaseName is the name of the app release
+	// +optional
+	ReleaseName string `json:"releaseName,omitempty"`
+
+	// Version of the app
+	// +optional
+	Version string `json:"version,omitempty"`
+
+	// Parameters to use for the app
+	// +optional
+	Parameters string `json:"parameters,omitempty"`
 }
 
 type VirtualClusterHelmRelease struct {
@@ -141,7 +200,7 @@ type VirtualClusterStatus struct {
 	// +optional
 	Reason string `json:"reason,omitempty"`
 
-	// Message describes the reason in human readable form why the cluster is in the currrent
+	// Message describes the reason in human readable form why the cluster is in the current
 	// phase
 	// +optional
 	Message string `json:"message,omitempty"`
@@ -158,10 +217,46 @@ type VirtualClusterStatus struct {
 	// +optional
 	ObservedGeneration int64 `json:"observedGeneration,omitempty"`
 
+	// VirtualClusterObjects are the objects that were applied within the virtual cluster itself
+	// +optional
+	VirtualClusterObjects *ObjectsStatus `json:"virtualClusterObjects,omitempty"`
+
+	// DeployHash saves the latest applied chart hash
+	// +optional
+	DeployHash string `json:"deployHash,omitempty"`
+
 	// DEPRECATED: do not use anymore
 	// the status of the helm release that was used to deploy the virtual cluster
 	// +optional
 	HelmRelease *VirtualClusterHelmReleaseStatus `json:"helmRelease,omitempty"`
+}
+
+type ObjectsStatus struct {
+	// LastAppliedObjects holds the status for the objects that were applied
+	// +optional
+	LastAppliedObjects string `json:"lastAppliedObjects,omitempty"`
+
+	// Charts are the charts that were applied
+	// +optional
+	Charts []ChartStatus `json:"charts,omitempty"`
+
+	// Apps are the apps that were applied
+	// +optional
+	Apps []AppReference `json:"apps,omitempty"`
+}
+
+type ChartStatus struct {
+	// Name of the chart that was applied
+	// +optional
+	Name string `json:"name,omitempty"`
+
+	// Namespace of the chart that was applied
+	// +optional
+	Namespace string `json:"namespace,omitempty"`
+
+	// LastAppliedChartConfigHash is the last applied configuration
+	// +optional
+	LastAppliedChartConfigHash string `json:"lastAppliedChartConfigHash,omitempty"`
 }
 
 type VirtualClusterHelmReleaseStatus struct {
