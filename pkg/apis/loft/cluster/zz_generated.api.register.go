@@ -220,11 +220,6 @@ type FinalizerName string
 type NamespacePhase string
 type Status string
 
-type AppliedMetadata struct {
-	Annotations map[string]string
-	Labels      map[string]string
-}
-
 type AppliedObject struct {
 	APIVersion string
 	Kind       string
@@ -359,9 +354,8 @@ type LocalClusterAccessSpec struct {
 
 type LocalClusterAccessStatus struct {
 	storagev1.LocalClusterAccessStatus
-	Users           []*UserOrTeam
-	Teams           []*EntityInfo
-	SpaceConstraint *EntityInfo
+	Users []*UserOrTeam
+	Teams []*EntityInfo
 }
 
 type Maintainer struct {
@@ -444,19 +438,6 @@ type Space struct {
 	Status SpaceStatus
 }
 
-type SpaceConstraintNamespaceStatus struct {
-	SpaceConstraint    string
-	User               string
-	Team               string
-	ObservedGeneration int64
-	Phase              string
-	Reason             string
-	Message            string
-	AppliedClusterRole *string
-	AppliedMetadata    AppliedMetadata
-	AppliedObjects     []AppliedObject
-}
-
 type SpaceObjectsNamespaceStatus struct {
 	Phase          string
 	Reason         string
@@ -472,13 +453,11 @@ type SpaceSpec struct {
 }
 
 type SpaceStatus struct {
-	Phase                 corev1.NamespacePhase
-	SleepModeConfig       *SleepModeConfig
-	Owner                 *UserOrTeam
-	SpaceConstraint       *EntityInfo
-	SpaceConstraintStatus *SpaceConstraintNamespaceStatus
-	SpaceObjectsStatus    *SpaceObjectsNamespaceStatus
-	TemplateSyncStatus    *TemplateSyncStatus
+	Phase              corev1.NamespacePhase
+	SleepModeConfig    *SleepModeConfig
+	Owner              *UserOrTeam
+	SpaceObjectsStatus *SpaceObjectsNamespaceStatus
+	TemplateSyncStatus *TemplateSyncStatus
 }
 
 type TemplateSyncStatus struct {
@@ -514,7 +493,6 @@ type VirtualClusterStatus struct {
 	TemplateSyncStatus *TemplateSyncStatus
 }
 
-//
 // ChartInfo Functions and Structs
 //
 // +k8s:deepcopy-gen=false
@@ -634,7 +612,6 @@ func (s *storageChartInfo) DeleteChartInfo(ctx context.Context, id string) (bool
 	return sync, err
 }
 
-//
 // ClusterQuota Functions and Structs
 //
 // +k8s:deepcopy-gen=false
@@ -754,7 +731,6 @@ func (s *storageClusterQuota) DeleteClusterQuota(ctx context.Context, id string)
 	return sync, err
 }
 
-//
 // HelmRelease Functions and Structs
 //
 // +k8s:deepcopy-gen=false
@@ -874,7 +850,6 @@ func (s *storageHelmRelease) DeleteHelmRelease(ctx context.Context, id string) (
 	return sync, err
 }
 
-//
 // LocalClusterAccess Functions and Structs
 //
 // +k8s:deepcopy-gen=false
@@ -994,7 +969,6 @@ func (s *storageLocalClusterAccess) DeleteLocalClusterAccess(ctx context.Context
 	return sync, err
 }
 
-//
 // SleepModeConfig Functions and Structs
 //
 // +k8s:deepcopy-gen=false
@@ -1114,7 +1088,6 @@ func (s *storageSleepModeConfig) DeleteSleepModeConfig(ctx context.Context, id s
 	return sync, err
 }
 
-//
 // Space Functions and Structs
 //
 // +k8s:deepcopy-gen=false
@@ -1234,7 +1207,6 @@ func (s *storageSpace) DeleteSpace(ctx context.Context, id string) (bool, error)
 	return sync, err
 }
 
-//
 // VirtualCluster Functions and Structs
 //
 // +k8s:deepcopy-gen=false

@@ -20,14 +20,6 @@ func (c *FakeStorageV1) LocalClusterAccesses() v1.LocalClusterAccessInterface {
 	return &FakeLocalClusterAccesses{c}
 }
 
-func (c *FakeStorageV1) LocalClusterRoleTemplates() v1.LocalClusterRoleTemplateInterface {
-	return &FakeLocalClusterRoleTemplates{c}
-}
-
-func (c *FakeStorageV1) LocalSpaceConstraints() v1.LocalSpaceConstraintInterface {
-	return &FakeLocalSpaceConstraints{c}
-}
-
 func (c *FakeStorageV1) LocalTeams() v1.LocalTeamInterface {
 	return &FakeLocalTeams{c}
 }

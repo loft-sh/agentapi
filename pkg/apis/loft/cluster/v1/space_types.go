@@ -61,14 +61,6 @@ type SpaceStatus struct {
 	// +optional
 	Owner *UserOrTeam `json:"owner,omitempty"`
 
-	// SpaceConstraint describes the space constraint of the space.
-	// +optional
-	SpaceConstraint *EntityInfo `json:"spaceConstraint,omitempty"`
-
-	// SpaceConstraintStatus describes the space constraint status.
-	// +optional
-	SpaceConstraintStatus *SpaceConstraintNamespaceStatus `json:"spaceConstraintStatus,omitempty"`
-
 	// SpaceObjectsStatus describes the status of applying space objects.
 	// +optional
 	SpaceObjectsStatus *SpaceObjectsNamespaceStatus `json:"spaceObjectsStatus,omitempty"`

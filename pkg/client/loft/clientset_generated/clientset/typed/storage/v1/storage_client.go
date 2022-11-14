@@ -14,8 +14,6 @@ type StorageV1Interface interface {
 	RESTClient() rest.Interface
 	ClusterQuotasGetter
 	LocalClusterAccessesGetter
-	LocalClusterRoleTemplatesGetter
-	LocalSpaceConstraintsGetter
 	LocalTeamsGetter
 	LocalUsersGetter
 	VirtualClustersGetter
@@ -32,14 +30,6 @@ func (c *StorageV1Client) ClusterQuotas() ClusterQuotaInterface {
 
 func (c *StorageV1Client) LocalClusterAccesses() LocalClusterAccessInterface {
 	return newLocalClusterAccesses(c)
-}
-
-func (c *StorageV1Client) LocalClusterRoleTemplates() LocalClusterRoleTemplateInterface {
-	return newLocalClusterRoleTemplates(c)
-}
-
-func (c *StorageV1Client) LocalSpaceConstraints() LocalSpaceConstraintInterface {
-	return newLocalSpaceConstraints(c)
 }
 
 func (c *StorageV1Client) LocalTeams() LocalTeamInterface {
