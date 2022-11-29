@@ -591,11 +591,6 @@ func (in *LocalClusterAccessStatus) DeepCopyInto(out *LocalClusterAccessStatus) 
 			}
 		}
 	}
-	if in.SpaceConstraint != nil {
-		in, out := &in.SpaceConstraint, &out.SpaceConstraint
-		*out = new(EntityInfo)
-		**out = **in
-	}
 	return
 }
 
@@ -948,16 +943,6 @@ func (in *SpaceStatus) DeepCopyInto(out *SpaceStatus) {
 	if in.Owner != nil {
 		in, out := &in.Owner, &out.Owner
 		*out = new(UserOrTeam)
-		(*in).DeepCopyInto(*out)
-	}
-	if in.SpaceConstraint != nil {
-		in, out := &in.SpaceConstraint, &out.SpaceConstraint
-		*out = new(EntityInfo)
-		**out = **in
-	}
-	if in.SpaceConstraintStatus != nil {
-		in, out := &in.SpaceConstraintStatus, &out.SpaceConstraintStatus
-		*out = new(SpaceConstraintNamespaceStatus)
 		(*in).DeepCopyInto(*out)
 	}
 	if in.SpaceObjectsStatus != nil {

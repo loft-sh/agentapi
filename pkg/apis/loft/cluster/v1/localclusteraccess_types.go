@@ -32,9 +32,6 @@ type LocalClusterAccessStatus struct {
 
 	// +optional
 	Teams []*EntityInfo `json:"teams,omitempty"`
-
-	// +optional
-	SpaceConstraint *EntityInfo `json:"spaceConstraint,omitempty"`
 }
 
 type UserOrTeam struct {
