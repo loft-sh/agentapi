@@ -1,4 +1,4 @@
-module github.com/loft-sh/agentapi/v2
+module github.com/loft-sh/agentapi/v3
 
 go 1.19
 
