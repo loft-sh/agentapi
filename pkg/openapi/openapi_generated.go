@@ -1206,6 +1206,13 @@ func schema_apis_loft_cluster_v1_ClusterQuotaSpec(ref common.ReferenceCallback) 
 							Format:      "",
 						},
 					},
+					"project": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Project is the project that this cluster quota should apply to",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
 					"quota": {
 						SchemaProps: spec.SchemaProps{
 							Description: "quota is the quota definition with all the limits and selectors",
@@ -3422,6 +3429,13 @@ func schema_apis_loft_storage_v1_ClusterQuotaSpec(ref common.ReferenceCallback) 
 					"team": {
 						SchemaProps: spec.SchemaProps{
 							Description: "Team is the name of the team this quota should apply to",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"project": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Project is the project that this cluster quota should apply to",
 							Type:        []string{"string"},
 							Format:      "",
 						},
