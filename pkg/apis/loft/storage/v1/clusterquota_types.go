@@ -34,6 +34,10 @@ type ClusterQuotaSpec struct {
 	// +optional
 	Team string `json:"team,omitempty"`
 
+	// Project is the project that this cluster quota should apply to
+	// +optional
+	Project string `json:"project,omitempty"`
+
 	// quota is the quota definition with all the limits and selectors
 	// +optional
 	Quota corev1.ResourceQuotaSpec `json:"quota,omitempty"`

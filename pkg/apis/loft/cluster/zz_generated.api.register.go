@@ -6,7 +6,7 @@ import (
 	"context"
 	"fmt"
 
-	storagev1 "github.com/loft-sh/agentapi/v2/pkg/apis/loft/storage/v1"
+	storagev1 "github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1"
 	"github.com/loft-sh/apiserver/pkg/builders"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/apis/meta/internalversion"

@@ -5,8 +5,8 @@ package v1
 import (
 	"net/http"
 
-	v1 "github.com/loft-sh/agentapi/v2/pkg/apis/loft/cluster/v1"
-	"github.com/loft-sh/agentapi/v2/pkg/client/loft/clientset_generated/clientset/scheme"
+	v1 "github.com/loft-sh/agentapi/v3/pkg/apis/loft/cluster/v1"
+	"github.com/loft-sh/agentapi/v3/pkg/client/loft/clientset_generated/clientset/scheme"
 	rest "k8s.io/client-go/rest"
 )
 

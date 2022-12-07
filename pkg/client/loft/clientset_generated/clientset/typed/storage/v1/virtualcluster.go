@@ -6,8 +6,8 @@ import (
 	"context"
 	"time"
 
-	v1 "github.com/loft-sh/agentapi/v2/pkg/apis/loft/storage/v1"
-	scheme "github.com/loft-sh/agentapi/v2/pkg/client/loft/clientset_generated/clientset/scheme"
+	v1 "github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1"
+	scheme "github.com/loft-sh/agentapi/v3/pkg/client/loft/clientset_generated/clientset/scheme"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	types "k8s.io/apimachinery/pkg/types"
 	watch "k8s.io/apimachinery/pkg/watch"
