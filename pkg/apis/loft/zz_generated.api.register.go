@@ -25,20 +25,18 @@ func GetAllApiBuilders() []*builders.APIGroupBuilder {
 	}
 }
 
-var clusterApiGroup = builders.NewApiGroupBuilder(
-	"cluster.loft.sh",
-	"github.com/loft-sh/agentapi/v3/pkg/apis/loft/cluster").
-	WithUnVersionedApi(cluster.ApiVersion).
-	WithVersionedApis(
-		clusterv1.ApiVersion,
-	).
-	WithRootScopedKinds(
-		"ChartInfo",
-		"ClusterQuota",
-		"LocalClusterAccess",
-		"Space",
-	)
-
 func GetClusterAPIBuilder() *builders.APIGroupBuilder {
-	return clusterApiGroup
+	return builders.NewApiGroupBuilder(
+		"cluster.loft.sh",
+		"github.com/loft-sh/agentapi/v3/pkg/apis/loft/cluster").
+		WithUnVersionedApi(cluster.ApiVersion).
+		WithVersionedApis(
+			clusterv1.ApiVersion,
+		).
+		WithRootScopedKinds(
+			"ChartInfo",
+			"ClusterQuota",
+			"LocalClusterAccess",
+			"Space",
+		)
 }
