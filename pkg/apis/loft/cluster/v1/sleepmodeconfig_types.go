@@ -29,6 +29,7 @@ const (
 
 	// Not yet in spec annotations
 	SleepModeIgnoreAll                     = "sleepmode.loft.sh/ignore-all"
+	SleepModeIgnoreIngresses               = "sleepmode.loft.sh/ignore-ingresses"
 	SleepModeIgnoreGroupsAnnotation        = "sleepmode.loft.sh/ignore-groups"
 	SleepModeIgnoreVClustersAnnotation     = "sleepmode.loft.sh/ignore-vclusters"
 	SleepModeIgnoreResourcesAnnotation     = "sleepmode.loft.sh/ignore-resources"
@@ -130,6 +131,10 @@ type SleepModeConfigSpec struct {
 	// IgnoreAll ignores all requests
 	// +optional
 	IgnoreAll bool `json:"ignoreAll,omitempty"`
+
+	// IgnoreIngresses ignores all ingresses
+	// +optional
+	IgnoreIngresses bool `json:"ignoreIngresses,omitempty"`
 
 	// IgnoreVClusters ignores vcluster requests
 	// +optional
