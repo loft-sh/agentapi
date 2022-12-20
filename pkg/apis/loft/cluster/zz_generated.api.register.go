@@ -406,6 +406,7 @@ type SleepModeConfigSpec struct {
 	Timezone                string
 	IgnoreActiveConnections bool
 	IgnoreAll               bool
+	IgnoreIngresses         bool
 	IgnoreVClusters         bool
 	IgnoreGroups            string
 	IgnoreVerbs             string

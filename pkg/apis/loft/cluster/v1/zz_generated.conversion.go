@@ -1153,6 +1153,7 @@ func autoConvert_v1_SleepModeConfigSpec_To_cluster_SleepModeConfigSpec(in *Sleep
 	out.Timezone = in.Timezone
 	out.IgnoreActiveConnections = in.IgnoreActiveConnections
 	out.IgnoreAll = in.IgnoreAll
+	out.IgnoreIngresses = in.IgnoreIngresses
 	out.IgnoreVClusters = in.IgnoreVClusters
 	out.IgnoreGroups = in.IgnoreGroups
 	out.IgnoreVerbs = in.IgnoreVerbs
@@ -1178,6 +1179,7 @@ func autoConvert_cluster_SleepModeConfigSpec_To_v1_SleepModeConfigSpec(in *clust
 	out.Timezone = in.Timezone
 	out.IgnoreActiveConnections = in.IgnoreActiveConnections
 	out.IgnoreAll = in.IgnoreAll
+	out.IgnoreIngresses = in.IgnoreIngresses
 	out.IgnoreVClusters = in.IgnoreVClusters
 	out.IgnoreGroups = in.IgnoreGroups
 	out.IgnoreVerbs = in.IgnoreVerbs
