@@ -268,6 +268,9 @@ type VirtualClusterStatus struct {
 	// +optional
 	DeployHash string `json:"deployHash,omitempty"`
 
+	// MultiNamespace indicates if this is a multinamespace enabled virtual cluster
+	MultiNamespace bool `json:"multiNamespace,omitempty"`
+
 	// DEPRECATED: do not use anymore
 	// the status of the helm release that was used to deploy the virtual cluster
 	// +optional

@@ -3121,6 +3121,13 @@ func schema_apis_loft_cluster_v1_VirtualClusterStatus(ref common.ReferenceCallba
 							Format:      "",
 						},
 					},
+					"multiNamespace": {
+						SchemaProps: spec.SchemaProps{
+							Description: "MultiNamespace indicates if this is a multinamespace enabled virtual cluster",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
 					"helmRelease": {
 						SchemaProps: spec.SchemaProps{
 							Description: "DEPRECATED: do not use anymore the status of the helm release that was used to deploy the virtual cluster",
@@ -4976,6 +4983,13 @@ func schema_apis_loft_storage_v1_VirtualClusterStatus(ref common.ReferenceCallba
 						SchemaProps: spec.SchemaProps{
 							Description: "DeployHash saves the latest applied chart hash",
 							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"multiNamespace": {
+						SchemaProps: spec.SchemaProps{
+							Description: "MultiNamespace indicates if this is a multinamespace enabled virtual cluster",
+							Type:        []string{"boolean"},
 							Format:      "",
 						},
 					},
