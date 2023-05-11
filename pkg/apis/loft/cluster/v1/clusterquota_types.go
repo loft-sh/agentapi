@@ -1,7 +1,7 @@
 package v1
 
 import (
-	storagev1 "github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1"
+	agentstoragev1 "github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -21,11 +21,11 @@ type ClusterQuota struct {
 }
 
 type ClusterQuotaSpec struct {
-	storagev1.ClusterQuotaSpec `json:",inline"`
+	agentstoragev1.ClusterQuotaSpec `json:",inline"`
 }
 
 type ClusterQuotaStatus struct {
-	storagev1.ClusterQuotaStatus `json:",inline"`
+	agentstoragev1.ClusterQuotaStatus `json:",inline"`
 
 	// Owner describes the owner of the space. This can be either empty (nil), be a team or
 	// an loft user. If the space has an account that does not belong to an user / team in loft

@@ -1,7 +1,7 @@
 package v1
 
 import (
-	storagev1 "github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1"
+	agentstoragev1 "github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -48,7 +48,7 @@ type HelmReleaseApp struct {
 type HelmReleaseConfig struct {
 	// Chart holds information about a chart that should get deployed
 	// +optional
-	Chart storagev1.Chart `json:"chart,omitempty"`
+	Chart agentstoragev1.Chart `json:"chart,omitempty"`
 
 	// Manifests holds kube manifests that will be deployed as a chart
 	// +optional
