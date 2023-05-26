@@ -1,7 +1,7 @@
 package v1
 
 import (
-	storagev1 "github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1"
+	agentstoragev1 "github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1"
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
@@ -21,11 +21,11 @@ type VirtualCluster struct {
 }
 
 type VirtualClusterSpec struct {
-	storagev1.VirtualClusterSpec `json:",inline"`
+	agentstoragev1.VirtualClusterSpec `json:",inline"`
 }
 
 type VirtualClusterStatus struct {
-	storagev1.VirtualClusterStatus `json:",inline"`
+	agentstoragev1.VirtualClusterStatus `json:",inline"`
 
 	// SyncerPod is the syncer pod
 	// +optional
