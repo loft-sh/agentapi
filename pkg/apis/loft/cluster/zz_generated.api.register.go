@@ -19,7 +19,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 )
 
-type NewRESTFunc func(config *configrest.Config, cachedClient, uncachedClient, managementClient client.Client) rest.Storage
+type NewRESTFunc func(config *configrest.Config, cachedClient, uncachedClient, cachedManagementClient, uncachedManagementClient client.Client) rest.Storage
 
 var (
 	ClusterChartInfoStorage = builders.NewApiResourceWithStorage( // Resource status endpoint
@@ -29,7 +29,7 @@ var (
 		NewChartInfoREST,
 	)
 	NewChartInfoREST = func(getter generic.RESTOptionsGetter) rest.Storage {
-		return NewChartInfoRESTFunc(Config, CachedClient, UncachedClient, ManagementClient)
+		return NewChartInfoRESTFunc(Config, CachedClient, UncachedClient, CachedManagementClient, UncachedManagementClient)
 	}
 	NewChartInfoRESTFunc       NewRESTFunc
 	ClusterClusterQuotaStorage = builders.NewApiResourceWithStorage( // Resource status endpoint
@@ -39,7 +39,7 @@ var (
 		NewClusterQuotaREST,
 	)
 	NewClusterQuotaREST = func(getter generic.RESTOptionsGetter) rest.Storage {
-		return NewClusterQuotaRESTFunc(Config, CachedClient, UncachedClient, ManagementClient)
+		return NewClusterQuotaRESTFunc(Config, CachedClient, UncachedClient, CachedManagementClient, UncachedManagementClient)
 	}
 	NewClusterQuotaRESTFunc NewRESTFunc
 	ClusterFeatureStorage   = builders.NewApiResourceWithStorage( // Resource status endpoint
@@ -49,7 +49,7 @@ var (
 		NewFeatureREST,
 	)
 	NewFeatureREST = func(getter generic.RESTOptionsGetter) rest.Storage {
-		return NewFeatureRESTFunc(Config, CachedClient, UncachedClient, ManagementClient)
+		return NewFeatureRESTFunc(Config, CachedClient, UncachedClient, CachedManagementClient, UncachedManagementClient)
 	}
 	NewFeatureRESTFunc        NewRESTFunc
 	ClusterHelmReleaseStorage = builders.NewApiResourceWithStorage( // Resource status endpoint
@@ -59,7 +59,7 @@ var (
 		NewHelmReleaseREST,
 	)
 	NewHelmReleaseREST = func(getter generic.RESTOptionsGetter) rest.Storage {
-		return NewHelmReleaseRESTFunc(Config, CachedClient, UncachedClient, ManagementClient)
+		return NewHelmReleaseRESTFunc(Config, CachedClient, UncachedClient, CachedManagementClient, UncachedManagementClient)
 	}
 	NewHelmReleaseRESTFunc           NewRESTFunc
 	ClusterLocalClusterAccessStorage = builders.NewApiResourceWithStorage( // Resource status endpoint
@@ -69,7 +69,7 @@ var (
 		NewLocalClusterAccessREST,
 	)
 	NewLocalClusterAccessREST = func(getter generic.RESTOptionsGetter) rest.Storage {
-		return NewLocalClusterAccessRESTFunc(Config, CachedClient, UncachedClient, ManagementClient)
+		return NewLocalClusterAccessRESTFunc(Config, CachedClient, UncachedClient, CachedManagementClient, UncachedManagementClient)
 	}
 	NewLocalClusterAccessRESTFunc NewRESTFunc
 	ClusterSleepModeConfigStorage = builders.NewApiResourceWithStorage( // Resource status endpoint
@@ -79,7 +79,7 @@ var (
 		NewSleepModeConfigREST,
 	)
 	NewSleepModeConfigREST = func(getter generic.RESTOptionsGetter) rest.Storage {
-		return NewSleepModeConfigRESTFunc(Config, CachedClient, UncachedClient, ManagementClient)
+		return NewSleepModeConfigRESTFunc(Config, CachedClient, UncachedClient, CachedManagementClient, UncachedManagementClient)
 	}
 	NewSleepModeConfigRESTFunc NewRESTFunc
 	ClusterSpaceStorage        = builders.NewApiResourceWithStorage( // Resource status endpoint
@@ -89,7 +89,7 @@ var (
 		NewSpaceREST,
 	)
 	NewSpaceREST = func(getter generic.RESTOptionsGetter) rest.Storage {
-		return NewSpaceRESTFunc(Config, CachedClient, UncachedClient, ManagementClient)
+		return NewSpaceRESTFunc(Config, CachedClient, UncachedClient, CachedManagementClient, UncachedManagementClient)
 	}
 	NewSpaceRESTFunc             NewRESTFunc
 	ClusterVirtualClusterStorage = builders.NewApiResourceWithStorage( // Resource status endpoint
@@ -99,7 +99,7 @@ var (
 		NewVirtualClusterREST,
 	)
 	NewVirtualClusterREST = func(getter generic.RESTOptionsGetter) rest.Storage {
-		return NewVirtualClusterRESTFunc(Config, CachedClient, UncachedClient, ManagementClient)
+		return NewVirtualClusterRESTFunc(Config, CachedClient, UncachedClient, CachedManagementClient, UncachedManagementClient)
 	}
 	NewVirtualClusterRESTFunc NewRESTFunc
 	InternalChartInfo         = builders.NewInternalResource(

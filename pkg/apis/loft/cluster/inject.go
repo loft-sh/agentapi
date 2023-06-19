@@ -14,5 +14,8 @@ var CachedClient client.Client
 // UncachedClient will be injected during startup and then passed to the rest storages
 var UncachedClient client.Client
 
-// ManagementClient will be injected during startup and then passed to the rest storages
-var ManagementClient client.Client
+// CachedManagementClient will be injected during startup and then passed to the rest storages
+var CachedManagementClient client.Client
+
+// UncachedManagementClient will be injected during startup and then passed to the rest storages
+var UncachedManagementClient client.Client
