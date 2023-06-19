@@ -20,6 +20,10 @@ func (c *FakeClusterV1) ClusterQuotas() v1.ClusterQuotaInterface {
 	return &FakeClusterQuotas{c}
 }
 
+func (c *FakeClusterV1) Features() v1.FeatureInterface {
+	return &FakeFeatures{c}
+}
+
 func (c *FakeClusterV1) HelmReleases(namespace string) v1.HelmReleaseInterface {
 	return &FakeHelmReleases{c, namespace}
 }

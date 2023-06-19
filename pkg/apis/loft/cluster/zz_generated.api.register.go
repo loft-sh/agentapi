@@ -19,7 +19,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 )
 
-type NewRESTFunc func(config *configrest.Config, cachedClient client.Client, uncachedClient client.Client) rest.Storage
+type NewRESTFunc func(config *configrest.Config, cachedClient, uncachedClient, managementClient client.Client) rest.Storage
 
 var (
 	ClusterChartInfoStorage = builders.NewApiResourceWithStorage( // Resource status endpoint
@@ -29,7 +29,7 @@ var (
 		NewChartInfoREST,
 	)
 	NewChartInfoREST = func(getter generic.RESTOptionsGetter) rest.Storage {
-		return NewChartInfoRESTFunc(Config, CachedClient, UncachedClient)
+		return NewChartInfoRESTFunc(Config, CachedClient, UncachedClient, ManagementClient)
 	}
 	NewChartInfoRESTFunc       NewRESTFunc
 	ClusterClusterQuotaStorage = builders.NewApiResourceWithStorage( // Resource status endpoint
@@ -39,9 +39,19 @@ var (
 		NewClusterQuotaREST,
 	)
 	NewClusterQuotaREST = func(getter generic.RESTOptionsGetter) rest.Storage {
-		return NewClusterQuotaRESTFunc(Config, CachedClient, UncachedClient)
+		return NewClusterQuotaRESTFunc(Config, CachedClient, UncachedClient, ManagementClient)
 	}
-	NewClusterQuotaRESTFunc   NewRESTFunc
+	NewClusterQuotaRESTFunc NewRESTFunc
+	ClusterFeatureStorage   = builders.NewApiResourceWithStorage( // Resource status endpoint
+		InternalFeature,
+		func() runtime.Object { return &Feature{} },     // Register versioned resource
+		func() runtime.Object { return &FeatureList{} }, // Register versioned resource list
+		NewFeatureREST,
+	)
+	NewFeatureREST = func(getter generic.RESTOptionsGetter) rest.Storage {
+		return NewFeatureRESTFunc(Config, CachedClient, UncachedClient, ManagementClient)
+	}
+	NewFeatureRESTFunc        NewRESTFunc
 	ClusterHelmReleaseStorage = builders.NewApiResourceWithStorage( // Resource status endpoint
 		InternalHelmRelease,
 		func() runtime.Object { return &HelmRelease{} },     // Register versioned resource
@@ -49,7 +59,7 @@ var (
 		NewHelmReleaseREST,
 	)
 	NewHelmReleaseREST = func(getter generic.RESTOptionsGetter) rest.Storage {
-		return NewHelmReleaseRESTFunc(Config, CachedClient, UncachedClient)
+		return NewHelmReleaseRESTFunc(Config, CachedClient, UncachedClient, ManagementClient)
 	}
 	NewHelmReleaseRESTFunc           NewRESTFunc
 	ClusterLocalClusterAccessStorage = builders.NewApiResourceWithStorage( // Resource status endpoint
@@ -59,7 +69,7 @@ var (
 		NewLocalClusterAccessREST,
 	)
 	NewLocalClusterAccessREST = func(getter generic.RESTOptionsGetter) rest.Storage {
-		return NewLocalClusterAccessRESTFunc(Config, CachedClient, UncachedClient)
+		return NewLocalClusterAccessRESTFunc(Config, CachedClient, UncachedClient, ManagementClient)
 	}
 	NewLocalClusterAccessRESTFunc NewRESTFunc
 	ClusterSleepModeConfigStorage = builders.NewApiResourceWithStorage( // Resource status endpoint
@@ -69,7 +79,7 @@ var (
 		NewSleepModeConfigREST,
 	)
 	NewSleepModeConfigREST = func(getter generic.RESTOptionsGetter) rest.Storage {
-		return NewSleepModeConfigRESTFunc(Config, CachedClient, UncachedClient)
+		return NewSleepModeConfigRESTFunc(Config, CachedClient, UncachedClient, ManagementClient)
 	}
 	NewSleepModeConfigRESTFunc NewRESTFunc
 	ClusterSpaceStorage        = builders.NewApiResourceWithStorage( // Resource status endpoint
@@ -79,7 +89,7 @@ var (
 		NewSpaceREST,
 	)
 	NewSpaceREST = func(getter generic.RESTOptionsGetter) rest.Storage {
-		return NewSpaceRESTFunc(Config, CachedClient, UncachedClient)
+		return NewSpaceRESTFunc(Config, CachedClient, UncachedClient, ManagementClient)
 	}
 	NewSpaceRESTFunc             NewRESTFunc
 	ClusterVirtualClusterStorage = builders.NewApiResourceWithStorage( // Resource status endpoint
@@ -89,7 +99,7 @@ var (
 		NewVirtualClusterREST,
 	)
 	NewVirtualClusterREST = func(getter generic.RESTOptionsGetter) rest.Storage {
-		return NewVirtualClusterRESTFunc(Config, CachedClient, UncachedClient)
+		return NewVirtualClusterRESTFunc(Config, CachedClient, UncachedClient, ManagementClient)
 	}
 	NewVirtualClusterRESTFunc NewRESTFunc
 	InternalChartInfo         = builders.NewInternalResource(
@@ -115,6 +125,18 @@ var (
 		"ClusterQuotaStatus",
 		func() runtime.Object { return &ClusterQuota{} },
 		func() runtime.Object { return &ClusterQuotaList{} },
+	)
+	InternalFeature = builders.NewInternalResource(
+		"features",
+		"Feature",
+		func() runtime.Object { return &Feature{} },
+		func() runtime.Object { return &FeatureList{} },
+	)
+	InternalFeatureStatus = builders.NewInternalResourceStatus(
+		"features",
+		"FeatureStatus",
+		func() runtime.Object { return &Feature{} },
+		func() runtime.Object { return &FeatureList{} },
 	)
 	InternalHelmRelease = builders.NewInternalResource(
 		"helmreleases",
@@ -182,6 +204,8 @@ var (
 		InternalChartInfoStatus,
 		InternalClusterQuota,
 		InternalClusterQuotaStatus,
+		InternalFeature,
+		InternalFeatureStatus,
 		InternalHelmRelease,
 		InternalHelmReleaseStatus,
 		InternalLocalClusterAccess,
@@ -285,6 +309,24 @@ type EntityInfo struct {
 type EpochInfo struct {
 	Start int64
 	Slept int64
+}
+
+// +genclient
+// +genclient:nonNamespaced
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+
+type Feature struct {
+	metav1.TypeMeta
+	metav1.ObjectMeta
+	Spec   FeatureSpec
+	Status FeatureStatus
+}
+
+type FeatureSpec struct {
+}
+
+type FeatureStatus struct {
+	Enabled bool
 }
 
 // +genclient
@@ -727,6 +769,125 @@ func (s *storageClusterQuota) UpdateClusterQuota(ctx context.Context, object *Cl
 }
 
 func (s *storageClusterQuota) DeleteClusterQuota(ctx context.Context, id string) (bool, error) {
+	st := s.GetStandardStorage()
+	_, sync, err := st.Delete(ctx, id, nil, &metav1.DeleteOptions{})
+	return sync, err
+}
+
+// Feature Functions and Structs
+//
+// +k8s:deepcopy-gen=false
+type FeatureStrategy struct {
+	builders.DefaultStorageStrategy
+}
+
+// +k8s:deepcopy-gen=false
+type FeatureStatusStrategy struct {
+	builders.DefaultStatusStorageStrategy
+}
+
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+
+type FeatureList struct {
+	metav1.TypeMeta
+	metav1.ListMeta
+	Items []Feature
+}
+
+func (Feature) NewStatus() interface{} {
+	return FeatureStatus{}
+}
+
+func (pc *Feature) GetStatus() interface{} {
+	return pc.Status
+}
+
+func (pc *Feature) SetStatus(s interface{}) {
+	pc.Status = s.(FeatureStatus)
+}
+
+func (pc *Feature) GetSpec() interface{} {
+	return pc.Spec
+}
+
+func (pc *Feature) SetSpec(s interface{}) {
+	pc.Spec = s.(FeatureSpec)
+}
+
+func (pc *Feature) GetObjectMeta() *metav1.ObjectMeta {
+	return &pc.ObjectMeta
+}
+
+func (pc *Feature) SetGeneration(generation int64) {
+	pc.ObjectMeta.Generation = generation
+}
+
+func (pc Feature) GetGeneration() int64 {
+	return pc.ObjectMeta.Generation
+}
+
+// Registry is an interface for things that know how to store Feature.
+// +k8s:deepcopy-gen=false
+type FeatureRegistry interface {
+	ListFeatures(ctx context.Context, options *internalversion.ListOptions) (*FeatureList, error)
+	GetFeature(ctx context.Context, id string, options *metav1.GetOptions) (*Feature, error)
+	CreateFeature(ctx context.Context, id *Feature) (*Feature, error)
+	UpdateFeature(ctx context.Context, id *Feature) (*Feature, error)
+	DeleteFeature(ctx context.Context, id string) (bool, error)
+}
+
+// NewRegistry returns a new Registry interface for the given Storage. Any mismatched types will panic.
+func NewFeatureRegistry(sp builders.StandardStorageProvider) FeatureRegistry {
+	return &storageFeature{sp}
+}
+
+// Implement Registry
+// storage puts strong typing around storage calls
+// +k8s:deepcopy-gen=false
+type storageFeature struct {
+	builders.StandardStorageProvider
+}
+
+func (s *storageFeature) ListFeatures(ctx context.Context, options *internalversion.ListOptions) (*FeatureList, error) {
+	if options != nil && options.FieldSelector != nil && !options.FieldSelector.Empty() {
+		return nil, fmt.Errorf("field selector not supported yet")
+	}
+	st := s.GetStandardStorage()
+	obj, err := st.List(ctx, options)
+	if err != nil {
+		return nil, err
+	}
+	return obj.(*FeatureList), err
+}
+
+func (s *storageFeature) GetFeature(ctx context.Context, id string, options *metav1.GetOptions) (*Feature, error) {
+	st := s.GetStandardStorage()
+	obj, err := st.Get(ctx, id, options)
+	if err != nil {
+		return nil, err
+	}
+	return obj.(*Feature), nil
+}
+
+func (s *storageFeature) CreateFeature(ctx context.Context, object *Feature) (*Feature, error) {
+	st := s.GetStandardStorage()
+	obj, err := st.Create(ctx, object, nil, &metav1.CreateOptions{})
+	if err != nil {
+		return nil, err
+	}
+	return obj.(*Feature), nil
+}
+
+func (s *storageFeature) UpdateFeature(ctx context.Context, object *Feature) (*Feature, error) {
+	st := s.GetStandardStorage()
+	obj, _, err := st.Update(ctx, object.Name, rest.DefaultUpdatedObjectInfo(object), nil, nil, false, &metav1.UpdateOptions{})
+	if err != nil {
+		return nil, err
+	}
+	return obj.(*Feature), nil
+}
+
+func (s *storageFeature) DeleteFeature(ctx context.Context, id string) (bool, error) {
 	st := s.GetStandardStorage()
 	_, sync, err := st.Delete(ctx, id, nil, &metav1.DeleteOptions{})
 	return sync, err

@@ -17,6 +17,8 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&ChartInfoList{},
 		&ClusterQuota{},
 		&ClusterQuotaList{},
+		&Feature{},
+		&FeatureList{},
 		&HelmRelease{},
 		&HelmReleaseList{},
 		&LocalClusterAccess{},
@@ -35,6 +37,7 @@ var (
 	ApiVersion = builders.NewApiVersion("cluster.loft.sh", "v1").WithResources(
 		cluster.ClusterChartInfoStorage,
 		cluster.ClusterClusterQuotaStorage,
+		cluster.ClusterFeatureStorage,
 		cluster.ClusterHelmReleaseStorage,
 		cluster.ClusterLocalClusterAccessStorage,
 		cluster.ClusterSleepModeConfigStorage,
@@ -85,6 +88,14 @@ type ClusterQuotaList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
 	Items           []ClusterQuota `json:"items"`
+}
+
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+
+type FeatureList struct {
+	metav1.TypeMeta `json:",inline"`
+	metav1.ListMeta `json:"metadata,omitempty"`
+	Items           []Feature `json:"items"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

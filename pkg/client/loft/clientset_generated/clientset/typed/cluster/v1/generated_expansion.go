@@ -6,6 +6,8 @@ type ChartInfoExpansion interface{}
 
 type ClusterQuotaExpansion interface{}
 
+type FeatureExpansion interface{}
+
 type HelmReleaseExpansion interface{}
 
 type LocalClusterAccessExpansion interface{}

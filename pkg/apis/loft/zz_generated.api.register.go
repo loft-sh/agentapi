@@ -36,6 +36,7 @@ func GetClusterAPIBuilder() *builders.APIGroupBuilder {
 		WithRootScopedKinds(
 			"ChartInfo",
 			"ClusterQuota",
+			"Feature",
 			"LocalClusterAccess",
 			"Space",
 		)
