@@ -1373,7 +1373,7 @@ func schema_apis_loft_cluster_v1_Feature(ref common.ReferenceCallback) common.Op
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
 			SchemaProps: spec.SchemaProps{
-				Description: "User holds the user information",
+				Description: "Feature holds the feature information",
 				Type:        []string{"object"},
 				Properties: map[string]spec.Schema{
 					"kind": {
