@@ -72,6 +72,11 @@ type VirtualClusterCommonSpec struct {
 	// through the (default) Loft proxy
 	// +optional
 	AccessPoint VirtualClusterAccessPoint `json:"accessPoint,omitempty"`
+
+	// ForwardToken signals the proxy to pass through the used token to the virtual Kubernetes
+	// api server and do a TokenReview there.
+	// +optional
+	ForwardToken bool `json:"forwardToken,omitempty"`
 }
 
 type VirtualClusterAccessPoint struct {
