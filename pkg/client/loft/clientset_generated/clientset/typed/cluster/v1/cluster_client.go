@@ -14,7 +14,6 @@ type ClusterV1Interface interface {
 	RESTClient() rest.Interface
 	ChartInfosGetter
 	ClusterQuotasGetter
-	FeaturesGetter
 	HelmReleasesGetter
 	LocalClusterAccessesGetter
 	SleepModeConfigsGetter
@@ -33,10 +32,6 @@ func (c *ClusterV1Client) ChartInfos() ChartInfoInterface {
 
 func (c *ClusterV1Client) ClusterQuotas() ClusterQuotaInterface {
 	return newClusterQuotas(c)
-}
-
-func (c *ClusterV1Client) Features() FeatureInterface {
-	return newFeatures(c)
 }
 
 func (c *ClusterV1Client) HelmReleases(namespace string) HelmReleaseInterface {

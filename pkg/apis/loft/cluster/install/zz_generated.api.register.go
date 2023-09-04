@@ -26,8 +26,6 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&cluster.ChartInfoList{},
 		&cluster.ClusterQuota{},
 		&cluster.ClusterQuotaList{},
-		&cluster.Feature{},
-		&cluster.FeatureList{},
 		&cluster.HelmRelease{},
 		&cluster.HelmReleaseList{},
 		&cluster.LocalClusterAccess{},
