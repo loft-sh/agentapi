@@ -1,6 +1,6 @@
 module github.com/loft-sh/agentapi/v3
 
-go 1.21.0
+go 1.21.1
 
 require (
 	github.com/loft-sh/apiserver v0.0.0-20230628051307-f26967fbb40f
