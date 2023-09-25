@@ -5,10 +5,9 @@ package fake
 import (
 	"context"
 
-	storagev1 "github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1"
-	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	v1 "github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1"
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	labels "k8s.io/apimachinery/pkg/labels"
-	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	types "k8s.io/apimachinery/pkg/types"
 	watch "k8s.io/apimachinery/pkg/watch"
 	testing "k8s.io/client-go/testing"
@@ -19,24 +18,24 @@ type FakeLocalTeams struct {
 	Fake *FakeStorageV1
 }
 
-var localteamsResource = schema.GroupVersionResource{Group: "storage.loft.sh", Version: "v1", Resource: "localteams"}
+var localteamsResource = v1.SchemeGroupVersion.WithResource("localteams")
 
-var localteamsKind = schema.GroupVersionKind{Group: "storage.loft.sh", Version: "v1", Kind: "LocalTeam"}
+var localteamsKind = v1.SchemeGroupVersion.WithKind("LocalTeam")
 
 // Get takes name of the localTeam, and returns the corresponding localTeam object, and an error if there is any.
-func (c *FakeLocalTeams) Get(ctx context.Context, name string, options v1.GetOptions) (result *storagev1.LocalTeam, err error) {
+func (c *FakeLocalTeams) Get(ctx context.Context, name string, options metav1.GetOptions) (result *v1.LocalTeam, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewRootGetAction(localteamsResource, name), &storagev1.LocalTeam{})
+		Invokes(testing.NewRootGetAction(localteamsResource, name), &v1.LocalTeam{})
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*storagev1.LocalTeam), err
+	return obj.(*v1.LocalTeam), err
 }
 
 // List takes label and field selectors, and returns the list of LocalTeams that match those selectors.
-func (c *FakeLocalTeams) List(ctx context.Context, opts v1.ListOptions) (result *storagev1.LocalTeamList, err error) {
+func (c *FakeLocalTeams) List(ctx context.Context, opts metav1.ListOptions) (result *v1.LocalTeamList, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewRootListAction(localteamsResource, localteamsKind, opts), &storagev1.LocalTeamList{})
+		Invokes(testing.NewRootListAction(localteamsResource, localteamsKind, opts), &v1.LocalTeamList{})
 	if obj == nil {
 		return nil, err
 	}
@@ -45,8 +44,8 @@ func (c *FakeLocalTeams) List(ctx context.Context, opts v1.ListOptions) (result 
 	if label == nil {
 		label = labels.Everything()
 	}
-	list := &storagev1.LocalTeamList{ListMeta: obj.(*storagev1.LocalTeamList).ListMeta}
-	for _, item := range obj.(*storagev1.LocalTeamList).Items {
+	list := &v1.LocalTeamList{ListMeta: obj.(*v1.LocalTeamList).ListMeta}
+	for _, item := range obj.(*v1.LocalTeamList).Items {
 		if label.Matches(labels.Set(item.Labels)) {
 			list.Items = append(list.Items, item)
 		}
@@ -55,63 +54,63 @@ func (c *FakeLocalTeams) List(ctx context.Context, opts v1.ListOptions) (result 
 }
 
 // Watch returns a watch.Interface that watches the requested localTeams.
-func (c *FakeLocalTeams) Watch(ctx context.Context, opts v1.ListOptions) (watch.Interface, error) {
+func (c *FakeLocalTeams) Watch(ctx context.Context, opts metav1.ListOptions) (watch.Interface, error) {
 	return c.Fake.
 		InvokesWatch(testing.NewRootWatchAction(localteamsResource, opts))
 }
 
 // Create takes the representation of a localTeam and creates it.  Returns the server's representation of the localTeam, and an error, if there is any.
-func (c *FakeLocalTeams) Create(ctx context.Context, localTeam *storagev1.LocalTeam, opts v1.CreateOptions) (result *storagev1.LocalTeam, err error) {
+func (c *FakeLocalTeams) Create(ctx context.Context, localTeam *v1.LocalTeam, opts metav1.CreateOptions) (result *v1.LocalTeam, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewRootCreateAction(localteamsResource, localTeam), &storagev1.LocalTeam{})
+		Invokes(testing.NewRootCreateAction(localteamsResource, localTeam), &v1.LocalTeam{})
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*storagev1.LocalTeam), err
+	return obj.(*v1.LocalTeam), err
 }
 
 // Update takes the representation of a localTeam and updates it. Returns the server's representation of the localTeam, and an error, if there is any.
-func (c *FakeLocalTeams) Update(ctx context.Context, localTeam *storagev1.LocalTeam, opts v1.UpdateOptions) (result *storagev1.LocalTeam, err error) {
+func (c *FakeLocalTeams) Update(ctx context.Context, localTeam *v1.LocalTeam, opts metav1.UpdateOptions) (result *v1.LocalTeam, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewRootUpdateAction(localteamsResource, localTeam), &storagev1.LocalTeam{})
+		Invokes(testing.NewRootUpdateAction(localteamsResource, localTeam), &v1.LocalTeam{})
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*storagev1.LocalTeam), err
+	return obj.(*v1.LocalTeam), err
 }
 
 // UpdateStatus was generated because the type contains a Status member.
 // Add a +genclient:noStatus comment above the type to avoid generating UpdateStatus().
-func (c *FakeLocalTeams) UpdateStatus(ctx context.Context, localTeam *storagev1.LocalTeam, opts v1.UpdateOptions) (*storagev1.LocalTeam, error) {
+func (c *FakeLocalTeams) UpdateStatus(ctx context.Context, localTeam *v1.LocalTeam, opts metav1.UpdateOptions) (*v1.LocalTeam, error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewRootUpdateSubresourceAction(localteamsResource, "status", localTeam), &storagev1.LocalTeam{})
+		Invokes(testing.NewRootUpdateSubresourceAction(localteamsResource, "status", localTeam), &v1.LocalTeam{})
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*storagev1.LocalTeam), err
+	return obj.(*v1.LocalTeam), err
 }
 
 // Delete takes name of the localTeam and deletes it. Returns an error if one occurs.
-func (c *FakeLocalTeams) Delete(ctx context.Context, name string, opts v1.DeleteOptions) error {
+func (c *FakeLocalTeams) Delete(ctx context.Context, name string, opts metav1.DeleteOptions) error {
 	_, err := c.Fake.
-		Invokes(testing.NewRootDeleteActionWithOptions(localteamsResource, name, opts), &storagev1.LocalTeam{})
+		Invokes(testing.NewRootDeleteActionWithOptions(localteamsResource, name, opts), &v1.LocalTeam{})
 	return err
 }
 
 // DeleteCollection deletes a collection of objects.
-func (c *FakeLocalTeams) DeleteCollection(ctx context.Context, opts v1.DeleteOptions, listOpts v1.ListOptions) error {
+func (c *FakeLocalTeams) DeleteCollection(ctx context.Context, opts metav1.DeleteOptions, listOpts metav1.ListOptions) error {
 	action := testing.NewRootDeleteCollectionAction(localteamsResource, listOpts)
 
-	_, err := c.Fake.Invokes(action, &storagev1.LocalTeamList{})
+	_, err := c.Fake.Invokes(action, &v1.LocalTeamList{})
 	return err
 }
 
 // Patch applies the patch and returns the patched localTeam.
-func (c *FakeLocalTeams) Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts v1.PatchOptions, subresources ...string) (result *storagev1.LocalTeam, err error) {
+func (c *FakeLocalTeams) Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts metav1.PatchOptions, subresources ...string) (result *v1.LocalTeam, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewRootPatchSubresourceAction(localteamsResource, name, pt, data, subresources...), &storagev1.LocalTeam{})
+		Invokes(testing.NewRootPatchSubresourceAction(localteamsResource, name, pt, data, subresources...), &v1.LocalTeam{})
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*storagev1.LocalTeam), err
+	return obj.(*v1.LocalTeam), err
 }

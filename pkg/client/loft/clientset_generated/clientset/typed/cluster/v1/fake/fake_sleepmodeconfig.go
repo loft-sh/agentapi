@@ -5,10 +5,9 @@ package fake
 import (
 	"context"
 
-	clusterv1 "github.com/loft-sh/agentapi/v3/pkg/apis/loft/cluster/v1"
-	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	v1 "github.com/loft-sh/agentapi/v3/pkg/apis/loft/cluster/v1"
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	labels "k8s.io/apimachinery/pkg/labels"
-	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	types "k8s.io/apimachinery/pkg/types"
 	watch "k8s.io/apimachinery/pkg/watch"
 	testing "k8s.io/client-go/testing"
@@ -20,25 +19,25 @@ type FakeSleepModeConfigs struct {
 	ns   string
 }
 
-var sleepmodeconfigsResource = schema.GroupVersionResource{Group: "cluster.loft.sh", Version: "v1", Resource: "sleepmodeconfigs"}
+var sleepmodeconfigsResource = v1.SchemeGroupVersion.WithResource("sleepmodeconfigs")
 
-var sleepmodeconfigsKind = schema.GroupVersionKind{Group: "cluster.loft.sh", Version: "v1", Kind: "SleepModeConfig"}
+var sleepmodeconfigsKind = v1.SchemeGroupVersion.WithKind("SleepModeConfig")
 
 // Get takes name of the sleepModeConfig, and returns the corresponding sleepModeConfig object, and an error if there is any.
-func (c *FakeSleepModeConfigs) Get(ctx context.Context, name string, options v1.GetOptions) (result *clusterv1.SleepModeConfig, err error) {
+func (c *FakeSleepModeConfigs) Get(ctx context.Context, name string, options metav1.GetOptions) (result *v1.SleepModeConfig, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewGetAction(sleepmodeconfigsResource, c.ns, name), &clusterv1.SleepModeConfig{})
+		Invokes(testing.NewGetAction(sleepmodeconfigsResource, c.ns, name), &v1.SleepModeConfig{})
 
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*clusterv1.SleepModeConfig), err
+	return obj.(*v1.SleepModeConfig), err
 }
 
 // List takes label and field selectors, and returns the list of SleepModeConfigs that match those selectors.
-func (c *FakeSleepModeConfigs) List(ctx context.Context, opts v1.ListOptions) (result *clusterv1.SleepModeConfigList, err error) {
+func (c *FakeSleepModeConfigs) List(ctx context.Context, opts metav1.ListOptions) (result *v1.SleepModeConfigList, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewListAction(sleepmodeconfigsResource, sleepmodeconfigsKind, c.ns, opts), &clusterv1.SleepModeConfigList{})
+		Invokes(testing.NewListAction(sleepmodeconfigsResource, sleepmodeconfigsKind, c.ns, opts), &v1.SleepModeConfigList{})
 
 	if obj == nil {
 		return nil, err
@@ -48,8 +47,8 @@ func (c *FakeSleepModeConfigs) List(ctx context.Context, opts v1.ListOptions) (r
 	if label == nil {
 		label = labels.Everything()
 	}
-	list := &clusterv1.SleepModeConfigList{ListMeta: obj.(*clusterv1.SleepModeConfigList).ListMeta}
-	for _, item := range obj.(*clusterv1.SleepModeConfigList).Items {
+	list := &v1.SleepModeConfigList{ListMeta: obj.(*v1.SleepModeConfigList).ListMeta}
+	for _, item := range obj.(*v1.SleepModeConfigList).Items {
 		if label.Matches(labels.Set(item.Labels)) {
 			list.Items = append(list.Items, item)
 		}
@@ -58,69 +57,69 @@ func (c *FakeSleepModeConfigs) List(ctx context.Context, opts v1.ListOptions) (r
 }
 
 // Watch returns a watch.Interface that watches the requested sleepModeConfigs.
-func (c *FakeSleepModeConfigs) Watch(ctx context.Context, opts v1.ListOptions) (watch.Interface, error) {
+func (c *FakeSleepModeConfigs) Watch(ctx context.Context, opts metav1.ListOptions) (watch.Interface, error) {
 	return c.Fake.
 		InvokesWatch(testing.NewWatchAction(sleepmodeconfigsResource, c.ns, opts))
 
 }
 
 // Create takes the representation of a sleepModeConfig and creates it.  Returns the server's representation of the sleepModeConfig, and an error, if there is any.
-func (c *FakeSleepModeConfigs) Create(ctx context.Context, sleepModeConfig *clusterv1.SleepModeConfig, opts v1.CreateOptions) (result *clusterv1.SleepModeConfig, err error) {
+func (c *FakeSleepModeConfigs) Create(ctx context.Context, sleepModeConfig *v1.SleepModeConfig, opts metav1.CreateOptions) (result *v1.SleepModeConfig, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewCreateAction(sleepmodeconfigsResource, c.ns, sleepModeConfig), &clusterv1.SleepModeConfig{})
+		Invokes(testing.NewCreateAction(sleepmodeconfigsResource, c.ns, sleepModeConfig), &v1.SleepModeConfig{})
 
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*clusterv1.SleepModeConfig), err
+	return obj.(*v1.SleepModeConfig), err
 }
 
 // Update takes the representation of a sleepModeConfig and updates it. Returns the server's representation of the sleepModeConfig, and an error, if there is any.
-func (c *FakeSleepModeConfigs) Update(ctx context.Context, sleepModeConfig *clusterv1.SleepModeConfig, opts v1.UpdateOptions) (result *clusterv1.SleepModeConfig, err error) {
+func (c *FakeSleepModeConfigs) Update(ctx context.Context, sleepModeConfig *v1.SleepModeConfig, opts metav1.UpdateOptions) (result *v1.SleepModeConfig, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewUpdateAction(sleepmodeconfigsResource, c.ns, sleepModeConfig), &clusterv1.SleepModeConfig{})
+		Invokes(testing.NewUpdateAction(sleepmodeconfigsResource, c.ns, sleepModeConfig), &v1.SleepModeConfig{})
 
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*clusterv1.SleepModeConfig), err
+	return obj.(*v1.SleepModeConfig), err
 }
 
 // UpdateStatus was generated because the type contains a Status member.
 // Add a +genclient:noStatus comment above the type to avoid generating UpdateStatus().
-func (c *FakeSleepModeConfigs) UpdateStatus(ctx context.Context, sleepModeConfig *clusterv1.SleepModeConfig, opts v1.UpdateOptions) (*clusterv1.SleepModeConfig, error) {
+func (c *FakeSleepModeConfigs) UpdateStatus(ctx context.Context, sleepModeConfig *v1.SleepModeConfig, opts metav1.UpdateOptions) (*v1.SleepModeConfig, error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewUpdateSubresourceAction(sleepmodeconfigsResource, "status", c.ns, sleepModeConfig), &clusterv1.SleepModeConfig{})
+		Invokes(testing.NewUpdateSubresourceAction(sleepmodeconfigsResource, "status", c.ns, sleepModeConfig), &v1.SleepModeConfig{})
 
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*clusterv1.SleepModeConfig), err
+	return obj.(*v1.SleepModeConfig), err
 }
 
 // Delete takes name of the sleepModeConfig and deletes it. Returns an error if one occurs.
-func (c *FakeSleepModeConfigs) Delete(ctx context.Context, name string, opts v1.DeleteOptions) error {
+func (c *FakeSleepModeConfigs) Delete(ctx context.Context, name string, opts metav1.DeleteOptions) error {
 	_, err := c.Fake.
-		Invokes(testing.NewDeleteActionWithOptions(sleepmodeconfigsResource, c.ns, name, opts), &clusterv1.SleepModeConfig{})
+		Invokes(testing.NewDeleteActionWithOptions(sleepmodeconfigsResource, c.ns, name, opts), &v1.SleepModeConfig{})
 
 	return err
 }
 
 // DeleteCollection deletes a collection of objects.
-func (c *FakeSleepModeConfigs) DeleteCollection(ctx context.Context, opts v1.DeleteOptions, listOpts v1.ListOptions) error {
+func (c *FakeSleepModeConfigs) DeleteCollection(ctx context.Context, opts metav1.DeleteOptions, listOpts metav1.ListOptions) error {
 	action := testing.NewDeleteCollectionAction(sleepmodeconfigsResource, c.ns, listOpts)
 
-	_, err := c.Fake.Invokes(action, &clusterv1.SleepModeConfigList{})
+	_, err := c.Fake.Invokes(action, &v1.SleepModeConfigList{})
 	return err
 }
 
 // Patch applies the patch and returns the patched sleepModeConfig.
-func (c *FakeSleepModeConfigs) Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts v1.PatchOptions, subresources ...string) (result *clusterv1.SleepModeConfig, err error) {
+func (c *FakeSleepModeConfigs) Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts metav1.PatchOptions, subresources ...string) (result *v1.SleepModeConfig, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewPatchSubresourceAction(sleepmodeconfigsResource, c.ns, name, pt, data, subresources...), &clusterv1.SleepModeConfig{})
+		Invokes(testing.NewPatchSubresourceAction(sleepmodeconfigsResource, c.ns, name, pt, data, subresources...), &v1.SleepModeConfig{})
 
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*clusterv1.SleepModeConfig), err
+	return obj.(*v1.SleepModeConfig), err
 }
