@@ -5,10 +5,9 @@ package fake
 import (
 	"context"
 
-	clusterv1 "github.com/loft-sh/agentapi/v3/pkg/apis/loft/cluster/v1"
-	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	v1 "github.com/loft-sh/agentapi/v3/pkg/apis/loft/cluster/v1"
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	labels "k8s.io/apimachinery/pkg/labels"
-	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	types "k8s.io/apimachinery/pkg/types"
 	watch "k8s.io/apimachinery/pkg/watch"
 	testing "k8s.io/client-go/testing"
@@ -19,24 +18,24 @@ type FakeChartInfos struct {
 	Fake *FakeClusterV1
 }
 
-var chartinfosResource = schema.GroupVersionResource{Group: "cluster.loft.sh", Version: "v1", Resource: "chartinfos"}
+var chartinfosResource = v1.SchemeGroupVersion.WithResource("chartinfos")
 
-var chartinfosKind = schema.GroupVersionKind{Group: "cluster.loft.sh", Version: "v1", Kind: "ChartInfo"}
+var chartinfosKind = v1.SchemeGroupVersion.WithKind("ChartInfo")
 
 // Get takes name of the chartInfo, and returns the corresponding chartInfo object, and an error if there is any.
-func (c *FakeChartInfos) Get(ctx context.Context, name string, options v1.GetOptions) (result *clusterv1.ChartInfo, err error) {
+func (c *FakeChartInfos) Get(ctx context.Context, name string, options metav1.GetOptions) (result *v1.ChartInfo, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewRootGetAction(chartinfosResource, name), &clusterv1.ChartInfo{})
+		Invokes(testing.NewRootGetAction(chartinfosResource, name), &v1.ChartInfo{})
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*clusterv1.ChartInfo), err
+	return obj.(*v1.ChartInfo), err
 }
 
 // List takes label and field selectors, and returns the list of ChartInfos that match those selectors.
-func (c *FakeChartInfos) List(ctx context.Context, opts v1.ListOptions) (result *clusterv1.ChartInfoList, err error) {
+func (c *FakeChartInfos) List(ctx context.Context, opts metav1.ListOptions) (result *v1.ChartInfoList, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewRootListAction(chartinfosResource, chartinfosKind, opts), &clusterv1.ChartInfoList{})
+		Invokes(testing.NewRootListAction(chartinfosResource, chartinfosKind, opts), &v1.ChartInfoList{})
 	if obj == nil {
 		return nil, err
 	}
@@ -45,8 +44,8 @@ func (c *FakeChartInfos) List(ctx context.Context, opts v1.ListOptions) (result 
 	if label == nil {
 		label = labels.Everything()
 	}
-	list := &clusterv1.ChartInfoList{ListMeta: obj.(*clusterv1.ChartInfoList).ListMeta}
-	for _, item := range obj.(*clusterv1.ChartInfoList).Items {
+	list := &v1.ChartInfoList{ListMeta: obj.(*v1.ChartInfoList).ListMeta}
+	for _, item := range obj.(*v1.ChartInfoList).Items {
 		if label.Matches(labels.Set(item.Labels)) {
 			list.Items = append(list.Items, item)
 		}
@@ -55,63 +54,63 @@ func (c *FakeChartInfos) List(ctx context.Context, opts v1.ListOptions) (result 
 }
 
 // Watch returns a watch.Interface that watches the requested chartInfos.
-func (c *FakeChartInfos) Watch(ctx context.Context, opts v1.ListOptions) (watch.Interface, error) {
+func (c *FakeChartInfos) Watch(ctx context.Context, opts metav1.ListOptions) (watch.Interface, error) {
 	return c.Fake.
 		InvokesWatch(testing.NewRootWatchAction(chartinfosResource, opts))
 }
 
 // Create takes the representation of a chartInfo and creates it.  Returns the server's representation of the chartInfo, and an error, if there is any.
-func (c *FakeChartInfos) Create(ctx context.Context, chartInfo *clusterv1.ChartInfo, opts v1.CreateOptions) (result *clusterv1.ChartInfo, err error) {
+func (c *FakeChartInfos) Create(ctx context.Context, chartInfo *v1.ChartInfo, opts metav1.CreateOptions) (result *v1.ChartInfo, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewRootCreateAction(chartinfosResource, chartInfo), &clusterv1.ChartInfo{})
+		Invokes(testing.NewRootCreateAction(chartinfosResource, chartInfo), &v1.ChartInfo{})
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*clusterv1.ChartInfo), err
+	return obj.(*v1.ChartInfo), err
 }
 
 // Update takes the representation of a chartInfo and updates it. Returns the server's representation of the chartInfo, and an error, if there is any.
-func (c *FakeChartInfos) Update(ctx context.Context, chartInfo *clusterv1.ChartInfo, opts v1.UpdateOptions) (result *clusterv1.ChartInfo, err error) {
+func (c *FakeChartInfos) Update(ctx context.Context, chartInfo *v1.ChartInfo, opts metav1.UpdateOptions) (result *v1.ChartInfo, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewRootUpdateAction(chartinfosResource, chartInfo), &clusterv1.ChartInfo{})
+		Invokes(testing.NewRootUpdateAction(chartinfosResource, chartInfo), &v1.ChartInfo{})
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*clusterv1.ChartInfo), err
+	return obj.(*v1.ChartInfo), err
 }
 
 // UpdateStatus was generated because the type contains a Status member.
 // Add a +genclient:noStatus comment above the type to avoid generating UpdateStatus().
-func (c *FakeChartInfos) UpdateStatus(ctx context.Context, chartInfo *clusterv1.ChartInfo, opts v1.UpdateOptions) (*clusterv1.ChartInfo, error) {
+func (c *FakeChartInfos) UpdateStatus(ctx context.Context, chartInfo *v1.ChartInfo, opts metav1.UpdateOptions) (*v1.ChartInfo, error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewRootUpdateSubresourceAction(chartinfosResource, "status", chartInfo), &clusterv1.ChartInfo{})
+		Invokes(testing.NewRootUpdateSubresourceAction(chartinfosResource, "status", chartInfo), &v1.ChartInfo{})
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*clusterv1.ChartInfo), err
+	return obj.(*v1.ChartInfo), err
 }
 
 // Delete takes name of the chartInfo and deletes it. Returns an error if one occurs.
-func (c *FakeChartInfos) Delete(ctx context.Context, name string, opts v1.DeleteOptions) error {
+func (c *FakeChartInfos) Delete(ctx context.Context, name string, opts metav1.DeleteOptions) error {
 	_, err := c.Fake.
-		Invokes(testing.NewRootDeleteActionWithOptions(chartinfosResource, name, opts), &clusterv1.ChartInfo{})
+		Invokes(testing.NewRootDeleteActionWithOptions(chartinfosResource, name, opts), &v1.ChartInfo{})
 	return err
 }
 
 // DeleteCollection deletes a collection of objects.
-func (c *FakeChartInfos) DeleteCollection(ctx context.Context, opts v1.DeleteOptions, listOpts v1.ListOptions) error {
+func (c *FakeChartInfos) DeleteCollection(ctx context.Context, opts metav1.DeleteOptions, listOpts metav1.ListOptions) error {
 	action := testing.NewRootDeleteCollectionAction(chartinfosResource, listOpts)
 
-	_, err := c.Fake.Invokes(action, &clusterv1.ChartInfoList{})
+	_, err := c.Fake.Invokes(action, &v1.ChartInfoList{})
 	return err
 }
 
 // Patch applies the patch and returns the patched chartInfo.
-func (c *FakeChartInfos) Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts v1.PatchOptions, subresources ...string) (result *clusterv1.ChartInfo, err error) {
+func (c *FakeChartInfos) Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts metav1.PatchOptions, subresources ...string) (result *v1.ChartInfo, err error) {
 	obj, err := c.Fake.
-		Invokes(testing.NewRootPatchSubresourceAction(chartinfosResource, name, pt, data, subresources...), &clusterv1.ChartInfo{})
+		Invokes(testing.NewRootPatchSubresourceAction(chartinfosResource, name, pt, data, subresources...), &v1.ChartInfo{})
 	if obj == nil {
 		return nil, err
 	}
-	return obj.(*clusterv1.ChartInfo), err
+	return obj.(*v1.ChartInfo), err
 }
