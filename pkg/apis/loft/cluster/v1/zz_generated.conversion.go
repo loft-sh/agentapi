@@ -831,7 +831,9 @@ func Convert_cluster_FeatureSpec_To_v1_FeatureSpec(in *cluster.FeatureSpec, out 
 }
 
 func autoConvert_v1_FeatureStatus_To_cluster_FeatureStatus(in *FeatureStatus, out *cluster.FeatureStatus, s conversion.Scope) error {
-	out.Enabled = in.Enabled
+	out.Feature = in.Feature
+	out.Internal = in.Internal
+	out.Used = in.Used
 	return nil
 }
 
@@ -841,7 +843,9 @@ func Convert_v1_FeatureStatus_To_cluster_FeatureStatus(in *FeatureStatus, out *c
 }
 
 func autoConvert_cluster_FeatureStatus_To_v1_FeatureStatus(in *cluster.FeatureStatus, out *FeatureStatus, s conversion.Scope) error {
-	out.Enabled = in.Enabled
+	out.Feature = in.Feature
+	out.Internal = in.Internal
+	out.Used = in.Used
 	return nil
 }
 
