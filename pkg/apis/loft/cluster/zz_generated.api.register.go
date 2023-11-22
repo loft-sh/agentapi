@@ -457,7 +457,6 @@ type SleepModeConfigSpec struct {
 	IgnoreResources         string
 	IgnoreResourceVerbs     string
 	IgnoreResourceNames     string
-	IgnoreUseragents        string
 }
 
 type SleepModeConfigStatus struct {

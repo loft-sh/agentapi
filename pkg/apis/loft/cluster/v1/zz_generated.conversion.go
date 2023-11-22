@@ -1295,7 +1295,6 @@ func autoConvert_v1_SleepModeConfigSpec_To_cluster_SleepModeConfigSpec(in *Sleep
 	out.IgnoreResources = in.IgnoreResources
 	out.IgnoreResourceVerbs = in.IgnoreResourceVerbs
 	out.IgnoreResourceNames = in.IgnoreResourceNames
-	out.IgnoreUseragents = in.IgnoreUseragents
 	return nil
 }
 
@@ -1321,7 +1320,6 @@ func autoConvert_cluster_SleepModeConfigSpec_To_v1_SleepModeConfigSpec(in *clust
 	out.IgnoreResources = in.IgnoreResources
 	out.IgnoreResourceVerbs = in.IgnoreResourceVerbs
 	out.IgnoreResourceNames = in.IgnoreResourceNames
-	out.IgnoreUseragents = in.IgnoreUseragents
 	return nil
 }
 
