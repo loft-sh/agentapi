@@ -443,7 +443,6 @@ type SleepModeConfig struct {
 type SleepModeConfigSpec struct {
 	ForceSleep              bool
 	ForceSleepDuration      *int64
-	DeleteAllPods           bool
 	DeleteAfter             int64
 	SleepAfter              int64
 	SleepSchedule           string

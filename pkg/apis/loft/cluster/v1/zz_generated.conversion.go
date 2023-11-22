@@ -1281,7 +1281,6 @@ func Convert_cluster_SleepModeConfigList_To_v1_SleepModeConfigList(in *cluster.S
 func autoConvert_v1_SleepModeConfigSpec_To_cluster_SleepModeConfigSpec(in *SleepModeConfigSpec, out *cluster.SleepModeConfigSpec, s conversion.Scope) error {
 	out.ForceSleep = in.ForceSleep
 	out.ForceSleepDuration = (*int64)(unsafe.Pointer(in.ForceSleepDuration))
-	out.DeleteAllPods = in.DeleteAllPods
 	out.DeleteAfter = in.DeleteAfter
 	out.SleepAfter = in.SleepAfter
 	out.SleepSchedule = in.SleepSchedule
@@ -1307,7 +1306,6 @@ func Convert_v1_SleepModeConfigSpec_To_cluster_SleepModeConfigSpec(in *SleepMode
 func autoConvert_cluster_SleepModeConfigSpec_To_v1_SleepModeConfigSpec(in *cluster.SleepModeConfigSpec, out *SleepModeConfigSpec, s conversion.Scope) error {
 	out.ForceSleep = in.ForceSleep
 	out.ForceSleepDuration = (*int64)(unsafe.Pointer(in.ForceSleepDuration))
-	out.DeleteAllPods = in.DeleteAllPods
 	out.DeleteAfter = in.DeleteAfter
 	out.SleepAfter = in.SleepAfter
 	out.SleepSchedule = in.SleepSchedule

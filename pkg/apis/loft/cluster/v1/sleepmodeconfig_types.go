@@ -95,11 +95,6 @@ type SleepModeConfigSpec struct {
 	// +optional
 	ForceSleepDuration *int64 `json:"forceSleepDuration,omitempty"`
 
-	// If true will delete all pods on sleep in the space regardless of
-	// if they have a parent set
-	// +optional
-	DeleteAllPods bool `json:"deleteAllPods,omitempty"`
-
 	// DeleteAfter specifies after how many seconds of inactivity the space should be deleted
 	// +optional
 	DeleteAfter int64 `json:"deleteAfter,omitempty"`
