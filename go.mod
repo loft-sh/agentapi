@@ -5,10 +5,10 @@ go 1.21.4
 require (
 	github.com/loft-sh/admin-apis v0.0.0-20231102064836-7a6574be5f16
 	github.com/loft-sh/apiserver v0.0.0-20231018103030-cf3977856bec
-	k8s.io/api v0.28.3
-	k8s.io/apimachinery v0.28.3
-	k8s.io/apiserver v0.28.3
-	k8s.io/client-go v0.28.3
+	k8s.io/api v0.28.4
+	k8s.io/apimachinery v0.28.4
+	k8s.io/apiserver v0.28.4
+	k8s.io/client-go v0.28.4
 	k8s.io/kube-openapi v0.0.0-20231010175941-2dd684a91f00
 	sigs.k8s.io/controller-runtime v0.16.3
 )
@@ -101,7 +101,7 @@ require (
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	k8s.io/component-base v0.28.3 // indirect
+	k8s.io/component-base v0.28.4 // indirect
 	k8s.io/klog/v2 v2.110.1 // indirect
 	k8s.io/utils v0.0.0-20230726121419-3b25d923346b // indirect
 	sigs.k8s.io/apiserver-network-proxy/konnectivity-client v0.28.1 // indirect
@@ -113,3 +113,5 @@ require (
 replace github.com/google/cel-go => github.com/google/cel-go v0.16.1
 
 replace k8s.io/kube-openapi => k8s.io/kube-openapi v0.0.0-20230717233707-2695361300d9
+
+replace k8s.io/apiserver => github.com/loft-sh/k8s-apiserver v0.28.4-loft.0
