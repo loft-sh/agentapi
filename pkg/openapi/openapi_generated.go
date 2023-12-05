@@ -92,6 +92,7 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		"github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.AccessQuota":                          schema_apis_loft_storage_v1_AccessQuota(ref),
 		"github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.AppReference":                         schema_apis_loft_storage_v1_AppReference(ref),
 		"github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.Chart":                                schema_apis_loft_storage_v1_Chart(ref),
+		"github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.ChartSecretRef":                       schema_apis_loft_storage_v1_ChartSecretRef(ref),
 		"github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.ChartStatus":                          schema_apis_loft_storage_v1_ChartStatus(ref),
 		"github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.ClusterQuota":                         schema_apis_loft_storage_v1_ClusterQuota(ref),
 		"github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.ClusterQuotaList":                     schema_apis_loft_storage_v1_ClusterQuotaList(ref),
@@ -116,6 +117,7 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		"github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.LocalUserStatus":                      schema_apis_loft_storage_v1_LocalUserStatus(ref),
 		"github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.ObjectsStatus":                        schema_apis_loft_storage_v1_ObjectsStatus(ref),
 		"github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.PodSelector":                          schema_apis_loft_storage_v1_PodSelector(ref),
+		"github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.ProjectSecretRef":                     schema_apis_loft_storage_v1_ProjectSecretRef(ref),
 		"github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.SecretRef":                            schema_apis_loft_storage_v1_SecretRef(ref),
 		"github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.TemplateHelmChart":                    schema_apis_loft_storage_v1_TemplateHelmChart(ref),
 		"github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.UserOrTeam":                           schema_apis_loft_storage_v1_UserOrTeam(ref),
@@ -4702,11 +4704,23 @@ func schema_apis_loft_storage_v1_Chart(ref common.ReferenceCallback) common.Open
 							Format:      "",
 						},
 					},
+					"usernameRef": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The username that is required for this repository",
+							Ref:         ref("github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.ChartSecretRef"),
+						},
+					},
 					"password": {
 						SchemaProps: spec.SchemaProps{
 							Description: "The password that is required for this repository",
 							Type:        []string{"string"},
 							Format:      "",
+						},
+					},
+					"passwordRef": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The password that is required for this repository",
+							Ref:         ref("github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.ChartSecretRef"),
 						},
 					},
 					"insecureSkipTlsVerify": {
@@ -4719,6 +4733,28 @@ func schema_apis_loft_storage_v1_Chart(ref common.ReferenceCallback) common.Open
 				},
 			},
 		},
+		Dependencies: []string{
+			"github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.ChartSecretRef"},
+	}
+}
+
+func schema_apis_loft_storage_v1_ChartSecretRef(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Type: []string{"object"},
+				Properties: map[string]spec.Schema{
+					"projectSecretRef": {
+						SchemaProps: spec.SchemaProps{
+							Description: "ProjectSecretRef holds the reference to a project secret",
+							Ref:         ref("github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.ProjectSecretRef"),
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			"github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.ProjectSecretRef"},
 	}
 }
 
@@ -5803,6 +5839,39 @@ func schema_apis_loft_storage_v1_PodSelector(ref common.ReferenceCallback) commo
 	}
 }
 
+func schema_apis_loft_storage_v1_ProjectSecretRef(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Type: []string{"object"},
+				Properties: map[string]spec.Schema{
+					"project": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Project is the project name where the secret is located in.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"name": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Name of the project secret to use.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"key": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Key of the project secret to use.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
+			},
+		},
+	}
+}
+
 func schema_apis_loft_storage_v1_SecretRef(ref common.ReferenceCallback) common.OpenAPIDefinition {
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
@@ -5868,11 +5937,23 @@ func schema_apis_loft_storage_v1_TemplateHelmChart(ref common.ReferenceCallback)
 							Format:      "",
 						},
 					},
+					"usernameRef": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The username that is required for this repository",
+							Ref:         ref("github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.ChartSecretRef"),
+						},
+					},
 					"password": {
 						SchemaProps: spec.SchemaProps{
 							Description: "The password that is required for this repository",
 							Type:        []string{"string"},
 							Format:      "",
+						},
+					},
+					"passwordRef": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The password that is required for this repository",
+							Ref:         ref("github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.ChartSecretRef"),
 						},
 					},
 					"insecureSkipTlsVerify": {
@@ -5920,6 +6001,8 @@ func schema_apis_loft_storage_v1_TemplateHelmChart(ref common.ReferenceCallback)
 				},
 			},
 		},
+		Dependencies: []string{
+			"github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1.ChartSecretRef"},
 	}
 }
 
