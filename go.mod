@@ -106,3 +106,7 @@ require (
 	sigs.k8s.io/structured-merge-diff/v4 v4.4.1 // indirect
 	sigs.k8s.io/yaml v1.4.0 // indirect
 )
+
+replace k8s.io/apiserver => github.com/loft-sh/k8s-apiserver v0.29.1-loft.0
+
+replace k8s.io => ../../../../../../../apiserver
