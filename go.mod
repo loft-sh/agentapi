@@ -3,7 +3,7 @@ module github.com/loft-sh/agentapi/v3
 go 1.21.5
 
 require (
-	github.com/loft-sh/admin-apis v0.0.0-20240202092301-43d989db6f95
+	github.com/loft-sh/admin-apis v0.0.0-20240203010124-3600c1c582a8
 	github.com/loft-sh/apiserver v0.0.0-20240125143607-a106e2f2e0f1
 	k8s.io/api v0.29.1
 	k8s.io/apimachinery v0.29.1
@@ -106,7 +106,3 @@ require (
 	sigs.k8s.io/structured-merge-diff/v4 v4.4.1 // indirect
 	sigs.k8s.io/yaml v1.4.0 // indirect
 )
-
-replace k8s.io/apiserver => github.com/loft-sh/k8s-apiserver v0.29.1-loft.0
-
-replace k8s.io => ../../../../../../../apiserver
