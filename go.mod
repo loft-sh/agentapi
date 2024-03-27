@@ -10,7 +10,7 @@ require (
 	k8s.io/apiserver v0.29.1
 	k8s.io/client-go v0.29.1
 	k8s.io/kube-openapi v0.0.0-20240117194847-208609032b15
-	sigs.k8s.io/controller-runtime v0.17.0
+	sigs.k8s.io/controller-runtime v0.17.2
 )
 
 require (
