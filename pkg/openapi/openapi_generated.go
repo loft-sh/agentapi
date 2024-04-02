@@ -3160,6 +3160,13 @@ func schema_apis_loft_cluster_v1_LastActivityInfo(ref common.ReferenceCallback) 
 							Format:      "",
 						},
 					},
+					"metricsRefreshInterval": {
+						SchemaProps: spec.SchemaProps{
+							Description: "MetricsRefreshInterval is the activity refresh interval. This is used to prevent sleeping instances if the last activity metrics have not been refreshed within the interval. Useful for metrics based activty tracking.",
+							Type:        []string{"integer"},
+							Format:      "int64",
+						},
+					},
 				},
 			},
 		},
