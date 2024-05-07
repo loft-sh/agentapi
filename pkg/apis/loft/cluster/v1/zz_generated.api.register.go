@@ -3,7 +3,7 @@
 package v1
 
 import (
-	"github.com/loft-sh/agentapi/v3/pkg/apis/loft/cluster"
+	"github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster"
 	"github.com/loft-sh/apiserver/pkg/builders"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"

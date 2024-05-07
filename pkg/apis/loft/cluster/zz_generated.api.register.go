@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	pkglicenseapi "github.com/loft-sh/admin-apis/pkg/licenseapi"
-	storagev1 "github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1"
+	storagev1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1"
 	"github.com/loft-sh/apiserver/pkg/builders"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/apis/meta/internalversion"
