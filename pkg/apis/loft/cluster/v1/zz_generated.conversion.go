@@ -8,7 +8,7 @@ package v1
 import (
 	unsafe "unsafe"
 
-	cluster "github.com/loft-sh/agentapi/v3/pkg/apis/loft/cluster"
+	cluster "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster"
 	corev1 "k8s.io/api/core/v1"
 	conversion "k8s.io/apimachinery/pkg/conversion"
 	runtime "k8s.io/apimachinery/pkg/runtime"
@@ -1025,6 +1025,7 @@ func autoConvert_v1_LastActivityInfo_To_cluster_LastActivityInfo(in *LastActivit
 	out.Subresource = in.Subresource
 	out.Name = in.Name
 	out.VirtualCluster = in.VirtualCluster
+	out.MetricsRefreshInterval = in.MetricsRefreshInterval
 	return nil
 }
 
@@ -1042,6 +1043,7 @@ func autoConvert_cluster_LastActivityInfo_To_v1_LastActivityInfo(in *cluster.Las
 	out.Subresource = in.Subresource
 	out.Name = in.Name
 	out.VirtualCluster = in.VirtualCluster
+	out.MetricsRefreshInterval = in.MetricsRefreshInterval
 	return nil
 }
 

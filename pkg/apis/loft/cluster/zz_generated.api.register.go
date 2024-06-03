@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	pkglicenseapi "github.com/loft-sh/admin-apis/pkg/licenseapi"
-	storagev1 "github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1"
+	storagev1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1"
 	"github.com/loft-sh/apiserver/pkg/builders"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/apis/meta/internalversion"
@@ -372,14 +372,15 @@ type Info struct {
 }
 
 type LastActivityInfo struct {
-	Subject        string `json:"subject,omitempty"`
-	Host           string `json:"host,omitempty"`
-	Verb           string `json:"verb,omitempty"`
-	APIGroup       string `json:"apiGroup,omitempty"`
-	Resource       string `json:"resource,omitempty"`
-	Subresource    string `json:"subresource,omitempty"`
-	Name           string `json:"name,omitempty"`
-	VirtualCluster string `json:"virtualCluster,omitempty"`
+	Subject                string `json:"subject,omitempty"`
+	Host                   string `json:"host,omitempty"`
+	Verb                   string `json:"verb,omitempty"`
+	APIGroup               string `json:"apiGroup,omitempty"`
+	Resource               string `json:"resource,omitempty"`
+	Subresource            string `json:"subresource,omitempty"`
+	Name                   string `json:"name,omitempty"`
+	VirtualCluster         string `json:"virtualCluster,omitempty"`
+	MetricsRefreshInterval int64  `json:"metricsRefreshInterval,omitempty"`
 }
 
 // +genclient
