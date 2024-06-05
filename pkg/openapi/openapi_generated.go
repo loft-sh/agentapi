@@ -4464,23 +4464,11 @@ func schema_apis_loft_cluster_v1_VirtualClusterSpec(ref common.ReferenceCallback
 							Format:      "",
 						},
 					},
-					"pod": {
-						SchemaProps: spec.SchemaProps{
-							Description: "DEPRECATED: don't use anymore A label selector to select the virtual cluster pod to route incoming requests to.",
-							Ref:         ref("github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.PodSelector"),
-						},
-					},
-					"kubeConfigRef": {
-						SchemaProps: spec.SchemaProps{
-							Description: "DEPRECATED: don't use anymore A reference to the cluster admin kube config. This is needed for the cli & ui to access the virtual clusters",
-							Ref:         ref("github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.SecretRef"),
-						},
-					},
 				},
 			},
 		},
 		Dependencies: []string{
-			"github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.AppReference", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.InstanceAccess", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.PodSelector", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.SecretRef", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.TemplateHelmChart", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.VirtualClusterAccessPoint", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.VirtualClusterHelmRelease", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.VirtualClusterProSpec"},
+			"github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.AppReference", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.InstanceAccess", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.TemplateHelmChart", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.VirtualClusterAccessPoint", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.VirtualClusterHelmRelease", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.VirtualClusterProSpec"},
 	}
 }
 
@@ -6467,23 +6455,11 @@ func schema_apis_loft_storage_v1_VirtualClusterSpec(ref common.ReferenceCallback
 							Format:      "",
 						},
 					},
-					"pod": {
-						SchemaProps: spec.SchemaProps{
-							Description: "DEPRECATED: don't use anymore A label selector to select the virtual cluster pod to route incoming requests to.",
-							Ref:         ref("github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.PodSelector"),
-						},
-					},
-					"kubeConfigRef": {
-						SchemaProps: spec.SchemaProps{
-							Description: "DEPRECATED: don't use anymore A reference to the cluster admin kube config. This is needed for the cli & ui to access the virtual clusters",
-							Ref:         ref("github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.SecretRef"),
-						},
-					},
 				},
 			},
 		},
 		Dependencies: []string{
-			"github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.AppReference", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.InstanceAccess", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.PodSelector", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.SecretRef", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.TemplateHelmChart", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.VirtualClusterAccessPoint", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.VirtualClusterHelmRelease", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.VirtualClusterProSpec"},
+			"github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.AppReference", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.InstanceAccess", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.TemplateHelmChart", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.VirtualClusterAccessPoint", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.VirtualClusterHelmRelease", "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1.VirtualClusterProSpec"},
 	}
 }
 

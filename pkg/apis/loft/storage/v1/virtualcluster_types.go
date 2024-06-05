@@ -32,18 +32,6 @@ type VirtualClusterSpec struct {
 	// VirtualClusterCommonSpec defines virtual cluster spec that is common between the virtual
 	// cluster templates, and virtual cluster
 	VirtualClusterCommonSpec `json:",inline"`
-
-	// DEPRECATED: don't use anymore
-	// A label selector to select the virtual cluster pod to route
-	// incoming requests to.
-	// +optional
-	Pod *PodSelector `json:"pod,omitempty"`
-
-	// DEPRECATED: don't use anymore
-	// A reference to the cluster admin kube config. This is needed for
-	// the cli & ui to access the virtual clusters
-	// +optional
-	KubeConfigRef *SecretRef `json:"kubeConfigRef,omitempty"`
 }
 
 // VirtualClusterCommonSpec holds common attributes for virtual clusters and virtual cluster templates
