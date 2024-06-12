@@ -1023,6 +1023,16 @@ func (in *VirtualClusterProSpec) DeepCopy() *VirtualClusterProSpec {
 func (in *VirtualClusterSpec) DeepCopyInto(out *VirtualClusterSpec) {
 	*out = *in
 	in.VirtualClusterCommonSpec.DeepCopyInto(&out.VirtualClusterCommonSpec)
+	if in.Pod != nil {
+		in, out := &in.Pod, &out.Pod
+		*out = new(PodSelector)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.KubeConfigRef != nil {
+		in, out := &in.KubeConfigRef, &out.KubeConfigRef
+		*out = new(SecretRef)
+		**out = **in
+	}
 	return
 }
 
