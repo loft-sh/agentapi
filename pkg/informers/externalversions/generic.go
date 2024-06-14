@@ -40,32 +40,14 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 	// Group=cluster.loft.sh, Version=v1
 	case v1.SchemeGroupVersion.WithResource("chartinfos"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Cluster().V1().ChartInfos().Informer()}, nil
-	case v1.SchemeGroupVersion.WithResource("clusterquotas"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Cluster().V1().ClusterQuotas().Informer()}, nil
 	case v1.SchemeGroupVersion.WithResource("features"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Cluster().V1().Features().Informer()}, nil
 	case v1.SchemeGroupVersion.WithResource("helmreleases"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Cluster().V1().HelmReleases().Informer()}, nil
-	case v1.SchemeGroupVersion.WithResource("localclusteraccesses"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Cluster().V1().LocalClusterAccesses().Informer()}, nil
-	case v1.SchemeGroupVersion.WithResource("sleepmodeconfigs"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Cluster().V1().SleepModeConfigs().Informer()}, nil
-	case v1.SchemeGroupVersion.WithResource("spaces"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Cluster().V1().Spaces().Informer()}, nil
-	case v1.SchemeGroupVersion.WithResource("virtualclusters"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Cluster().V1().VirtualClusters().Informer()}, nil
 
 		// Group=storage.loft.sh, Version=v1
 	case storagev1.SchemeGroupVersion.WithResource("clusterquotas"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Storage().V1().ClusterQuotas().Informer()}, nil
-	case storagev1.SchemeGroupVersion.WithResource("localclusteraccesses"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Storage().V1().LocalClusterAccesses().Informer()}, nil
-	case storagev1.SchemeGroupVersion.WithResource("localteams"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Storage().V1().LocalTeams().Informer()}, nil
-	case storagev1.SchemeGroupVersion.WithResource("localusers"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Storage().V1().LocalUsers().Informer()}, nil
-	case storagev1.SchemeGroupVersion.WithResource("virtualclusters"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Storage().V1().VirtualClusters().Informer()}, nil
 
 	}
 

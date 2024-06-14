@@ -16,32 +16,12 @@ func (c *FakeClusterV1) ChartInfos() v1.ChartInfoInterface {
 	return &FakeChartInfos{c}
 }
 
-func (c *FakeClusterV1) ClusterQuotas() v1.ClusterQuotaInterface {
-	return &FakeClusterQuotas{c}
-}
-
 func (c *FakeClusterV1) Features() v1.FeatureInterface {
 	return &FakeFeatures{c}
 }
 
 func (c *FakeClusterV1) HelmReleases(namespace string) v1.HelmReleaseInterface {
 	return &FakeHelmReleases{c, namespace}
-}
-
-func (c *FakeClusterV1) LocalClusterAccesses() v1.LocalClusterAccessInterface {
-	return &FakeLocalClusterAccesses{c}
-}
-
-func (c *FakeClusterV1) SleepModeConfigs(namespace string) v1.SleepModeConfigInterface {
-	return &FakeSleepModeConfigs{c, namespace}
-}
-
-func (c *FakeClusterV1) Spaces() v1.SpaceInterface {
-	return &FakeSpaces{c}
-}
-
-func (c *FakeClusterV1) VirtualClusters(namespace string) v1.VirtualClusterInterface {
-	return &FakeVirtualClusters{c, namespace}
 }
 
 // RESTClient returns a RESTClient that is used to communicate

@@ -5,23 +5,3 @@ package v1
 // ClusterQuotaListerExpansion allows custom methods to be added to
 // ClusterQuotaLister.
 type ClusterQuotaListerExpansion interface{}
-
-// LocalClusterAccessListerExpansion allows custom methods to be added to
-// LocalClusterAccessLister.
-type LocalClusterAccessListerExpansion interface{}
-
-// LocalTeamListerExpansion allows custom methods to be added to
-// LocalTeamLister.
-type LocalTeamListerExpansion interface{}
-
-// LocalUserListerExpansion allows custom methods to be added to
-// LocalUserLister.
-type LocalUserListerExpansion interface{}
-
-// VirtualClusterListerExpansion allows custom methods to be added to
-// VirtualClusterLister.
-type VirtualClusterListerExpansion interface{}
-
-// VirtualClusterNamespaceListerExpansion allows custom methods to be added to
-// VirtualClusterNamespaceLister.
-type VirtualClusterNamespaceListerExpansion interface{}

@@ -16,22 +16,6 @@ func (c *FakeStorageV1) ClusterQuotas() v1.ClusterQuotaInterface {
 	return &FakeClusterQuotas{c}
 }
 
-func (c *FakeStorageV1) LocalClusterAccesses() v1.LocalClusterAccessInterface {
-	return &FakeLocalClusterAccesses{c}
-}
-
-func (c *FakeStorageV1) LocalTeams() v1.LocalTeamInterface {
-	return &FakeLocalTeams{c}
-}
-
-func (c *FakeStorageV1) LocalUsers() v1.LocalUserInterface {
-	return &FakeLocalUsers{c}
-}
-
-func (c *FakeStorageV1) VirtualClusters(namespace string) v1.VirtualClusterInterface {
-	return &FakeVirtualClusters{c, namespace}
-}
-
 // RESTClient returns a RESTClient that is used to communicate
 // with API server by this client implementation.
 func (c *FakeStorageV1) RESTClient() rest.Interface {

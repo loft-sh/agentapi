@@ -24,20 +24,10 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 	scheme.AddKnownTypes(cluster.SchemeGroupVersion,
 		&cluster.ChartInfo{},
 		&cluster.ChartInfoList{},
-		&cluster.ClusterQuota{},
-		&cluster.ClusterQuotaList{},
 		&cluster.Feature{},
 		&cluster.FeatureList{},
 		&cluster.HelmRelease{},
 		&cluster.HelmReleaseList{},
-		&cluster.LocalClusterAccess{},
-		&cluster.LocalClusterAccessList{},
-		&cluster.SleepModeConfig{},
-		&cluster.SleepModeConfigList{},
-		&cluster.Space{},
-		&cluster.SpaceList{},
-		&cluster.VirtualCluster{},
-		&cluster.VirtualClusterList{},
 	)
 	return nil
 }

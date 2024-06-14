@@ -10,20 +10,10 @@ import (
 type Interface interface {
 	// ChartInfos returns a ChartInfoInformer.
 	ChartInfos() ChartInfoInformer
-	// ClusterQuotas returns a ClusterQuotaInformer.
-	ClusterQuotas() ClusterQuotaInformer
 	// Features returns a FeatureInformer.
 	Features() FeatureInformer
 	// HelmReleases returns a HelmReleaseInformer.
 	HelmReleases() HelmReleaseInformer
-	// LocalClusterAccesses returns a LocalClusterAccessInformer.
-	LocalClusterAccesses() LocalClusterAccessInformer
-	// SleepModeConfigs returns a SleepModeConfigInformer.
-	SleepModeConfigs() SleepModeConfigInformer
-	// Spaces returns a SpaceInformer.
-	Spaces() SpaceInformer
-	// VirtualClusters returns a VirtualClusterInformer.
-	VirtualClusters() VirtualClusterInformer
 }
 
 type version struct {
@@ -42,11 +32,6 @@ func (v *version) ChartInfos() ChartInfoInformer {
 	return &chartInfoInformer{factory: v.factory, tweakListOptions: v.tweakListOptions}
 }
 
-// ClusterQuotas returns a ClusterQuotaInformer.
-func (v *version) ClusterQuotas() ClusterQuotaInformer {
-	return &clusterQuotaInformer{factory: v.factory, tweakListOptions: v.tweakListOptions}
-}
-
 // Features returns a FeatureInformer.
 func (v *version) Features() FeatureInformer {
 	return &featureInformer{factory: v.factory, tweakListOptions: v.tweakListOptions}
@@ -55,24 +40,4 @@ func (v *version) Features() FeatureInformer {
 // HelmReleases returns a HelmReleaseInformer.
 func (v *version) HelmReleases() HelmReleaseInformer {
 	return &helmReleaseInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
-}
-
-// LocalClusterAccesses returns a LocalClusterAccessInformer.
-func (v *version) LocalClusterAccesses() LocalClusterAccessInformer {
-	return &localClusterAccessInformer{factory: v.factory, tweakListOptions: v.tweakListOptions}
-}
-
-// SleepModeConfigs returns a SleepModeConfigInformer.
-func (v *version) SleepModeConfigs() SleepModeConfigInformer {
-	return &sleepModeConfigInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
-}
-
-// Spaces returns a SpaceInformer.
-func (v *version) Spaces() SpaceInformer {
-	return &spaceInformer{factory: v.factory, tweakListOptions: v.tweakListOptions}
-}
-
-// VirtualClusters returns a VirtualClusterInformer.
-func (v *version) VirtualClusters() VirtualClusterInformer {
-	return &virtualClusterInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

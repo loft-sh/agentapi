@@ -3,11 +3,3 @@
 package v1
 
 type ClusterQuotaExpansion interface{}
-
-type LocalClusterAccessExpansion interface{}
-
-type LocalTeamExpansion interface{}
-
-type LocalUserExpansion interface{}
-
-type VirtualClusterExpansion interface{}

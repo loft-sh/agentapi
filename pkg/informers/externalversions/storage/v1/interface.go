@@ -10,14 +10,6 @@ import (
 type Interface interface {
 	// ClusterQuotas returns a ClusterQuotaInformer.
 	ClusterQuotas() ClusterQuotaInformer
-	// LocalClusterAccesses returns a LocalClusterAccessInformer.
-	LocalClusterAccesses() LocalClusterAccessInformer
-	// LocalTeams returns a LocalTeamInformer.
-	LocalTeams() LocalTeamInformer
-	// LocalUsers returns a LocalUserInformer.
-	LocalUsers() LocalUserInformer
-	// VirtualClusters returns a VirtualClusterInformer.
-	VirtualClusters() VirtualClusterInformer
 }
 
 type version struct {
@@ -34,24 +26,4 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 // ClusterQuotas returns a ClusterQuotaInformer.
 func (v *version) ClusterQuotas() ClusterQuotaInformer {
 	return &clusterQuotaInformer{factory: v.factory, tweakListOptions: v.tweakListOptions}
-}
-
-// LocalClusterAccesses returns a LocalClusterAccessInformer.
-func (v *version) LocalClusterAccesses() LocalClusterAccessInformer {
-	return &localClusterAccessInformer{factory: v.factory, tweakListOptions: v.tweakListOptions}
-}
-
-// LocalTeams returns a LocalTeamInformer.
-func (v *version) LocalTeams() LocalTeamInformer {
-	return &localTeamInformer{factory: v.factory, tweakListOptions: v.tweakListOptions}
-}
-
-// LocalUsers returns a LocalUserInformer.
-func (v *version) LocalUsers() LocalUserInformer {
-	return &localUserInformer{factory: v.factory, tweakListOptions: v.tweakListOptions}
-}
-
-// VirtualClusters returns a VirtualClusterInformer.
-func (v *version) VirtualClusters() VirtualClusterInformer {
-	return &virtualClusterInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

@@ -13,10 +13,6 @@ import (
 type StorageV1Interface interface {
 	RESTClient() rest.Interface
 	ClusterQuotasGetter
-	LocalClusterAccessesGetter
-	LocalTeamsGetter
-	LocalUsersGetter
-	VirtualClustersGetter
 }
 
 // StorageV1Client is used to interact with features provided by the storage.loft.sh group.
@@ -26,22 +22,6 @@ type StorageV1Client struct {
 
 func (c *StorageV1Client) ClusterQuotas() ClusterQuotaInterface {
 	return newClusterQuotas(c)
-}
-
-func (c *StorageV1Client) LocalClusterAccesses() LocalClusterAccessInterface {
-	return newLocalClusterAccesses(c)
-}
-
-func (c *StorageV1Client) LocalTeams() LocalTeamInterface {
-	return newLocalTeams(c)
-}
-
-func (c *StorageV1Client) LocalUsers() LocalUserInterface {
-	return newLocalUsers(c)
-}
-
-func (c *StorageV1Client) VirtualClusters(namespace string) VirtualClusterInterface {
-	return newVirtualClusters(c, namespace)
 }
 
 // NewForConfig creates a new StorageV1Client for the given config.

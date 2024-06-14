@@ -13,13 +13,8 @@ import (
 type ClusterV1Interface interface {
 	RESTClient() rest.Interface
 	ChartInfosGetter
-	ClusterQuotasGetter
 	FeaturesGetter
 	HelmReleasesGetter
-	LocalClusterAccessesGetter
-	SleepModeConfigsGetter
-	SpacesGetter
-	VirtualClustersGetter
 }
 
 // ClusterV1Client is used to interact with features provided by the cluster.loft.sh group.
@@ -31,32 +26,12 @@ func (c *ClusterV1Client) ChartInfos() ChartInfoInterface {
 	return newChartInfos(c)
 }
 
-func (c *ClusterV1Client) ClusterQuotas() ClusterQuotaInterface {
-	return newClusterQuotas(c)
-}
-
 func (c *ClusterV1Client) Features() FeatureInterface {
 	return newFeatures(c)
 }
 
 func (c *ClusterV1Client) HelmReleases(namespace string) HelmReleaseInterface {
 	return newHelmReleases(c, namespace)
-}
-
-func (c *ClusterV1Client) LocalClusterAccesses() LocalClusterAccessInterface {
-	return newLocalClusterAccesses(c)
-}
-
-func (c *ClusterV1Client) SleepModeConfigs(namespace string) SleepModeConfigInterface {
-	return newSleepModeConfigs(c, namespace)
-}
-
-func (c *ClusterV1Client) Spaces() SpaceInterface {
-	return newSpaces(c)
-}
-
-func (c *ClusterV1Client) VirtualClusters(namespace string) VirtualClusterInterface {
-	return newVirtualClusters(c, namespace)
 }
 
 // NewForConfig creates a new ClusterV1Client for the given config.
