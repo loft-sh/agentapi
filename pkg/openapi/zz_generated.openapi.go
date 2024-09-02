@@ -1262,6 +1262,13 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_License(ref common.ReferenceCallba
 							Format:      "",
 						},
 					},
+					"entity": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Entity holds a name for an organization, person or entity this product is licensed for. This will be displayed to the user.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
 					"analytics": {
 						SchemaProps: spec.SchemaProps{
 							Description: "Analytics indicates the analytics endpoints and which requests should be sent to the analytics server.",
@@ -2054,9 +2061,23 @@ func schema_apis_loft_cluster_v1_Bash(ref common.ReferenceCallback) common.OpenA
 							Format:      "",
 						},
 					},
+					"podSecurityContext": {
+						SchemaProps: spec.SchemaProps{
+							Description: "PodSecurityContext for the bash pod.",
+							Ref:         ref("k8s.io/api/core/v1.PodSecurityContext"),
+						},
+					},
+					"securityContext": {
+						SchemaProps: spec.SchemaProps{
+							Description: "SecurityContext for the bash container.",
+							Ref:         ref("k8s.io/api/core/v1.SecurityContext"),
+						},
+					},
 				},
 			},
 		},
+		Dependencies: []string{
+			"k8s.io/api/core/v1.PodSecurityContext", "k8s.io/api/core/v1.SecurityContext"},
 	}
 }
 
