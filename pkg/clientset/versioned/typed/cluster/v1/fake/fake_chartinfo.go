@@ -24,20 +24,22 @@ var chartinfosKind = v1.SchemeGroupVersion.WithKind("ChartInfo")
 
 // Get takes name of the chartInfo, and returns the corresponding chartInfo object, and an error if there is any.
 func (c *FakeChartInfos) Get(ctx context.Context, name string, options metav1.GetOptions) (result *v1.ChartInfo, err error) {
+	emptyResult := &v1.ChartInfo{}
 	obj, err := c.Fake.
-		Invokes(testing.NewRootGetAction(chartinfosResource, name), &v1.ChartInfo{})
+		Invokes(testing.NewRootGetActionWithOptions(chartinfosResource, name, options), emptyResult)
 	if obj == nil {
-		return nil, err
+		return emptyResult, err
 	}
 	return obj.(*v1.ChartInfo), err
 }
 
 // List takes label and field selectors, and returns the list of ChartInfos that match those selectors.
 func (c *FakeChartInfos) List(ctx context.Context, opts metav1.ListOptions) (result *v1.ChartInfoList, err error) {
+	emptyResult := &v1.ChartInfoList{}
 	obj, err := c.Fake.
-		Invokes(testing.NewRootListAction(chartinfosResource, chartinfosKind, opts), &v1.ChartInfoList{})
+		Invokes(testing.NewRootListActionWithOptions(chartinfosResource, chartinfosKind, opts), emptyResult)
 	if obj == nil {
-		return nil, err
+		return emptyResult, err
 	}
 
 	label, _, _ := testing.ExtractFromListOptions(opts)
@@ -56,36 +58,39 @@ func (c *FakeChartInfos) List(ctx context.Context, opts metav1.ListOptions) (res
 // Watch returns a watch.Interface that watches the requested chartInfos.
 func (c *FakeChartInfos) Watch(ctx context.Context, opts metav1.ListOptions) (watch.Interface, error) {
 	return c.Fake.
-		InvokesWatch(testing.NewRootWatchAction(chartinfosResource, opts))
+		InvokesWatch(testing.NewRootWatchActionWithOptions(chartinfosResource, opts))
 }
 
 // Create takes the representation of a chartInfo and creates it.  Returns the server's representation of the chartInfo, and an error, if there is any.
 func (c *FakeChartInfos) Create(ctx context.Context, chartInfo *v1.ChartInfo, opts metav1.CreateOptions) (result *v1.ChartInfo, err error) {
+	emptyResult := &v1.ChartInfo{}
 	obj, err := c.Fake.
-		Invokes(testing.NewRootCreateAction(chartinfosResource, chartInfo), &v1.ChartInfo{})
+		Invokes(testing.NewRootCreateActionWithOptions(chartinfosResource, chartInfo, opts), emptyResult)
 	if obj == nil {
-		return nil, err
+		return emptyResult, err
 	}
 	return obj.(*v1.ChartInfo), err
 }
 
 // Update takes the representation of a chartInfo and updates it. Returns the server's representation of the chartInfo, and an error, if there is any.
 func (c *FakeChartInfos) Update(ctx context.Context, chartInfo *v1.ChartInfo, opts metav1.UpdateOptions) (result *v1.ChartInfo, err error) {
+	emptyResult := &v1.ChartInfo{}
 	obj, err := c.Fake.
-		Invokes(testing.NewRootUpdateAction(chartinfosResource, chartInfo), &v1.ChartInfo{})
+		Invokes(testing.NewRootUpdateActionWithOptions(chartinfosResource, chartInfo, opts), emptyResult)
 	if obj == nil {
-		return nil, err
+		return emptyResult, err
 	}
 	return obj.(*v1.ChartInfo), err
 }
 
 // UpdateStatus was generated because the type contains a Status member.
 // Add a +genclient:noStatus comment above the type to avoid generating UpdateStatus().
-func (c *FakeChartInfos) UpdateStatus(ctx context.Context, chartInfo *v1.ChartInfo, opts metav1.UpdateOptions) (*v1.ChartInfo, error) {
+func (c *FakeChartInfos) UpdateStatus(ctx context.Context, chartInfo *v1.ChartInfo, opts metav1.UpdateOptions) (result *v1.ChartInfo, err error) {
+	emptyResult := &v1.ChartInfo{}
 	obj, err := c.Fake.
-		Invokes(testing.NewRootUpdateSubresourceAction(chartinfosResource, "status", chartInfo), &v1.ChartInfo{})
+		Invokes(testing.NewRootUpdateSubresourceActionWithOptions(chartinfosResource, "status", chartInfo, opts), emptyResult)
 	if obj == nil {
-		return nil, err
+		return emptyResult, err
 	}
 	return obj.(*v1.ChartInfo), err
 }
@@ -99,7 +104,7 @@ func (c *FakeChartInfos) Delete(ctx context.Context, name string, opts metav1.De
 
 // DeleteCollection deletes a collection of objects.
 func (c *FakeChartInfos) DeleteCollection(ctx context.Context, opts metav1.DeleteOptions, listOpts metav1.ListOptions) error {
-	action := testing.NewRootDeleteCollectionAction(chartinfosResource, listOpts)
+	action := testing.NewRootDeleteCollectionActionWithOptions(chartinfosResource, opts, listOpts)
 
 	_, err := c.Fake.Invokes(action, &v1.ChartInfoList{})
 	return err
@@ -107,10 +112,11 @@ func (c *FakeChartInfos) DeleteCollection(ctx context.Context, opts metav1.Delet
 
 // Patch applies the patch and returns the patched chartInfo.
 func (c *FakeChartInfos) Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts metav1.PatchOptions, subresources ...string) (result *v1.ChartInfo, err error) {
+	emptyResult := &v1.ChartInfo{}
 	obj, err := c.Fake.
-		Invokes(testing.NewRootPatchSubresourceAction(chartinfosResource, name, pt, data, subresources...), &v1.ChartInfo{})
+		Invokes(testing.NewRootPatchSubresourceActionWithOptions(chartinfosResource, name, pt, data, opts, subresources...), emptyResult)
 	if obj == nil {
-		return nil, err
+		return emptyResult, err
 	}
 	return obj.(*v1.ChartInfo), err
 }

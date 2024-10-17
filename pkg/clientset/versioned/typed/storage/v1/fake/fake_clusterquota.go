@@ -24,20 +24,22 @@ var clusterquotasKind = v1.SchemeGroupVersion.WithKind("ClusterQuota")
 
 // Get takes name of the clusterQuota, and returns the corresponding clusterQuota object, and an error if there is any.
 func (c *FakeClusterQuotas) Get(ctx context.Context, name string, options metav1.GetOptions) (result *v1.ClusterQuota, err error) {
+	emptyResult := &v1.ClusterQuota{}
 	obj, err := c.Fake.
-		Invokes(testing.NewRootGetAction(clusterquotasResource, name), &v1.ClusterQuota{})
+		Invokes(testing.NewRootGetActionWithOptions(clusterquotasResource, name, options), emptyResult)
 	if obj == nil {
-		return nil, err
+		return emptyResult, err
 	}
 	return obj.(*v1.ClusterQuota), err
 }
 
 // List takes label and field selectors, and returns the list of ClusterQuotas that match those selectors.
 func (c *FakeClusterQuotas) List(ctx context.Context, opts metav1.ListOptions) (result *v1.ClusterQuotaList, err error) {
+	emptyResult := &v1.ClusterQuotaList{}
 	obj, err := c.Fake.
-		Invokes(testing.NewRootListAction(clusterquotasResource, clusterquotasKind, opts), &v1.ClusterQuotaList{})
+		Invokes(testing.NewRootListActionWithOptions(clusterquotasResource, clusterquotasKind, opts), emptyResult)
 	if obj == nil {
-		return nil, err
+		return emptyResult, err
 	}
 
 	label, _, _ := testing.ExtractFromListOptions(opts)
@@ -56,36 +58,39 @@ func (c *FakeClusterQuotas) List(ctx context.Context, opts metav1.ListOptions) (
 // Watch returns a watch.Interface that watches the requested clusterQuotas.
 func (c *FakeClusterQuotas) Watch(ctx context.Context, opts metav1.ListOptions) (watch.Interface, error) {
 	return c.Fake.
-		InvokesWatch(testing.NewRootWatchAction(clusterquotasResource, opts))
+		InvokesWatch(testing.NewRootWatchActionWithOptions(clusterquotasResource, opts))
 }
 
 // Create takes the representation of a clusterQuota and creates it.  Returns the server's representation of the clusterQuota, and an error, if there is any.
 func (c *FakeClusterQuotas) Create(ctx context.Context, clusterQuota *v1.ClusterQuota, opts metav1.CreateOptions) (result *v1.ClusterQuota, err error) {
+	emptyResult := &v1.ClusterQuota{}
 	obj, err := c.Fake.
-		Invokes(testing.NewRootCreateAction(clusterquotasResource, clusterQuota), &v1.ClusterQuota{})
+		Invokes(testing.NewRootCreateActionWithOptions(clusterquotasResource, clusterQuota, opts), emptyResult)
 	if obj == nil {
-		return nil, err
+		return emptyResult, err
 	}
 	return obj.(*v1.ClusterQuota), err
 }
 
 // Update takes the representation of a clusterQuota and updates it. Returns the server's representation of the clusterQuota, and an error, if there is any.
 func (c *FakeClusterQuotas) Update(ctx context.Context, clusterQuota *v1.ClusterQuota, opts metav1.UpdateOptions) (result *v1.ClusterQuota, err error) {
+	emptyResult := &v1.ClusterQuota{}
 	obj, err := c.Fake.
-		Invokes(testing.NewRootUpdateAction(clusterquotasResource, clusterQuota), &v1.ClusterQuota{})
+		Invokes(testing.NewRootUpdateActionWithOptions(clusterquotasResource, clusterQuota, opts), emptyResult)
 	if obj == nil {
-		return nil, err
+		return emptyResult, err
 	}
 	return obj.(*v1.ClusterQuota), err
 }
 
 // UpdateStatus was generated because the type contains a Status member.
 // Add a +genclient:noStatus comment above the type to avoid generating UpdateStatus().
-func (c *FakeClusterQuotas) UpdateStatus(ctx context.Context, clusterQuota *v1.ClusterQuota, opts metav1.UpdateOptions) (*v1.ClusterQuota, error) {
+func (c *FakeClusterQuotas) UpdateStatus(ctx context.Context, clusterQuota *v1.ClusterQuota, opts metav1.UpdateOptions) (result *v1.ClusterQuota, err error) {
+	emptyResult := &v1.ClusterQuota{}
 	obj, err := c.Fake.
-		Invokes(testing.NewRootUpdateSubresourceAction(clusterquotasResource, "status", clusterQuota), &v1.ClusterQuota{})
+		Invokes(testing.NewRootUpdateSubresourceActionWithOptions(clusterquotasResource, "status", clusterQuota, opts), emptyResult)
 	if obj == nil {
-		return nil, err
+		return emptyResult, err
 	}
 	return obj.(*v1.ClusterQuota), err
 }
@@ -99,7 +104,7 @@ func (c *FakeClusterQuotas) Delete(ctx context.Context, name string, opts metav1
 
 // DeleteCollection deletes a collection of objects.
 func (c *FakeClusterQuotas) DeleteCollection(ctx context.Context, opts metav1.DeleteOptions, listOpts metav1.ListOptions) error {
-	action := testing.NewRootDeleteCollectionAction(clusterquotasResource, listOpts)
+	action := testing.NewRootDeleteCollectionActionWithOptions(clusterquotasResource, opts, listOpts)
 
 	_, err := c.Fake.Invokes(action, &v1.ClusterQuotaList{})
 	return err
@@ -107,10 +112,11 @@ func (c *FakeClusterQuotas) DeleteCollection(ctx context.Context, opts metav1.De
 
 // Patch applies the patch and returns the patched clusterQuota.
 func (c *FakeClusterQuotas) Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts metav1.PatchOptions, subresources ...string) (result *v1.ClusterQuota, err error) {
+	emptyResult := &v1.ClusterQuota{}
 	obj, err := c.Fake.
-		Invokes(testing.NewRootPatchSubresourceAction(clusterquotasResource, name, pt, data, subresources...), &v1.ClusterQuota{})
+		Invokes(testing.NewRootPatchSubresourceActionWithOptions(clusterquotasResource, name, pt, data, opts, subresources...), emptyResult)
 	if obj == nil {
-		return nil, err
+		return emptyResult, err
 	}
 	return obj.(*v1.ClusterQuota), err
 }
