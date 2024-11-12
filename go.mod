@@ -3,7 +3,7 @@ module github.com/loft-sh/agentapi/v4
 go 1.22.5
 
 require (
-	github.com/loft-sh/admin-apis v0.0.0-20240814093917-dc663916b354
+	github.com/loft-sh/admin-apis v0.0.0-20241105163154-88dd686aaba0
 	github.com/loft-sh/apiserver v0.0.0-20241008120650-f17d504a4d0d
 	k8s.io/api v0.31.1
 	k8s.io/apimachinery v0.31.1
