@@ -3,13 +3,13 @@
 package v1
 
 import (
-	"context"
+	context "context"
 	time "time"
 
-	storagev1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1"
+	loftstoragev1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1"
 	versioned "github.com/loft-sh/agentapi/v4/pkg/clientset/versioned"
 	internalinterfaces "github.com/loft-sh/agentapi/v4/pkg/informers/externalversions/internalinterfaces"
-	v1 "github.com/loft-sh/agentapi/v4/pkg/listers/storage/v1"
+	storagev1 "github.com/loft-sh/agentapi/v4/pkg/listers/storage/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	watch "k8s.io/apimachinery/pkg/watch"
@@ -20,7 +20,7 @@ import (
 // ClusterQuotas.
 type ClusterQuotaInformer interface {
 	Informer() cache.SharedIndexInformer
-	Lister() v1.ClusterQuotaLister
+	Lister() storagev1.ClusterQuotaLister
 }
 
 type clusterQuotaInformer struct {
@@ -54,7 +54,7 @@ func NewFilteredClusterQuotaInformer(client versioned.Interface, resyncPeriod ti
 				return client.StorageV1().ClusterQuotas().Watch(context.TODO(), options)
 			},
 		},
-		&storagev1.ClusterQuota{},
+		&loftstoragev1.ClusterQuota{},
 		resyncPeriod,
 		indexers,
 	)
@@ -65,9 +65,9 @@ func (f *clusterQuotaInformer) defaultInformer(client versioned.Interface, resyn
 }
 
 func (f *clusterQuotaInformer) Informer() cache.SharedIndexInformer {
-	return f.factory.InformerFor(&storagev1.ClusterQuota{}, f.defaultInformer)
+	return f.factory.InformerFor(&loftstoragev1.ClusterQuota{}, f.defaultInformer)
 }
 
-func (f *clusterQuotaInformer) Lister() v1.ClusterQuotaLister {
-	return v1.NewClusterQuotaLister(f.Informer().GetIndexer())
+func (f *clusterQuotaInformer) Lister() storagev1.ClusterQuotaLister {
+	return storagev1.NewClusterQuotaLister(f.Informer().GetIndexer())
 }
