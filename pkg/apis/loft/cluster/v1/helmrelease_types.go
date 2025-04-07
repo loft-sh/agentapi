@@ -1,7 +1,7 @@
 package v1
 
 import (
-	corev1 "k8s.io/api/core/v1"
+	agentstoragev1 "github.com/loft-sh/agentapi/v3/pkg/apis/loft/storage/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -48,7 +48,7 @@ type HelmReleaseApp struct {
 type HelmReleaseConfig struct {
 	// Chart holds information about a chart that should get deployed
 	// +optional
-	Chart Chart `json:"chart,omitempty"`
+	Chart agentstoragev1.Chart `json:"chart,omitempty"`
 
 	// Manifests holds kube manifests that will be deployed as a chart
 	// +optional
@@ -74,60 +74,6 @@ type HelmReleaseConfig struct {
 	Annotations map[string]string `json:"annotations,omitempty"`
 }
 
-type ChartSecretRef struct {
-	// ProjectSecretRef holds the reference to a project secret
-	// +optional
-	ProjectSecretRef *ProjectSecretRef `json:"projectSecretRef,omitempty"`
-}
-
-type ProjectSecretRef struct {
-	// Project is the project name where the secret is located in.
-	// +optional
-	Project string `json:"project,omitempty"`
-
-	// Name of the project secret to use.
-	// +optional
-	Name string `json:"name,omitempty"`
-
-	// Key of the project secret to use.
-	// +optional
-	Key string `json:"key,omitempty"`
-}
-
-// Chart describes a chart
-type Chart struct {
-	// Name is the chart name in the repository
-	Name string `json:"name,omitempty"`
-
-	// Version is the chart version in the repository
-	// +optional
-	Version string `json:"version,omitempty"`
-
-	// RepoURL is the repo url where the chart can be found
-	// +optional
-	RepoURL string `json:"repoURL,omitempty"`
-
-	// The username that is required for this repository
-	// +optional
-	Username string `json:"username,omitempty"`
-
-	// The username that is required for this repository
-	// +optional
-	UsernameRef *ChartSecretRef `json:"usernameRef,omitempty"`
-
-	// The password that is required for this repository
-	// +optional
-	Password string `json:"password,omitempty"`
-
-	// The password that is required for this repository
-	// +optional
-	PasswordRef *ChartSecretRef `json:"passwordRef,omitempty"`
-
-	// If tls certificate checks for the chart download should be skipped
-	// +optional
-	InsecureSkipTlsVerify bool `json:"insecureSkipTlsVerify,omitempty"`
-}
-
 type Bash struct {
 	// Script is the script to execute.
 	// +optional
@@ -140,14 +86,6 @@ type Bash struct {
 	// ClusterRole is the cluster role to use for this job
 	// +optional
 	ClusterRole string `json:"clusterRole,omitempty"`
-
-	// PodSecurityContext for the bash pod.
-	// +optional
-	PodSecurityContext *corev1.PodSecurityContext `json:"podSecurityContext,omitempty"`
-
-	// SecurityContext for the bash container.
-	// +optional
-	SecurityContext *corev1.SecurityContext `json:"securityContext,omitempty"`
 }
 
 // Info describes release information.
