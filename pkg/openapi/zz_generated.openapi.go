@@ -1047,10 +1047,11 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_Feature(ref common.ReferenceCallba
 							Format: "",
 						},
 					},
-					"description": {
+					"preview": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "Preview represents whether the feature can be previewed if a user's license does not allow the feature",
+							Type:        []string{"boolean"},
+							Format:      "",
 						},
 					},
 					"status": {
@@ -1058,28 +1059,6 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_Feature(ref common.ReferenceCallba
 							Description: "Status shows the status of the feature (see type FeatureStatus)",
 							Type:        []string{"string"},
 							Format:      "",
-						},
-					},
-					"compatibility": {
-						SchemaProps: spec.SchemaProps{
-							Description: "Compatibility contains a series of semver compatibility constraints",
-							Type:        []string{"string"},
-							Format:      "",
-						},
-					},
-					"labels": {
-						SchemaProps: spec.SchemaProps{
-							Description: "Labels contains a list of labels to be displayed for this feature (e.g. alpha, beta)",
-							Type:        []string{"array"},
-							Items: &spec.SchemaOrArray{
-								Schema: &spec.Schema{
-									SchemaProps: spec.SchemaProps{
-										Default: "",
-										Type:    []string{"string"},
-										Format:  "",
-									},
-								},
-							},
 						},
 					},
 				},
@@ -2476,10 +2455,11 @@ func schema_apis_loft_cluster_v1_FeatureStatus(ref common.ReferenceCallback) com
 							Format: "",
 						},
 					},
-					"description": {
+					"preview": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "Preview represents whether the feature can be previewed if a user's license does not allow the feature",
+							Type:        []string{"boolean"},
+							Format:      "",
 						},
 					},
 					"status": {
@@ -2487,28 +2467,6 @@ func schema_apis_loft_cluster_v1_FeatureStatus(ref common.ReferenceCallback) com
 							Description: "Status shows the status of the feature (see type FeatureStatus)",
 							Type:        []string{"string"},
 							Format:      "",
-						},
-					},
-					"compatibility": {
-						SchemaProps: spec.SchemaProps{
-							Description: "Compatibility contains a series of semver compatibility constraints",
-							Type:        []string{"string"},
-							Format:      "",
-						},
-					},
-					"labels": {
-						SchemaProps: spec.SchemaProps{
-							Description: "Labels contains a list of labels to be displayed for this feature (e.g. alpha, beta)",
-							Type:        []string{"array"},
-							Items: &spec.SchemaOrArray{
-								Schema: &spec.Schema{
-									SchemaProps: spec.SchemaProps{
-										Default: "",
-										Type:    []string{"string"},
-										Format:  "",
-									},
-								},
-							},
 						},
 					},
 					"internal": {
