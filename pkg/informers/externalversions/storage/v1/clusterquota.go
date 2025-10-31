@@ -45,13 +45,25 @@ func NewFilteredClusterQuotaInformer(client versioned.Interface, resyncPeriod ti
 				if tweakListOptions != nil {
 					tweakListOptions(&options)
 				}
-				return client.StorageV1().ClusterQuotas().List(context.TODO(), options)
+				return client.StorageV1().ClusterQuotas().List(context.Background(), options)
 			},
 			WatchFunc: func(options metav1.ListOptions) (watch.Interface, error) {
 				if tweakListOptions != nil {
 					tweakListOptions(&options)
 				}
-				return client.StorageV1().ClusterQuotas().Watch(context.TODO(), options)
+				return client.StorageV1().ClusterQuotas().Watch(context.Background(), options)
+			},
+			ListWithContextFunc: func(ctx context.Context, options metav1.ListOptions) (runtime.Object, error) {
+				if tweakListOptions != nil {
+					tweakListOptions(&options)
+				}
+				return client.StorageV1().ClusterQuotas().List(ctx, options)
+			},
+			WatchFuncWithContext: func(ctx context.Context, options metav1.ListOptions) (watch.Interface, error) {
+				if tweakListOptions != nil {
+					tweakListOptions(&options)
+				}
+				return client.StorageV1().ClusterQuotas().Watch(ctx, options)
 			},
 		},
 		&loftstoragev1.ClusterQuota{},
