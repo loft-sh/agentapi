@@ -5,7 +5,7 @@ go 1.24.0
 toolchain go1.24.4
 
 require (
-	github.com/loft-sh/admin-apis v0.0.0-20251121090449-13f05b20017c
+	github.com/loft-sh/admin-apis v0.0.0-20260107140926-51c6ca9ce68d
 	github.com/loft-sh/apiserver v0.0.0-20250910060242-4b9f3ffe0646
 	k8s.io/api v0.34.0
 	k8s.io/apimachinery v0.34.0
