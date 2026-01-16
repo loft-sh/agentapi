@@ -3,13 +3,13 @@
 package v1
 
 import (
-	"context"
+	context "context"
 	time "time"
 
-	clusterv1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
+	loftclusterv1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
 	versioned "github.com/loft-sh/agentapi/v4/pkg/clientset/versioned"
 	internalinterfaces "github.com/loft-sh/agentapi/v4/pkg/informers/externalversions/internalinterfaces"
-	v1 "github.com/loft-sh/agentapi/v4/pkg/listers/cluster/v1"
+	clusterv1 "github.com/loft-sh/agentapi/v4/pkg/listers/cluster/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	watch "k8s.io/apimachinery/pkg/watch"
@@ -20,7 +20,7 @@ import (
 // HelmReleases.
 type HelmReleaseInformer interface {
 	Informer() cache.SharedIndexInformer
-	Lister() v1.HelmReleaseLister
+	Lister() clusterv1.HelmReleaseLister
 }
 
 type helmReleaseInformer struct {
@@ -46,16 +46,28 @@ func NewFilteredHelmReleaseInformer(client versioned.Interface, namespace string
 				if tweakListOptions != nil {
 					tweakListOptions(&options)
 				}
-				return client.ClusterV1().HelmReleases(namespace).List(context.TODO(), options)
+				return client.ClusterV1().HelmReleases(namespace).List(context.Background(), options)
 			},
 			WatchFunc: func(options metav1.ListOptions) (watch.Interface, error) {
 				if tweakListOptions != nil {
 					tweakListOptions(&options)
 				}
-				return client.ClusterV1().HelmReleases(namespace).Watch(context.TODO(), options)
+				return client.ClusterV1().HelmReleases(namespace).Watch(context.Background(), options)
+			},
+			ListWithContextFunc: func(ctx context.Context, options metav1.ListOptions) (runtime.Object, error) {
+				if tweakListOptions != nil {
+					tweakListOptions(&options)
+				}
+				return client.ClusterV1().HelmReleases(namespace).List(ctx, options)
+			},
+			WatchFuncWithContext: func(ctx context.Context, options metav1.ListOptions) (watch.Interface, error) {
+				if tweakListOptions != nil {
+					tweakListOptions(&options)
+				}
+				return client.ClusterV1().HelmReleases(namespace).Watch(ctx, options)
 			},
 		},
-		&clusterv1.HelmRelease{},
+		&loftclusterv1.HelmRelease{},
 		resyncPeriod,
 		indexers,
 	)
@@ -66,9 +78,9 @@ func (f *helmReleaseInformer) defaultInformer(client versioned.Interface, resync
 }
 
 func (f *helmReleaseInformer) Informer() cache.SharedIndexInformer {
-	return f.factory.InformerFor(&clusterv1.HelmRelease{}, f.defaultInformer)
+	return f.factory.InformerFor(&loftclusterv1.HelmRelease{}, f.defaultInformer)
 }
 
-func (f *helmReleaseInformer) Lister() v1.HelmReleaseLister {
-	return v1.NewHelmReleaseLister(f.Informer().GetIndexer())
+func (f *helmReleaseInformer) Lister() clusterv1.HelmReleaseLister {
+	return clusterv1.NewHelmReleaseLister(f.Informer().GetIndexer())
 }
