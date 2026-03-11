@@ -6,6 +6,7 @@
 package openapi
 
 import (
+	licenseapi "github.com/loft-sh/admin-apis/pkg/licenseapi"
 	v1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
 	storagev1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1"
 	admissionregistrationv1 "k8s.io/api/admissionregistration/v1"
@@ -54,37 +55,45 @@ import (
 
 func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenAPIDefinition {
 	return map[string]common.OpenAPIDefinition{
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.Analytics":                          schema_loft_sh_admin_apis_pkg_licenseapi_Analytics(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.Announcement":                       schema_loft_sh_admin_apis_pkg_licenseapi_Announcement(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.BlockRequest":                       schema_loft_sh_admin_apis_pkg_licenseapi_BlockRequest(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.Button":                             schema_loft_sh_admin_apis_pkg_licenseapi_Button(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.Feature":                            schema_loft_sh_admin_apis_pkg_licenseapi_Feature(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.FeatureUsage":                       schema_loft_sh_admin_apis_pkg_licenseapi_FeatureUsage(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.GenericRequestInput":                schema_loft_sh_admin_apis_pkg_licenseapi_GenericRequestInput(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.GenericRequestOutput":               schema_loft_sh_admin_apis_pkg_licenseapi_GenericRequestOutput(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.InstanceTokenAuth":                  schema_loft_sh_admin_apis_pkg_licenseapi_InstanceTokenAuth(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.InstanceTokenClaims":                schema_loft_sh_admin_apis_pkg_licenseapi_InstanceTokenClaims(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.Invoice":                            schema_loft_sh_admin_apis_pkg_licenseapi_Invoice(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.License":                            schema_loft_sh_admin_apis_pkg_licenseapi_License(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.LicenseAPIRoute":                    schema_loft_sh_admin_apis_pkg_licenseapi_LicenseAPIRoute(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.LicenseAPIRoutes":                   schema_loft_sh_admin_apis_pkg_licenseapi_LicenseAPIRoutes(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.Limit":                              schema_loft_sh_admin_apis_pkg_licenseapi_Limit(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.Module":                             schema_loft_sh_admin_apis_pkg_licenseapi_Module(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.NodeInfo":                           schema_loft_sh_admin_apis_pkg_licenseapi_NodeInfo(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.OfflineLicenseKeyClaims":            schema_loft_sh_admin_apis_pkg_licenseapi_OfflineLicenseKeyClaims(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.Plan":                               schema_loft_sh_admin_apis_pkg_licenseapi_Plan(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.PlanExpiration":                     schema_loft_sh_admin_apis_pkg_licenseapi_PlanExpiration(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.PlanPeriod":                         schema_loft_sh_admin_apis_pkg_licenseapi_PlanPeriod(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.PlanPrice":                          schema_loft_sh_admin_apis_pkg_licenseapi_PlanPrice(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.PlatformDatabase":                   schema_loft_sh_admin_apis_pkg_licenseapi_PlatformDatabase(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.PriceTier":                          schema_loft_sh_admin_apis_pkg_licenseapi_PriceTier(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.Request":                            schema_loft_sh_admin_apis_pkg_licenseapi_Request(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.ResourceCount":                      schema_loft_sh_admin_apis_pkg_licenseapi_ResourceCount(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.TierResource":                       schema_loft_sh_admin_apis_pkg_licenseapi_TierResource(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.Trial":                              schema_loft_sh_admin_apis_pkg_licenseapi_Trial(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.UsageData":                          schema_loft_sh_admin_apis_pkg_licenseapi_UsageData(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.UsageDataDetails":                   schema_loft_sh_admin_apis_pkg_licenseapi_UsageDataDetails(ref),
-		"github.com/loft-sh/admin-apis/pkg/licenseapi.VirtualClusterInfo":                 schema_loft_sh_admin_apis_pkg_licenseapi_VirtualClusterInfo(ref),
+		licenseapi.Analytics{}.OpenAPIModelName():                                         schema_loft_sh_admin_apis_pkg_licenseapi_Analytics(ref),
+		licenseapi.Announcement{}.OpenAPIModelName():                                      schema_loft_sh_admin_apis_pkg_licenseapi_Announcement(ref),
+		licenseapi.BlockRequest{}.OpenAPIModelName():                                      schema_loft_sh_admin_apis_pkg_licenseapi_BlockRequest(ref),
+		licenseapi.Button{}.OpenAPIModelName():                                            schema_loft_sh_admin_apis_pkg_licenseapi_Button(ref),
+		licenseapi.ChatAuthCreateInput{}.OpenAPIModelName():                               schema_loft_sh_admin_apis_pkg_licenseapi_ChatAuthCreateInput(ref),
+		licenseapi.ChatAuthCreateOutput{}.OpenAPIModelName():                              schema_loft_sh_admin_apis_pkg_licenseapi_ChatAuthCreateOutput(ref),
+		licenseapi.DomainToken{}.OpenAPIModelName():                                       schema_loft_sh_admin_apis_pkg_licenseapi_DomainToken(ref),
+		licenseapi.Feature{}.OpenAPIModelName():                                           schema_loft_sh_admin_apis_pkg_licenseapi_Feature(ref),
+		licenseapi.FeatureUsage{}.OpenAPIModelName():                                      schema_loft_sh_admin_apis_pkg_licenseapi_FeatureUsage(ref),
+		licenseapi.GenericRequestInput{}.OpenAPIModelName():                               schema_loft_sh_admin_apis_pkg_licenseapi_GenericRequestInput(ref),
+		licenseapi.GenericRequestOutput{}.OpenAPIModelName():                              schema_loft_sh_admin_apis_pkg_licenseapi_GenericRequestOutput(ref),
+		licenseapi.InstanceActivateInstanceInput{}.OpenAPIModelName():                     schema_loft_sh_admin_apis_pkg_licenseapi_InstanceActivateInstanceInput(ref),
+		licenseapi.InstanceCreateInput{}.OpenAPIModelName():                               schema_loft_sh_admin_apis_pkg_licenseapi_InstanceCreateInput(ref),
+		licenseapi.InstanceCreateOutput{}.OpenAPIModelName():                              schema_loft_sh_admin_apis_pkg_licenseapi_InstanceCreateOutput(ref),
+		licenseapi.InstanceSendActivationEmailInput{}.OpenAPIModelName():                  schema_loft_sh_admin_apis_pkg_licenseapi_InstanceSendActivationEmailInput(ref),
+		licenseapi.InstanceTokenAuth{}.OpenAPIModelName():                                 schema_loft_sh_admin_apis_pkg_licenseapi_InstanceTokenAuth(ref),
+		licenseapi.InstanceTokenClaims{}.OpenAPIModelName():                               schema_loft_sh_admin_apis_pkg_licenseapi_InstanceTokenClaims(ref),
+		licenseapi.InstanceUsageInput{}.OpenAPIModelName():                                schema_loft_sh_admin_apis_pkg_licenseapi_InstanceUsageInput(ref),
+		licenseapi.Invoice{}.OpenAPIModelName():                                           schema_loft_sh_admin_apis_pkg_licenseapi_Invoice(ref),
+		licenseapi.License{}.OpenAPIModelName():                                           schema_loft_sh_admin_apis_pkg_licenseapi_License(ref),
+		licenseapi.LicenseAPIRoute{}.OpenAPIModelName():                                   schema_loft_sh_admin_apis_pkg_licenseapi_LicenseAPIRoute(ref),
+		licenseapi.LicenseAPIRoutes{}.OpenAPIModelName():                                  schema_loft_sh_admin_apis_pkg_licenseapi_LicenseAPIRoutes(ref),
+		licenseapi.Limit{}.OpenAPIModelName():                                             schema_loft_sh_admin_apis_pkg_licenseapi_Limit(ref),
+		licenseapi.Module{}.OpenAPIModelName():                                            schema_loft_sh_admin_apis_pkg_licenseapi_Module(ref),
+		licenseapi.NodeInfo{}.OpenAPIModelName():                                          schema_loft_sh_admin_apis_pkg_licenseapi_NodeInfo(ref),
+		licenseapi.OfflineLicenseKeyClaims{}.OpenAPIModelName():                           schema_loft_sh_admin_apis_pkg_licenseapi_OfflineLicenseKeyClaims(ref),
+		licenseapi.Plan{}.OpenAPIModelName():                                              schema_loft_sh_admin_apis_pkg_licenseapi_Plan(ref),
+		licenseapi.PlanExpiration{}.OpenAPIModelName():                                    schema_loft_sh_admin_apis_pkg_licenseapi_PlanExpiration(ref),
+		licenseapi.PlanPeriod{}.OpenAPIModelName():                                        schema_loft_sh_admin_apis_pkg_licenseapi_PlanPeriod(ref),
+		licenseapi.PlanPrice{}.OpenAPIModelName():                                         schema_loft_sh_admin_apis_pkg_licenseapi_PlanPrice(ref),
+		licenseapi.PlatformDatabase{}.OpenAPIModelName():                                  schema_loft_sh_admin_apis_pkg_licenseapi_PlatformDatabase(ref),
+		licenseapi.PriceTier{}.OpenAPIModelName():                                         schema_loft_sh_admin_apis_pkg_licenseapi_PriceTier(ref),
+		licenseapi.Request{}.OpenAPIModelName():                                           schema_loft_sh_admin_apis_pkg_licenseapi_Request(ref),
+		licenseapi.ResourceCount{}.OpenAPIModelName():                                     schema_loft_sh_admin_apis_pkg_licenseapi_ResourceCount(ref),
+		licenseapi.TierResource{}.OpenAPIModelName():                                      schema_loft_sh_admin_apis_pkg_licenseapi_TierResource(ref),
+		licenseapi.Trial{}.OpenAPIModelName():                                             schema_loft_sh_admin_apis_pkg_licenseapi_Trial(ref),
+		licenseapi.UsageData{}.OpenAPIModelName():                                         schema_loft_sh_admin_apis_pkg_licenseapi_UsageData(ref),
+		licenseapi.UsageDataDetails{}.OpenAPIModelName():                                  schema_loft_sh_admin_apis_pkg_licenseapi_UsageDataDetails(ref),
+		licenseapi.VirtualClusterInfo{}.OpenAPIModelName():                                schema_loft_sh_admin_apis_pkg_licenseapi_VirtualClusterInfo(ref),
 		v1.Bash{}.OpenAPIModelName():                                                      schema_apis_loft_cluster_v1_Bash(ref),
 		v1.Chart{}.OpenAPIModelName():                                                     schema_apis_loft_cluster_v1_Chart(ref),
 		v1.ChartInfo{}.OpenAPIModelName():                                                 schema_apis_loft_cluster_v1_ChartInfo(ref),
@@ -959,7 +968,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_Analytics(ref common.ReferenceCall
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
 										Default: map[string]interface{}{},
-										Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.Request"),
+										Ref:     ref(licenseapi.Request{}.OpenAPIModelName()),
 									},
 								},
 							},
@@ -969,7 +978,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_Analytics(ref common.ReferenceCall
 			},
 		},
 		Dependencies: []string{
-			"github.com/loft-sh/admin-apis/pkg/licenseapi.Request"},
+			licenseapi.Request{}.OpenAPIModelName()},
 	}
 }
 
@@ -1008,7 +1017,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_Announcement(ref common.ReferenceC
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
-										Ref: ref("github.com/loft-sh/admin-apis/pkg/licenseapi.Button"),
+										Ref: ref(licenseapi.Button{}.OpenAPIModelName()),
 									},
 								},
 							},
@@ -1018,7 +1027,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_Announcement(ref common.ReferenceC
 			},
 		},
 		Dependencies: []string{
-			"github.com/loft-sh/admin-apis/pkg/licenseapi.Button"},
+			licenseapi.Button{}.OpenAPIModelName()},
 	}
 }
 
@@ -1060,14 +1069,14 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_BlockRequest(ref common.ReferenceC
 					},
 					"overage": {
 						SchemaProps: spec.SchemaProps{
-							Ref: ref("github.com/loft-sh/admin-apis/pkg/licenseapi.ResourceCount"),
+							Ref: ref(licenseapi.ResourceCount{}.OpenAPIModelName()),
 						},
 					},
 				},
 			},
 		},
 		Dependencies: []string{
-			"github.com/loft-sh/admin-apis/pkg/licenseapi.ResourceCount"},
+			licenseapi.ResourceCount{}.OpenAPIModelName()},
 	}
 }
 
@@ -1105,6 +1114,99 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_Button(ref common.ReferenceCallbac
 							Description: "Direct indicates if the Loft front end should directly hit this endpoint. If false, it means that the Loft front end will be hitting the license server first to generate a one time token for the operation; this also means that there will be a redirect URL in the response to the request for this and that link should be followed by the front end.",
 							Type:        []string{"boolean"},
 							Format:      "",
+						},
+					},
+				},
+				Required: []string{"url"},
+			},
+		},
+	}
+}
+
+func schema_loft_sh_admin_apis_pkg_licenseapi_ChatAuthCreateInput(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "ChatAuthCreateInput is the required input data for generating a hash for a user for in-product chat",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"token": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Token is the jwt token identifying the loft instance.",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"certificate": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Certificate is the signing certificate for the token.",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"provider": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"name": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"email": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"username": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+				},
+				Required: []string{"token", "certificate"},
+			},
+		},
+	}
+}
+
+func schema_loft_sh_admin_apis_pkg_licenseapi_ChatAuthCreateOutput(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "ChatAuthCreateOutput is the struct holding all information for chat auth generate user hash\" requests.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"hash": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+				},
+			},
+		},
+	}
+}
+
+func schema_loft_sh_admin_apis_pkg_licenseapi_DomainToken(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Type: []string{"object"},
+				Properties: map[string]spec.Schema{
+					"url": {
+						SchemaProps: spec.SchemaProps{
+							Default: "",
+							Type:    []string{"string"},
+							Format:  "",
 						},
 					},
 				},
@@ -1205,6 +1307,22 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_GenericRequestInput(ref common.Ref
 				Description: "GenericRequestInput defines the payload that needs to be sent to a button's action URL",
 				Type:        []string{"object"},
 				Properties: map[string]spec.Schema{
+					"token": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Token is the jwt token identifying the loft instance.",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"certificate": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Certificate is the signing certificate for the token.",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
 					"payload": {
 						SchemaProps: spec.SchemaProps{
 							Description: "Payload provides the json encoded payload",
@@ -1220,6 +1338,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_GenericRequestInput(ref common.Ref
 						},
 					},
 				},
+				Required: []string{"token", "certificate"},
 			},
 		},
 	}
@@ -1254,7 +1373,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_GenericRequestOutput(ref common.Re
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
 										Default: map[string]interface{}{},
-										Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.Button"),
+										Ref:     ref(licenseapi.Button{}.OpenAPIModelName()),
 									},
 								},
 							},
@@ -1264,7 +1383,194 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_GenericRequestOutput(ref common.Re
 			},
 		},
 		Dependencies: []string{
-			"github.com/loft-sh/admin-apis/pkg/licenseapi.Button"},
+			licenseapi.Button{}.OpenAPIModelName()},
+	}
+}
+
+func schema_loft_sh_admin_apis_pkg_licenseapi_InstanceActivateInstanceInput(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Type: []string{"object"},
+				Properties: map[string]spec.Schema{
+					"activationCode": {
+						SchemaProps: spec.SchemaProps{
+							Default: "",
+							Type:    []string{"string"},
+							Format:  "",
+						},
+					},
+				},
+				Required: []string{"activationCode"},
+			},
+		},
+	}
+}
+
+func schema_loft_sh_admin_apis_pkg_licenseapi_InstanceCreateInput(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "InstanceCreateInput is the required input data for \"instance create\" operations, that is, the primary endpoint that Loft instances will hit to register to the license server as well as get information about the instance's current license.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"token": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Token is the jwt token identifying the loft instance.",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"certificate": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Certificate is the signing certificate for the token.",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"product": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Product is the product that is being used. Can be empty, loft, devpod-pro or vcluster-pro. This should NOT be a ProductName but a string to allow for downward compatibility",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"staticToken": {
+						SchemaProps: spec.SchemaProps{
+							Description: "StaticToken is a token for the instance. This is used for testing purposes or for instances that use a static token.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"email": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Email is the admin email. Can be empty if no email is specified.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"version": {
+						SchemaProps: spec.SchemaProps{
+							Default: "",
+							Type:    []string{"string"},
+							Format:  "",
+						},
+					},
+					"kubeVersion": {
+						SchemaProps: spec.SchemaProps{
+							Default: "",
+							Type:    []string{"string"},
+							Format:  "",
+						},
+					},
+					"kubeSystemNamespace": {
+						SchemaProps: spec.SchemaProps{
+							Default: "",
+							Type:    []string{"string"},
+							Format:  "",
+						},
+					},
+					"resources": {
+						SchemaProps: spec.SchemaProps{
+							Description: "ResourceUsage contains information about the number of resources used",
+							Type:        []string{"object"},
+							AdditionalProperties: &spec.SchemaOrBool{
+								Allows: true,
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref(licenseapi.ResourceCount{}.OpenAPIModelName()),
+									},
+								},
+							},
+						},
+					},
+					"features": {
+						SchemaProps: spec.SchemaProps{
+							Description: "FeatureUse contains information about what features are used",
+							Type:        []string{"object"},
+							AdditionalProperties: &spec.SchemaOrBool{
+								Allows: true,
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: false,
+										Type:    []string{"boolean"},
+										Format:  "",
+									},
+								},
+							},
+						},
+					},
+					"debugInstanceID": {
+						SchemaProps: spec.SchemaProps{
+							Description: "DebugInstanceID is the ID of the instance. This is only used for testing purposes. Should never be sent from production instances. Requires authentication via an access key.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"platformDatabase": {
+						SchemaProps: spec.SchemaProps{
+							Description: "PlatformDatabase reports details about the platform database to the license service",
+							Ref:         ref(licenseapi.PlatformDatabase{}.OpenAPIModelName()),
+						},
+					},
+				},
+				Required: []string{"token", "certificate", "version", "kubeVersion", "kubeSystemNamespace"},
+			},
+		},
+		Dependencies: []string{
+			licenseapi.PlatformDatabase{}.OpenAPIModelName(), licenseapi.ResourceCount{}.OpenAPIModelName()},
+	}
+}
+
+func schema_loft_sh_admin_apis_pkg_licenseapi_InstanceCreateOutput(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "InstanceCreateOutput is the struct holding all information returned from \"instance create\" requests.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"license": {
+						SchemaProps: spec.SchemaProps{
+							Description: "License is the license data for the requested Loft instance.",
+							Ref:         ref(licenseapi.License{}.OpenAPIModelName()),
+						},
+					},
+					"currentTime": {
+						SchemaProps: spec.SchemaProps{
+							Default: 0,
+							Type:    []string{"integer"},
+							Format:  "int64",
+						},
+					},
+				},
+				Required: []string{"currentTime"},
+			},
+		},
+		Dependencies: []string{
+			licenseapi.License{}.OpenAPIModelName()},
+	}
+}
+
+func schema_loft_sh_admin_apis_pkg_licenseapi_InstanceSendActivationEmailInput(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Type: []string{"object"},
+				Properties: map[string]spec.Schema{
+					"email": {
+						SchemaProps: spec.SchemaProps{
+							Default: "",
+							Type:    []string{"string"},
+							Format:  "",
+						},
+					},
+				},
+				Required: []string{"email"},
+			},
+		},
 	}
 }
 
@@ -1321,6 +1627,42 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_InstanceTokenClaims(ref common.Ref
 					},
 				},
 				Required: []string{"url", "payload"},
+			},
+		},
+	}
+}
+
+func schema_loft_sh_admin_apis_pkg_licenseapi_InstanceUsageInput(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Type: []string{"object"},
+				Properties: map[string]spec.Schema{
+					"kubeSystemNamespace": {
+						SchemaProps: spec.SchemaProps{
+							Description: "KubeSystemNamespaceUID is the UID of the kube system namespace.",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"type": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Type is the type of usage data to be sent to the license service.",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"data": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Data is the data to be sent to the license service.",
+							Type:        []string{"string"},
+							Format:      "byte",
+						},
+					},
+				},
+				Required: []string{"kubeSystemNamespace", "type", "data"},
 			},
 		},
 	}
@@ -1400,7 +1742,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_License(ref common.ReferenceCallba
 					"analytics": {
 						SchemaProps: spec.SchemaProps{
 							Description: "Analytics indicates the analytics endpoints and which requests should be sent to the analytics server.",
-							Ref:         ref("github.com/loft-sh/admin-apis/pkg/licenseapi.Analytics"),
+							Ref:         ref(licenseapi.Analytics{}.OpenAPIModelName()),
 						},
 					},
 					"domainToken": {
@@ -1418,7 +1760,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_License(ref common.ReferenceCallba
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
-										Ref: ref("github.com/loft-sh/admin-apis/pkg/licenseapi.Button"),
+										Ref: ref(licenseapi.Button{}.OpenAPIModelName()),
 									},
 								},
 							},
@@ -1431,7 +1773,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_License(ref common.ReferenceCallba
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
-										Ref: ref("github.com/loft-sh/admin-apis/pkg/licenseapi.Announcement"),
+										Ref: ref(licenseapi.Announcement{}.OpenAPIModelName()),
 									},
 								},
 							},
@@ -1444,7 +1786,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_License(ref common.ReferenceCallba
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
-										Ref: ref("github.com/loft-sh/admin-apis/pkg/licenseapi.Module"),
+										Ref: ref(licenseapi.Module{}.OpenAPIModelName()),
 									},
 								},
 							},
@@ -1458,7 +1800,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_License(ref common.ReferenceCallba
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
 										Default: map[string]interface{}{},
-										Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.BlockRequest"),
+										Ref:     ref(licenseapi.BlockRequest{}.OpenAPIModelName()),
 									},
 								},
 							},
@@ -1474,7 +1816,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_License(ref common.ReferenceCallba
 					"routes": {
 						SchemaProps: spec.SchemaProps{
 							Default: map[string]interface{}{},
-							Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.LicenseAPIRoutes"),
+							Ref:     ref(licenseapi.LicenseAPIRoutes{}.OpenAPIModelName()),
 						},
 					},
 					"plans": {
@@ -1485,7 +1827,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_License(ref common.ReferenceCallba
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
 										Default: map[string]interface{}{},
-										Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.Plan"),
+										Ref:     ref(licenseapi.Plan{}.OpenAPIModelName()),
 									},
 								},
 							},
@@ -1495,14 +1837,14 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_License(ref common.ReferenceCallba
 						SchemaProps: spec.SchemaProps{
 							Description: "Usage data contains  resource usage information for a platform deployment",
 							Default:     map[string]interface{}{},
-							Ref:         ref("github.com/loft-sh/admin-apis/pkg/licenseapi.UsageData"),
+							Ref:         ref(licenseapi.UsageData{}.OpenAPIModelName()),
 						},
 					},
 				},
 			},
 		},
 		Dependencies: []string{
-			"github.com/loft-sh/admin-apis/pkg/licenseapi.Analytics", "github.com/loft-sh/admin-apis/pkg/licenseapi.Announcement", "github.com/loft-sh/admin-apis/pkg/licenseapi.BlockRequest", "github.com/loft-sh/admin-apis/pkg/licenseapi.Button", "github.com/loft-sh/admin-apis/pkg/licenseapi.LicenseAPIRoutes", "github.com/loft-sh/admin-apis/pkg/licenseapi.Module", "github.com/loft-sh/admin-apis/pkg/licenseapi.Plan", "github.com/loft-sh/admin-apis/pkg/licenseapi.UsageData"},
+			licenseapi.Analytics{}.OpenAPIModelName(), licenseapi.Announcement{}.OpenAPIModelName(), licenseapi.BlockRequest{}.OpenAPIModelName(), licenseapi.Button{}.OpenAPIModelName(), licenseapi.LicenseAPIRoutes{}.OpenAPIModelName(), licenseapi.Module{}.OpenAPIModelName(), licenseapi.Plan{}.OpenAPIModelName(), licenseapi.UsageData{}.OpenAPIModelName()},
 	}
 }
 
@@ -1548,56 +1890,56 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_LicenseAPIRoutes(ref common.Refere
 					"chatAuth": {
 						SchemaProps: spec.SchemaProps{
 							Default: map[string]interface{}{},
-							Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.LicenseAPIRoute"),
+							Ref:     ref(licenseapi.LicenseAPIRoute{}.OpenAPIModelName()),
 						},
 					},
 					"featureDetails": {
 						SchemaProps: spec.SchemaProps{
 							Default: map[string]interface{}{},
-							Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.LicenseAPIRoute"),
+							Ref:     ref(licenseapi.LicenseAPIRoute{}.OpenAPIModelName()),
 						},
 					},
 					"featureSetup": {
 						SchemaProps: spec.SchemaProps{
 							Default: map[string]interface{}{},
-							Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.LicenseAPIRoute"),
+							Ref:     ref(licenseapi.LicenseAPIRoute{}.OpenAPIModelName()),
 						},
 					},
 					"featurePreview": {
 						SchemaProps: spec.SchemaProps{
 							Default: map[string]interface{}{},
-							Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.LicenseAPIRoute"),
+							Ref:     ref(licenseapi.LicenseAPIRoute{}.OpenAPIModelName()),
 						},
 					},
 					"moduleActivation": {
 						SchemaProps: spec.SchemaProps{
 							Default: map[string]interface{}{},
-							Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.LicenseAPIRoute"),
+							Ref:     ref(licenseapi.LicenseAPIRoute{}.OpenAPIModelName()),
 						},
 					},
 					"modulePreview": {
 						SchemaProps: spec.SchemaProps{
 							Default: map[string]interface{}{},
-							Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.LicenseAPIRoute"),
+							Ref:     ref(licenseapi.LicenseAPIRoute{}.OpenAPIModelName()),
 						},
 					},
 					"checkout": {
 						SchemaProps: spec.SchemaProps{
 							Default: map[string]interface{}{},
-							Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.LicenseAPIRoute"),
+							Ref:     ref(licenseapi.LicenseAPIRoute{}.OpenAPIModelName()),
 						},
 					},
 					"portal": {
 						SchemaProps: spec.SchemaProps{
 							Default: map[string]interface{}{},
-							Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.LicenseAPIRoute"),
+							Ref:     ref(licenseapi.LicenseAPIRoute{}.OpenAPIModelName()),
 						},
 					},
 				},
 			},
 		},
 		Dependencies: []string{
-			"github.com/loft-sh/admin-apis/pkg/licenseapi.LicenseAPIRoute"},
+			licenseapi.LicenseAPIRoute{}.OpenAPIModelName()},
 	}
 }
 
@@ -1625,7 +1967,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_Limit(ref common.ReferenceCallback
 					"quantity": {
 						SchemaProps: spec.SchemaProps{
 							Description: "Limit specifies the limit for this resource.",
-							Ref:         ref("github.com/loft-sh/admin-apis/pkg/licenseapi.ResourceCount"),
+							Ref:         ref(licenseapi.ResourceCount{}.OpenAPIModelName()),
 						},
 					},
 					"module": {
@@ -1639,7 +1981,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_Limit(ref common.ReferenceCallback
 			},
 		},
 		Dependencies: []string{
-			"github.com/loft-sh/admin-apis/pkg/licenseapi.ResourceCount"},
+			licenseapi.ResourceCount{}.OpenAPIModelName()},
 	}
 }
 
@@ -1676,7 +2018,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_Module(ref common.ReferenceCallbac
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
-										Ref: ref("github.com/loft-sh/admin-apis/pkg/licenseapi.Limit"),
+										Ref: ref(licenseapi.Limit{}.OpenAPIModelName()),
 									},
 								},
 							},
@@ -1688,7 +2030,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_Module(ref common.ReferenceCallbac
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
-										Ref: ref("github.com/loft-sh/admin-apis/pkg/licenseapi.Feature"),
+										Ref: ref(licenseapi.Feature{}.OpenAPIModelName()),
 									},
 								},
 							},
@@ -1699,7 +2041,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_Module(ref common.ReferenceCallbac
 			},
 		},
 		Dependencies: []string{
-			"github.com/loft-sh/admin-apis/pkg/licenseapi.Feature", "github.com/loft-sh/admin-apis/pkg/licenseapi.Limit"},
+			licenseapi.Feature{}.OpenAPIModelName(), licenseapi.Limit{}.OpenAPIModelName()},
 	}
 }
 
@@ -1754,14 +2096,14 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_OfflineLicenseKeyClaims(ref common
 				Properties: map[string]spec.Schema{
 					"license": {
 						SchemaProps: spec.SchemaProps{
-							Ref: ref("github.com/loft-sh/admin-apis/pkg/licenseapi.License"),
+							Ref: ref(licenseapi.License{}.OpenAPIModelName()),
 						},
 					},
 				},
 			},
 		},
 		Dependencies: []string{
-			"github.com/loft-sh/admin-apis/pkg/licenseapi.License"},
+			licenseapi.License{}.OpenAPIModelName()},
 	}
 }
 
@@ -1796,19 +2138,19 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_Plan(ref common.ReferenceCallback)
 					"period": {
 						SchemaProps: spec.SchemaProps{
 							Description: "Period provides information about the plan's current period This is nil unless this is the active plan",
-							Ref:         ref("github.com/loft-sh/admin-apis/pkg/licenseapi.PlanPeriod"),
+							Ref:         ref(licenseapi.PlanPeriod{}.OpenAPIModelName()),
 						},
 					},
 					"trial": {
 						SchemaProps: spec.SchemaProps{
 							Description: "Trial provides details about a planned, ongoing or expired trial",
-							Ref:         ref("github.com/loft-sh/admin-apis/pkg/licenseapi.Trial"),
+							Ref:         ref(licenseapi.Trial{}.OpenAPIModelName()),
 						},
 					},
 					"invoice": {
 						SchemaProps: spec.SchemaProps{
 							Description: "UpcomingInvoice provides a preview of the next invoice that will be created for this Plan",
-							Ref:         ref("github.com/loft-sh/admin-apis/pkg/licenseapi.Invoice"),
+							Ref:         ref(licenseapi.Invoice{}.OpenAPIModelName()),
 						},
 					},
 					"features": {
@@ -1834,7 +2176,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_Plan(ref common.ReferenceCallback)
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
 										Default: map[string]interface{}{},
-										Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.Limit"),
+										Ref:     ref(licenseapi.Limit{}.OpenAPIModelName()),
 									},
 								},
 							},
@@ -1848,7 +2190,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_Plan(ref common.ReferenceCallback)
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
 										Default: map[string]interface{}{},
-										Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.PlanPrice"),
+										Ref:     ref(licenseapi.PlanPrice{}.OpenAPIModelName()),
 									},
 								},
 							},
@@ -1862,7 +2204,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_Plan(ref common.ReferenceCallback)
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
 										Default: map[string]interface{}{},
-										Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.Plan"),
+										Ref:     ref(licenseapi.Plan{}.OpenAPIModelName()),
 									},
 								},
 							},
@@ -1872,7 +2214,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_Plan(ref common.ReferenceCallback)
 			},
 		},
 		Dependencies: []string{
-			"github.com/loft-sh/admin-apis/pkg/licenseapi.Invoice", "github.com/loft-sh/admin-apis/pkg/licenseapi.Limit", "github.com/loft-sh/admin-apis/pkg/licenseapi.Plan", "github.com/loft-sh/admin-apis/pkg/licenseapi.PlanPeriod", "github.com/loft-sh/admin-apis/pkg/licenseapi.PlanPrice", "github.com/loft-sh/admin-apis/pkg/licenseapi.Trial"},
+			licenseapi.Invoice{}.OpenAPIModelName(), licenseapi.Limit{}.OpenAPIModelName(), licenseapi.Plan{}.OpenAPIModelName(), licenseapi.PlanPeriod{}.OpenAPIModelName(), licenseapi.PlanPrice{}.OpenAPIModelName(), licenseapi.Trial{}.OpenAPIModelName()},
 	}
 }
 
@@ -1968,7 +2310,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_PlanPrice(ref common.ReferenceCall
 					"exp": {
 						SchemaProps: spec.SchemaProps{
 							Description: "Expiration provides information about when this plan expires",
-							Ref:         ref("github.com/loft-sh/admin-apis/pkg/licenseapi.PlanExpiration"),
+							Ref:         ref(licenseapi.PlanExpiration{}.OpenAPIModelName()),
 						},
 					},
 					"quantity": {
@@ -1981,7 +2323,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_PlanPrice(ref common.ReferenceCall
 					"resource": {
 						SchemaProps: spec.SchemaProps{
 							Description: "TierResource provides details about the main resource the tier quantity relates to This may be nil for plans that don't have their quantity tied to a resource",
-							Ref:         ref("github.com/loft-sh/admin-apis/pkg/licenseapi.TierResource"),
+							Ref:         ref(licenseapi.TierResource{}.OpenAPIModelName()),
 						},
 					},
 					"tierMode": {
@@ -1999,7 +2341,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_PlanPrice(ref common.ReferenceCall
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
 										Default: map[string]interface{}{},
-										Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.PriceTier"),
+										Ref:     ref(licenseapi.PriceTier{}.OpenAPIModelName()),
 									},
 								},
 							},
@@ -2009,7 +2351,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_PlanPrice(ref common.ReferenceCall
 			},
 		},
 		Dependencies: []string{
-			"github.com/loft-sh/admin-apis/pkg/licenseapi.PlanExpiration", "github.com/loft-sh/admin-apis/pkg/licenseapi.PriceTier", "github.com/loft-sh/admin-apis/pkg/licenseapi.TierResource"},
+			licenseapi.PlanExpiration{}.OpenAPIModelName(), licenseapi.PriceTier{}.OpenAPIModelName(), licenseapi.TierResource{}.OpenAPIModelName()},
 	}
 }
 
@@ -2277,7 +2619,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_UsageData(ref common.ReferenceCall
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
 										Default: map[string]interface{}{},
-										Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.FeatureUsage"),
+										Ref:     ref(licenseapi.FeatureUsage{}.OpenAPIModelName()),
 									},
 								},
 							},
@@ -2292,7 +2634,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_UsageData(ref common.ReferenceCall
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
 										Default: map[string]interface{}{},
-										Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.ResourceCount"),
+										Ref:     ref(licenseapi.ResourceCount{}.OpenAPIModelName()),
 									},
 								},
 							},
@@ -2302,7 +2644,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_UsageData(ref common.ReferenceCall
 						SchemaProps: spec.SchemaProps{
 							Description: "Details contains the details of the usage data",
 							Default:     map[string]interface{}{},
-							Ref:         ref("github.com/loft-sh/admin-apis/pkg/licenseapi.UsageDataDetails"),
+							Ref:         ref(licenseapi.UsageDataDetails{}.OpenAPIModelName()),
 						},
 					},
 				},
@@ -2310,7 +2652,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_UsageData(ref common.ReferenceCall
 			},
 		},
 		Dependencies: []string{
-			"github.com/loft-sh/admin-apis/pkg/licenseapi.FeatureUsage", "github.com/loft-sh/admin-apis/pkg/licenseapi.ResourceCount", "github.com/loft-sh/admin-apis/pkg/licenseapi.UsageDataDetails"},
+			licenseapi.FeatureUsage{}.OpenAPIModelName(), licenseapi.ResourceCount{}.OpenAPIModelName(), licenseapi.UsageDataDetails{}.OpenAPIModelName()},
 	}
 }
 
@@ -2329,7 +2671,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_UsageDataDetails(ref common.Refere
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
 										Default: map[string]interface{}{},
-										Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.NodeInfo"),
+										Ref:     ref(licenseapi.NodeInfo{}.OpenAPIModelName()),
 									},
 								},
 							},
@@ -2343,7 +2685,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_UsageDataDetails(ref common.Refere
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
 										Default: map[string]interface{}{},
-										Ref:     ref("github.com/loft-sh/admin-apis/pkg/licenseapi.VirtualClusterInfo"),
+										Ref:     ref(licenseapi.VirtualClusterInfo{}.OpenAPIModelName()),
 									},
 								},
 							},
@@ -2354,7 +2696,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_UsageDataDetails(ref common.Refere
 			},
 		},
 		Dependencies: []string{
-			"github.com/loft-sh/admin-apis/pkg/licenseapi.NodeInfo", "github.com/loft-sh/admin-apis/pkg/licenseapi.VirtualClusterInfo"},
+			licenseapi.NodeInfo{}.OpenAPIModelName(), licenseapi.VirtualClusterInfo{}.OpenAPIModelName()},
 	}
 }
 
