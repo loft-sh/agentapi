@@ -3,9 +3,9 @@
 package v1
 
 import (
-	"context"
+	context "context"
 
-	v1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
+	clusterv1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
 	scheme "github.com/loft-sh/agentapi/v4/pkg/clientset/versioned/scheme"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	types "k8s.io/apimachinery/pkg/types"
@@ -21,33 +21,34 @@ type HelmReleasesGetter interface {
 
 // HelmReleaseInterface has methods to work with HelmRelease resources.
 type HelmReleaseInterface interface {
-	Create(ctx context.Context, helmRelease *v1.HelmRelease, opts metav1.CreateOptions) (*v1.HelmRelease, error)
-	Update(ctx context.Context, helmRelease *v1.HelmRelease, opts metav1.UpdateOptions) (*v1.HelmRelease, error)
+	Create(ctx context.Context, helmRelease *clusterv1.HelmRelease, opts metav1.CreateOptions) (*clusterv1.HelmRelease, error)
+	Update(ctx context.Context, helmRelease *clusterv1.HelmRelease, opts metav1.UpdateOptions) (*clusterv1.HelmRelease, error)
 	// Add a +genclient:noStatus comment above the type to avoid generating UpdateStatus().
-	UpdateStatus(ctx context.Context, helmRelease *v1.HelmRelease, opts metav1.UpdateOptions) (*v1.HelmRelease, error)
+	UpdateStatus(ctx context.Context, helmRelease *clusterv1.HelmRelease, opts metav1.UpdateOptions) (*clusterv1.HelmRelease, error)
 	Delete(ctx context.Context, name string, opts metav1.DeleteOptions) error
 	DeleteCollection(ctx context.Context, opts metav1.DeleteOptions, listOpts metav1.ListOptions) error
-	Get(ctx context.Context, name string, opts metav1.GetOptions) (*v1.HelmRelease, error)
-	List(ctx context.Context, opts metav1.ListOptions) (*v1.HelmReleaseList, error)
+	Get(ctx context.Context, name string, opts metav1.GetOptions) (*clusterv1.HelmRelease, error)
+	List(ctx context.Context, opts metav1.ListOptions) (*clusterv1.HelmReleaseList, error)
 	Watch(ctx context.Context, opts metav1.ListOptions) (watch.Interface, error)
-	Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts metav1.PatchOptions, subresources ...string) (result *v1.HelmRelease, err error)
+	Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts metav1.PatchOptions, subresources ...string) (result *clusterv1.HelmRelease, err error)
 	HelmReleaseExpansion
 }
 
 // helmReleases implements HelmReleaseInterface
 type helmReleases struct {
-	*gentype.ClientWithList[*v1.HelmRelease, *v1.HelmReleaseList]
+	*gentype.ClientWithList[*clusterv1.HelmRelease, *clusterv1.HelmReleaseList]
 }
 
 // newHelmReleases returns a HelmReleases
 func newHelmReleases(c *ClusterV1Client, namespace string) *helmReleases {
 	return &helmReleases{
-		gentype.NewClientWithList[*v1.HelmRelease, *v1.HelmReleaseList](
+		gentype.NewClientWithList[*clusterv1.HelmRelease, *clusterv1.HelmReleaseList](
 			"helmreleases",
 			c.RESTClient(),
 			scheme.ParameterCodec,
 			namespace,
-			func() *v1.HelmRelease { return &v1.HelmRelease{} },
-			func() *v1.HelmReleaseList { return &v1.HelmReleaseList{} }),
+			func() *clusterv1.HelmRelease { return &clusterv1.HelmRelease{} },
+			func() *clusterv1.HelmReleaseList { return &clusterv1.HelmReleaseList{} },
+		),
 	}
 }
