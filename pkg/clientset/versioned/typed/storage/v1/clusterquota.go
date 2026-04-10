@@ -3,9 +3,9 @@
 package v1
 
 import (
-	"context"
+	context "context"
 
-	v1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1"
+	storagev1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1"
 	scheme "github.com/loft-sh/agentapi/v4/pkg/clientset/versioned/scheme"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	types "k8s.io/apimachinery/pkg/types"
@@ -21,33 +21,34 @@ type ClusterQuotasGetter interface {
 
 // ClusterQuotaInterface has methods to work with ClusterQuota resources.
 type ClusterQuotaInterface interface {
-	Create(ctx context.Context, clusterQuota *v1.ClusterQuota, opts metav1.CreateOptions) (*v1.ClusterQuota, error)
-	Update(ctx context.Context, clusterQuota *v1.ClusterQuota, opts metav1.UpdateOptions) (*v1.ClusterQuota, error)
+	Create(ctx context.Context, clusterQuota *storagev1.ClusterQuota, opts metav1.CreateOptions) (*storagev1.ClusterQuota, error)
+	Update(ctx context.Context, clusterQuota *storagev1.ClusterQuota, opts metav1.UpdateOptions) (*storagev1.ClusterQuota, error)
 	// Add a +genclient:noStatus comment above the type to avoid generating UpdateStatus().
-	UpdateStatus(ctx context.Context, clusterQuota *v1.ClusterQuota, opts metav1.UpdateOptions) (*v1.ClusterQuota, error)
+	UpdateStatus(ctx context.Context, clusterQuota *storagev1.ClusterQuota, opts metav1.UpdateOptions) (*storagev1.ClusterQuota, error)
 	Delete(ctx context.Context, name string, opts metav1.DeleteOptions) error
 	DeleteCollection(ctx context.Context, opts metav1.DeleteOptions, listOpts metav1.ListOptions) error
-	Get(ctx context.Context, name string, opts metav1.GetOptions) (*v1.ClusterQuota, error)
-	List(ctx context.Context, opts metav1.ListOptions) (*v1.ClusterQuotaList, error)
+	Get(ctx context.Context, name string, opts metav1.GetOptions) (*storagev1.ClusterQuota, error)
+	List(ctx context.Context, opts metav1.ListOptions) (*storagev1.ClusterQuotaList, error)
 	Watch(ctx context.Context, opts metav1.ListOptions) (watch.Interface, error)
-	Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts metav1.PatchOptions, subresources ...string) (result *v1.ClusterQuota, err error)
+	Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts metav1.PatchOptions, subresources ...string) (result *storagev1.ClusterQuota, err error)
 	ClusterQuotaExpansion
 }
 
 // clusterQuotas implements ClusterQuotaInterface
 type clusterQuotas struct {
-	*gentype.ClientWithList[*v1.ClusterQuota, *v1.ClusterQuotaList]
+	*gentype.ClientWithList[*storagev1.ClusterQuota, *storagev1.ClusterQuotaList]
 }
 
 // newClusterQuotas returns a ClusterQuotas
 func newClusterQuotas(c *StorageV1Client) *clusterQuotas {
 	return &clusterQuotas{
-		gentype.NewClientWithList[*v1.ClusterQuota, *v1.ClusterQuotaList](
+		gentype.NewClientWithList[*storagev1.ClusterQuota, *storagev1.ClusterQuotaList](
 			"clusterquotas",
 			c.RESTClient(),
 			scheme.ParameterCodec,
 			"",
-			func() *v1.ClusterQuota { return &v1.ClusterQuota{} },
-			func() *v1.ClusterQuotaList { return &v1.ClusterQuotaList{} }),
+			func() *storagev1.ClusterQuota { return &storagev1.ClusterQuota{} },
+			func() *storagev1.ClusterQuotaList { return &storagev1.ClusterQuotaList{} },
+		),
 	}
 }
