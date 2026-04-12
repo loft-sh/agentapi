@@ -3,10 +3,10 @@
 package loft
 
 import (
-	"github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster"
-	_ "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/install" // Install the cluster group
-	clusterv1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
-	"github.com/loft-sh/apiserver/pkg/builders"
+	"github.com/skevetter/agentapi/pkg/apis/loft/cluster"
+	_ "github.com/skevetter/agentapi/pkg/apis/loft/cluster/install" // Install the cluster group
+	clusterv1 "github.com/skevetter/agentapi/pkg/apis/loft/cluster/v1"
+	"github.com/skevetter/apiserver/pkg/builders"
 	"k8s.io/apimachinery/pkg/runtime"
 )
 
@@ -28,7 +28,7 @@ func GetAllApiBuilders() []*builders.APIGroupBuilder {
 func GetClusterAPIBuilder() *builders.APIGroupBuilder {
 	return builders.NewApiGroupBuilder(
 		"cluster.loft.sh",
-		"github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster").
+		"github.com/skevetter/agentapi/pkg/apis/loft/cluster").
 		WithUnVersionedApi(cluster.ApiVersion).
 		WithVersionedApis(
 			clusterv1.ApiVersion,

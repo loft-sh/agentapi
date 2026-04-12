@@ -3,11 +3,11 @@
 package fake
 
 import (
-	clientset "github.com/loft-sh/agentapi/v4/pkg/clientset/versioned"
-	clusterv1 "github.com/loft-sh/agentapi/v4/pkg/clientset/versioned/typed/cluster/v1"
-	fakeclusterv1 "github.com/loft-sh/agentapi/v4/pkg/clientset/versioned/typed/cluster/v1/fake"
-	storagev1 "github.com/loft-sh/agentapi/v4/pkg/clientset/versioned/typed/storage/v1"
-	fakestoragev1 "github.com/loft-sh/agentapi/v4/pkg/clientset/versioned/typed/storage/v1/fake"
+	clientset "github.com/skevetter/agentapi/pkg/clientset/versioned"
+	clusterv1 "github.com/skevetter/agentapi/pkg/clientset/versioned/typed/cluster/v1"
+	fakeclusterv1 "github.com/skevetter/agentapi/pkg/clientset/versioned/typed/cluster/v1/fake"
+	storagev1 "github.com/skevetter/agentapi/pkg/clientset/versioned/typed/storage/v1"
+	fakestoragev1 "github.com/skevetter/agentapi/pkg/clientset/versioned/typed/storage/v1/fake"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"

@@ -5,8 +5,8 @@ package externalversions
 import (
 	fmt "fmt"
 
-	v1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
-	storagev1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1"
+	v1 "github.com/skevetter/agentapi/pkg/apis/loft/cluster/v1"
+	storagev1 "github.com/skevetter/agentapi/pkg/apis/loft/storage/v1"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	cache "k8s.io/client-go/tools/cache"
 )

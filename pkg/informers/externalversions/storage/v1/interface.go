@@ -3,7 +3,7 @@
 package v1
 
 import (
-	internalinterfaces "github.com/loft-sh/agentapi/v4/pkg/informers/externalversions/internalinterfaces"
+	internalinterfaces "github.com/skevetter/agentapi/pkg/informers/externalversions/internalinterfaces"
 )
 
 // Interface provides access to all the informers in this group version.

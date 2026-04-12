@@ -6,9 +6,9 @@
 package openapi
 
 import (
-	licenseapi "github.com/loft-sh/admin-apis/pkg/licenseapi"
-	v1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
-	storagev1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1"
+	licenseapi "github.com/skevetter/admin-apis/pkg/licenseapi"
+	v1 "github.com/skevetter/agentapi/pkg/apis/loft/cluster/v1"
+	storagev1 "github.com/skevetter/agentapi/pkg/apis/loft/storage/v1"
 	admissionregistrationv1 "k8s.io/api/admissionregistration/v1"
 	v1beta1 "k8s.io/api/admissionregistration/v1beta1"
 	appsv1 "k8s.io/api/apps/v1"
