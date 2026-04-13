@@ -1,4 +1,4 @@
-name: Pre-commit
+name: Prek
 
 on:
   push:
@@ -10,21 +10,14 @@ permissions:
 
 jobs:
   check:
-    name: Pre-commit Checks
+    name: Prek Checks
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v6
-        with:
-          cache: pip
-          python-version: 3.x
-
-      - run: pip install -r requirements.txt
-
       - uses: actions/setup-go@v6
         with:
-          go-version: stable
+          go-version-file: go.mod
 
       - uses: golangci/golangci-lint-action@v9
         with:
@@ -33,9 +26,4 @@ jobs:
 
       - run: go install golang.org/x/tools/cmd/goimports@latest
 
-      - uses: actions/cache@v5
-        with:
-          path: ~/.cache/pre-commit
-          key: pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
-
-      - run: pre-commit run --all-files
+      - uses: j178/prek-action@v2
