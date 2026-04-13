@@ -8,7 +8,7 @@ package v1
 import (
 	unsafe "unsafe"
 
-	cluster "github.com/skevetter/agentapi/pkg/apis/loft/cluster"
+	cluster "github.com/skevetter/agentapi/pkg/apis/devsy/cluster"
 	corev1 "k8s.io/api/core/v1"
 	conversion "k8s.io/apimachinery/pkg/conversion"
 	runtime "k8s.io/apimachinery/pkg/runtime"

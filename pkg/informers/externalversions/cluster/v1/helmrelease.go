@@ -6,7 +6,7 @@ import (
 	context "context"
 	time "time"
 
-	loftclusterv1 "github.com/skevetter/agentapi/pkg/apis/loft/cluster/v1"
+	devsyclusterv1 "github.com/skevetter/agentapi/pkg/apis/devsy/cluster/v1"
 	versioned "github.com/skevetter/agentapi/pkg/clientset/versioned"
 	internalinterfaces "github.com/skevetter/agentapi/pkg/informers/externalversions/internalinterfaces"
 	clusterv1 "github.com/skevetter/agentapi/pkg/listers/cluster/v1"
@@ -67,7 +67,7 @@ func NewFilteredHelmReleaseInformer(client versioned.Interface, namespace string
 				return client.ClusterV1().HelmReleases(namespace).Watch(ctx, options)
 			},
 		}, client),
-		&loftclusterv1.HelmRelease{},
+		&devsyclusterv1.HelmRelease{},
 		resyncPeriod,
 		indexers,
 	)
@@ -78,7 +78,7 @@ func (f *helmReleaseInformer) defaultInformer(client versioned.Interface, resync
 }
 
 func (f *helmReleaseInformer) Informer() cache.SharedIndexInformer {
-	return f.factory.InformerFor(&loftclusterv1.HelmRelease{}, f.defaultInformer)
+	return f.factory.InformerFor(&devsyclusterv1.HelmRelease{}, f.defaultInformer)
 }
 
 func (f *helmReleaseInformer) Lister() clusterv1.HelmReleaseLister {

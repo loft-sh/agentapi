@@ -5,7 +5,7 @@ package v1
 import (
 	http "net/http"
 
-	clusterv1 "github.com/skevetter/agentapi/pkg/apis/loft/cluster/v1"
+	clusterv1 "github.com/skevetter/agentapi/pkg/apis/devsy/cluster/v1"
 	scheme "github.com/skevetter/agentapi/pkg/clientset/versioned/scheme"
 	rest "k8s.io/client-go/rest"
 )
@@ -17,7 +17,7 @@ type ClusterV1Interface interface {
 	HelmReleasesGetter
 }
 
-// ClusterV1Client is used to interact with features provided by the cluster.loft.sh group.
+// ClusterV1Client is used to interact with features provided by the cluster.devsy.sh group.
 type ClusterV1Client struct {
 	restClient rest.Interface
 }

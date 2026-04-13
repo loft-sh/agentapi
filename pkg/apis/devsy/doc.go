@@ -15,6 +15,6 @@ limitations under the License.
 */
 
 //
-// +domain=loft.sh
+// +domain=devsy.sh
 
-package loft
+package devsy

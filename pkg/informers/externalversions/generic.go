@@ -5,8 +5,8 @@ package externalversions
 import (
 	fmt "fmt"
 
-	v1 "github.com/skevetter/agentapi/pkg/apis/loft/cluster/v1"
-	storagev1 "github.com/skevetter/agentapi/pkg/apis/loft/storage/v1"
+	v1 "github.com/skevetter/agentapi/pkg/apis/devsy/cluster/v1"
+	storagev1 "github.com/skevetter/agentapi/pkg/apis/devsy/storage/v1"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	cache "k8s.io/client-go/tools/cache"
 )
@@ -37,7 +37,7 @@ func (f *genericInformer) Lister() cache.GenericLister {
 // TODO extend this to unknown resources with a client pool
 func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource) (GenericInformer, error) {
 	switch resource {
-	// Group=cluster.loft.sh, Version=v1
+	// Group=cluster.devsy.sh, Version=v1
 	case v1.SchemeGroupVersion.WithResource("chartinfos"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Cluster().V1().ChartInfos().Informer()}, nil
 	case v1.SchemeGroupVersion.WithResource("features"):
@@ -45,7 +45,7 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 	case v1.SchemeGroupVersion.WithResource("helmreleases"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Cluster().V1().HelmReleases().Informer()}, nil
 
-		// Group=storage.loft.sh, Version=v1
+		// Group=storage.devsy.sh, Version=v1
 	case storagev1.SchemeGroupVersion.WithResource("clusterquotas"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Storage().V1().ClusterQuotas().Informer()}, nil
 

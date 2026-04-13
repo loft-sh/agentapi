@@ -89,7 +89,7 @@ var (
 		func() runtime.Object { return &HelmReleaseList{} },
 	)
 	// Registered resources and subresources
-	ApiVersion = builders.NewApiGroup("cluster.loft.sh").WithKinds(
+	ApiVersion = builders.NewApiGroup("cluster.devsy.sh").WithKinds(
 		InternalChartInfo,
 		InternalChartInfoStatus,
 		InternalFeature,
