@@ -6,8 +6,8 @@ import (
 	"context"
 	"fmt"
 
-	pkglicenseapi "github.com/loft-sh/admin-apis/pkg/licenseapi"
-	"github.com/loft-sh/apiserver/pkg/builders"
+	pkglicenseapi "github.com/skevetter/admin-apis/pkg/licenseapi"
+	"github.com/skevetter/apiserver/pkg/builders"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/apis/meta/internalversion"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"

@@ -3,7 +3,7 @@
 package v1
 
 import (
-	storagev1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1"
+	storagev1 "github.com/skevetter/agentapi/pkg/apis/loft/storage/v1"
 	labels "k8s.io/apimachinery/pkg/labels"
 	listers "k8s.io/client-go/listers"
 	cache "k8s.io/client-go/tools/cache"

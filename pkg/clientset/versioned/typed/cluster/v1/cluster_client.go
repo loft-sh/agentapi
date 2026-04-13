@@ -5,8 +5,8 @@ package v1
 import (
 	http "net/http"
 
-	clusterv1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
-	scheme "github.com/loft-sh/agentapi/v4/pkg/clientset/versioned/scheme"
+	clusterv1 "github.com/skevetter/agentapi/pkg/apis/loft/cluster/v1"
+	scheme "github.com/skevetter/agentapi/pkg/clientset/versioned/scheme"
 	rest "k8s.io/client-go/rest"
 )
 

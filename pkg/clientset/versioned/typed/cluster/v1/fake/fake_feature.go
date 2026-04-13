@@ -3,8 +3,8 @@
 package fake
 
 import (
-	v1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
-	clusterv1 "github.com/loft-sh/agentapi/v4/pkg/clientset/versioned/typed/cluster/v1"
+	v1 "github.com/skevetter/agentapi/pkg/apis/loft/cluster/v1"
+	clusterv1 "github.com/skevetter/agentapi/pkg/clientset/versioned/typed/cluster/v1"
 	gentype "k8s.io/client-go/gentype"
 )
 

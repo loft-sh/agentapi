@@ -5,7 +5,7 @@ package internalinterfaces
 import (
 	time "time"
 
-	versioned "github.com/loft-sh/agentapi/v4/pkg/clientset/versioned"
+	versioned "github.com/skevetter/agentapi/pkg/clientset/versioned"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	cache "k8s.io/client-go/tools/cache"
