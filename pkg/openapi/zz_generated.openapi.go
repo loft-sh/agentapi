@@ -93,7 +93,7 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		licenseapi.Trial{}.OpenAPIModelName():                                             schema_loft_sh_admin_apis_pkg_licenseapi_Trial(ref),
 		licenseapi.UsageData{}.OpenAPIModelName():                                         schema_loft_sh_admin_apis_pkg_licenseapi_UsageData(ref),
 		licenseapi.UsageDataDetails{}.OpenAPIModelName():                                  schema_loft_sh_admin_apis_pkg_licenseapi_UsageDataDetails(ref),
-		licenseapi.VirtualClusterInfo{}.OpenAPIModelName():                                schema_loft_sh_admin_apis_pkg_licenseapi_VirtualClusterInfo(ref),
+		licenseapi.DevsyClusterInfo{}.OpenAPIModelName():                                schema_loft_sh_admin_apis_pkg_licenseapi_DevsyClusterInfo(ref),
 		v1.Bash{}.OpenAPIModelName():                                                      schema_apis_loft_cluster_v1_Bash(ref),
 		v1.Chart{}.OpenAPIModelName():                                                     schema_apis_loft_cluster_v1_Chart(ref),
 		v1.ChartInfo{}.OpenAPIModelName():                                                 schema_apis_loft_cluster_v1_ChartInfo(ref),
@@ -2685,7 +2685,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_UsageDataDetails(ref common.Refere
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
 										Default: map[string]interface{}{},
-										Ref:     ref(licenseapi.VirtualClusterInfo{}.OpenAPIModelName()),
+										Ref:     ref(licenseapi.DevsyClusterInfo{}.OpenAPIModelName()),
 									},
 								},
 							},
@@ -2696,15 +2696,15 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_UsageDataDetails(ref common.Refere
 			},
 		},
 		Dependencies: []string{
-			licenseapi.NodeInfo{}.OpenAPIModelName(), licenseapi.VirtualClusterInfo{}.OpenAPIModelName()},
+			licenseapi.NodeInfo{}.OpenAPIModelName(), licenseapi.DevsyClusterInfo{}.OpenAPIModelName()},
 	}
 }
 
-func schema_loft_sh_admin_apis_pkg_licenseapi_VirtualClusterInfo(ref common.ReferenceCallback) common.OpenAPIDefinition {
+func schema_loft_sh_admin_apis_pkg_licenseapi_DevsyClusterInfo(ref common.ReferenceCallback) common.OpenAPIDefinition {
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
 			SchemaProps: spec.SchemaProps{
-				Description: "VirtualClusterInfo holds information about a single virtual cluster",
+				Description: "DevsyClusterInfo holds information about a single devsy cluster",
 				Type:        []string{"object"},
 				Properties: map[string]spec.Schema{
 					"uid": {
