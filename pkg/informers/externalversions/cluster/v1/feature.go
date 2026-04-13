@@ -6,7 +6,7 @@ import (
 	context "context"
 	time "time"
 
-	loftclusterv1 "github.com/skevetter/agentapi/pkg/apis/loft/cluster/v1"
+	devsyclusterv1 "github.com/skevetter/agentapi/pkg/apis/devsy/cluster/v1"
 	versioned "github.com/skevetter/agentapi/pkg/clientset/versioned"
 	internalinterfaces "github.com/skevetter/agentapi/pkg/informers/externalversions/internalinterfaces"
 	clusterv1 "github.com/skevetter/agentapi/pkg/listers/cluster/v1"
@@ -66,7 +66,7 @@ func NewFilteredFeatureInformer(client versioned.Interface, resyncPeriod time.Du
 				return client.ClusterV1().Features().Watch(ctx, options)
 			},
 		}, client),
-		&loftclusterv1.Feature{},
+		&devsyclusterv1.Feature{},
 		resyncPeriod,
 		indexers,
 	)
@@ -77,7 +77,7 @@ func (f *featureInformer) defaultInformer(client versioned.Interface, resyncPeri
 }
 
 func (f *featureInformer) Informer() cache.SharedIndexInformer {
-	return f.factory.InformerFor(&loftclusterv1.Feature{}, f.defaultInformer)
+	return f.factory.InformerFor(&devsyclusterv1.Feature{}, f.defaultInformer)
 }
 
 func (f *featureInformer) Lister() clusterv1.FeatureLister {

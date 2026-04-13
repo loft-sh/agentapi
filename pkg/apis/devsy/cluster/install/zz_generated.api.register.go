@@ -3,8 +3,8 @@
 package install
 
 import (
-	"github.com/skevetter/agentapi/pkg/apis/loft/cluster"
-	"github.com/skevetter/agentapi/pkg/apis/loft/cluster/v1"
+	"github.com/skevetter/agentapi/pkg/apis/devsy/cluster"
+	"github.com/skevetter/agentapi/pkg/apis/devsy/cluster/v1"
 	"github.com/skevetter/apiserver/pkg/builders"
 	"k8s.io/apimachinery/pkg/runtime"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"

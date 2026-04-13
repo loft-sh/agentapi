@@ -6,7 +6,7 @@ import (
 	context "context"
 	time "time"
 
-	loftstoragev1 "github.com/skevetter/agentapi/pkg/apis/loft/storage/v1"
+	devsystoragev1 "github.com/skevetter/agentapi/pkg/apis/devsy/storage/v1"
 	versioned "github.com/skevetter/agentapi/pkg/clientset/versioned"
 	internalinterfaces "github.com/skevetter/agentapi/pkg/informers/externalversions/internalinterfaces"
 	storagev1 "github.com/skevetter/agentapi/pkg/listers/storage/v1"
@@ -66,7 +66,7 @@ func NewFilteredClusterQuotaInformer(client versioned.Interface, resyncPeriod ti
 				return client.StorageV1().ClusterQuotas().Watch(ctx, options)
 			},
 		}, client),
-		&loftstoragev1.ClusterQuota{},
+		&devsystoragev1.ClusterQuota{},
 		resyncPeriod,
 		indexers,
 	)
@@ -77,7 +77,7 @@ func (f *clusterQuotaInformer) defaultInformer(client versioned.Interface, resyn
 }
 
 func (f *clusterQuotaInformer) Informer() cache.SharedIndexInformer {
-	return f.factory.InformerFor(&loftstoragev1.ClusterQuota{}, f.defaultInformer)
+	return f.factory.InformerFor(&devsystoragev1.ClusterQuota{}, f.defaultInformer)
 }
 
 func (f *clusterQuotaInformer) Lister() storagev1.ClusterQuotaLister {

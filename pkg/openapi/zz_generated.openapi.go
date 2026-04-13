@@ -7,8 +7,8 @@ package openapi
 
 import (
 	licenseapi "github.com/skevetter/admin-apis/pkg/licenseapi"
-	v1 "github.com/skevetter/agentapi/pkg/apis/loft/cluster/v1"
-	storagev1 "github.com/skevetter/agentapi/pkg/apis/loft/storage/v1"
+	v1 "github.com/skevetter/agentapi/pkg/apis/devsy/cluster/v1"
+	storagev1 "github.com/skevetter/agentapi/pkg/apis/devsy/storage/v1"
 	admissionregistrationv1 "k8s.io/api/admissionregistration/v1"
 	v1beta1 "k8s.io/api/admissionregistration/v1beta1"
 	appsv1 "k8s.io/api/apps/v1"
@@ -1432,7 +1432,7 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_InstanceCreateInput(ref common.Ref
 					},
 					"product": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Product is the product that is being used. Can be empty, loft, devpod-pro or vcluster-pro. This should NOT be a ProductName but a string to allow for downward compatibility",
+							Description: "Product is the product that is being used. Can be empty, devsy, devpod-pro or devsy-pro. This should NOT be a ProductName but a string to allow for downward compatibility",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -2677,9 +2677,9 @@ func schema_loft_sh_admin_apis_pkg_licenseapi_UsageDataDetails(ref common.Refere
 							},
 						},
 					},
-					"vClusters": {
+					"devsys": {
 						SchemaProps: spec.SchemaProps{
-							Description: "VClusters contains the details of the virtual clusters",
+							Description: "Devsys contains the details of the devsy instances",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -3642,9 +3642,9 @@ func schema_apis_loft_cluster_v1_LastActivityInfo(ref common.ReferenceCallback) 
 							Format:      "",
 						},
 					},
-					"virtualCluster": {
+					"devsyCluster": {
 						SchemaProps: spec.SchemaProps{
-							Description: "VirtualCluster is the virtual cluster this activity happened in",
+							Description: "DevsyCluster is the devsy cluster this activity happened in",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -4025,9 +4025,9 @@ func schema_apis_loft_cluster_v1_SleepModeConfigSpec(ref common.ReferenceCallbac
 							Format:      "",
 						},
 					},
-					"ignoreVClusters": {
+					"ignoreDevsys": {
 						SchemaProps: spec.SchemaProps{
-							Description: "IgnoreVClusters ignores vcluster requests",
+							Description: "IgnoreDevsys ignores devsy requests",
 							Type:        []string{"boolean"},
 							Format:      "",
 						},

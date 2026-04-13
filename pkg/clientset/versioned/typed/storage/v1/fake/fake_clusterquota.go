@@ -3,7 +3,7 @@
 package fake
 
 import (
-	v1 "github.com/skevetter/agentapi/pkg/apis/loft/storage/v1"
+	v1 "github.com/skevetter/agentapi/pkg/apis/devsy/storage/v1"
 	storagev1 "github.com/skevetter/agentapi/pkg/clientset/versioned/typed/storage/v1"
 	gentype "k8s.io/client-go/gentype"
 )

@@ -3,7 +3,7 @@
 package v1
 
 import (
-	clusterv1 "github.com/skevetter/agentapi/pkg/apis/loft/cluster/v1"
+	clusterv1 "github.com/skevetter/agentapi/pkg/apis/devsy/cluster/v1"
 	labels "k8s.io/apimachinery/pkg/labels"
 	listers "k8s.io/client-go/listers"
 	cache "k8s.io/client-go/tools/cache"

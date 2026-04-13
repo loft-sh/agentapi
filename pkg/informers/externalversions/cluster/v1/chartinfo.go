@@ -6,7 +6,7 @@ import (
 	context "context"
 	time "time"
 
-	loftclusterv1 "github.com/skevetter/agentapi/pkg/apis/loft/cluster/v1"
+	devsyclusterv1 "github.com/skevetter/agentapi/pkg/apis/devsy/cluster/v1"
 	versioned "github.com/skevetter/agentapi/pkg/clientset/versioned"
 	internalinterfaces "github.com/skevetter/agentapi/pkg/informers/externalversions/internalinterfaces"
 	clusterv1 "github.com/skevetter/agentapi/pkg/listers/cluster/v1"
@@ -66,7 +66,7 @@ func NewFilteredChartInfoInformer(client versioned.Interface, resyncPeriod time.
 				return client.ClusterV1().ChartInfos().Watch(ctx, options)
 			},
 		}, client),
-		&loftclusterv1.ChartInfo{},
+		&devsyclusterv1.ChartInfo{},
 		resyncPeriod,
 		indexers,
 	)
@@ -77,7 +77,7 @@ func (f *chartInfoInformer) defaultInformer(client versioned.Interface, resyncPe
 }
 
 func (f *chartInfoInformer) Informer() cache.SharedIndexInformer {
-	return f.factory.InformerFor(&loftclusterv1.ChartInfo{}, f.defaultInformer)
+	return f.factory.InformerFor(&devsyclusterv1.ChartInfo{}, f.defaultInformer)
 }
 
 func (f *chartInfoInformer) Lister() clusterv1.ChartInfoLister {

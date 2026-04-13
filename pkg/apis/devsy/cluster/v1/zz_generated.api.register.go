@@ -3,7 +3,7 @@
 package v1
 
 import (
-	"github.com/skevetter/agentapi/pkg/apis/loft/cluster"
+	"github.com/skevetter/agentapi/pkg/apis/devsy/cluster"
 	"github.com/skevetter/apiserver/pkg/builders"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
@@ -24,7 +24,7 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 }
 
 var (
-	ApiVersion = builders.NewApiVersion("cluster.loft.sh", "v1").WithResources(
+	ApiVersion = builders.NewApiVersion("cluster.devsy.sh", "v1").WithResources(
 		cluster.ClusterChartInfoStorage,
 		cluster.ClusterFeatureStorage,
 		cluster.ClusterHelmReleaseStorage,

@@ -5,39 +5,39 @@ import (
 )
 
 const (
-	SleepModeForceAnnotation          = "sleepmode.loft.sh/force"
-	SleepModeForceDurationAnnotation  = "sleepmode.loft.sh/force-duration"
-	SleepModeSleepAfterAnnotation     = "sleepmode.loft.sh/sleep-after"
-	SleepModeDeleteAfterAnnotation    = "sleepmode.loft.sh/delete-after"
-	SleepModeSleepScheduleAnnotation  = "sleepmode.loft.sh/sleep-schedule"
-	SleepModeWakeupScheduleAnnotation = "sleepmode.loft.sh/wakeup-schedule"
-	SleepModeTimezoneAnnotation       = "sleepmode.loft.sh/timezone"
+	SleepModeForceAnnotation          = "sleepmode.devsy.sh/force"
+	SleepModeForceDurationAnnotation  = "sleepmode.devsy.sh/force-duration"
+	SleepModeSleepAfterAnnotation     = "sleepmode.devsy.sh/sleep-after"
+	SleepModeDeleteAfterAnnotation    = "sleepmode.devsy.sh/delete-after"
+	SleepModeSleepScheduleAnnotation  = "sleepmode.devsy.sh/sleep-schedule"
+	SleepModeWakeupScheduleAnnotation = "sleepmode.devsy.sh/wakeup-schedule"
+	SleepModeTimezoneAnnotation       = "sleepmode.devsy.sh/timezone"
 
-	SleepModeLastActivityAnnotation      = "sleepmode.loft.sh/last-activity"
-	SleepModeLastActivityAnnotationInfo  = "sleepmode.loft.sh/last-activity-info"
-	SleepModeSleepingSinceAnnotation     = "sleepmode.loft.sh/sleeping-since"
-	SleepModeCurrentEpochStartAnnotation = "sleepmode.loft.sh/current-epoch-start"
-	SleepModeCurrentEpochSleptAnnotation = "sleepmode.loft.sh/current-epoch-slept"
-	SleepModeLastEpochStartAnnotation    = "sleepmode.loft.sh/last-epoch-start"
-	SleepModeLastEpochSleptAnnotation    = "sleepmode.loft.sh/last-epoch-slept"
-	SleepModeScheduledSleepAnnotation    = "sleepmode.loft.sh/scheduled-sleep"
-	SleepModeScheduledWakeupAnnotation   = "sleepmode.loft.sh/scheduled-wakeup"
-	SleepModeSleepTypeAnnotation         = "sleepmode.loft.sh/sleep-type"
-	SleepModeDisableIngressWakeup        = "sleepmode.loft.sh/disable-ingress-wakeup"
-	SleepModeDisableMetricsTracking      = "sleepmode.loft.sh/disable-metrics-tracking"
-	SleepScopeAnnotation                 = "sleepmode.loft.sh/scope"
+	SleepModeLastActivityAnnotation      = "sleepmode.devsy.sh/last-activity"
+	SleepModeLastActivityAnnotationInfo  = "sleepmode.devsy.sh/last-activity-info"
+	SleepModeSleepingSinceAnnotation     = "sleepmode.devsy.sh/sleeping-since"
+	SleepModeCurrentEpochStartAnnotation = "sleepmode.devsy.sh/current-epoch-start"
+	SleepModeCurrentEpochSleptAnnotation = "sleepmode.devsy.sh/current-epoch-slept"
+	SleepModeLastEpochStartAnnotation    = "sleepmode.devsy.sh/last-epoch-start"
+	SleepModeLastEpochSleptAnnotation    = "sleepmode.devsy.sh/last-epoch-slept"
+	SleepModeScheduledSleepAnnotation    = "sleepmode.devsy.sh/scheduled-sleep"
+	SleepModeScheduledWakeupAnnotation   = "sleepmode.devsy.sh/scheduled-wakeup"
+	SleepModeSleepTypeAnnotation         = "sleepmode.devsy.sh/sleep-type"
+	SleepModeDisableIngressWakeup        = "sleepmode.devsy.sh/disable-ingress-wakeup"
+	SleepModeDisableMetricsTracking      = "sleepmode.devsy.sh/disable-metrics-tracking"
+	SleepScopeAnnotation                 = "sleepmode.devsy.sh/scope"
 
 	// Not yet in spec annotations
-	SleepModeIgnoreAll                     = "sleepmode.loft.sh/ignore-all"
-	SleepModeIgnoreIngresses               = "sleepmode.loft.sh/ignore-ingresses"
-	SleepModeIgnoreGroupsAnnotation        = "sleepmode.loft.sh/ignore-groups"
-	SleepModeIgnoreVClustersAnnotation     = "sleepmode.loft.sh/ignore-vclusters"
-	SleepModeIgnoreResourcesAnnotation     = "sleepmode.loft.sh/ignore-resources"
-	SleepModeIgnoreVerbsAnnotation         = "sleepmode.loft.sh/ignore-verbs"
-	SleepModeIgnoreResourceVerbsAnnotation = "sleepmode.loft.sh/ignore-resource-verbs" // format: myresource.mygroup=create update delete, myresource2.mygroup=create update
-	SleepModeIgnoreResourceNamesAnnotation = "sleepmode.loft.sh/ignore-resource-names" // format: myresource.mygroup=name1 name2
-	SleepModeIgnoreActiveConnections       = "sleepmode.loft.sh/ignore-active-connections"
-	SleepModeIgnoreUserAgents              = "sleepmode.loft.sh/ignore-user-agents" // format: useragent1,useragentprefix/*,*
+	SleepModeIgnoreAll                     = "sleepmode.devsy.sh/ignore-all"
+	SleepModeIgnoreIngresses               = "sleepmode.devsy.sh/ignore-ingresses"
+	SleepModeIgnoreGroupsAnnotation        = "sleepmode.devsy.sh/ignore-groups"
+	SleepModeIgnoreDevsysAnnotation        = "sleepmode.devsy.sh/ignore-devsys"
+	SleepModeIgnoreResourcesAnnotation     = "sleepmode.devsy.sh/ignore-resources"
+	SleepModeIgnoreVerbsAnnotation         = "sleepmode.devsy.sh/ignore-verbs"
+	SleepModeIgnoreResourceVerbsAnnotation = "sleepmode.devsy.sh/ignore-resource-verbs" // format: myresource.mygroup=create update delete, myresource2.mygroup=create update
+	SleepModeIgnoreResourceNamesAnnotation = "sleepmode.devsy.sh/ignore-resource-names" // format: myresource.mygroup=name1 name2
+	SleepModeIgnoreActiveConnections       = "sleepmode.devsy.sh/ignore-active-connections"
+	SleepModeIgnoreUserAgents              = "sleepmode.devsy.sh/ignore-user-agents" // format: useragent1,useragentprefix/*,*
 
 	SleepTypeInactivity     = "inactivitySleep"
 	SleepTypeForced         = "forcedSleep"
@@ -47,7 +47,7 @@ const (
 
 // SleepModeConfigAnnotationKeys returns relevant annotation keys that are evaluated in
 // apimachinery/v2/pkg/sleepmode/extractSleepModeConfigs function. This is primarily used for
-// knowing which annotations to copy from spaces to vcluster instances when importing vclusters
+// knowing which annotations to copy from spaces to devsy instances when importing devsys
 // to a project.
 func SleepModeConfigAnnotationKeys() []string {
 	return []string{
@@ -87,7 +87,7 @@ type SleepModeConfigSpec struct {
 
 	// If force sleep duration is set, this will force the space to sleep
 	// for the given duration. It also implies that forceSleep is true.
-	// During this period loft will also block certain requests to that space.
+	// During this period devsy will also block certain requests to that space.
 	// If this is set to 0, it means the space will sleep until it is manually
 	// woken up via the cli or ui.
 	// +optional
@@ -130,9 +130,9 @@ type SleepModeConfigSpec struct {
 	// +optional
 	IgnoreIngresses bool `json:"ignoreIngresses,omitempty"`
 
-	// IgnoreVClusters ignores vcluster requests
+	// IgnoreDevsys ignores devsy requests
 	// +optional
-	IgnoreVClusters bool `json:"ignoreVClusters,omitempty"`
+	IgnoreDevsys bool `json:"ignoreDevsys,omitempty"`
 
 	// IgnoreGroups are ignored user groups
 	// +optional
@@ -169,7 +169,7 @@ type SleepModeConfigStatus struct {
 	// +optional
 	LastActivityInfo *LastActivityInfo `json:"lastActivityInfo,omitempty"`
 
-	// SleepingSince specifies since when the space is sleeping (if this is not specified, loft assumes the space is not sleeping)
+	// SleepingSince specifies since when the space is sleeping (if this is not specified, devsy assumes the space is not sleeping)
 	// +optional
 	SleepingSince int64 `json:"sleepingSince,omitempty"`
 
@@ -246,9 +246,9 @@ type LastActivityInfo struct {
 	// +optional
 	Name string `json:"name,omitempty"`
 
-	// VirtualCluster is the virtual cluster this activity happened in
+	// DevsyCluster is the devsy cluster this activity happened in
 	// +optional
-	VirtualCluster string `json:"virtualCluster,omitempty"`
+	DevsyCluster string `json:"devsyCluster,omitempty"`
 
 	// MetricsRefreshInterval is the activity refresh interval. This is used to prevent sleeping instances if the last
 	// activity metrics have not been refreshed within the interval. Useful for metrics based activty tracking.

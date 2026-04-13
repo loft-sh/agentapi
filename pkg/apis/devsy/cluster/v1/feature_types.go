@@ -21,8 +21,7 @@ type Feature struct {
 }
 
 // FeatureSpec holds the specification
-type FeatureSpec struct {
-}
+type FeatureSpec struct{}
 
 // FeatureStatus holds the status
 type FeatureStatus struct {
