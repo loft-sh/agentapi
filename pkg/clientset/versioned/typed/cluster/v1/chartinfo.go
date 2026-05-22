@@ -3,9 +3,9 @@
 package v1
 
 import (
-	"context"
+	context "context"
 
-	v1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
+	clusterv1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
 	scheme "github.com/loft-sh/agentapi/v4/pkg/clientset/versioned/scheme"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	types "k8s.io/apimachinery/pkg/types"
@@ -21,33 +21,34 @@ type ChartInfosGetter interface {
 
 // ChartInfoInterface has methods to work with ChartInfo resources.
 type ChartInfoInterface interface {
-	Create(ctx context.Context, chartInfo *v1.ChartInfo, opts metav1.CreateOptions) (*v1.ChartInfo, error)
-	Update(ctx context.Context, chartInfo *v1.ChartInfo, opts metav1.UpdateOptions) (*v1.ChartInfo, error)
+	Create(ctx context.Context, chartInfo *clusterv1.ChartInfo, opts metav1.CreateOptions) (*clusterv1.ChartInfo, error)
+	Update(ctx context.Context, chartInfo *clusterv1.ChartInfo, opts metav1.UpdateOptions) (*clusterv1.ChartInfo, error)
 	// Add a +genclient:noStatus comment above the type to avoid generating UpdateStatus().
-	UpdateStatus(ctx context.Context, chartInfo *v1.ChartInfo, opts metav1.UpdateOptions) (*v1.ChartInfo, error)
+	UpdateStatus(ctx context.Context, chartInfo *clusterv1.ChartInfo, opts metav1.UpdateOptions) (*clusterv1.ChartInfo, error)
 	Delete(ctx context.Context, name string, opts metav1.DeleteOptions) error
 	DeleteCollection(ctx context.Context, opts metav1.DeleteOptions, listOpts metav1.ListOptions) error
-	Get(ctx context.Context, name string, opts metav1.GetOptions) (*v1.ChartInfo, error)
-	List(ctx context.Context, opts metav1.ListOptions) (*v1.ChartInfoList, error)
+	Get(ctx context.Context, name string, opts metav1.GetOptions) (*clusterv1.ChartInfo, error)
+	List(ctx context.Context, opts metav1.ListOptions) (*clusterv1.ChartInfoList, error)
 	Watch(ctx context.Context, opts metav1.ListOptions) (watch.Interface, error)
-	Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts metav1.PatchOptions, subresources ...string) (result *v1.ChartInfo, err error)
+	Patch(ctx context.Context, name string, pt types.PatchType, data []byte, opts metav1.PatchOptions, subresources ...string) (result *clusterv1.ChartInfo, err error)
 	ChartInfoExpansion
 }
 
 // chartInfos implements ChartInfoInterface
 type chartInfos struct {
-	*gentype.ClientWithList[*v1.ChartInfo, *v1.ChartInfoList]
+	*gentype.ClientWithList[*clusterv1.ChartInfo, *clusterv1.ChartInfoList]
 }
 
 // newChartInfos returns a ChartInfos
 func newChartInfos(c *ClusterV1Client) *chartInfos {
 	return &chartInfos{
-		gentype.NewClientWithList[*v1.ChartInfo, *v1.ChartInfoList](
+		gentype.NewClientWithList[*clusterv1.ChartInfo, *clusterv1.ChartInfoList](
 			"chartinfos",
 			c.RESTClient(),
 			scheme.ParameterCodec,
 			"",
-			func() *v1.ChartInfo { return &v1.ChartInfo{} },
-			func() *v1.ChartInfoList { return &v1.ChartInfoList{} }),
+			func() *clusterv1.ChartInfo { return &clusterv1.ChartInfo{} },
+			func() *clusterv1.ChartInfoList { return &clusterv1.ChartInfoList{} },
+		),
 	}
 }
