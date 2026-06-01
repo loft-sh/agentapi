@@ -123,13 +123,22 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		storagev1.ClusterQuotaStatus{}.OpenAPIModelName():                                 schema_apis_loft_storage_v1_ClusterQuotaStatus(ref),
 		storagev1.ClusterQuotaStatusByNamespace{}.OpenAPIModelName():                      schema_apis_loft_storage_v1_ClusterQuotaStatusByNamespace(ref),
 		storagev1.Condition{}.OpenAPIModelName():                                          schema_apis_loft_storage_v1_Condition(ref),
+		admissionregistrationv1.ApplyConfiguration{}.OpenAPIModelName():                   schema_k8sio_api_admissionregistration_v1_ApplyConfiguration(ref),
 		admissionregistrationv1.AuditAnnotation{}.OpenAPIModelName():                      schema_k8sio_api_admissionregistration_v1_AuditAnnotation(ref),
 		admissionregistrationv1.ExpressionWarning{}.OpenAPIModelName():                    schema_k8sio_api_admissionregistration_v1_ExpressionWarning(ref),
+		admissionregistrationv1.JSONPatch{}.OpenAPIModelName():                            schema_k8sio_api_admissionregistration_v1_JSONPatch(ref),
 		admissionregistrationv1.MatchCondition{}.OpenAPIModelName():                       schema_k8sio_api_admissionregistration_v1_MatchCondition(ref),
 		admissionregistrationv1.MatchResources{}.OpenAPIModelName():                       schema_k8sio_api_admissionregistration_v1_MatchResources(ref),
+		admissionregistrationv1.MutatingAdmissionPolicy{}.OpenAPIModelName():              schema_k8sio_api_admissionregistration_v1_MutatingAdmissionPolicy(ref),
+		admissionregistrationv1.MutatingAdmissionPolicyBinding{}.OpenAPIModelName():       schema_k8sio_api_admissionregistration_v1_MutatingAdmissionPolicyBinding(ref),
+		admissionregistrationv1.MutatingAdmissionPolicyBindingList{}.OpenAPIModelName():   schema_k8sio_api_admissionregistration_v1_MutatingAdmissionPolicyBindingList(ref),
+		admissionregistrationv1.MutatingAdmissionPolicyBindingSpec{}.OpenAPIModelName():   schema_k8sio_api_admissionregistration_v1_MutatingAdmissionPolicyBindingSpec(ref),
+		admissionregistrationv1.MutatingAdmissionPolicyList{}.OpenAPIModelName():          schema_k8sio_api_admissionregistration_v1_MutatingAdmissionPolicyList(ref),
+		admissionregistrationv1.MutatingAdmissionPolicySpec{}.OpenAPIModelName():          schema_k8sio_api_admissionregistration_v1_MutatingAdmissionPolicySpec(ref),
 		admissionregistrationv1.MutatingWebhook{}.OpenAPIModelName():                      schema_k8sio_api_admissionregistration_v1_MutatingWebhook(ref),
 		admissionregistrationv1.MutatingWebhookConfiguration{}.OpenAPIModelName():         schema_k8sio_api_admissionregistration_v1_MutatingWebhookConfiguration(ref),
 		admissionregistrationv1.MutatingWebhookConfigurationList{}.OpenAPIModelName():     schema_k8sio_api_admissionregistration_v1_MutatingWebhookConfigurationList(ref),
+		admissionregistrationv1.Mutation{}.OpenAPIModelName():                             schema_k8sio_api_admissionregistration_v1_Mutation(ref),
 		admissionregistrationv1.NamedRuleWithOperations{}.OpenAPIModelName():              schema_k8sio_api_admissionregistration_v1_NamedRuleWithOperations(ref),
 		admissionregistrationv1.ParamKind{}.OpenAPIModelName():                            schema_k8sio_api_admissionregistration_v1_ParamKind(ref),
 		admissionregistrationv1.ParamRef{}.OpenAPIModelName():                             schema_k8sio_api_admissionregistration_v1_ParamRef(ref),
@@ -458,6 +467,7 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		corev1.ISCSIPersistentVolumeSource{}.OpenAPIModelName():                           schema_k8sio_api_core_v1_ISCSIPersistentVolumeSource(ref),
 		corev1.ISCSIVolumeSource{}.OpenAPIModelName():                                     schema_k8sio_api_core_v1_ISCSIVolumeSource(ref),
 		corev1.ImageVolumeSource{}.OpenAPIModelName():                                     schema_k8sio_api_core_v1_ImageVolumeSource(ref),
+		corev1.ImageVolumeStatus{}.OpenAPIModelName():                                     schema_k8sio_api_core_v1_ImageVolumeStatus(ref),
 		corev1.KeyToPath{}.OpenAPIModelName():                                             schema_k8sio_api_core_v1_KeyToPath(ref),
 		corev1.Lifecycle{}.OpenAPIModelName():                                             schema_k8sio_api_core_v1_Lifecycle(ref),
 		corev1.LifecycleHandler{}.OpenAPIModelName():                                      schema_k8sio_api_core_v1_LifecycleHandler(ref),
@@ -481,6 +491,7 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		corev1.Node{}.OpenAPIModelName():                                                  schema_k8sio_api_core_v1_Node(ref),
 		corev1.NodeAddress{}.OpenAPIModelName():                                           schema_k8sio_api_core_v1_NodeAddress(ref),
 		corev1.NodeAffinity{}.OpenAPIModelName():                                          schema_k8sio_api_core_v1_NodeAffinity(ref),
+		corev1.NodeAllocatableResourceClaimStatus{}.OpenAPIModelName():                    schema_k8sio_api_core_v1_NodeAllocatableResourceClaimStatus(ref),
 		corev1.NodeCondition{}.OpenAPIModelName():                                         schema_k8sio_api_core_v1_NodeCondition(ref),
 		corev1.NodeConfigSource{}.OpenAPIModelName():                                      schema_k8sio_api_core_v1_NodeConfigSource(ref),
 		corev1.NodeConfigStatus{}.OpenAPIModelName():                                      schema_k8sio_api_core_v1_NodeConfigStatus(ref),
@@ -533,6 +544,7 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		corev1.PodResourceClaim{}.OpenAPIModelName():                                      schema_k8sio_api_core_v1_PodResourceClaim(ref),
 		corev1.PodResourceClaimStatus{}.OpenAPIModelName():                                schema_k8sio_api_core_v1_PodResourceClaimStatus(ref),
 		corev1.PodSchedulingGate{}.OpenAPIModelName():                                     schema_k8sio_api_core_v1_PodSchedulingGate(ref),
+		corev1.PodSchedulingGroup{}.OpenAPIModelName():                                    schema_k8sio_api_core_v1_PodSchedulingGroup(ref),
 		corev1.PodSecurityContext{}.OpenAPIModelName():                                    schema_k8sio_api_core_v1_PodSecurityContext(ref),
 		corev1.PodSignature{}.OpenAPIModelName():                                          schema_k8sio_api_core_v1_PodSignature(ref),
 		corev1.PodSpec{}.OpenAPIModelName():                                               schema_k8sio_api_core_v1_PodSpec(ref),
@@ -611,6 +623,7 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		corev1.VolumeProjection{}.OpenAPIModelName():                                      schema_k8sio_api_core_v1_VolumeProjection(ref),
 		corev1.VolumeResourceRequirements{}.OpenAPIModelName():                            schema_k8sio_api_core_v1_VolumeResourceRequirements(ref),
 		corev1.VolumeSource{}.OpenAPIModelName():                                          schema_k8sio_api_core_v1_VolumeSource(ref),
+		corev1.VolumeStatus{}.OpenAPIModelName():                                          schema_k8sio_api_core_v1_VolumeStatus(ref),
 		corev1.VsphereVirtualDiskVolumeSource{}.OpenAPIModelName():                        schema_k8sio_api_core_v1_VsphereVirtualDiskVolumeSource(ref),
 		corev1.WeightedPodAffinityTerm{}.OpenAPIModelName():                               schema_k8sio_api_core_v1_WeightedPodAffinityTerm(ref),
 		corev1.WindowsSecurityContextOptions{}.OpenAPIModelName():                         schema_k8sio_api_core_v1_WindowsSecurityContextOptions(ref),
@@ -865,6 +878,7 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		metav1.Preconditions{}.OpenAPIModelName():                                         schema_pkg_apis_meta_v1_Preconditions(ref),
 		metav1.RootPaths{}.OpenAPIModelName():                                             schema_pkg_apis_meta_v1_RootPaths(ref),
 		metav1.ServerAddressByClientCIDR{}.OpenAPIModelName():                             schema_pkg_apis_meta_v1_ServerAddressByClientCIDR(ref),
+		metav1.ShardInfo{}.OpenAPIModelName():                                             schema_pkg_apis_meta_v1_ShardInfo(ref),
 		metav1.Status{}.OpenAPIModelName():                                                schema_pkg_apis_meta_v1_Status(ref),
 		metav1.StatusCause{}.OpenAPIModelName():                                           schema_pkg_apis_meta_v1_StatusCause(ref),
 		metav1.StatusDetails{}.OpenAPIModelName():                                         schema_pkg_apis_meta_v1_StatusDetails(ref),
@@ -4370,6 +4384,26 @@ func schema_apis_loft_storage_v1_Condition(ref common.ReferenceCallback) common.
 	}
 }
 
+func schema_k8sio_api_admissionregistration_v1_ApplyConfiguration(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "ApplyConfiguration defines the desired configuration values of an object.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"expression": {
+						SchemaProps: spec.SchemaProps{
+							Description: "expression will be evaluated by CEL to create an apply configuration. ref: https://github.com/google/cel-spec\n\nApply configurations are declared in CEL using object initialization. For example, this CEL expression returns an apply configuration to set a single field:\n\n\tObject{\n\t  spec: Object.spec{\n\t    serviceAccountName: \"example\"\n\t  }\n\t}\n\nApply configurations may not modify atomic structs, maps or arrays due to the risk of accidental deletion of values not included in the apply configuration.\n\nCEL expressions have access to the object types needed to create apply configurations:\n\n- 'Object' - CEL type of the resource object. - 'Object.<fieldName>' - CEL type of object field (such as 'Object.spec') - 'Object.<fieldName1>.<fieldName2>...<fieldNameN>` - CEL type of nested field (such as 'Object.spec.containers')\n\nCEL expressions have access to the contents of the API request, organized into CEL variables as well as some other useful variables:\n\n- 'object' - The object from the incoming request. The value is null for DELETE requests. - 'oldObject' - The existing object. The value is null for CREATE requests. - 'request' - Attributes of the API request([ref](/pkg/apis/admission/types.go#AdmissionRequest)). - 'params' - Parameter resource referred to by the policy binding being evaluated. Only populated if the policy has a ParamKind. - 'namespaceObject' - The namespace object that the incoming object belongs to. The value is null for cluster-scoped resources. - 'variables' - Map of composited variables, from its name to its lazily evaluated value.\n  For example, a variable named 'foo' can be accessed as 'variables.foo'.\n- 'authorizer' - A CEL Authorizer. May be used to perform authorization checks for the principal (user or service account) of the request.\n  See https://pkg.go.dev/k8s.io/apiserver/pkg/cel/library#Authz\n- 'authorizer.requestResource' - A CEL ResourceCheck constructed from the 'authorizer' and configured with the\n  request resource.\n\nThe `apiVersion`, `kind`, `metadata.name` and `metadata.generateName` are always accessible from the root of the object. No other metadata properties are accessible.\n\nOnly property names of the form `[a-zA-Z_.-/][a-zA-Z0-9_.-/]*` are accessible. Required.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
+			},
+		},
+	}
+}
+
 func schema_k8sio_api_admissionregistration_v1_AuditAnnotation(ref common.ReferenceCallback) common.OpenAPIDefinition {
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
@@ -4409,7 +4443,7 @@ func schema_k8sio_api_admissionregistration_v1_ExpressionWarning(ref common.Refe
 				Properties: map[string]spec.Schema{
 					"fieldRef": {
 						SchemaProps: spec.SchemaProps{
-							Description: "The path to the field that refers the expression. For example, the reference to the expression of the first item of validations is \"spec.validations[0].expression\"",
+							Description: "fieldRef is the path to the field that refers to the expression. For example, the reference to the expression of the first item of validations is \"spec.validations[0].expression\"",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -4417,7 +4451,7 @@ func schema_k8sio_api_admissionregistration_v1_ExpressionWarning(ref common.Refe
 					},
 					"warning": {
 						SchemaProps: spec.SchemaProps{
-							Description: "The content of type checking information in a human-readable form. Each line of the warning contains the type that the expression is checked against, followed by the type check error from the compiler.",
+							Description: "warning contains the content of type checking information in a human-readable form. Each line of the warning contains the type that the expression is checked against, followed by the type check error from the compiler.",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -4425,6 +4459,26 @@ func schema_k8sio_api_admissionregistration_v1_ExpressionWarning(ref common.Refe
 					},
 				},
 				Required: []string{"fieldRef", "warning"},
+			},
+		},
+	}
+}
+
+func schema_k8sio_api_admissionregistration_v1_JSONPatch(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "JSONPatch defines a JSON Patch.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"expression": {
+						SchemaProps: spec.SchemaProps{
+							Description: "expression will be evaluated by CEL to create a [JSON patch](https://jsonpatch.com/). ref: https://github.com/google/cel-spec\n\nexpression must return an array of JSONPatch values.\n\nFor example, this CEL expression returns a JSON patch to conditionally modify a value:\n\n\t  [\n\t    JSONPatch{op: \"test\", path: \"/spec/example\", value: \"Red\"},\n\t    JSONPatch{op: \"replace\", path: \"/spec/example\", value: \"Green\"}\n\t  ]\n\nTo define an object for the patch value, use Object types. For example:\n\n\t  [\n\t    JSONPatch{\n\t      op: \"add\",\n\t      path: \"/spec/selector\",\n\t      value: Object.spec.selector{matchLabels: {\"environment\": \"test\"}}\n\t    }\n\t  ]\n\nTo use strings containing '/' and '~' as JSONPatch path keys, use \"jsonpatch.escapeKey\". For example:\n\n\t  [\n\t    JSONPatch{\n\t      op: \"add\",\n\t      path: \"/metadata/labels/\" + jsonpatch.escapeKey(\"example.com/environment\"),\n\t      value: \"test\"\n\t    },\n\t  ]\n\nCEL expressions have access to the types needed to create JSON patches and objects:\n\n- 'JSONPatch' - CEL type of JSON Patch operations. JSONPatch has the fields 'op', 'from', 'path' and 'value'.\n  See [JSON patch](https://jsonpatch.com/) for more details. The 'value' field may be set to any of: string,\n  integer, array, map or object.  If set, the 'path' and 'from' fields must be set to a\n  [JSON pointer](https://datatracker.ietf.org/doc/html/rfc6901/) string, where the 'jsonpatch.escapeKey()' CEL\n  function may be used to escape path keys containing '/' and '~'.\n- 'Object' - CEL type of the resource object. - 'Object.<fieldName>' - CEL type of object field (such as 'Object.spec') - 'Object.<fieldName1>.<fieldName2>...<fieldNameN>` - CEL type of nested field (such as 'Object.spec.containers')\n\nCEL expressions have access to the contents of the API request, organized into CEL variables as well as some other useful variables:\n\n- 'object' - The object from the incoming request. The value is null for DELETE requests. - 'oldObject' - The existing object. The value is null for CREATE requests. - 'request' - Attributes of the API request([ref](/pkg/apis/admission/types.go#AdmissionRequest)). - 'params' - Parameter resource referred to by the policy binding being evaluated. Only populated if the policy has a ParamKind. - 'namespaceObject' - The namespace object that the incoming object belongs to. The value is null for cluster-scoped resources. - 'variables' - Map of composited variables, from its name to its lazily evaluated value.\n  For example, a variable named 'foo' can be accessed as 'variables.foo'.\n- 'authorizer' - A CEL Authorizer. May be used to perform authorization checks for the principal (user or service account) of the request.\n  See https://pkg.go.dev/k8s.io/apiserver/pkg/cel/library#Authz\n- 'authorizer.requestResource' - A CEL ResourceCheck constructed from the 'authorizer' and configured with the\n  request resource.\n\nCEL expressions have access to [Kubernetes CEL function libraries](https://kubernetes.io/docs/reference/using-api/cel/#cel-options-language-features-and-libraries) as well as:\n\n- 'jsonpatch.escapeKey' - Performs JSONPatch key escaping. '~' and  '/' are escaped as '~0' and `~1' respectively).\n\nOnly property names of the form `[a-zA-Z_.-/][a-zA-Z0-9_.-/]*` are accessible. Required.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
 			},
 		},
 	}
@@ -4439,7 +4493,7 @@ func schema_k8sio_api_admissionregistration_v1_MatchCondition(ref common.Referen
 				Properties: map[string]spec.Schema{
 					"name": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Name is an identifier for this match condition, used for strategic merging of MatchConditions, as well as providing an identifier for logging purposes. A good name should be descriptive of the associated expression. Name must be a qualified name consisting of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyName',  or 'my.name',  or '123-abc', regex used for validation is '([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9]') with an optional DNS subdomain prefix and '/' (e.g. 'example.com/MyName')\n\nRequired.",
+							Description: "name is an identifier for this match condition, used for strategic merging of MatchConditions, as well as providing an identifier for logging purposes. A good name should be descriptive of the associated expression. Name must be a qualified name consisting of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyName',  or 'my.name',  or '123-abc', regex used for validation is '([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9]') with an optional DNS subdomain prefix and '/' (e.g. 'example.com/MyName')\n\nRequired.",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -4447,7 +4501,7 @@ func schema_k8sio_api_admissionregistration_v1_MatchCondition(ref common.Referen
 					},
 					"expression": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Expression represents the expression which will be evaluated by CEL. Must evaluate to bool. CEL expressions have access to the contents of the AdmissionRequest and Authorizer, organized into CEL variables:\n\n'object' - The object from the incoming request. The value is null for DELETE requests. 'oldObject' - The existing object. The value is null for CREATE requests. 'request' - Attributes of the admission request(/pkg/apis/admission/types.go#AdmissionRequest). 'authorizer' - A CEL Authorizer. May be used to perform authorization checks for the principal (user or service account) of the request.\n  See https://pkg.go.dev/k8s.io/apiserver/pkg/cel/library#Authz\n'authorizer.requestResource' - A CEL ResourceCheck constructed from the 'authorizer' and configured with the\n  request resource.\nDocumentation on CEL: https://kubernetes.io/docs/reference/using-api/cel/\n\nRequired.",
+							Description: "expression represents the expression which will be evaluated by CEL. Must evaluate to bool. CEL expressions have access to the contents of the AdmissionRequest and Authorizer, organized into CEL variables:\n\n'object' - The object from the incoming request. The value is null for DELETE requests. 'oldObject' - The existing object. The value is null for CREATE requests. 'request' - Attributes of the admission request(/pkg/apis/admission/types.go#AdmissionRequest). 'authorizer' - A CEL Authorizer. May be used to perform authorization checks for the principal (user or service account) of the request.\n  See https://pkg.go.dev/k8s.io/apiserver/pkg/cel/library#Authz\n'authorizer.requestResource' - A CEL ResourceCheck constructed from the 'authorizer' and configured with the\n  request resource.\nDocumentation on CEL: https://kubernetes.io/docs/reference/using-api/cel/\n\nRequired.",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -4469,13 +4523,13 @@ func schema_k8sio_api_admissionregistration_v1_MatchResources(ref common.Referen
 				Properties: map[string]spec.Schema{
 					"namespaceSelector": {
 						SchemaProps: spec.SchemaProps{
-							Description: "NamespaceSelector decides whether to run the admission control policy on an object based on whether the namespace for that object matches the selector. If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the policy.\n\nFor example, to run the webhook on any objects whose namespace is not associated with \"runlevel\" of \"0\" or \"1\";  you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"runlevel\",\n      \"operator\": \"NotIn\",\n      \"values\": [\n        \"0\",\n        \"1\"\n      ]\n    }\n  ]\n}\n\nIf instead you want to only run the policy on any objects whose namespace is associated with the \"environment\" of \"prod\" or \"staging\"; you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"environment\",\n      \"operator\": \"In\",\n      \"values\": [\n        \"prod\",\n        \"staging\"\n      ]\n    }\n  ]\n}\n\nSee https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ for more examples of label selectors.\n\nDefault to the empty LabelSelector, which matches everything.",
+							Description: "namespaceSelector decides whether to run the admission control policy on an object based on whether the namespace for that object matches the selector. If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the policy.\n\nFor example, to run the webhook on any objects whose namespace is not associated with \"runlevel\" of \"0\" or \"1\";  you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"runlevel\",\n      \"operator\": \"NotIn\",\n      \"values\": [\n        \"0\",\n        \"1\"\n      ]\n    }\n  ]\n}\n\nIf instead you want to only run the policy on any objects whose namespace is associated with the \"environment\" of \"prod\" or \"staging\"; you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"environment\",\n      \"operator\": \"In\",\n      \"values\": [\n        \"prod\",\n        \"staging\"\n      ]\n    }\n  ]\n}\n\nSee https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ for more examples of label selectors.\n\nDefault to the empty LabelSelector, which matches everything.",
 							Ref:         ref(metav1.LabelSelector{}.OpenAPIModelName()),
 						},
 					},
 					"objectSelector": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ObjectSelector decides whether to run the validation based on if the object has matching labels. objectSelector is evaluated against both the oldObject and newObject that would be sent to the cel validation, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything.",
+							Description: "objectSelector decides whether to run the validation based on if the object has matching labels. objectSelector is evaluated against both the oldObject and newObject that would be sent to the cel validation, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything.",
 							Ref:         ref(metav1.LabelSelector{}.OpenAPIModelName()),
 						},
 					},
@@ -4486,7 +4540,7 @@ func schema_k8sio_api_admissionregistration_v1_MatchResources(ref common.Referen
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "ResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy matches. The policy cares about an operation if it matches _any_ Rule.",
+							Description: "resourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy matches. The policy cares about an operation if it matches _any_ Rule.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -4505,7 +4559,7 @@ func schema_k8sio_api_admissionregistration_v1_MatchResources(ref common.Referen
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "ExcludeResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy should not care about. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)",
+							Description: "excludeResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy should not care about. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -4538,6 +4592,333 @@ func schema_k8sio_api_admissionregistration_v1_MatchResources(ref common.Referen
 	}
 }
 
+func schema_k8sio_api_admissionregistration_v1_MutatingAdmissionPolicy(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "MutatingAdmissionPolicy describes the definition of an admission mutation policy that mutates the object coming into admission chain.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"kind": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"apiVersion": {
+						SchemaProps: spec.SchemaProps{
+							Description: "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"metadata": {
+						SchemaProps: spec.SchemaProps{
+							Description: "metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
+							Default:     map[string]interface{}{},
+							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
+						},
+					},
+					"spec": {
+						SchemaProps: spec.SchemaProps{
+							Description: "spec defines the desired behavior of the MutatingAdmissionPolicy.",
+							Default:     map[string]interface{}{},
+							Ref:         ref(admissionregistrationv1.MutatingAdmissionPolicySpec{}.OpenAPIModelName()),
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			admissionregistrationv1.MutatingAdmissionPolicySpec{}.OpenAPIModelName(), metav1.ObjectMeta{}.OpenAPIModelName()},
+	}
+}
+
+func schema_k8sio_api_admissionregistration_v1_MutatingAdmissionPolicyBinding(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "MutatingAdmissionPolicyBinding binds the MutatingAdmissionPolicy with parametrized resources. MutatingAdmissionPolicyBinding and the optional parameter resource together define how cluster administrators configure policies for clusters.\n\nFor a given admission request, each binding will cause its policy to be evaluated N times, where N is 1 for policies/bindings that don't use params, otherwise N is the number of parameters selected by the binding. Each evaluation is constrained by a [runtime cost budget](https://kubernetes.io/docs/reference/using-api/cel/#runtime-cost-budget).\n\nAdding/removing policies, bindings, or params can not affect whether a given (policy, binding, param) combination is within its own CEL budget.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"kind": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"apiVersion": {
+						SchemaProps: spec.SchemaProps{
+							Description: "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"metadata": {
+						SchemaProps: spec.SchemaProps{
+							Description: "metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
+							Default:     map[string]interface{}{},
+							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
+						},
+					},
+					"spec": {
+						SchemaProps: spec.SchemaProps{
+							Description: "spec defines the desired behavior of the MutatingAdmissionPolicyBinding.",
+							Default:     map[string]interface{}{},
+							Ref:         ref(admissionregistrationv1.MutatingAdmissionPolicyBindingSpec{}.OpenAPIModelName()),
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			admissionregistrationv1.MutatingAdmissionPolicyBindingSpec{}.OpenAPIModelName(), metav1.ObjectMeta{}.OpenAPIModelName()},
+	}
+}
+
+func schema_k8sio_api_admissionregistration_v1_MutatingAdmissionPolicyBindingList(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "MutatingAdmissionPolicyBindingList is a list of MutatingAdmissionPolicyBinding.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"kind": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"apiVersion": {
+						SchemaProps: spec.SchemaProps{
+							Description: "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"metadata": {
+						SchemaProps: spec.SchemaProps{
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Default:     map[string]interface{}{},
+							Ref:         ref(metav1.ListMeta{}.OpenAPIModelName()),
+						},
+					},
+					"items": {
+						SchemaProps: spec.SchemaProps{
+							Description: "List of PolicyBinding.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref(admissionregistrationv1.MutatingAdmissionPolicyBinding{}.OpenAPIModelName()),
+									},
+								},
+							},
+						},
+					},
+				},
+				Required: []string{"items"},
+			},
+		},
+		Dependencies: []string{
+			admissionregistrationv1.MutatingAdmissionPolicyBinding{}.OpenAPIModelName(), metav1.ListMeta{}.OpenAPIModelName()},
+	}
+}
+
+func schema_k8sio_api_admissionregistration_v1_MutatingAdmissionPolicyBindingSpec(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "MutatingAdmissionPolicyBindingSpec defines the specification of the MutatingAdmissionPolicyBinding.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"policyName": {
+						SchemaProps: spec.SchemaProps{
+							Description: "policyName references a MutatingAdmissionPolicy name which the MutatingAdmissionPolicyBinding binds to. If the referenced resource does not exist, this binding is considered invalid and will be ignored Required.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"paramRef": {
+						SchemaProps: spec.SchemaProps{
+							Description: "paramRef specifies the parameter resource used to configure the admission control policy. It should point to a resource of the type specified in spec.ParamKind of the bound MutatingAdmissionPolicy. If the policy specifies a ParamKind and the resource referred to by ParamRef does not exist, this binding is considered mis-configured and the FailurePolicy of the MutatingAdmissionPolicy applied. If the policy does not specify a ParamKind then this field is ignored, and the rules are evaluated without a param.",
+							Ref:         ref(admissionregistrationv1.ParamRef{}.OpenAPIModelName()),
+						},
+					},
+					"matchResources": {
+						SchemaProps: spec.SchemaProps{
+							Description: "matchResources limits what resources match this binding and may be mutated by it. Note that if matchResources matches a resource, the resource must also match a policy's matchConstraints and matchConditions before the resource may be mutated. When matchResources is unset, it does not constrain resource matching, and only the policy's matchConstraints and matchConditions must match for the resource to be mutated. Additionally, matchResources.resourceRules are optional and do not constraint matching when unset. Note that this is differs from MutatingAdmissionPolicy matchConstraints, where resourceRules are required. The CREATE, UPDATE and CONNECT operations are allowed.  The DELETE operation may not be matched. '*' matches CREATE, UPDATE and CONNECT.",
+							Ref:         ref(admissionregistrationv1.MatchResources{}.OpenAPIModelName()),
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			admissionregistrationv1.MatchResources{}.OpenAPIModelName(), admissionregistrationv1.ParamRef{}.OpenAPIModelName()},
+	}
+}
+
+func schema_k8sio_api_admissionregistration_v1_MutatingAdmissionPolicyList(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "MutatingAdmissionPolicyList is a list of MutatingAdmissionPolicy.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"kind": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"apiVersion": {
+						SchemaProps: spec.SchemaProps{
+							Description: "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"metadata": {
+						SchemaProps: spec.SchemaProps{
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Default:     map[string]interface{}{},
+							Ref:         ref(metav1.ListMeta{}.OpenAPIModelName()),
+						},
+					},
+					"items": {
+						SchemaProps: spec.SchemaProps{
+							Description: "List of ValidatingAdmissionPolicy.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref(admissionregistrationv1.MutatingAdmissionPolicy{}.OpenAPIModelName()),
+									},
+								},
+							},
+						},
+					},
+				},
+				Required: []string{"items"},
+			},
+		},
+		Dependencies: []string{
+			admissionregistrationv1.MutatingAdmissionPolicy{}.OpenAPIModelName(), metav1.ListMeta{}.OpenAPIModelName()},
+	}
+}
+
+func schema_k8sio_api_admissionregistration_v1_MutatingAdmissionPolicySpec(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "MutatingAdmissionPolicySpec defines the desired behavior of the admission policy.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"paramKind": {
+						SchemaProps: spec.SchemaProps{
+							Description: "paramKind specifies the kind of resources used to parameterize this policy. If absent, there are no parameters for this policy and the param CEL variable will not be provided to validation expressions. If paramKind refers to a non-existent kind, this policy definition is mis-configured and the FailurePolicy is applied. If paramKind is specified but paramRef is unset in MutatingAdmissionPolicyBinding, the params variable will be null.",
+							Ref:         ref(admissionregistrationv1.ParamKind{}.OpenAPIModelName()),
+						},
+					},
+					"matchConstraints": {
+						SchemaProps: spec.SchemaProps{
+							Description: "matchConstraints specifies what resources this policy is designed to validate. The MutatingAdmissionPolicy cares about a request if it matches _all_ Constraints. However, in order to prevent clusters from being put into an unstable state that cannot be recovered from via the API MutatingAdmissionPolicy cannot match MutatingAdmissionPolicy and MutatingAdmissionPolicyBinding. The CREATE, UPDATE and CONNECT operations are allowed.  The DELETE operation may not be matched. '*' matches CREATE, UPDATE and CONNECT. Required.",
+							Ref:         ref(admissionregistrationv1.MatchResources{}.OpenAPIModelName()),
+						},
+					},
+					"variables": {
+						VendorExtensible: spec.VendorExtensible{
+							Extensions: spec.Extensions{
+								"x-kubernetes-list-type": "atomic",
+							},
+						},
+						SchemaProps: spec.SchemaProps{
+							Description: "variables contain definitions of variables that can be used in composition of other expressions. Each variable is defined as a named CEL expression. The variables defined here will be available under `variables` in other expressions of the policy except matchConditions because matchConditions are evaluated before the rest of the policy.\n\nThe expression of a variable can refer to other variables defined earlier in the list but not those after. Thus, variables must be sorted by the order of first appearance and acyclic.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref(admissionregistrationv1.Variable{}.OpenAPIModelName()),
+									},
+								},
+							},
+						},
+					},
+					"mutations": {
+						VendorExtensible: spec.VendorExtensible{
+							Extensions: spec.Extensions{
+								"x-kubernetes-list-type": "atomic",
+							},
+						},
+						SchemaProps: spec.SchemaProps{
+							Description: "mutations contain operations to perform on matching objects. mutations may not be empty; a minimum of one mutation is required. mutations are evaluated in order, and are reinvoked according to the reinvocationPolicy. The mutations of a policy are invoked for each binding of this policy and reinvocation of mutations occurs on a per binding basis.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref(admissionregistrationv1.Mutation{}.OpenAPIModelName()),
+									},
+								},
+							},
+						},
+					},
+					"failurePolicy": {
+						SchemaProps: spec.SchemaProps{
+							Description: "failurePolicy defines how to handle failures for the admission policy. Failures can occur from CEL expression parse errors, type check errors, runtime errors and invalid or mis-configured policy definitions or bindings.\n\nA policy is invalid if paramKind refers to a non-existent Kind. A binding is invalid if paramRef.name refers to a non-existent resource.\n\nfailurePolicy does not define how validations that evaluate to false are handled.\n\nAllowed values are Ignore or Fail. Defaults to Fail.\n\nPossible enum values:\n - `\"Fail\"` means that an error calling the webhook causes the admission to fail.\n - `\"Ignore\"` means that an error calling the webhook is ignored.",
+							Type:        []string{"string"},
+							Format:      "",
+							Enum:        []interface{}{"Fail", "Ignore"},
+						},
+					},
+					"matchConditions": {
+						VendorExtensible: spec.VendorExtensible{
+							Extensions: spec.Extensions{
+								"x-kubernetes-list-map-keys": []interface{}{
+									"name",
+								},
+								"x-kubernetes-list-type":       "map",
+								"x-kubernetes-patch-merge-key": "name",
+								"x-kubernetes-patch-strategy":  "merge",
+							},
+						},
+						SchemaProps: spec.SchemaProps{
+							Description: "matchConditions is a list of conditions that must be met for a request to be validated. Match conditions filter requests that have already been matched by the matchConstraints. An empty list of matchConditions matches all requests. There are a maximum of 64 match conditions allowed.\n\nIf a parameter object is provided, it can be accessed via the `params` handle in the same manner as validation expressions.\n\nThe exact matching logic is (in order):\n  1. If ANY matchCondition evaluates to FALSE, the policy is skipped.\n  2. If ALL matchConditions evaluate to TRUE, the policy is evaluated.\n  3. If any matchCondition evaluates to an error (but none are FALSE):\n     - If failurePolicy=Fail, reject the request\n     - If failurePolicy=Ignore, the policy is skipped",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref(admissionregistrationv1.MatchCondition{}.OpenAPIModelName()),
+									},
+								},
+							},
+						},
+					},
+					"reinvocationPolicy": {
+						SchemaProps: spec.SchemaProps{
+							Description: "reinvocationPolicy indicates whether mutations may be called multiple times per MutatingAdmissionPolicyBinding as part of a single admission evaluation. Allowed values are \"Never\" and \"IfNeeded\".\n\nNever: These mutations will not be called more than once per binding in a single admission evaluation.\n\nIfNeeded: These mutations may be invoked more than once per binding for a single admission request and there is no guarantee of order with respect to other admission plugins, admission webhooks, bindings of this policy and admission policies.  Mutations are only reinvoked when mutations change the object after this mutation is invoked. Required.\n\nPossible enum values:\n - `\"IfNeeded\"` indicates that the mutation may be called at least one additional time as part of the admission evaluation if the object being admitted is modified by other admission plugins after the initial mutation call.\n - `\"Never\"` indicates that the mutation must not be called more than once in a single admission evaluation.",
+							Type:        []string{"string"},
+							Format:      "",
+							Enum:        []interface{}{"IfNeeded", "Never"},
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			admissionregistrationv1.MatchCondition{}.OpenAPIModelName(), admissionregistrationv1.MatchResources{}.OpenAPIModelName(), admissionregistrationv1.Mutation{}.OpenAPIModelName(), admissionregistrationv1.ParamKind{}.OpenAPIModelName(), admissionregistrationv1.Variable{}.OpenAPIModelName()},
+	}
+}
+
 func schema_k8sio_api_admissionregistration_v1_MutatingWebhook(ref common.ReferenceCallback) common.OpenAPIDefinition {
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
@@ -4547,7 +4928,7 @@ func schema_k8sio_api_admissionregistration_v1_MutatingWebhook(ref common.Refere
 				Properties: map[string]spec.Schema{
 					"name": {
 						SchemaProps: spec.SchemaProps{
-							Description: "The name of the admission webhook. Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where \"imagepolicy\" is the name of the webhook, and kubernetes.io is the name of the organization. Required.",
+							Description: "name is the name of the admission webhook. Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where \"imagepolicy\" is the name of the webhook, and kubernetes.io is the name of the organization. Required.",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -4555,7 +4936,7 @@ func schema_k8sio_api_admissionregistration_v1_MutatingWebhook(ref common.Refere
 					},
 					"clientConfig": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ClientConfig defines how to communicate with the hook. Required",
+							Description: "clientConfig defines how to communicate with the hook. Required",
 							Default:     map[string]interface{}{},
 							Ref:         ref(admissionregistrationv1.WebhookClientConfig{}.OpenAPIModelName()),
 						},
@@ -4567,7 +4948,7 @@ func schema_k8sio_api_admissionregistration_v1_MutatingWebhook(ref common.Refere
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Rules describes what operations on what resources/subresources the webhook cares about. The webhook cares about an operation if it matches _any_ Rule. However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.",
+							Description: "rules describes what operations on what resources/subresources the webhook cares about. The webhook cares about an operation if it matches _any_ Rule. However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -4581,7 +4962,7 @@ func schema_k8sio_api_admissionregistration_v1_MutatingWebhook(ref common.Refere
 					},
 					"failurePolicy": {
 						SchemaProps: spec.SchemaProps{
-							Description: "FailurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail. Defaults to Fail.\n\nPossible enum values:\n - `\"Fail\"` means that an error calling the webhook causes the admission to fail.\n - `\"Ignore\"` means that an error calling the webhook is ignored.",
+							Description: "failurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail. Defaults to Fail.\n\nPossible enum values:\n - `\"Fail\"` means that an error calling the webhook causes the admission to fail.\n - `\"Ignore\"` means that an error calling the webhook is ignored.",
 							Type:        []string{"string"},
 							Format:      "",
 							Enum:        []interface{}{"Fail", "Ignore"},
@@ -4597,19 +4978,19 @@ func schema_k8sio_api_admissionregistration_v1_MutatingWebhook(ref common.Refere
 					},
 					"namespaceSelector": {
 						SchemaProps: spec.SchemaProps{
-							Description: "NamespaceSelector decides whether to run the webhook on an object based on whether the namespace for that object matches the selector. If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the webhook.\n\nFor example, to run the webhook on any objects whose namespace is not associated with \"runlevel\" of \"0\" or \"1\";  you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"runlevel\",\n      \"operator\": \"NotIn\",\n      \"values\": [\n        \"0\",\n        \"1\"\n      ]\n    }\n  ]\n}\n\nIf instead you want to only run the webhook on any objects whose namespace is associated with the \"environment\" of \"prod\" or \"staging\"; you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"environment\",\n      \"operator\": \"In\",\n      \"values\": [\n        \"prod\",\n        \"staging\"\n      ]\n    }\n  ]\n}\n\nSee https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ for more examples of label selectors.\n\nDefault to the empty LabelSelector, which matches everything.",
+							Description: "namespaceSelector decides whether to run the webhook on an object based on whether the namespace for that object matches the selector. If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the webhook.\n\nFor example, to run the webhook on any objects whose namespace is not associated with \"runlevel\" of \"0\" or \"1\";  you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"runlevel\",\n      \"operator\": \"NotIn\",\n      \"values\": [\n        \"0\",\n        \"1\"\n      ]\n    }\n  ]\n}\n\nIf instead you want to only run the webhook on any objects whose namespace is associated with the \"environment\" of \"prod\" or \"staging\"; you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"environment\",\n      \"operator\": \"In\",\n      \"values\": [\n        \"prod\",\n        \"staging\"\n      ]\n    }\n  ]\n}\n\nSee https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ for more examples of label selectors.\n\nDefault to the empty LabelSelector, which matches everything.",
 							Ref:         ref(metav1.LabelSelector{}.OpenAPIModelName()),
 						},
 					},
 					"objectSelector": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ObjectSelector decides whether to run the webhook based on if the object has matching labels. objectSelector is evaluated against both the oldObject and newObject that would be sent to the webhook, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything.",
+							Description: "objectSelector decides whether to run the webhook based on if the object has matching labels. objectSelector is evaluated against both the oldObject and newObject that would be sent to the webhook, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything.",
 							Ref:         ref(metav1.LabelSelector{}.OpenAPIModelName()),
 						},
 					},
 					"sideEffects": {
 						SchemaProps: spec.SchemaProps{
-							Description: "SideEffects states whether this webhook has side effects. Acceptable values are: None, NoneOnDryRun (webhooks created via v1beta1 may also specify Some or Unknown). Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission chain and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some.\n\nPossible enum values:\n - `\"None\"` means that calling the webhook will have no side effects.\n - `\"NoneOnDryRun\"` means that calling the webhook will possibly have side effects, but if the request being reviewed has the dry-run attribute, the side effects will be suppressed.\n - `\"Some\"` means that calling the webhook will possibly have side effects. If a request with the dry-run attribute would trigger a call to this webhook, the request will instead fail.\n - `\"Unknown\"` means that no information is known about the side effects of calling the webhook. If a request with the dry-run attribute would trigger a call to this webhook, the request will instead fail.",
+							Description: "sideEffects states whether this webhook has side effects. Acceptable values are: None, NoneOnDryRun (webhooks created via v1beta1 may also specify Some or Unknown). Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission chain and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some.\n\nPossible enum values:\n - `\"None\"` means that calling the webhook will have no side effects.\n - `\"NoneOnDryRun\"` means that calling the webhook will possibly have side effects, but if the request being reviewed has the dry-run attribute, the side effects will be suppressed.\n - `\"Some\"` means that calling the webhook will possibly have side effects. If a request with the dry-run attribute would trigger a call to this webhook, the request will instead fail.\n - `\"Unknown\"` means that no information is known about the side effects of calling the webhook. If a request with the dry-run attribute would trigger a call to this webhook, the request will instead fail.",
 							Type:        []string{"string"},
 							Format:      "",
 							Enum:        []interface{}{"None", "NoneOnDryRun", "Some", "Unknown"},
@@ -4617,7 +4998,7 @@ func schema_k8sio_api_admissionregistration_v1_MutatingWebhook(ref common.Refere
 					},
 					"timeoutSeconds": {
 						SchemaProps: spec.SchemaProps{
-							Description: "TimeoutSeconds specifies the timeout for this webhook. After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 10 seconds.",
+							Description: "timeoutSeconds specifies the timeout for this webhook. After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 10 seconds.",
 							Type:        []string{"integer"},
 							Format:      "int32",
 						},
@@ -4629,7 +5010,7 @@ func schema_k8sio_api_admissionregistration_v1_MutatingWebhook(ref common.Refere
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "AdmissionReviewVersions is an ordered list of preferred `AdmissionReview` versions the Webhook expects. API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy.",
+							Description: "admissionReviewVersions is an ordered list of preferred `AdmissionReview` versions the Webhook expects. API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -4662,7 +5043,7 @@ func schema_k8sio_api_admissionregistration_v1_MutatingWebhook(ref common.Refere
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "MatchConditions is a list of conditions that must be met for a request to be sent to this webhook. Match conditions filter requests that have already been matched by the rules, namespaceSelector, and objectSelector. An empty list of matchConditions matches all requests. There are a maximum of 64 match conditions allowed.\n\nThe exact matching logic is (in order):\n  1. If ANY matchCondition evaluates to FALSE, the webhook is skipped.\n  2. If ALL matchConditions evaluate to TRUE, the webhook is called.\n  3. If any matchCondition evaluates to an error (but none are FALSE):\n     - If failurePolicy=Fail, reject the request\n     - If failurePolicy=Ignore, the error is ignored and the webhook is skipped",
+							Description: "matchConditions is a list of conditions that must be met for a request to be sent to this webhook. Match conditions filter requests that have already been matched by the rules, namespaceSelector, and objectSelector. An empty list of matchConditions matches all requests. There are a maximum of 64 match conditions allowed.\n\nThe exact matching logic is (in order):\n  1. If ANY matchCondition evaluates to FALSE, the webhook is skipped.\n  2. If ALL matchConditions evaluate to TRUE, the webhook is called.\n  3. If any matchCondition evaluates to an error (but none are FALSE):\n     - If failurePolicy=Fail, reject the request\n     - If failurePolicy=Ignore, the error is ignored and the webhook is skipped",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -4706,7 +5087,7 @@ func schema_k8sio_api_admissionregistration_v1_MutatingWebhookConfiguration(ref 
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
+							Description: "metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
@@ -4723,7 +5104,7 @@ func schema_k8sio_api_admissionregistration_v1_MutatingWebhookConfiguration(ref 
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Webhooks is a list of webhooks and the affected resources and operations.",
+							Description: "webhooks is a list of webhooks and the affected resources and operations.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -4766,7 +5147,7 @@ func schema_k8sio_api_admissionregistration_v1_MutatingWebhookConfigurationList(
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ListMeta{}.OpenAPIModelName()),
 						},
@@ -4794,6 +5175,43 @@ func schema_k8sio_api_admissionregistration_v1_MutatingWebhookConfigurationList(
 	}
 }
 
+func schema_k8sio_api_admissionregistration_v1_Mutation(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "Mutation specifies the CEL expression which is used to apply the Mutation.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"patchType": {
+						SchemaProps: spec.SchemaProps{
+							Description: "patchType indicates the patch strategy used. Allowed values are \"ApplyConfiguration\" and \"JSONPatch\". Required.\n\n\nPossible enum values:\n - `\"ApplyConfiguration\"` ApplyConfiguration indicates that the mutation is using apply configuration to mutate the object.\n - `\"JSONPatch\"` JSONPatch indicates that the object is mutated through JSON Patch.",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+							Enum:        []interface{}{"ApplyConfiguration", "JSONPatch"},
+						},
+					},
+					"applyConfiguration": {
+						SchemaProps: spec.SchemaProps{
+							Description: "applyConfiguration defines the desired configuration values of an object. The configuration is applied to the admission object using [structured merge diff](https://github.com/kubernetes-sigs/structured-merge-diff). A CEL expression is used to create apply configuration.",
+							Ref:         ref(admissionregistrationv1.ApplyConfiguration{}.OpenAPIModelName()),
+						},
+					},
+					"jsonPatch": {
+						SchemaProps: spec.SchemaProps{
+							Description: "jsonPatch defines a [JSON patch](https://jsonpatch.com/) operation to perform a mutation to the object. A CEL expression is used to create the JSON patch.",
+							Ref:         ref(admissionregistrationv1.JSONPatch{}.OpenAPIModelName()),
+						},
+					},
+				},
+				Required: []string{"patchType"},
+			},
+		},
+		Dependencies: []string{
+			admissionregistrationv1.ApplyConfiguration{}.OpenAPIModelName(), admissionregistrationv1.JSONPatch{}.OpenAPIModelName()},
+	}
+}
+
 func schema_k8sio_api_admissionregistration_v1_NamedRuleWithOperations(ref common.ReferenceCallback) common.OpenAPIDefinition {
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
@@ -4808,7 +5226,7 @@ func schema_k8sio_api_admissionregistration_v1_NamedRuleWithOperations(ref commo
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.",
+							Description: "resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -4828,7 +5246,7 @@ func schema_k8sio_api_admissionregistration_v1_NamedRuleWithOperations(ref commo
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or * for all of those operations and any future admission operations that are added. If '*' is present, the length of the slice must be one. Required.",
+							Description: "operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or * for all of those operations and any future admission operations that are added. If '*' is present, the length of the slice must be one. Required.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -4849,7 +5267,7 @@ func schema_k8sio_api_admissionregistration_v1_NamedRuleWithOperations(ref commo
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "APIGroups is the API groups the resources belong to. '*' is all groups. If '*' is present, the length of the slice must be one. Required.",
+							Description: "apiGroups is the API groups the resources belong to. '*' is all groups. If '*' is present, the length of the slice must be one. Required.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -4869,7 +5287,7 @@ func schema_k8sio_api_admissionregistration_v1_NamedRuleWithOperations(ref commo
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "APIVersions is the API versions the resources belong to. '*' is all versions. If '*' is present, the length of the slice must be one. Required.",
+							Description: "apiVersions is the API versions the resources belong to. '*' is all versions. If '*' is present, the length of the slice must be one. Required.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -4889,7 +5307,7 @@ func schema_k8sio_api_admissionregistration_v1_NamedRuleWithOperations(ref commo
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Resources is a list of resources this rule applies to.\n\nFor example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. '*/scale' means all scale subresources. '*/*' means all resources and their subresources.\n\nIf wildcard is present, the validation rule will ensure resources do not overlap with each other.\n\nDepending on the enclosing object, subresources might not be allowed. Required.",
+							Description: "resources is a list of resources this rule applies to.\n\nFor example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. '*/scale' means all scale subresources. '*/*' means all resources and their subresources.\n\nIf wildcard is present, the validation rule will ensure resources do not overlap with each other.\n\nDepending on the enclosing object, subresources might not be allowed. Required.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -4930,14 +5348,14 @@ func schema_k8sio_api_admissionregistration_v1_ParamKind(ref common.ReferenceCal
 				Properties: map[string]spec.Schema{
 					"apiVersion": {
 						SchemaProps: spec.SchemaProps{
-							Description: "APIVersion is the API group version the resources belong to. In format of \"group/version\". Required.",
+							Description: "apiVersion is the API group version the resources belong to. In format of \"group/version\". Required.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"kind": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Kind is the API kind the resources belong to. Required.",
+							Description: "kind is the API kind the resources belong to. Required.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -4982,7 +5400,7 @@ func schema_k8sio_api_admissionregistration_v1_ParamRef(ref common.ReferenceCall
 					},
 					"parameterNotFoundAction": {
 						SchemaProps: spec.SchemaProps{
-							Description: "`parameterNotFoundAction` controls the behavior of the binding when the resource exists, and name or selector is valid, but there are no parameters matched by the binding. If the value is set to `Allow`, then no matched parameters will be treated as successful validation by the binding. If set to `Deny`, then no matched parameters will be subject to the `failurePolicy` of the policy.\n\nAllowed values are `Allow` or `Deny`\n\nRequired",
+							Description: "parameterNotFoundAction controls the behavior of the binding when the resource exists, and name or selector is valid, but there are no parameters matched by the binding. If the value is set to `Allow`, then no matched parameters will be treated as successful validation by the binding. If set to `Deny`, then no matched parameters will be subject to the `failurePolicy` of the policy.\n\nAllowed values are `Allow` or `Deny`\n\nRequired",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -5014,7 +5432,7 @@ func schema_k8sio_api_admissionregistration_v1_Rule(ref common.ReferenceCallback
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "APIGroups is the API groups the resources belong to. '*' is all groups. If '*' is present, the length of the slice must be one. Required.",
+							Description: "apiGroups is the API groups the resources belong to. '*' is all groups. If '*' is present, the length of the slice must be one. Required.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -5034,7 +5452,7 @@ func schema_k8sio_api_admissionregistration_v1_Rule(ref common.ReferenceCallback
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "APIVersions is the API versions the resources belong to. '*' is all versions. If '*' is present, the length of the slice must be one. Required.",
+							Description: "apiVersions is the API versions the resources belong to. '*' is all versions. If '*' is present, the length of the slice must be one. Required.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -5054,7 +5472,7 @@ func schema_k8sio_api_admissionregistration_v1_Rule(ref common.ReferenceCallback
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Resources is a list of resources this rule applies to.\n\nFor example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. '*/scale' means all scale subresources. '*/*' means all resources and their subresources.\n\nIf wildcard is present, the validation rule will ensure resources do not overlap with each other.\n\nDepending on the enclosing object, subresources might not be allowed. Required.",
+							Description: "resources is a list of resources this rule applies to.\n\nFor example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. '*/scale' means all scale subresources. '*/*' means all resources and their subresources.\n\nIf wildcard is present, the validation rule will ensure resources do not overlap with each other.\n\nDepending on the enclosing object, subresources might not be allowed. Required.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -5095,7 +5513,7 @@ func schema_k8sio_api_admissionregistration_v1_RuleWithOperations(ref common.Ref
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or * for all of those operations and any future admission operations that are added. If '*' is present, the length of the slice must be one. Required.",
+							Description: "operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or * for all of those operations and any future admission operations that are added. If '*' is present, the length of the slice must be one. Required.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -5116,7 +5534,7 @@ func schema_k8sio_api_admissionregistration_v1_RuleWithOperations(ref common.Ref
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "APIGroups is the API groups the resources belong to. '*' is all groups. If '*' is present, the length of the slice must be one. Required.",
+							Description: "apiGroups is the API groups the resources belong to. '*' is all groups. If '*' is present, the length of the slice must be one. Required.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -5136,7 +5554,7 @@ func schema_k8sio_api_admissionregistration_v1_RuleWithOperations(ref common.Ref
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "APIVersions is the API versions the resources belong to. '*' is all versions. If '*' is present, the length of the slice must be one. Required.",
+							Description: "apiVersions is the API versions the resources belong to. '*' is all versions. If '*' is present, the length of the slice must be one. Required.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -5156,7 +5574,7 @@ func schema_k8sio_api_admissionregistration_v1_RuleWithOperations(ref common.Ref
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Resources is a list of resources this rule applies to.\n\nFor example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. '*/scale' means all scale subresources. '*/*' means all resources and their subresources.\n\nIf wildcard is present, the validation rule will ensure resources do not overlap with each other.\n\nDepending on the enclosing object, subresources might not be allowed. Required.",
+							Description: "resources is a list of resources this rule applies to.\n\nFor example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. '*/scale' means all scale subresources. '*/*' means all resources and their subresources.\n\nIf wildcard is present, the validation rule will ensure resources do not overlap with each other.\n\nDepending on the enclosing object, subresources might not be allowed. Required.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -5192,7 +5610,7 @@ func schema_k8sio_api_admissionregistration_v1_ServiceReference(ref common.Refer
 				Properties: map[string]spec.Schema{
 					"namespace": {
 						SchemaProps: spec.SchemaProps{
-							Description: "`namespace` is the namespace of the service. Required",
+							Description: "namespace is the namespace of the service. Required",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -5200,7 +5618,7 @@ func schema_k8sio_api_admissionregistration_v1_ServiceReference(ref common.Refer
 					},
 					"name": {
 						SchemaProps: spec.SchemaProps{
-							Description: "`name` is the name of the service. Required",
+							Description: "name is the name of the service. Required",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -5208,14 +5626,14 @@ func schema_k8sio_api_admissionregistration_v1_ServiceReference(ref common.Refer
 					},
 					"path": {
 						SchemaProps: spec.SchemaProps{
-							Description: "`path` is an optional URL path which will be sent in any request to this service.",
+							Description: "path is an optional URL path which will be sent in any request to this service.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"port": {
 						SchemaProps: spec.SchemaProps{
-							Description: "If specified, the port on the service that hosting webhook. Default to 443 for backward compatibility. `port` should be a valid port number (1-65535, inclusive).",
+							Description: "port is the port on the service that hosts the webhook. Default to 443 for backward compatibility. `port` should be a valid port number (1-65535, inclusive).",
 							Type:        []string{"integer"},
 							Format:      "int32",
 						},
@@ -5241,7 +5659,7 @@ func schema_k8sio_api_admissionregistration_v1_TypeChecking(ref common.Reference
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "The type checking warnings for each expression.",
+							Description: "expressionWarnings contains the type checking warnings for each expression.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -5284,21 +5702,21 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingAdmissionPolicy(ref com
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
+							Description: "metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Specification of the desired behavior of the ValidatingAdmissionPolicy.",
+							Description: "spec defines the desired behavior of the ValidatingAdmissionPolicy.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(admissionregistrationv1.ValidatingAdmissionPolicySpec{}.OpenAPIModelName()),
 						},
 					},
 					"status": {
 						SchemaProps: spec.SchemaProps{
-							Description: "The status of the ValidatingAdmissionPolicy, including warnings that are useful to determine if the policy behaves in the expected way. Populated by the system. Read-only.",
+							Description: "status represents the current status of the ValidatingAdmissionPolicy, including warnings that are useful to determine if the policy behaves in the expected way. Populated by the system. Read-only.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(admissionregistrationv1.ValidatingAdmissionPolicyStatus{}.OpenAPIModelName()),
 						},
@@ -5334,19 +5752,20 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingAdmissionPolicyBinding(
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
+							Description: "metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Specification of the desired behavior of the ValidatingAdmissionPolicyBinding.",
+							Description: "spec defines the desired behavior of the ValidatingAdmissionPolicyBinding.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(admissionregistrationv1.ValidatingAdmissionPolicyBindingSpec{}.OpenAPIModelName()),
 						},
 					},
 				},
+				Required: []string{"spec"},
 			},
 		},
 		Dependencies: []string{
@@ -5377,7 +5796,7 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingAdmissionPolicyBindingL
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ListMeta{}.OpenAPIModelName()),
 						},
@@ -5414,7 +5833,7 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingAdmissionPolicyBindingS
 				Properties: map[string]spec.Schema{
 					"policyName": {
 						SchemaProps: spec.SchemaProps{
-							Description: "PolicyName references a ValidatingAdmissionPolicy name which the ValidatingAdmissionPolicyBinding binds to. If the referenced resource does not exist, this binding is considered invalid and will be ignored Required.",
+							Description: "policyName references a ValidatingAdmissionPolicy name which the ValidatingAdmissionPolicyBinding binds to. If the referenced resource does not exist, this binding is considered invalid and will be ignored Required.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -5427,7 +5846,7 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingAdmissionPolicyBindingS
 					},
 					"matchResources": {
 						SchemaProps: spec.SchemaProps{
-							Description: "MatchResources declares what resources match this binding and will be validated by it. Note that this is intersected with the policy's matchConstraints, so only requests that are matched by the policy can be selected by this. If this is unset, all resources matched by the policy are validated by this binding When resourceRules is unset, it does not constrain resource matching. If a resource is matched by the other fields of this object, it will be validated. Note that this is differs from ValidatingAdmissionPolicy matchConstraints, where resourceRules are required.",
+							Description: "matchResources declares what resources match this binding and will be validated by it. Note that this is intersected with the policy's matchConstraints, so only requests that are matched by the policy can be selected by this. If this is unset, all resources matched by the policy are validated by this binding When resourceRules is unset, it does not constrain resource matching. If a resource is matched by the other fields of this object, it will be validated. Note that this is differs from ValidatingAdmissionPolicy matchConstraints, where resourceRules are required.",
 							Ref:         ref(admissionregistrationv1.MatchResources{}.OpenAPIModelName()),
 						},
 					},
@@ -5453,6 +5872,7 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingAdmissionPolicyBindingS
 						},
 					},
 				},
+				Required: []string{"policyName", "validationActions"},
 			},
 		},
 		Dependencies: []string{
@@ -5483,7 +5903,7 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingAdmissionPolicyList(ref
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ListMeta{}.OpenAPIModelName()),
 						},
@@ -5520,13 +5940,13 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingAdmissionPolicySpec(ref
 				Properties: map[string]spec.Schema{
 					"paramKind": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ParamKind specifies the kind of resources used to parameterize this policy. If absent, there are no parameters for this policy and the param CEL variable will not be provided to validation expressions. If ParamKind refers to a non-existent kind, this policy definition is mis-configured and the FailurePolicy is applied. If paramKind is specified but paramRef is unset in ValidatingAdmissionPolicyBinding, the params variable will be null.",
+							Description: "paramKind specifies the kind of resources used to parameterize this policy. If absent, there are no parameters for this policy and the param CEL variable will not be provided to validation expressions. If ParamKind refers to a non-existent kind, this policy definition is mis-configured and the FailurePolicy is applied. If paramKind is specified but paramRef is unset in ValidatingAdmissionPolicyBinding, the params variable will be null.",
 							Ref:         ref(admissionregistrationv1.ParamKind{}.OpenAPIModelName()),
 						},
 					},
 					"matchConstraints": {
 						SchemaProps: spec.SchemaProps{
-							Description: "MatchConstraints specifies what resources this policy is designed to validate. The AdmissionPolicy cares about a request if it matches _all_ Constraints. However, in order to prevent clusters from being put into an unstable state that cannot be recovered from via the API ValidatingAdmissionPolicy cannot match ValidatingAdmissionPolicy and ValidatingAdmissionPolicyBinding. Required.",
+							Description: "matchConstraints specifies what resources this policy is designed to validate. The AdmissionPolicy cares about a request if it matches _all_ Constraints. However, in order to prevent clusters from being put into an unstable state that cannot be recovered from via the API ValidatingAdmissionPolicy cannot match ValidatingAdmissionPolicy and ValidatingAdmissionPolicyBinding. Required.",
 							Ref:         ref(admissionregistrationv1.MatchResources{}.OpenAPIModelName()),
 						},
 					},
@@ -5537,7 +5957,7 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingAdmissionPolicySpec(ref
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Validations contain CEL expressions which is used to apply the validation. Validations and AuditAnnotations may not both be empty; a minimum of one Validations or AuditAnnotations is required.",
+							Description: "validations contain CEL expressions which is used to apply the validation. Validations and AuditAnnotations may not both be empty; a minimum of one Validations or AuditAnnotations is required.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -5588,7 +6008,7 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingAdmissionPolicySpec(ref
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "MatchConditions is a list of conditions that must be met for a request to be validated. Match conditions filter requests that have already been matched by the rules, namespaceSelector, and objectSelector. An empty list of matchConditions matches all requests. There are a maximum of 64 match conditions allowed.\n\nIf a parameter object is provided, it can be accessed via the `params` handle in the same manner as validation expressions.\n\nThe exact matching logic is (in order):\n  1. If ANY matchCondition evaluates to FALSE, the policy is skipped.\n  2. If ALL matchConditions evaluate to TRUE, the policy is evaluated.\n  3. If any matchCondition evaluates to an error (but none are FALSE):\n     - If failurePolicy=Fail, reject the request\n     - If failurePolicy=Ignore, the policy is skipped",
+							Description: "matchConditions is a list of conditions that must be met for a request to be validated. Match conditions filter requests that have already been matched by the rules, namespaceSelector, and objectSelector. An empty list of matchConditions matches all requests. There are a maximum of 64 match conditions allowed.\n\nIf a parameter object is provided, it can be accessed via the `params` handle in the same manner as validation expressions.\n\nThe exact matching logic is (in order):\n  1. If ANY matchCondition evaluates to FALSE, the policy is skipped.\n  2. If ALL matchConditions evaluate to TRUE, the policy is evaluated.\n  3. If any matchCondition evaluates to an error (but none are FALSE):\n     - If failurePolicy=Fail, reject the request\n     - If failurePolicy=Ignore, the policy is skipped",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -5612,7 +6032,7 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingAdmissionPolicySpec(ref
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Variables contain definitions of variables that can be used in composition of other expressions. Each variable is defined as a named CEL expression. The variables defined here will be available under `variables` in other expressions of the policy except MatchConditions because MatchConditions are evaluated before the rest of the policy.\n\nThe expression of a variable can refer to other variables defined earlier in the list but not those after. Thus, Variables must be sorted by the order of first appearance and acyclic.",
+							Description: "variables contain definitions of variables that can be used in composition of other expressions. Each variable is defined as a named CEL expression. The variables defined here will be available under `variables` in other expressions of the policy except MatchConditions because MatchConditions are evaluated before the rest of the policy.\n\nThe expression of a variable can refer to other variables defined earlier in the list but not those after. Thus, Variables must be sorted by the order of first appearance and acyclic.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -5641,14 +6061,14 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingAdmissionPolicyStatus(r
 				Properties: map[string]spec.Schema{
 					"observedGeneration": {
 						SchemaProps: spec.SchemaProps{
-							Description: "The generation observed by the controller.",
+							Description: "observedGeneration is the generation observed by the controller.",
 							Type:        []string{"integer"},
 							Format:      "int64",
 						},
 					},
 					"typeChecking": {
 						SchemaProps: spec.SchemaProps{
-							Description: "The results of type checking for each expression. Presence of this field indicates the completion of the type checking.",
+							Description: "typeChecking contains the results of type checking for each expression. Presence of this field indicates the completion of the type checking.",
 							Ref:         ref(admissionregistrationv1.TypeChecking{}.OpenAPIModelName()),
 						},
 					},
@@ -5662,7 +6082,7 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingAdmissionPolicyStatus(r
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "The conditions represent the latest available observations of a policy's current state.",
+							Description: "conditions represent the latest available observations of a policy's current state.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -5691,7 +6111,7 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingWebhook(ref common.Refe
 				Properties: map[string]spec.Schema{
 					"name": {
 						SchemaProps: spec.SchemaProps{
-							Description: "The name of the admission webhook. Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where \"imagepolicy\" is the name of the webhook, and kubernetes.io is the name of the organization. Required.",
+							Description: "name is the name of the admission webhook. Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where \"imagepolicy\" is the name of the webhook, and kubernetes.io is the name of the organization. Required.",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -5699,7 +6119,7 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingWebhook(ref common.Refe
 					},
 					"clientConfig": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ClientConfig defines how to communicate with the hook. Required",
+							Description: "clientConfig defines how to communicate with the hook. Required",
 							Default:     map[string]interface{}{},
 							Ref:         ref(admissionregistrationv1.WebhookClientConfig{}.OpenAPIModelName()),
 						},
@@ -5711,7 +6131,7 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingWebhook(ref common.Refe
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Rules describes what operations on what resources/subresources the webhook cares about. The webhook cares about an operation if it matches _any_ Rule. However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.",
+							Description: "rules describes what operations on what resources/subresources the webhook cares about. The webhook cares about an operation if it matches _any_ Rule. However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -5725,7 +6145,7 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingWebhook(ref common.Refe
 					},
 					"failurePolicy": {
 						SchemaProps: spec.SchemaProps{
-							Description: "FailurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail. Defaults to Fail.\n\nPossible enum values:\n - `\"Fail\"` means that an error calling the webhook causes the admission to fail.\n - `\"Ignore\"` means that an error calling the webhook is ignored.",
+							Description: "failurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail. Defaults to Fail.\n\nPossible enum values:\n - `\"Fail\"` means that an error calling the webhook causes the admission to fail.\n - `\"Ignore\"` means that an error calling the webhook is ignored.",
 							Type:        []string{"string"},
 							Format:      "",
 							Enum:        []interface{}{"Fail", "Ignore"},
@@ -5741,19 +6161,19 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingWebhook(ref common.Refe
 					},
 					"namespaceSelector": {
 						SchemaProps: spec.SchemaProps{
-							Description: "NamespaceSelector decides whether to run the webhook on an object based on whether the namespace for that object matches the selector. If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the webhook.\n\nFor example, to run the webhook on any objects whose namespace is not associated with \"runlevel\" of \"0\" or \"1\";  you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"runlevel\",\n      \"operator\": \"NotIn\",\n      \"values\": [\n        \"0\",\n        \"1\"\n      ]\n    }\n  ]\n}\n\nIf instead you want to only run the webhook on any objects whose namespace is associated with the \"environment\" of \"prod\" or \"staging\"; you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"environment\",\n      \"operator\": \"In\",\n      \"values\": [\n        \"prod\",\n        \"staging\"\n      ]\n    }\n  ]\n}\n\nSee https://kubernetes.io/docs/concepts/overview/working-with-objects/labels for more examples of label selectors.\n\nDefault to the empty LabelSelector, which matches everything.",
+							Description: "namespaceSelector decides whether to run the webhook on an object based on whether the namespace for that object matches the selector. If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the webhook.\n\nFor example, to run the webhook on any objects whose namespace is not associated with \"runlevel\" of \"0\" or \"1\";  you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"runlevel\",\n      \"operator\": \"NotIn\",\n      \"values\": [\n        \"0\",\n        \"1\"\n      ]\n    }\n  ]\n}\n\nIf instead you want to only run the webhook on any objects whose namespace is associated with the \"environment\" of \"prod\" or \"staging\"; you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"environment\",\n      \"operator\": \"In\",\n      \"values\": [\n        \"prod\",\n        \"staging\"\n      ]\n    }\n  ]\n}\n\nSee https://kubernetes.io/docs/concepts/overview/working-with-objects/labels for more examples of label selectors.\n\nDefault to the empty LabelSelector, which matches everything.",
 							Ref:         ref(metav1.LabelSelector{}.OpenAPIModelName()),
 						},
 					},
 					"objectSelector": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ObjectSelector decides whether to run the webhook based on if the object has matching labels. objectSelector is evaluated against both the oldObject and newObject that would be sent to the webhook, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything.",
+							Description: "objectSelector decides whether to run the webhook based on if the object has matching labels. objectSelector is evaluated against both the oldObject and newObject that would be sent to the webhook, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything.",
 							Ref:         ref(metav1.LabelSelector{}.OpenAPIModelName()),
 						},
 					},
 					"sideEffects": {
 						SchemaProps: spec.SchemaProps{
-							Description: "SideEffects states whether this webhook has side effects. Acceptable values are: None, NoneOnDryRun (webhooks created via v1beta1 may also specify Some or Unknown). Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission chain and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some.\n\nPossible enum values:\n - `\"None\"` means that calling the webhook will have no side effects.\n - `\"NoneOnDryRun\"` means that calling the webhook will possibly have side effects, but if the request being reviewed has the dry-run attribute, the side effects will be suppressed.\n - `\"Some\"` means that calling the webhook will possibly have side effects. If a request with the dry-run attribute would trigger a call to this webhook, the request will instead fail.\n - `\"Unknown\"` means that no information is known about the side effects of calling the webhook. If a request with the dry-run attribute would trigger a call to this webhook, the request will instead fail.",
+							Description: "sideEffects states whether this webhook has side effects. Acceptable values are: None, NoneOnDryRun (webhooks created via v1beta1 may also specify Some or Unknown). Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission chain and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some.\n\nPossible enum values:\n - `\"None\"` means that calling the webhook will have no side effects.\n - `\"NoneOnDryRun\"` means that calling the webhook will possibly have side effects, but if the request being reviewed has the dry-run attribute, the side effects will be suppressed.\n - `\"Some\"` means that calling the webhook will possibly have side effects. If a request with the dry-run attribute would trigger a call to this webhook, the request will instead fail.\n - `\"Unknown\"` means that no information is known about the side effects of calling the webhook. If a request with the dry-run attribute would trigger a call to this webhook, the request will instead fail.",
 							Type:        []string{"string"},
 							Format:      "",
 							Enum:        []interface{}{"None", "NoneOnDryRun", "Some", "Unknown"},
@@ -5761,7 +6181,7 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingWebhook(ref common.Refe
 					},
 					"timeoutSeconds": {
 						SchemaProps: spec.SchemaProps{
-							Description: "TimeoutSeconds specifies the timeout for this webhook. After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 10 seconds.",
+							Description: "timeoutSeconds specifies the timeout for this webhook. After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 10 seconds.",
 							Type:        []string{"integer"},
 							Format:      "int32",
 						},
@@ -5773,7 +6193,7 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingWebhook(ref common.Refe
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "AdmissionReviewVersions is an ordered list of preferred `AdmissionReview` versions the Webhook expects. API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy.",
+							Description: "admissionReviewVersions is an ordered list of preferred `AdmissionReview` versions the Webhook expects. API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -5798,7 +6218,7 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingWebhook(ref common.Refe
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "MatchConditions is a list of conditions that must be met for a request to be sent to this webhook. Match conditions filter requests that have already been matched by the rules, namespaceSelector, and objectSelector. An empty list of matchConditions matches all requests. There are a maximum of 64 match conditions allowed.\n\nThe exact matching logic is (in order):\n  1. If ANY matchCondition evaluates to FALSE, the webhook is skipped.\n  2. If ALL matchConditions evaluate to TRUE, the webhook is called.\n  3. If any matchCondition evaluates to an error (but none are FALSE):\n     - If failurePolicy=Fail, reject the request\n     - If failurePolicy=Ignore, the error is ignored and the webhook is skipped",
+							Description: "matchConditions is a list of conditions that must be met for a request to be sent to this webhook. Match conditions filter requests that have already been matched by the rules, namespaceSelector, and objectSelector. An empty list of matchConditions matches all requests. There are a maximum of 64 match conditions allowed.\n\nThe exact matching logic is (in order):\n  1. If ANY matchCondition evaluates to FALSE, the webhook is skipped.\n  2. If ALL matchConditions evaluate to TRUE, the webhook is called.\n  3. If any matchCondition evaluates to an error (but none are FALSE):\n     - If failurePolicy=Fail, reject the request\n     - If failurePolicy=Ignore, the error is ignored and the webhook is skipped",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -5842,7 +6262,7 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingWebhookConfiguration(re
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
+							Description: "metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
@@ -5859,7 +6279,7 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingWebhookConfiguration(re
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Webhooks is a list of webhooks and the affected resources and operations.",
+							Description: "webhooks is a list of webhooks and the affected resources and operations.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -5902,7 +6322,7 @@ func schema_k8sio_api_admissionregistration_v1_ValidatingWebhookConfigurationLis
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ListMeta{}.OpenAPIModelName()),
 						},
@@ -5939,7 +6359,7 @@ func schema_k8sio_api_admissionregistration_v1_Validation(ref common.ReferenceCa
 				Properties: map[string]spec.Schema{
 					"expression": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Expression represents the expression which will be evaluated by CEL. ref: https://github.com/google/cel-spec CEL expressions have access to the contents of the API request/response, organized into CEL variables as well as some other useful variables:\n\n- 'object' - The object from the incoming request. The value is null for DELETE requests. - 'oldObject' - The existing object. The value is null for CREATE requests. - 'request' - Attributes of the API request([ref](/pkg/apis/admission/types.go#AdmissionRequest)). - 'params' - Parameter resource referred to by the policy binding being evaluated. Only populated if the policy has a ParamKind. - 'namespaceObject' - The namespace object that the incoming object belongs to. The value is null for cluster-scoped resources. - 'variables' - Map of composited variables, from its name to its lazily evaluated value.\n  For example, a variable named 'foo' can be accessed as 'variables.foo'.\n- 'authorizer' - A CEL Authorizer. May be used to perform authorization checks for the principal (user or service account) of the request.\n  See https://pkg.go.dev/k8s.io/apiserver/pkg/cel/library#Authz\n- 'authorizer.requestResource' - A CEL ResourceCheck constructed from the 'authorizer' and configured with the\n  request resource.\n\nThe `apiVersion`, `kind`, `metadata.name` and `metadata.generateName` are always accessible from the root of the object. No other metadata properties are accessible.\n\nOnly property names of the form `[a-zA-Z_.-/][a-zA-Z0-9_.-/]*` are accessible. Accessible property names are escaped according to the following rules when accessed in the expression: - '__' escapes to '__underscores__' - '.' escapes to '__dot__' - '-' escapes to '__dash__' - '/' escapes to '__slash__' - Property names that exactly match a CEL RESERVED keyword escape to '__{keyword}__'. The keywords are:\n\t  \"true\", \"false\", \"null\", \"in\", \"as\", \"break\", \"const\", \"continue\", \"else\", \"for\", \"function\", \"if\",\n\t  \"import\", \"let\", \"loop\", \"package\", \"namespace\", \"return\".\nExamples:\n  - Expression accessing a property named \"namespace\": {\"Expression\": \"object.__namespace__ > 0\"}\n  - Expression accessing a property named \"x-prop\": {\"Expression\": \"object.x__dash__prop > 0\"}\n  - Expression accessing a property named \"redact__d\": {\"Expression\": \"object.redact__underscores__d > 0\"}\n\nEquality on arrays with list type of 'set' or 'map' ignores element order, i.e. [1, 2] == [2, 1]. Concatenation on arrays with x-kubernetes-list-type use the semantics of the list type:\n  - 'set': `X + Y` performs a union where the array positions of all elements in `X` are preserved and\n    non-intersecting elements in `Y` are appended, retaining their partial order.\n  - 'map': `X + Y` performs a merge where the array positions of all keys in `X` are preserved but the values\n    are overwritten by values in `Y` when the key sets of `X` and `Y` intersect. Elements in `Y` with\n    non-intersecting keys are appended, retaining their partial order.\nRequired.",
+							Description: "expression represents the expression which will be evaluated by CEL. ref: https://github.com/google/cel-spec CEL expressions have access to the contents of the API request/response, organized into CEL variables as well as some other useful variables:\n\n- 'object' - The object from the incoming request. The value is null for DELETE requests. - 'oldObject' - The existing object. The value is null for CREATE requests. - 'request' - Attributes of the API request([ref](/pkg/apis/admission/types.go#AdmissionRequest)). - 'params' - Parameter resource referred to by the policy binding being evaluated. Only populated if the policy has a ParamKind. - 'namespaceObject' - The namespace object that the incoming object belongs to. The value is null for cluster-scoped resources. - 'variables' - Map of composited variables, from its name to its lazily evaluated value.\n  For example, a variable named 'foo' can be accessed as 'variables.foo'.\n- 'authorizer' - A CEL Authorizer. May be used to perform authorization checks for the principal (user or service account) of the request.\n  See https://pkg.go.dev/k8s.io/apiserver/pkg/cel/library#Authz\n- 'authorizer.requestResource' - A CEL ResourceCheck constructed from the 'authorizer' and configured with the\n  request resource.\n\nThe `apiVersion`, `kind`, `metadata.name` and `metadata.generateName` are always accessible from the root of the object. No other metadata properties are accessible.\n\nOnly property names of the form `[a-zA-Z_.-/][a-zA-Z0-9_.-/]*` are accessible. Accessible property names are escaped according to the following rules when accessed in the expression: - '__' escapes to '__underscores__' - '.' escapes to '__dot__' - '-' escapes to '__dash__' - '/' escapes to '__slash__' - Property names that exactly match a CEL RESERVED keyword escape to '__{keyword}__'. The keywords are:\n\t  \"true\", \"false\", \"null\", \"in\", \"as\", \"break\", \"const\", \"continue\", \"else\", \"for\", \"function\", \"if\",\n\t  \"import\", \"let\", \"loop\", \"package\", \"namespace\", \"return\".\nExamples:\n  - Expression accessing a property named \"namespace\": {\"Expression\": \"object.__namespace__ > 0\"}\n  - Expression accessing a property named \"x-prop\": {\"Expression\": \"object.x__dash__prop > 0\"}\n  - Expression accessing a property named \"redact__d\": {\"Expression\": \"object.redact__underscores__d > 0\"}\n\nEquality on arrays with list type of 'set' or 'map' ignores element order, i.e. [1, 2] == [2, 1]. Concatenation on arrays with x-kubernetes-list-type use the semantics of the list type:\n  - 'set': `X + Y` performs a union where the array positions of all elements in `X` are preserved and\n    non-intersecting elements in `Y` are appended, retaining their partial order.\n  - 'map': `X + Y` performs a merge where the array positions of all keys in `X` are preserved but the values\n    are overwritten by values in `Y` when the key sets of `X` and `Y` intersect. Elements in `Y` with\n    non-intersecting keys are appended, retaining their partial order.\nRequired.",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -5947,14 +6367,14 @@ func schema_k8sio_api_admissionregistration_v1_Validation(ref common.ReferenceCa
 					},
 					"message": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Message represents the message displayed when validation fails. The message is required if the Expression contains line breaks. The message must not contain line breaks. If unset, the message is \"failed rule: {Rule}\". e.g. \"must be a URL with the host matching spec.host\" If the Expression contains line breaks. Message is required. The message must not contain line breaks. If unset, the message is \"failed Expression: {Expression}\".",
+							Description: "message represents the message displayed when validation fails. The message is required if the Expression contains line breaks. The message must not contain line breaks. If unset, the message is \"failed rule: {Rule}\". e.g. \"must be a URL with the host matching spec.host\" If the Expression contains line breaks. Message is required. The message must not contain line breaks. If unset, the message is \"failed Expression: {Expression}\".",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"reason": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Reason represents a machine-readable description of why this validation failed. If this is the first validation in the list to fail, this reason, as well as the corresponding HTTP response code, are used in the HTTP response to the client. The currently supported reasons are: \"Unauthorized\", \"Forbidden\", \"Invalid\", \"RequestEntityTooLarge\". If not set, StatusReasonInvalid is used in the response to the client.",
+							Description: "reason represents a machine-readable description of why this validation failed. If this is the first validation in the list to fail, this reason, as well as the corresponding HTTP response code, are used in the HTTP response to the client. The currently supported reasons are: \"Unauthorized\", \"Forbidden\", \"Invalid\", \"RequestEntityTooLarge\". If not set, StatusReasonInvalid is used in the response to the client.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -5982,7 +6402,7 @@ func schema_k8sio_api_admissionregistration_v1_Variable(ref common.ReferenceCall
 				Properties: map[string]spec.Schema{
 					"name": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Name is the name of the variable. The name must be a valid CEL identifier and unique among all variables. The variable can be accessed in other expressions through `variables` For example, if name is \"foo\", the variable will be available as `variables.foo`",
+							Description: "name is the name of the variable. The name must be a valid CEL identifier and unique among all variables. The variable can be accessed in other expressions through `variables` For example, if name is \"foo\", the variable will be available as `variables.foo`",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -5990,7 +6410,7 @@ func schema_k8sio_api_admissionregistration_v1_Variable(ref common.ReferenceCall
 					},
 					"expression": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Expression is the expression that will be evaluated as the value of the variable. The CEL expression has access to the same identifiers as the CEL expressions in Validation.",
+							Description: "expression is the expression that will be evaluated as the value of the variable. The CEL expression has access to the same identifiers as the CEL expressions in Validation.",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -6017,20 +6437,20 @@ func schema_k8sio_api_admissionregistration_v1_WebhookClientConfig(ref common.Re
 				Properties: map[string]spec.Schema{
 					"url": {
 						SchemaProps: spec.SchemaProps{
-							Description: "`url` gives the location of the webhook, in standard URL form (`scheme://host:port/path`). Exactly one of `url` or `service` must be specified.\n\nThe `host` should not refer to a service running in the cluster; use the `service` field instead. The host might be resolved via external DNS in some apiservers (e.g., `kube-apiserver` cannot resolve in-cluster DNS as that would be a layering violation). `host` may also be an IP address.\n\nPlease note that using `localhost` or `127.0.0.1` as a `host` is risky unless you take great care to run this webhook on all hosts which run an apiserver which might need to make calls to this webhook. Such installs are likely to be non-portable, i.e., not easy to turn up in a new cluster.\n\nThe scheme must be \"https\"; the URL must begin with \"https://\".\n\nA path is optional, and if present may be any string permissible in a URL. You may use the path to pass an arbitrary string to the webhook, for example, a cluster identifier.\n\nAttempting to use a user or basic auth e.g. \"user:password@\" is not allowed. Fragments (\"#...\") and query parameters (\"?...\") are not allowed, either.",
+							Description: "url gives the location of the webhook, in standard URL form (`scheme://host:port/path`). Exactly one of `url` or `service` must be specified.\n\nThe `host` should not refer to a service running in the cluster; use the `service` field instead. The host might be resolved via external DNS in some apiservers (e.g., `kube-apiserver` cannot resolve in-cluster DNS as that would be a layering violation). `host` may also be an IP address.\n\nPlease note that using `localhost` or `127.0.0.1` as a `host` is risky unless you take great care to run this webhook on all hosts which run an apiserver which might need to make calls to this webhook. Such installs are likely to be non-portable, i.e., not easy to turn up in a new cluster.\n\nThe scheme must be \"https\"; the URL must begin with \"https://\".\n\nA path is optional, and if present may be any string permissible in a URL. You may use the path to pass an arbitrary string to the webhook, for example, a cluster identifier.\n\nAttempting to use a user or basic auth e.g. \"user:password@\" is not allowed. Fragments (\"#...\") and query parameters (\"?...\") are not allowed, either.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"service": {
 						SchemaProps: spec.SchemaProps{
-							Description: "`service` is a reference to the service for this webhook. Either `service` or `url` must be specified.\n\nIf the webhook is running within the cluster, then you should use `service`.",
+							Description: "service is a reference to the service for this webhook. Either `service` or `url` must be specified.\n\nIf the webhook is running within the cluster, then you should use `service`.",
 							Ref:         ref(admissionregistrationv1.ServiceReference{}.OpenAPIModelName()),
 						},
 					},
 					"caBundle": {
 						SchemaProps: spec.SchemaProps{
-							Description: "`caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate. If unspecified, system trust roots on the apiserver are used.",
+							Description: "caBundle is a PEM encoded CA bundle which will be used to validate the webhook's server certificate. If unspecified, system trust roots on the apiserver are used.",
 							Type:        []string{"string"},
 							Format:      "byte",
 						},
@@ -6102,7 +6522,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ExpressionWarning(ref common
 				Properties: map[string]spec.Schema{
 					"fieldRef": {
 						SchemaProps: spec.SchemaProps{
-							Description: "The path to the field that refers the expression. For example, the reference to the expression of the first item of validations is \"spec.validations[0].expression\"",
+							Description: "fieldRef is the path to the field that refers to the expression. For example, the reference to the expression of the first item of validations is \"spec.validations[0].expression\"",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -6110,7 +6530,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ExpressionWarning(ref common
 					},
 					"warning": {
 						SchemaProps: spec.SchemaProps{
-							Description: "The content of type checking information in a human-readable form. Each line of the warning contains the type that the expression is checked against, followed by the type check error from the compiler.",
+							Description: "warning contains the content of type checking information in a human-readable form. Each line of the warning contains the type that the expression is checked against, followed by the type check error from the compiler.",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -6152,7 +6572,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_MatchCondition(ref common.Re
 				Properties: map[string]spec.Schema{
 					"name": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Name is an identifier for this match condition, used for strategic merging of MatchConditions, as well as providing an identifier for logging purposes. A good name should be descriptive of the associated expression. Name must be a qualified name consisting of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyName',  or 'my.name',  or '123-abc', regex used for validation is '([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9]') with an optional DNS subdomain prefix and '/' (e.g. 'example.com/MyName')\n\nRequired.",
+							Description: "name is an identifier for this match condition, used for strategic merging of MatchConditions, as well as providing an identifier for logging purposes. A good name should be descriptive of the associated expression. Name must be a qualified name consisting of alphanumeric characters, '-', '_' or '.', and must start and end with an alphanumeric character (e.g. 'MyName',  or 'my.name',  or '123-abc', regex used for validation is '([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9]') with an optional DNS subdomain prefix and '/' (e.g. 'example.com/MyName')\n\nRequired.",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -6160,7 +6580,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_MatchCondition(ref common.Re
 					},
 					"expression": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Expression represents the expression which will be evaluated by CEL. Must evaluate to bool. CEL expressions have access to the contents of the AdmissionRequest and Authorizer, organized into CEL variables:\n\n'object' - The object from the incoming request. The value is null for DELETE requests. 'oldObject' - The existing object. The value is null for CREATE requests. 'request' - Attributes of the admission request(/pkg/apis/admission/types.go#AdmissionRequest). 'authorizer' - A CEL Authorizer. May be used to perform authorization checks for the principal (user or service account) of the request.\n  See https://pkg.go.dev/k8s.io/apiserver/pkg/cel/library#Authz\n'authorizer.requestResource' - A CEL ResourceCheck constructed from the 'authorizer' and configured with the\n  request resource.\nDocumentation on CEL: https://kubernetes.io/docs/reference/using-api/cel/\n\nRequired.",
+							Description: "expression represents the expression which will be evaluated by CEL. Must evaluate to bool. CEL expressions have access to the contents of the AdmissionRequest and Authorizer, organized into CEL variables:\n\n'object' - The object from the incoming request. The value is null for DELETE requests. 'oldObject' - The existing object. The value is null for CREATE requests. 'request' - Attributes of the admission request(/pkg/apis/admission/types.go#AdmissionRequest). 'authorizer' - A CEL Authorizer. May be used to perform authorization checks for the principal (user or service account) of the request.\n  See https://pkg.go.dev/k8s.io/apiserver/pkg/cel/library#Authz\n'authorizer.requestResource' - A CEL ResourceCheck constructed from the 'authorizer' and configured with the\n  request resource.\nDocumentation on CEL: https://kubernetes.io/docs/reference/using-api/cel/\n\nRequired.",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -6182,13 +6602,13 @@ func schema_k8sio_api_admissionregistration_v1beta1_MatchResources(ref common.Re
 				Properties: map[string]spec.Schema{
 					"namespaceSelector": {
 						SchemaProps: spec.SchemaProps{
-							Description: "NamespaceSelector decides whether to run the admission control policy on an object based on whether the namespace for that object matches the selector. If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the policy.\n\nFor example, to run the webhook on any objects whose namespace is not associated with \"runlevel\" of \"0\" or \"1\";  you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"runlevel\",\n      \"operator\": \"NotIn\",\n      \"values\": [\n        \"0\",\n        \"1\"\n      ]\n    }\n  ]\n}\n\nIf instead you want to only run the policy on any objects whose namespace is associated with the \"environment\" of \"prod\" or \"staging\"; you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"environment\",\n      \"operator\": \"In\",\n      \"values\": [\n        \"prod\",\n        \"staging\"\n      ]\n    }\n  ]\n}\n\nSee https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ for more examples of label selectors.\n\nDefault to the empty LabelSelector, which matches everything.",
+							Description: "namespaceSelector decides whether to run the admission control policy on an object based on whether the namespace for that object matches the selector. If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the policy.\n\nFor example, to run the webhook on any objects whose namespace is not associated with \"runlevel\" of \"0\" or \"1\";  you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"runlevel\",\n      \"operator\": \"NotIn\",\n      \"values\": [\n        \"0\",\n        \"1\"\n      ]\n    }\n  ]\n}\n\nIf instead you want to only run the policy on any objects whose namespace is associated with the \"environment\" of \"prod\" or \"staging\"; you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"environment\",\n      \"operator\": \"In\",\n      \"values\": [\n        \"prod\",\n        \"staging\"\n      ]\n    }\n  ]\n}\n\nSee https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ for more examples of label selectors.\n\nDefault to the empty LabelSelector, which matches everything.",
 							Ref:         ref(metav1.LabelSelector{}.OpenAPIModelName()),
 						},
 					},
 					"objectSelector": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ObjectSelector decides whether to run the validation based on if the object has matching labels. objectSelector is evaluated against both the oldObject and newObject that would be sent to the cel validation, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything.",
+							Description: "objectSelector decides whether to run the validation based on if the object has matching labels. objectSelector is evaluated against both the oldObject and newObject that would be sent to the cel validation, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything.",
 							Ref:         ref(metav1.LabelSelector{}.OpenAPIModelName()),
 						},
 					},
@@ -6199,7 +6619,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_MatchResources(ref common.Re
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "ResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy matches. The policy cares about an operation if it matches _any_ Rule.",
+							Description: "resourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy matches. The policy cares about an operation if it matches _any_ Rule.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -6218,7 +6638,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_MatchResources(ref common.Re
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "ExcludeResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy should not care about. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)",
+							Description: "excludeResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy should not care about. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -6273,14 +6693,14 @@ func schema_k8sio_api_admissionregistration_v1beta1_MutatingAdmissionPolicy(ref 
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
+							Description: "metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Specification of the desired behavior of the MutatingAdmissionPolicy.",
+							Description: "spec defines the desired behavior of the MutatingAdmissionPolicy.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(v1beta1.MutatingAdmissionPolicySpec{}.OpenAPIModelName()),
 						},
@@ -6316,14 +6736,14 @@ func schema_k8sio_api_admissionregistration_v1beta1_MutatingAdmissionPolicyBindi
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
+							Description: "metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Specification of the desired behavior of the MutatingAdmissionPolicyBinding.",
+							Description: "spec defines the desired behavior of the MutatingAdmissionPolicyBinding.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(v1beta1.MutatingAdmissionPolicyBindingSpec{}.OpenAPIModelName()),
 						},
@@ -6359,7 +6779,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_MutatingAdmissionPolicyBindi
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ListMeta{}.OpenAPIModelName()),
 						},
@@ -6444,7 +6864,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_MutatingAdmissionPolicyList(
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ListMeta{}.OpenAPIModelName()),
 						},
@@ -6585,7 +7005,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_MutatingWebhook(ref common.R
 				Properties: map[string]spec.Schema{
 					"name": {
 						SchemaProps: spec.SchemaProps{
-							Description: "The name of the admission webhook. Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where \"imagepolicy\" is the name of the webhook, and kubernetes.io is the name of the organization. Required.",
+							Description: "name is the name of the admission webhook. Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where \"imagepolicy\" is the name of the webhook, and kubernetes.io is the name of the organization. Required.",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -6593,7 +7013,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_MutatingWebhook(ref common.R
 					},
 					"clientConfig": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ClientConfig defines how to communicate with the hook. Required",
+							Description: "clientConfig defines how to communicate with the hook. Required",
 							Default:     map[string]interface{}{},
 							Ref:         ref(v1beta1.WebhookClientConfig{}.OpenAPIModelName()),
 						},
@@ -6605,7 +7025,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_MutatingWebhook(ref common.R
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Rules describes what operations on what resources/subresources the webhook cares about. The webhook cares about an operation if it matches _any_ Rule. However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.",
+							Description: "rules describes what operations on what resources/subresources the webhook cares about. The webhook cares about an operation if it matches _any_ Rule. However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -6619,7 +7039,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_MutatingWebhook(ref common.R
 					},
 					"failurePolicy": {
 						SchemaProps: spec.SchemaProps{
-							Description: "FailurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail. Defaults to Ignore.",
+							Description: "failurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail. Defaults to Ignore.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -6633,26 +7053,26 @@ func schema_k8sio_api_admissionregistration_v1beta1_MutatingWebhook(ref common.R
 					},
 					"namespaceSelector": {
 						SchemaProps: spec.SchemaProps{
-							Description: "NamespaceSelector decides whether to run the webhook on an object based on whether the namespace for that object matches the selector. If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the webhook.\n\nFor example, to run the webhook on any objects whose namespace is not associated with \"runlevel\" of \"0\" or \"1\";  you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"runlevel\",\n      \"operator\": \"NotIn\",\n      \"values\": [\n        \"0\",\n        \"1\"\n      ]\n    }\n  ]\n}\n\nIf instead you want to only run the webhook on any objects whose namespace is associated with the \"environment\" of \"prod\" or \"staging\"; you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"environment\",\n      \"operator\": \"In\",\n      \"values\": [\n        \"prod\",\n        \"staging\"\n      ]\n    }\n  ]\n}\n\nSee https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ for more examples of label selectors.\n\nDefault to the empty LabelSelector, which matches everything.",
+							Description: "namespaceSelector decides whether to run the webhook on an object based on whether the namespace for that object matches the selector. If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the webhook.\n\nFor example, to run the webhook on any objects whose namespace is not associated with \"runlevel\" of \"0\" or \"1\";  you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"runlevel\",\n      \"operator\": \"NotIn\",\n      \"values\": [\n        \"0\",\n        \"1\"\n      ]\n    }\n  ]\n}\n\nIf instead you want to only run the webhook on any objects whose namespace is associated with the \"environment\" of \"prod\" or \"staging\"; you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"environment\",\n      \"operator\": \"In\",\n      \"values\": [\n        \"prod\",\n        \"staging\"\n      ]\n    }\n  ]\n}\n\nSee https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/ for more examples of label selectors.\n\nDefault to the empty LabelSelector, which matches everything.",
 							Ref:         ref(metav1.LabelSelector{}.OpenAPIModelName()),
 						},
 					},
 					"objectSelector": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ObjectSelector decides whether to run the webhook based on if the object has matching labels. objectSelector is evaluated against both the oldObject and newObject that would be sent to the webhook, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything.",
+							Description: "objectSelector decides whether to run the webhook based on if the object has matching labels. objectSelector is evaluated against both the oldObject and newObject that would be sent to the webhook, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything.",
 							Ref:         ref(metav1.LabelSelector{}.OpenAPIModelName()),
 						},
 					},
 					"sideEffects": {
 						SchemaProps: spec.SchemaProps{
-							Description: "SideEffects states whether this webhook has side effects. Acceptable values are: Unknown, None, Some, NoneOnDryRun Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission chain and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some. Defaults to Unknown.",
+							Description: "sideEffects states whether this webhook has side effects. Acceptable values are: Unknown, None, Some, NoneOnDryRun Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission chain and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some. Defaults to Unknown.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"timeoutSeconds": {
 						SchemaProps: spec.SchemaProps{
-							Description: "TimeoutSeconds specifies the timeout for this webhook. After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 30 seconds.",
+							Description: "timeoutSeconds specifies the timeout for this webhook. After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 30 seconds.",
 							Type:        []string{"integer"},
 							Format:      "int32",
 						},
@@ -6664,7 +7084,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_MutatingWebhook(ref common.R
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "AdmissionReviewVersions is an ordered list of preferred `AdmissionReview` versions the Webhook expects. API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy. Default to `['v1beta1']`.",
+							Description: "admissionReviewVersions is an ordered list of preferred `AdmissionReview` versions the Webhook expects. API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy. Default to `['v1beta1']`.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -6697,7 +7117,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_MutatingWebhook(ref common.R
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "MatchConditions is a list of conditions that must be met for a request to be sent to this webhook. Match conditions filter requests that have already been matched by the rules, namespaceSelector, and objectSelector. An empty list of matchConditions matches all requests. There are a maximum of 64 match conditions allowed.\n\nThe exact matching logic is (in order):\n  1. If ANY matchCondition evaluates to FALSE, the webhook is skipped.\n  2. If ALL matchConditions evaluate to TRUE, the webhook is called.\n  3. If any matchCondition evaluates to an error (but none are FALSE):\n     - If failurePolicy=Fail, reject the request\n     - If failurePolicy=Ignore, the error is ignored and the webhook is skipped",
+							Description: "matchConditions is a list of conditions that must be met for a request to be sent to this webhook. Match conditions filter requests that have already been matched by the rules, namespaceSelector, and objectSelector. An empty list of matchConditions matches all requests. There are a maximum of 64 match conditions allowed.\n\nThe exact matching logic is (in order):\n  1. If ANY matchCondition evaluates to FALSE, the webhook is skipped.\n  2. If ALL matchConditions evaluate to TRUE, the webhook is called.\n  3. If any matchCondition evaluates to an error (but none are FALSE):\n     - If failurePolicy=Fail, reject the request\n     - If failurePolicy=Ignore, the error is ignored and the webhook is skipped",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -6741,7 +7161,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_MutatingWebhookConfiguration
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
+							Description: "metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
@@ -6758,7 +7178,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_MutatingWebhookConfiguration
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Webhooks is a list of webhooks and the affected resources and operations.",
+							Description: "webhooks is a list of webhooks and the affected resources and operations.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -6801,7 +7221,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_MutatingWebhookConfiguration
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ListMeta{}.OpenAPIModelName()),
 						},
@@ -6880,7 +7300,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_NamedRuleWithOperations(ref 
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.",
+							Description: "resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -6900,7 +7320,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_NamedRuleWithOperations(ref 
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or * for all of those operations and any future admission operations that are added. If '*' is present, the length of the slice must be one. Required.",
+							Description: "operations is the operations the admission hook cares about - CREATE, UPDATE, DELETE, CONNECT or * for all of those operations and any future admission operations that are added. If '*' is present, the length of the slice must be one. Required.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -6921,7 +7341,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_NamedRuleWithOperations(ref 
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "APIGroups is the API groups the resources belong to. '*' is all groups. If '*' is present, the length of the slice must be one. Required.",
+							Description: "apiGroups is the API groups the resources belong to. '*' is all groups. If '*' is present, the length of the slice must be one. Required.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -6941,7 +7361,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_NamedRuleWithOperations(ref 
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "APIVersions is the API versions the resources belong to. '*' is all versions. If '*' is present, the length of the slice must be one. Required.",
+							Description: "apiVersions is the API versions the resources belong to. '*' is all versions. If '*' is present, the length of the slice must be one. Required.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -6961,7 +7381,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_NamedRuleWithOperations(ref 
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Resources is a list of resources this rule applies to.\n\nFor example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. '*/scale' means all scale subresources. '*/*' means all resources and their subresources.\n\nIf wildcard is present, the validation rule will ensure resources do not overlap with each other.\n\nDepending on the enclosing object, subresources might not be allowed. Required.",
+							Description: "resources is a list of resources this rule applies to.\n\nFor example: 'pods' means pods. 'pods/log' means the log subresource of pods. '*' means all resources, but not subresources. 'pods/*' means all subresources of pods. '*/scale' means all scale subresources. '*/*' means all resources and their subresources.\n\nIf wildcard is present, the validation rule will ensure resources do not overlap with each other.\n\nDepending on the enclosing object, subresources might not be allowed. Required.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -7002,14 +7422,14 @@ func schema_k8sio_api_admissionregistration_v1beta1_ParamKind(ref common.Referen
 				Properties: map[string]spec.Schema{
 					"apiVersion": {
 						SchemaProps: spec.SchemaProps{
-							Description: "APIVersion is the API group version the resources belong to. In format of \"group/version\". Required.",
+							Description: "apiVersion is the API group version the resources belong to. In format of \"group/version\". Required.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"kind": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Kind is the API kind the resources belong to. Required.",
+							Description: "kind is the API kind the resources belong to. Required.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -7054,7 +7474,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ParamRef(ref common.Referenc
 					},
 					"parameterNotFoundAction": {
 						SchemaProps: spec.SchemaProps{
-							Description: "`parameterNotFoundAction` controls the behavior of the binding when the resource exists, and name or selector is valid, but there are no parameters matched by the binding. If the value is set to `Allow`, then no matched parameters will be treated as successful validation by the binding. If set to `Deny`, then no matched parameters will be subject to the `failurePolicy` of the policy.\n\nAllowed values are `Allow` or `Deny`\n\nRequired",
+							Description: "parameterNotFoundAction controls the behavior of the binding when the resource exists, and name or selector is valid, but there are no parameters matched by the binding. If the value is set to `Allow`, then no matched parameters will be treated as successful validation by the binding. If set to `Deny`, then no matched parameters will be subject to the `failurePolicy` of the policy.\n\nAllowed values are `Allow` or `Deny`\n\nRequired",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -7081,7 +7501,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ServiceReference(ref common.
 				Properties: map[string]spec.Schema{
 					"namespace": {
 						SchemaProps: spec.SchemaProps{
-							Description: "`namespace` is the namespace of the service. Required",
+							Description: "namespace is the namespace of the service. Required",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -7089,7 +7509,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ServiceReference(ref common.
 					},
 					"name": {
 						SchemaProps: spec.SchemaProps{
-							Description: "`name` is the name of the service. Required",
+							Description: "name is the name of the service. Required",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -7097,14 +7517,14 @@ func schema_k8sio_api_admissionregistration_v1beta1_ServiceReference(ref common.
 					},
 					"path": {
 						SchemaProps: spec.SchemaProps{
-							Description: "`path` is an optional URL path which will be sent in any request to this service.",
+							Description: "path is an optional URL path which will be sent in any request to this service.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"port": {
 						SchemaProps: spec.SchemaProps{
-							Description: "If specified, the port on the service that hosting webhook. Default to 443 for backward compatibility. `port` should be a valid port number (1-65535, inclusive).",
+							Description: "port is the port on the service that hosts the webhook. Default to 443 for backward compatibility. port should be a valid port number (1-65535, inclusive).",
 							Type:        []string{"integer"},
 							Format:      "int32",
 						},
@@ -7130,7 +7550,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_TypeChecking(ref common.Refe
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "The type checking warnings for each expression.",
+							Description: "expressionWarnings contains the type checking warnings for each expression.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -7173,21 +7593,21 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingAdmissionPolicy(re
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
+							Description: "metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Specification of the desired behavior of the ValidatingAdmissionPolicy.",
+							Description: "spec defines the desired behavior of the ValidatingAdmissionPolicy.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(v1beta1.ValidatingAdmissionPolicySpec{}.OpenAPIModelName()),
 						},
 					},
 					"status": {
 						SchemaProps: spec.SchemaProps{
-							Description: "The status of the ValidatingAdmissionPolicy, including warnings that are useful to determine if the policy behaves in the expected way. Populated by the system. Read-only.",
+							Description: "status represents the current status of the ValidatingAdmissionPolicy, including warnings that are useful to determine if the policy behaves in the expected way. Populated by the system. Read-only.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(v1beta1.ValidatingAdmissionPolicyStatus{}.OpenAPIModelName()),
 						},
@@ -7223,19 +7643,20 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingAdmissionPolicyBin
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
+							Description: "metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Specification of the desired behavior of the ValidatingAdmissionPolicyBinding.",
+							Description: "spec defines the desired behavior of the ValidatingAdmissionPolicyBinding.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(v1beta1.ValidatingAdmissionPolicyBindingSpec{}.OpenAPIModelName()),
 						},
 					},
 				},
+				Required: []string{"spec"},
 			},
 		},
 		Dependencies: []string{
@@ -7266,7 +7687,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingAdmissionPolicyBin
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ListMeta{}.OpenAPIModelName()),
 						},
@@ -7303,7 +7724,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingAdmissionPolicyBin
 				Properties: map[string]spec.Schema{
 					"policyName": {
 						SchemaProps: spec.SchemaProps{
-							Description: "PolicyName references a ValidatingAdmissionPolicy name which the ValidatingAdmissionPolicyBinding binds to. If the referenced resource does not exist, this binding is considered invalid and will be ignored Required.",
+							Description: "policyName references a ValidatingAdmissionPolicy name which the ValidatingAdmissionPolicyBinding binds to. If the referenced resource does not exist, this binding is considered invalid and will be ignored Required.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -7316,7 +7737,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingAdmissionPolicyBin
 					},
 					"matchResources": {
 						SchemaProps: spec.SchemaProps{
-							Description: "MatchResources declares what resources match this binding and will be validated by it. Note that this is intersected with the policy's matchConstraints, so only requests that are matched by the policy can be selected by this. If this is unset, all resources matched by the policy are validated by this binding When resourceRules is unset, it does not constrain resource matching. If a resource is matched by the other fields of this object, it will be validated. Note that this is differs from ValidatingAdmissionPolicy matchConstraints, where resourceRules are required.",
+							Description: "matchResources declares what resources match this binding and will be validated by it. Note that this is intersected with the policy's matchConstraints, so only requests that are matched by the policy can be selected by this. If this is unset, all resources matched by the policy are validated by this binding When resourceRules is unset, it does not constrain resource matching. If a resource is matched by the other fields of this object, it will be validated. Note that this is differs from ValidatingAdmissionPolicy matchConstraints, where resourceRules are required.",
 							Ref:         ref(v1beta1.MatchResources{}.OpenAPIModelName()),
 						},
 					},
@@ -7342,6 +7763,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingAdmissionPolicyBin
 						},
 					},
 				},
+				Required: []string{"policyName", "validationActions"},
 			},
 		},
 		Dependencies: []string{
@@ -7372,7 +7794,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingAdmissionPolicyLis
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ListMeta{}.OpenAPIModelName()),
 						},
@@ -7409,13 +7831,13 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingAdmissionPolicySpe
 				Properties: map[string]spec.Schema{
 					"paramKind": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ParamKind specifies the kind of resources used to parameterize this policy. If absent, there are no parameters for this policy and the param CEL variable will not be provided to validation expressions. If ParamKind refers to a non-existent kind, this policy definition is mis-configured and the FailurePolicy is applied. If paramKind is specified but paramRef is unset in ValidatingAdmissionPolicyBinding, the params variable will be null.",
+							Description: "paramKind specifies the kind of resources used to parameterize this policy. If absent, there are no parameters for this policy and the param CEL variable will not be provided to validation expressions. If ParamKind refers to a non-existent kind, this policy definition is mis-configured and the FailurePolicy is applied. If paramKind is specified but paramRef is unset in ValidatingAdmissionPolicyBinding, the params variable will be null.",
 							Ref:         ref(v1beta1.ParamKind{}.OpenAPIModelName()),
 						},
 					},
 					"matchConstraints": {
 						SchemaProps: spec.SchemaProps{
-							Description: "MatchConstraints specifies what resources this policy is designed to validate. The AdmissionPolicy cares about a request if it matches _all_ Constraints. However, in order to prevent clusters from being put into an unstable state that cannot be recovered from via the API ValidatingAdmissionPolicy cannot match ValidatingAdmissionPolicy and ValidatingAdmissionPolicyBinding. Required.",
+							Description: "matchConstraints specifies what resources this policy is designed to validate. The AdmissionPolicy cares about a request if it matches _all_ Constraints. However, in order to prevent clusters from being put into an unstable state that cannot be recovered from via the API ValidatingAdmissionPolicy cannot match ValidatingAdmissionPolicy and ValidatingAdmissionPolicyBinding. Required.",
 							Ref:         ref(v1beta1.MatchResources{}.OpenAPIModelName()),
 						},
 					},
@@ -7426,7 +7848,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingAdmissionPolicySpe
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Validations contain CEL expressions which is used to apply the validation. Validations and AuditAnnotations may not both be empty; a minimum of one Validations or AuditAnnotations is required.",
+							Description: "validations contain CEL expressions which is used to apply the validation. Validations and AuditAnnotations may not both be empty; a minimum of one Validations or AuditAnnotations is required.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -7476,7 +7898,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingAdmissionPolicySpe
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "MatchConditions is a list of conditions that must be met for a request to be validated. Match conditions filter requests that have already been matched by the rules, namespaceSelector, and objectSelector. An empty list of matchConditions matches all requests. There are a maximum of 64 match conditions allowed.\n\nIf a parameter object is provided, it can be accessed via the `params` handle in the same manner as validation expressions.\n\nThe exact matching logic is (in order):\n  1. If ANY matchCondition evaluates to FALSE, the policy is skipped.\n  2. If ALL matchConditions evaluate to TRUE, the policy is evaluated.\n  3. If any matchCondition evaluates to an error (but none are FALSE):\n     - If failurePolicy=Fail, reject the request\n     - If failurePolicy=Ignore, the policy is skipped",
+							Description: "matchConditions is a list of conditions that must be met for a request to be validated. Match conditions filter requests that have already been matched by the rules, namespaceSelector, and objectSelector. An empty list of matchConditions matches all requests. There are a maximum of 64 match conditions allowed.\n\nIf a parameter object is provided, it can be accessed via the `params` handle in the same manner as validation expressions.\n\nThe exact matching logic is (in order):\n  1. If ANY matchCondition evaluates to FALSE, the policy is skipped.\n  2. If ALL matchConditions evaluate to TRUE, the policy is evaluated.\n  3. If any matchCondition evaluates to an error (but none are FALSE):\n     - If failurePolicy=Fail, reject the request\n     - If failurePolicy=Ignore, the policy is skipped",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -7500,7 +7922,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingAdmissionPolicySpe
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Variables contain definitions of variables that can be used in composition of other expressions. Each variable is defined as a named CEL expression. The variables defined here will be available under `variables` in other expressions of the policy except MatchConditions because MatchConditions are evaluated before the rest of the policy.\n\nThe expression of a variable can refer to other variables defined earlier in the list but not those after. Thus, Variables must be sorted by the order of first appearance and acyclic.",
+							Description: "variables contain definitions of variables that can be used in composition of other expressions. Each variable is defined as a named CEL expression. The variables defined here will be available under `variables` in other expressions of the policy except MatchConditions because MatchConditions are evaluated before the rest of the policy.\n\nThe expression of a variable can refer to other variables defined earlier in the list but not those after. Thus, Variables must be sorted by the order of first appearance and acyclic.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -7529,14 +7951,14 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingAdmissionPolicySta
 				Properties: map[string]spec.Schema{
 					"observedGeneration": {
 						SchemaProps: spec.SchemaProps{
-							Description: "The generation observed by the controller.",
+							Description: "observedGeneration is the generation observed by the controller.",
 							Type:        []string{"integer"},
 							Format:      "int64",
 						},
 					},
 					"typeChecking": {
 						SchemaProps: spec.SchemaProps{
-							Description: "The results of type checking for each expression. Presence of this field indicates the completion of the type checking.",
+							Description: "typeChecking contains the results of type checking for each expression. Presence of this field indicates the completion of the type checking.",
 							Ref:         ref(v1beta1.TypeChecking{}.OpenAPIModelName()),
 						},
 					},
@@ -7550,7 +7972,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingAdmissionPolicySta
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "The conditions represent the latest available observations of a policy's current state.",
+							Description: "conditions represent the latest available observations of a policy's current state.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -7579,7 +8001,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingWebhook(ref common
 				Properties: map[string]spec.Schema{
 					"name": {
 						SchemaProps: spec.SchemaProps{
-							Description: "The name of the admission webhook. Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where \"imagepolicy\" is the name of the webhook, and kubernetes.io is the name of the organization. Required.",
+							Description: "name is the name of the admission webhook. Name should be fully qualified, e.g., imagepolicy.kubernetes.io, where \"imagepolicy\" is the name of the webhook, and kubernetes.io is the name of the organization. Required.",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -7587,7 +8009,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingWebhook(ref common
 					},
 					"clientConfig": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ClientConfig defines how to communicate with the hook. Required",
+							Description: "clientConfig defines how to communicate with the hook. Required",
 							Default:     map[string]interface{}{},
 							Ref:         ref(v1beta1.WebhookClientConfig{}.OpenAPIModelName()),
 						},
@@ -7599,7 +8021,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingWebhook(ref common
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Rules describes what operations on what resources/subresources the webhook cares about. The webhook cares about an operation if it matches _any_ Rule. However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.",
+							Description: "rules describes what operations on what resources/subresources the webhook cares about. The webhook cares about an operation if it matches _any_ Rule. However, in order to prevent ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks from putting the cluster in a state which cannot be recovered from without completely disabling the plugin, ValidatingAdmissionWebhooks and MutatingAdmissionWebhooks are never called on admission requests for ValidatingWebhookConfiguration and MutatingWebhookConfiguration objects.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -7613,7 +8035,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingWebhook(ref common
 					},
 					"failurePolicy": {
 						SchemaProps: spec.SchemaProps{
-							Description: "FailurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail. Defaults to Ignore.",
+							Description: "failurePolicy defines how unrecognized errors from the admission endpoint are handled - allowed values are Ignore or Fail. Defaults to Ignore.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -7627,13 +8049,13 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingWebhook(ref common
 					},
 					"namespaceSelector": {
 						SchemaProps: spec.SchemaProps{
-							Description: "NamespaceSelector decides whether to run the webhook on an object based on whether the namespace for that object matches the selector. If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the webhook.\n\nFor example, to run the webhook on any objects whose namespace is not associated with \"runlevel\" of \"0\" or \"1\";  you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"runlevel\",\n      \"operator\": \"NotIn\",\n      \"values\": [\n        \"0\",\n        \"1\"\n      ]\n    }\n  ]\n}\n\nIf instead you want to only run the webhook on any objects whose namespace is associated with the \"environment\" of \"prod\" or \"staging\"; you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"environment\",\n      \"operator\": \"In\",\n      \"values\": [\n        \"prod\",\n        \"staging\"\n      ]\n    }\n  ]\n}\n\nSee https://kubernetes.io/docs/concepts/overview/working-with-objects/labels for more examples of label selectors.\n\nDefault to the empty LabelSelector, which matches everything.",
+							Description: "namespaceSelector decides whether to run the webhook on an object based on whether the namespace for that object matches the selector. If the object itself is a namespace, the matching is performed on object.metadata.labels. If the object is another cluster scoped resource, it never skips the webhook.\n\nFor example, to run the webhook on any objects whose namespace is not associated with \"runlevel\" of \"0\" or \"1\";  you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"runlevel\",\n      \"operator\": \"NotIn\",\n      \"values\": [\n        \"0\",\n        \"1\"\n      ]\n    }\n  ]\n}\n\nIf instead you want to only run the webhook on any objects whose namespace is associated with the \"environment\" of \"prod\" or \"staging\"; you will set the selector as follows: \"namespaceSelector\": {\n  \"matchExpressions\": [\n    {\n      \"key\": \"environment\",\n      \"operator\": \"In\",\n      \"values\": [\n        \"prod\",\n        \"staging\"\n      ]\n    }\n  ]\n}\n\nSee https://kubernetes.io/docs/concepts/overview/working-with-objects/labels for more examples of label selectors.\n\nDefault to the empty LabelSelector, which matches everything.",
 							Ref:         ref(metav1.LabelSelector{}.OpenAPIModelName()),
 						},
 					},
 					"objectSelector": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ObjectSelector decides whether to run the webhook based on if the object has matching labels. objectSelector is evaluated against both the oldObject and newObject that would be sent to the webhook, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything.",
+							Description: "objectSelector decides whether to run the webhook based on if the object has matching labels. objectSelector is evaluated against both the oldObject and newObject that would be sent to the webhook, and is considered to match if either object matches the selector. A null object (oldObject in the case of create, or newObject in the case of delete) or an object that cannot have labels (like a DeploymentRollback or a PodProxyOptions object) is not considered to match. Use the object selector only if the webhook is opt-in, because end users may skip the admission webhook by setting the labels. Default to the empty LabelSelector, which matches everything.",
 							Ref:         ref(metav1.LabelSelector{}.OpenAPIModelName()),
 						},
 					},
@@ -7644,14 +8066,14 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingWebhook(ref common
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "SideEffects states whether this webhook has side effects. Acceptable values are: Unknown, None, Some, NoneOnDryRun Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission chain and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some. Defaults to Unknown.",
+							Description: "sideEffects states whether this webhook has side effects. Acceptable values are: Unknown, None, Some, NoneOnDryRun Webhooks with side effects MUST implement a reconciliation system, since a request may be rejected by a future step in the admission chain and the side effects therefore need to be undone. Requests with the dryRun attribute will be auto-rejected if they match a webhook with sideEffects == Unknown or Some. Defaults to Unknown.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"timeoutSeconds": {
 						SchemaProps: spec.SchemaProps{
-							Description: "TimeoutSeconds specifies the timeout for this webhook. After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 30 seconds.",
+							Description: "timeoutSeconds specifies the timeout for this webhook. After the timeout passes, the webhook call will be ignored or the API call will fail based on the failure policy. The timeout value must be between 1 and 30 seconds. Default to 30 seconds.",
 							Type:        []string{"integer"},
 							Format:      "int32",
 						},
@@ -7663,7 +8085,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingWebhook(ref common
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "AdmissionReviewVersions is an ordered list of preferred `AdmissionReview` versions the Webhook expects. API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy. Default to `['v1beta1']`.",
+							Description: "admissionReviewVersions is an ordered list of preferred `AdmissionReview` versions the Webhook expects. API server will try to use first version in the list which it supports. If none of the versions specified in this list supported by API server, validation will fail for this object. If a persisted webhook configuration specifies allowed versions and does not include any versions known to the API Server, calls to the webhook will fail and be subject to the failure policy. Default to `['v1beta1']`.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -7688,7 +8110,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingWebhook(ref common
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "MatchConditions is a list of conditions that must be met for a request to be sent to this webhook. Match conditions filter requests that have already been matched by the rules, namespaceSelector, and objectSelector. An empty list of matchConditions matches all requests. There are a maximum of 64 match conditions allowed.\n\nThe exact matching logic is (in order):\n  1. If ANY matchCondition evaluates to FALSE, the webhook is skipped.\n  2. If ALL matchConditions evaluate to TRUE, the webhook is called.\n  3. If any matchCondition evaluates to an error (but none are FALSE):\n     - If failurePolicy=Fail, reject the request\n     - If failurePolicy=Ignore, the error is ignored and the webhook is skipped",
+							Description: "matchConditions is a list of conditions that must be met for a request to be sent to this webhook. Match conditions filter requests that have already been matched by the rules, namespaceSelector, and objectSelector. An empty list of matchConditions matches all requests. There are a maximum of 64 match conditions allowed.\n\nThe exact matching logic is (in order):\n  1. If ANY matchCondition evaluates to FALSE, the webhook is skipped.\n  2. If ALL matchConditions evaluate to TRUE, the webhook is called.\n  3. If any matchCondition evaluates to an error (but none are FALSE):\n     - If failurePolicy=Fail, reject the request\n     - If failurePolicy=Ignore, the error is ignored and the webhook is skipped",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -7732,7 +8154,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingWebhookConfigurati
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
+							Description: "metadata is the standard object metadata; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
@@ -7749,7 +8171,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingWebhookConfigurati
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Webhooks is a list of webhooks and the affected resources and operations.",
+							Description: "webhooks is a list of webhooks and the affected resources and operations.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -7792,7 +8214,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_ValidatingWebhookConfigurati
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ListMeta{}.OpenAPIModelName()),
 						},
@@ -7829,7 +8251,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_Validation(ref common.Refere
 				Properties: map[string]spec.Schema{
 					"expression": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Expression represents the expression which will be evaluated by CEL. ref: https://github.com/google/cel-spec CEL expressions have access to the contents of the API request/response, organized into CEL variables as well as some other useful variables:\n\n- 'object' - The object from the incoming request. The value is null for DELETE requests. - 'oldObject' - The existing object. The value is null for CREATE requests. - 'request' - Attributes of the API request([ref](/pkg/apis/admission/types.go#AdmissionRequest)). - 'params' - Parameter resource referred to by the policy binding being evaluated. Only populated if the policy has a ParamKind. - 'namespaceObject' - The namespace object that the incoming object belongs to. The value is null for cluster-scoped resources. - 'variables' - Map of composited variables, from its name to its lazily evaluated value.\n  For example, a variable named 'foo' can be accessed as 'variables.foo'.\n- 'authorizer' - A CEL Authorizer. May be used to perform authorization checks for the principal (user or service account) of the request.\n  See https://pkg.go.dev/k8s.io/apiserver/pkg/cel/library#Authz\n- 'authorizer.requestResource' - A CEL ResourceCheck constructed from the 'authorizer' and configured with the\n  request resource.\n\nThe `apiVersion`, `kind`, `metadata.name` and `metadata.generateName` are always accessible from the root of the object. No other metadata properties are accessible.\n\nOnly property names of the form `[a-zA-Z_.-/][a-zA-Z0-9_.-/]*` are accessible. Accessible property names are escaped according to the following rules when accessed in the expression: - '__' escapes to '__underscores__' - '.' escapes to '__dot__' - '-' escapes to '__dash__' - '/' escapes to '__slash__' - Property names that exactly match a CEL RESERVED keyword escape to '__{keyword}__'. The keywords are:\n\t  \"true\", \"false\", \"null\", \"in\", \"as\", \"break\", \"const\", \"continue\", \"else\", \"for\", \"function\", \"if\",\n\t  \"import\", \"let\", \"loop\", \"package\", \"namespace\", \"return\".\nExamples:\n  - Expression accessing a property named \"namespace\": {\"Expression\": \"object.__namespace__ > 0\"}\n  - Expression accessing a property named \"x-prop\": {\"Expression\": \"object.x__dash__prop > 0\"}\n  - Expression accessing a property named \"redact__d\": {\"Expression\": \"object.redact__underscores__d > 0\"}\n\nEquality on arrays with list type of 'set' or 'map' ignores element order, i.e. [1, 2] == [2, 1]. Concatenation on arrays with x-kubernetes-list-type use the semantics of the list type:\n  - 'set': `X + Y` performs a union where the array positions of all elements in `X` are preserved and\n    non-intersecting elements in `Y` are appended, retaining their partial order.\n  - 'map': `X + Y` performs a merge where the array positions of all keys in `X` are preserved but the values\n    are overwritten by values in `Y` when the key sets of `X` and `Y` intersect. Elements in `Y` with\n    non-intersecting keys are appended, retaining their partial order.\nRequired.",
+							Description: "expression represents the expression which will be evaluated by CEL. ref: https://github.com/google/cel-spec CEL expressions have access to the contents of the API request/response, organized into CEL variables as well as some other useful variables:\n\n- 'object' - The object from the incoming request. The value is null for DELETE requests. - 'oldObject' - The existing object. The value is null for CREATE requests. - 'request' - Attributes of the API request([ref](/pkg/apis/admission/types.go#AdmissionRequest)). - 'params' - Parameter resource referred to by the policy binding being evaluated. Only populated if the policy has a ParamKind. - 'namespaceObject' - The namespace object that the incoming object belongs to. The value is null for cluster-scoped resources. - 'variables' - Map of composited variables, from its name to its lazily evaluated value.\n  For example, a variable named 'foo' can be accessed as 'variables.foo'.\n- 'authorizer' - A CEL Authorizer. May be used to perform authorization checks for the principal (user or service account) of the request.\n  See https://pkg.go.dev/k8s.io/apiserver/pkg/cel/library#Authz\n- 'authorizer.requestResource' - A CEL ResourceCheck constructed from the 'authorizer' and configured with the\n  request resource.\n\nThe `apiVersion`, `kind`, `metadata.name` and `metadata.generateName` are always accessible from the root of the object. No other metadata properties are accessible.\n\nOnly property names of the form `[a-zA-Z_.-/][a-zA-Z0-9_.-/]*` are accessible. Accessible property names are escaped according to the following rules when accessed in the expression: - '__' escapes to '__underscores__' - '.' escapes to '__dot__' - '-' escapes to '__dash__' - '/' escapes to '__slash__' - Property names that exactly match a CEL RESERVED keyword escape to '__{keyword}__'. The keywords are:\n\t  \"true\", \"false\", \"null\", \"in\", \"as\", \"break\", \"const\", \"continue\", \"else\", \"for\", \"function\", \"if\",\n\t  \"import\", \"let\", \"loop\", \"package\", \"namespace\", \"return\".\nExamples:\n  - Expression accessing a property named \"namespace\": {\"Expression\": \"object.__namespace__ > 0\"}\n  - Expression accessing a property named \"x-prop\": {\"Expression\": \"object.x__dash__prop > 0\"}\n  - Expression accessing a property named \"redact__d\": {\"Expression\": \"object.redact__underscores__d > 0\"}\n\nEquality on arrays with list type of 'set' or 'map' ignores element order, i.e. [1, 2] == [2, 1]. Concatenation on arrays with x-kubernetes-list-type use the semantics of the list type:\n  - 'set': `X + Y` performs a union where the array positions of all elements in `X` are preserved and\n    non-intersecting elements in `Y` are appended, retaining their partial order.\n  - 'map': `X + Y` performs a merge where the array positions of all keys in `X` are preserved but the values\n    are overwritten by values in `Y` when the key sets of `X` and `Y` intersect. Elements in `Y` with\n    non-intersecting keys are appended, retaining their partial order.\nRequired.",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -7837,14 +8259,14 @@ func schema_k8sio_api_admissionregistration_v1beta1_Validation(ref common.Refere
 					},
 					"message": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Message represents the message displayed when validation fails. The message is required if the Expression contains line breaks. The message must not contain line breaks. If unset, the message is \"failed rule: {Rule}\". e.g. \"must be a URL with the host matching spec.host\" If the Expression contains line breaks. Message is required. The message must not contain line breaks. If unset, the message is \"failed Expression: {Expression}\".",
+							Description: "message represents the message displayed when validation fails. The message is required if the Expression contains line breaks. The message must not contain line breaks. If unset, the message is \"failed rule: {Rule}\". e.g. \"must be a URL with the host matching spec.host\" If the Expression contains line breaks. Message is required. The message must not contain line breaks. If unset, the message is \"failed Expression: {Expression}\".",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"reason": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Reason represents a machine-readable description of why this validation failed. If this is the first validation in the list to fail, this reason, as well as the corresponding HTTP response code, are used in the HTTP response to the client. The currently supported reasons are: \"Unauthorized\", \"Forbidden\", \"Invalid\", \"RequestEntityTooLarge\". If not set, StatusReasonInvalid is used in the response to the client.",
+							Description: "reason represents a machine-readable description of why this validation failed. If this is the first validation in the list to fail, this reason, as well as the corresponding HTTP response code, are used in the HTTP response to the client. The currently supported reasons are: \"Unauthorized\", \"Forbidden\", \"Invalid\", \"RequestEntityTooLarge\". If not set, StatusReasonInvalid is used in the response to the client.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -7872,7 +8294,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_Variable(ref common.Referenc
 				Properties: map[string]spec.Schema{
 					"name": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Name is the name of the variable. The name must be a valid CEL identifier and unique among all variables. The variable can be accessed in other expressions through `variables` For example, if name is \"foo\", the variable will be available as `variables.foo`",
+							Description: "name is the name of the variable. The name must be a valid CEL identifier and unique among all variables. The variable can be accessed in other expressions through `variables` For example, if name is \"foo\", the variable will be available as `variables.foo`",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -7880,7 +8302,7 @@ func schema_k8sio_api_admissionregistration_v1beta1_Variable(ref common.Referenc
 					},
 					"expression": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Expression is the expression that will be evaluated as the value of the variable. The CEL expression has access to the same identifiers as the CEL expressions in Validation.",
+							Description: "expression is the expression that will be evaluated as the value of the variable. The CEL expression has access to the same identifiers as the CEL expressions in Validation.",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -7907,20 +8329,20 @@ func schema_k8sio_api_admissionregistration_v1beta1_WebhookClientConfig(ref comm
 				Properties: map[string]spec.Schema{
 					"url": {
 						SchemaProps: spec.SchemaProps{
-							Description: "`url` gives the location of the webhook, in standard URL form (`scheme://host:port/path`). Exactly one of `url` or `service` must be specified.\n\nThe `host` should not refer to a service running in the cluster; use the `service` field instead. The host might be resolved via external DNS in some apiservers (e.g., `kube-apiserver` cannot resolve in-cluster DNS as that would be a layering violation). `host` may also be an IP address.\n\nPlease note that using `localhost` or `127.0.0.1` as a `host` is risky unless you take great care to run this webhook on all hosts which run an apiserver which might need to make calls to this webhook. Such installs are likely to be non-portable, i.e., not easy to turn up in a new cluster.\n\nThe scheme must be \"https\"; the URL must begin with \"https://\".\n\nA path is optional, and if present may be any string permissible in a URL. You may use the path to pass an arbitrary string to the webhook, for example, a cluster identifier.\n\nAttempting to use a user or basic auth e.g. \"user:password@\" is not allowed. Fragments (\"#...\") and query parameters (\"?...\") are not allowed, either.",
+							Description: "url gives the location of the webhook, in standard URL form (`scheme://host:port/path`). Exactly one of `url` or `service` must be specified.\n\nThe `host` should not refer to a service running in the cluster; use the `service` field instead. The host might be resolved via external DNS in some apiservers (e.g., `kube-apiserver` cannot resolve in-cluster DNS as that would be a layering violation). `host` may also be an IP address.\n\nPlease note that using `localhost` or `127.0.0.1` as a `host` is risky unless you take great care to run this webhook on all hosts which run an apiserver which might need to make calls to this webhook. Such installs are likely to be non-portable, i.e., not easy to turn up in a new cluster.\n\nThe scheme must be \"https\"; the URL must begin with \"https://\".\n\nA path is optional, and if present may be any string permissible in a URL. You may use the path to pass an arbitrary string to the webhook, for example, a cluster identifier.\n\nAttempting to use a user or basic auth e.g. \"user:password@\" is not allowed. Fragments (\"#...\") and query parameters (\"?...\") are not allowed, either.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"service": {
 						SchemaProps: spec.SchemaProps{
-							Description: "`service` is a reference to the service for this webhook. Either `service` or `url` must be specified.\n\nIf the webhook is running within the cluster, then you should use `service`.",
+							Description: "service is a reference to the service for this webhook. Either `service` or `url` must be specified.\n\nIf the webhook is running within the cluster, then you should use `service`.",
 							Ref:         ref(v1beta1.ServiceReference{}.OpenAPIModelName()),
 						},
 					},
 					"caBundle": {
 						SchemaProps: spec.SchemaProps{
-							Description: "`caBundle` is a PEM encoded CA bundle which will be used to validate the webhook's server certificate. If unspecified, system trust roots on the apiserver are used.",
+							Description: "caBundle is a PEM encoded CA bundle which will be used to validate the webhook's server certificate. If unspecified, system trust roots on the apiserver are used.",
 							Type:        []string{"string"},
 							Format:      "byte",
 						},
@@ -12408,28 +12830,28 @@ func schema_k8sio_api_authentication_v1_BoundObjectReference(ref common.Referenc
 				Properties: map[string]spec.Schema{
 					"kind": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Kind of the referent. Valid kinds are 'Pod' and 'Secret'.",
+							Description: "kind of the referent. Valid kinds are 'Pod' and 'Secret'.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"apiVersion": {
 						SchemaProps: spec.SchemaProps{
-							Description: "API version of the referent.",
+							Description: "apiVersion is API version of the referent.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"name": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Name of the referent.",
+							Description: "name of the referent.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"uid": {
 						SchemaProps: spec.SchemaProps{
-							Description: "UID of the referent.",
+							Description: "uid of the referent.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -12463,14 +12885,14 @@ func schema_k8sio_api_authentication_v1_SelfSubjectReview(ref common.ReferenceCa
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+							Description: "metadata is standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
 					},
 					"status": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Status is filled in by the server with the user attributes.",
+							Description: "status is filled in by the server with the user attributes.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authenticationv1.SelfSubjectReviewStatus{}.OpenAPIModelName()),
 						},
@@ -12492,7 +12914,7 @@ func schema_k8sio_api_authentication_v1_SelfSubjectReviewStatus(ref common.Refer
 				Properties: map[string]spec.Schema{
 					"userInfo": {
 						SchemaProps: spec.SchemaProps{
-							Description: "User attributes of the user making this request.",
+							Description: "userInfo is a set of attributes belonging to the user making this request.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authenticationv1.UserInfo{}.OpenAPIModelName()),
 						},
@@ -12528,27 +12950,26 @@ func schema_k8sio_api_authentication_v1_TokenRequest(ref common.ReferenceCallbac
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+							Description: "metadata is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Spec holds information about the request being evaluated",
+							Description: "spec holds information about the request being evaluated",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authenticationv1.TokenRequestSpec{}.OpenAPIModelName()),
 						},
 					},
 					"status": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Status is filled in by the server and indicates whether the token can be authenticated.",
+							Description: "status is filled in by the server and indicates whether the token can be authenticated.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authenticationv1.TokenRequestStatus{}.OpenAPIModelName()),
 						},
 					},
 				},
-				Required: []string{"spec"},
 			},
 		},
 		Dependencies: []string{
@@ -12570,7 +12991,7 @@ func schema_k8sio_api_authentication_v1_TokenRequestSpec(ref common.ReferenceCal
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Audiences are the intendend audiences of the token. A recipient of a token must identify themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.",
+							Description: "audiences are the intendend audiences of the token. A recipient of a token must identify themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -12585,19 +13006,18 @@ func schema_k8sio_api_authentication_v1_TokenRequestSpec(ref common.ReferenceCal
 					},
 					"expirationSeconds": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ExpirationSeconds is the requested duration of validity of the request. The token issuer may return a token with a different validity duration so a client needs to check the 'expiration' field in a response.",
+							Description: "expirationSeconds is the requested duration of validity of the request. The token issuer may return a token with a different validity duration so a client needs to check the 'expiration' field in a response.",
 							Type:        []string{"integer"},
 							Format:      "int64",
 						},
 					},
 					"boundObjectRef": {
 						SchemaProps: spec.SchemaProps{
-							Description: "BoundObjectRef is a reference to an object that the token will be bound to. The token will only be valid for as long as the bound object exists. NOTE: The API server's TokenReview endpoint will validate the BoundObjectRef, but other audiences may not. Keep ExpirationSeconds small if you want prompt revocation.",
+							Description: "boundObjectRef is a reference to an object that the token will be bound to. The token will only be valid for as long as the bound object exists. NOTE: The API server's TokenReview endpoint will validate the BoundObjectRef, but other audiences may not. Keep ExpirationSeconds small if you want prompt revocation.",
 							Ref:         ref(authenticationv1.BoundObjectReference{}.OpenAPIModelName()),
 						},
 					},
 				},
-				Required: []string{"audiences"},
 			},
 		},
 		Dependencies: []string{
@@ -12614,7 +13034,7 @@ func schema_k8sio_api_authentication_v1_TokenRequestStatus(ref common.ReferenceC
 				Properties: map[string]spec.Schema{
 					"token": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Token is the opaque bearer token.",
+							Description: "token is the opaque bearer token.",
 							Default:     "",
 							Type:        []string{"string"},
 							Format:      "",
@@ -12622,12 +13042,11 @@ func schema_k8sio_api_authentication_v1_TokenRequestStatus(ref common.ReferenceC
 					},
 					"expirationTimestamp": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ExpirationTimestamp is the time of expiration of the returned token.",
+							Description: "expirationTimestamp is the time of expiration of the returned token.",
 							Ref:         ref(metav1.Time{}.OpenAPIModelName()),
 						},
 					},
 				},
-				Required: []string{"token", "expirationTimestamp"},
 			},
 		},
 		Dependencies: []string{
@@ -12658,21 +13077,21 @@ func schema_k8sio_api_authentication_v1_TokenReview(ref common.ReferenceCallback
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+							Description: "metadata is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Spec holds information about the request being evaluated",
+							Description: "spec holds information about the request being evaluated",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authenticationv1.TokenReviewSpec{}.OpenAPIModelName()),
 						},
 					},
 					"status": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Status is filled in by the server and indicates whether the request can be authenticated.",
+							Description: "status is filled in by the server and indicates whether the request can be authenticated.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authenticationv1.TokenReviewStatus{}.OpenAPIModelName()),
 						},
@@ -12695,7 +13114,7 @@ func schema_k8sio_api_authentication_v1_TokenReviewSpec(ref common.ReferenceCall
 				Properties: map[string]spec.Schema{
 					"token": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Token is the opaque bearer token.",
+							Description: "token is the opaque bearer token.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -12707,7 +13126,7 @@ func schema_k8sio_api_authentication_v1_TokenReviewSpec(ref common.ReferenceCall
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Audiences is a list of the identifiers that the resource server presented with the token identifies as. Audience-aware token authenticators will verify that the token was intended for at least one of the audiences in this list. If no audiences are provided, the audience will default to the audience of the Kubernetes apiserver.",
+							Description: "audiences is a list of the identifiers that the resource server presented with the token identifies as. Audience-aware token authenticators will verify that the token was intended for at least one of the audiences in this list. If no audiences are provided, the audience will default to the audience of the Kubernetes apiserver.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -12721,6 +13140,7 @@ func schema_k8sio_api_authentication_v1_TokenReviewSpec(ref common.ReferenceCall
 						},
 					},
 				},
+				Required: []string{"token"},
 			},
 		},
 	}
@@ -12735,14 +13155,14 @@ func schema_k8sio_api_authentication_v1_TokenReviewStatus(ref common.ReferenceCa
 				Properties: map[string]spec.Schema{
 					"authenticated": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Authenticated indicates that the token was associated with a known user.",
+							Description: "authenticated indicates that the token was associated with a known user.",
 							Type:        []string{"boolean"},
 							Format:      "",
 						},
 					},
 					"user": {
 						SchemaProps: spec.SchemaProps{
-							Description: "User is the UserInfo associated with the provided token.",
+							Description: "user is the UserInfo associated with the provided token.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authenticationv1.UserInfo{}.OpenAPIModelName()),
 						},
@@ -12754,7 +13174,7 @@ func schema_k8sio_api_authentication_v1_TokenReviewStatus(ref common.ReferenceCa
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Audiences are audience identifiers chosen by the authenticator that are compatible with both the TokenReview and token. An identifier is any identifier in the intersection of the TokenReviewSpec audiences and the token's audiences. A client of the TokenReview API that sets the spec.audiences field should validate that a compatible audience identifier is returned in the status.audiences field to ensure that the TokenReview server is audience aware. If a TokenReview returns an empty status.audience field where status.authenticated is \"true\", the token is valid against the audience of the Kubernetes API server.",
+							Description: "audiences are audience identifiers chosen by the authenticator that are compatible with both the TokenReview and token. An identifier is any identifier in the intersection of the TokenReviewSpec audiences and the token's audiences. A client of the TokenReview API that sets the spec.audiences field should validate that a compatible audience identifier is returned in the status.audiences field to ensure that the TokenReview server is audience aware. If a TokenReview returns an empty status.audience field where status.authenticated is \"true\", the token is valid against the audience of the Kubernetes API server.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -12769,7 +13189,7 @@ func schema_k8sio_api_authentication_v1_TokenReviewStatus(ref common.ReferenceCa
 					},
 					"error": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Error indicates that the token couldn't be checked",
+							Description: "error indicates that the token couldn't be checked",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -12791,14 +13211,14 @@ func schema_k8sio_api_authentication_v1_UserInfo(ref common.ReferenceCallback) c
 				Properties: map[string]spec.Schema{
 					"username": {
 						SchemaProps: spec.SchemaProps{
-							Description: "The name that uniquely identifies this user among all active users.",
+							Description: "username is the name that uniquely identifies this user among all active users.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"uid": {
 						SchemaProps: spec.SchemaProps{
-							Description: "A unique value that identifies this user across time. If this user is deleted and another user by the same name is added, they will have different UIDs.",
+							Description: "uid is a unique value that identifies this user across time. If this user is deleted and another user by the same name is added, they will have different UIDs.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -12810,7 +13230,7 @@ func schema_k8sio_api_authentication_v1_UserInfo(ref common.ReferenceCallback) c
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "The names of groups this user is a part of.",
+							Description: "groups is the names of groups this user is a part of.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -12825,7 +13245,7 @@ func schema_k8sio_api_authentication_v1_UserInfo(ref common.ReferenceCallback) c
 					},
 					"extra": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Any additional information provided by the authenticator.",
+							Description: "extra is any additional information provided by the authenticator.",
 							Type:        []string{"object"},
 							AdditionalProperties: &spec.SchemaOrBool{
 								Allows: true,
@@ -12875,14 +13295,14 @@ func schema_k8sio_api_authentication_v1beta1_SelfSubjectReview(ref common.Refere
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+							Description: "metadata is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
 					},
 					"status": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Status is filled in by the server with the user attributes.",
+							Description: "status is filled in by the server with the user attributes.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authenticationv1beta1.SelfSubjectReviewStatus{}.OpenAPIModelName()),
 						},
@@ -12904,7 +13324,7 @@ func schema_k8sio_api_authentication_v1beta1_SelfSubjectReviewStatus(ref common.
 				Properties: map[string]spec.Schema{
 					"userInfo": {
 						SchemaProps: spec.SchemaProps{
-							Description: "User attributes of the user making this request.",
+							Description: "userInfo is a set of attributes belonging to the user making this request.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authenticationv1.UserInfo{}.OpenAPIModelName()),
 						},
@@ -12940,21 +13360,21 @@ func schema_k8sio_api_authentication_v1beta1_TokenReview(ref common.ReferenceCal
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+							Description: "metadata is the standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Spec holds information about the request being evaluated",
+							Description: "spec holds information about the request being evaluated",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authenticationv1beta1.TokenReviewSpec{}.OpenAPIModelName()),
 						},
 					},
 					"status": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Status is filled in by the server and indicates whether the token can be authenticated.",
+							Description: "status is filled in by the server and indicates whether the token can be authenticated.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authenticationv1beta1.TokenReviewStatus{}.OpenAPIModelName()),
 						},
@@ -12977,7 +13397,7 @@ func schema_k8sio_api_authentication_v1beta1_TokenReviewSpec(ref common.Referenc
 				Properties: map[string]spec.Schema{
 					"token": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Token is the opaque bearer token.",
+							Description: "token is the opaque bearer token.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -12989,7 +13409,7 @@ func schema_k8sio_api_authentication_v1beta1_TokenReviewSpec(ref common.Referenc
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Audiences is a list of the identifiers that the resource server presented with the token identifies as. Audience-aware token authenticators will verify that the token was intended for at least one of the audiences in this list. If no audiences are provided, the audience will default to the audience of the Kubernetes apiserver.",
+							Description: "audiences is a list of the identifiers that the resource server presented with the token identifies as. Audience-aware token authenticators will verify that the token was intended for at least one of the audiences in this list. If no audiences are provided, the audience will default to the audience of the Kubernetes apiserver.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -13003,6 +13423,7 @@ func schema_k8sio_api_authentication_v1beta1_TokenReviewSpec(ref common.Referenc
 						},
 					},
 				},
+				Required: []string{"token"},
 			},
 		},
 	}
@@ -13017,14 +13438,14 @@ func schema_k8sio_api_authentication_v1beta1_TokenReviewStatus(ref common.Refere
 				Properties: map[string]spec.Schema{
 					"authenticated": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Authenticated indicates that the token was associated with a known user.",
+							Description: "authenticated indicates that the token was associated with a known user.",
 							Type:        []string{"boolean"},
 							Format:      "",
 						},
 					},
 					"user": {
 						SchemaProps: spec.SchemaProps{
-							Description: "User is the UserInfo associated with the provided token.",
+							Description: "user is the UserInfo associated with the provided token.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authenticationv1beta1.UserInfo{}.OpenAPIModelName()),
 						},
@@ -13036,7 +13457,7 @@ func schema_k8sio_api_authentication_v1beta1_TokenReviewStatus(ref common.Refere
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Audiences are audience identifiers chosen by the authenticator that are compatible with both the TokenReview and token. An identifier is any identifier in the intersection of the TokenReviewSpec audiences and the token's audiences. A client of the TokenReview API that sets the spec.audiences field should validate that a compatible audience identifier is returned in the status.audiences field to ensure that the TokenReview server is audience aware. If a TokenReview returns an empty status.audience field where status.authenticated is \"true\", the token is valid against the audience of the Kubernetes API server.",
+							Description: "audiences are audience identifiers chosen by the authenticator that are compatible with both the TokenReview and token. An identifier is any identifier in the intersection of the TokenReviewSpec audiences and the token's audiences. A client of the TokenReview API that sets the spec.audiences field should validate that a compatible audience identifier is returned in the status.audiences field to ensure that the TokenReview server is audience aware. If a TokenReview returns an empty status.audience field where status.authenticated is \"true\", the token is valid against the audience of the Kubernetes API server.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -13051,7 +13472,7 @@ func schema_k8sio_api_authentication_v1beta1_TokenReviewStatus(ref common.Refere
 					},
 					"error": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Error indicates that the token couldn't be checked",
+							Description: "error indicates that the token couldn't be checked",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -13073,14 +13494,14 @@ func schema_k8sio_api_authentication_v1beta1_UserInfo(ref common.ReferenceCallba
 				Properties: map[string]spec.Schema{
 					"username": {
 						SchemaProps: spec.SchemaProps{
-							Description: "The name that uniquely identifies this user among all active users.",
+							Description: "username is the name that uniquely identifies this user among all active users.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"uid": {
 						SchemaProps: spec.SchemaProps{
-							Description: "A unique value that identifies this user across time. If this user is deleted and another user by the same name is added, they will have different UIDs.",
+							Description: "uid is a unique value that identifies this user across time. If this user is deleted and another user by the same name is added, they will have different UIDs.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -13092,7 +13513,7 @@ func schema_k8sio_api_authentication_v1beta1_UserInfo(ref common.ReferenceCallba
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "The names of groups this user is a part of.",
+							Description: "groups is the names of groups this user is a part of.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -13107,7 +13528,7 @@ func schema_k8sio_api_authentication_v1beta1_UserInfo(ref common.ReferenceCallba
 					},
 					"extra": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Any additional information provided by the authenticator.",
+							Description: "extra is any additional information provided by the authenticator.",
 							Type:        []string{"object"},
 							AdditionalProperties: &spec.SchemaOrBool{
 								Allows: true,
@@ -13239,21 +13660,21 @@ func schema_k8sio_api_authorization_v1_LocalSubjectAccessReview(ref common.Refer
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace you made the request against.  If empty, it is defaulted.",
+							Description: "spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace you made the request against.  If empty, it is defaulted.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authorizationv1.SubjectAccessReviewSpec{}.OpenAPIModelName()),
 						},
 					},
 					"status": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Status is filled in by the server and indicates whether the request is allowed or not",
+							Description: "status is filled in by the server and indicates whether the request is allowed or not",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authorizationv1.SubjectAccessReviewStatus{}.OpenAPIModelName()),
 						},
@@ -13276,14 +13697,14 @@ func schema_k8sio_api_authorization_v1_NonResourceAttributes(ref common.Referenc
 				Properties: map[string]spec.Schema{
 					"path": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Path is the URL path of the request",
+							Description: "path is the URL path of the request",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"verb": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Verb is the standard HTTP verb",
+							Description: "verb is the standard HTTP verb",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -13308,7 +13729,7 @@ func schema_k8sio_api_authorization_v1_NonResourceRule(ref common.ReferenceCallb
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  \"*\" means all.",
+							Description: "verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  \"*\" means all.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -13328,7 +13749,7 @@ func schema_k8sio_api_authorization_v1_NonResourceRule(ref common.ReferenceCallb
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path.  \"*\" means all.",
+							Description: "nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path.  \"*\" means all.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -13357,49 +13778,49 @@ func schema_k8sio_api_authorization_v1_ResourceAttributes(ref common.ReferenceCa
 				Properties: map[string]spec.Schema{
 					"namespace": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \"\" (empty) is defaulted for LocalSubjectAccessReviews \"\" (empty) is empty for cluster-scoped resources \"\" (empty) means \"all\" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview",
+							Description: "namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \"\" (empty) is defaulted for LocalSubjectAccessReviews \"\" (empty) is empty for cluster-scoped resources \"\" (empty) means \"all\" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"verb": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.",
+							Description: "verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"group": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Group is the API Group of the Resource.  \"*\" means all.",
+							Description: "group is the API Group of the Resource.  \"*\" means all.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"version": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Version is the API Version of the Resource.  \"*\" means all.",
+							Description: "version is the API Version of the Resource.  \"*\" means all.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"resource": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Resource is one of the existing resource types.  \"*\" means all.",
+							Description: "resource is one of the existing resource types.  \"*\" means all.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"subresource": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Subresource is one of the existing resource types.  \"\" means none.",
+							Description: "subresource is one of the existing resource types.  \"\" means none.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"name": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Name is the name of the resource being requested for a \"get\" or deleted for a \"delete\". \"\" (empty) means all.",
+							Description: "name is the name of the resource being requested for a \"get\" or deleted for a \"delete\". \"\" (empty) means all.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -13438,7 +13859,7 @@ func schema_k8sio_api_authorization_v1_ResourceRule(ref common.ReferenceCallback
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.",
+							Description: "verbs is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -13458,7 +13879,7 @@ func schema_k8sio_api_authorization_v1_ResourceRule(ref common.ReferenceCallback
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.  \"*\" means all.",
+							Description: "apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.  \"*\" means all.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -13478,7 +13899,7 @@ func schema_k8sio_api_authorization_v1_ResourceRule(ref common.ReferenceCallback
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Resources is a list of resources this rule applies to.  \"*\" means all in the specified apiGroups.\n \"*/foo\" represents the subresource 'foo' for all resources in the specified apiGroups.",
+							Description: "resources is a list of resources this rule applies to.  \"*\" means all in the specified apiGroups.\n \"*/foo\" represents the subresource 'foo' for all resources in the specified apiGroups.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -13498,7 +13919,7 @@ func schema_k8sio_api_authorization_v1_ResourceRule(ref common.ReferenceCallback
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  \"*\" means all.",
+							Description: "resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  \"*\" means all.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -13541,21 +13962,21 @@ func schema_k8sio_api_authorization_v1_SelfSubjectAccessReview(ref common.Refere
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Spec holds information about the request being evaluated.  user and groups must be empty",
+							Description: "spec holds information about the request being evaluated.  user and groups must be empty",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authorizationv1.SelfSubjectAccessReviewSpec{}.OpenAPIModelName()),
 						},
 					},
 					"status": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Status is filled in by the server and indicates whether the request is allowed or not",
+							Description: "status is filled in by the server and indicates whether the request is allowed or not",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authorizationv1.SubjectAccessReviewStatus{}.OpenAPIModelName()),
 						},
@@ -13573,18 +13994,18 @@ func schema_k8sio_api_authorization_v1_SelfSubjectAccessReviewSpec(ref common.Re
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
 			SchemaProps: spec.SchemaProps{
-				Description: "SelfSubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set",
+				Description: "SelfSubjectAccessReviewSpec is a description of the access request.  Exactly one of resourceAttributes and nonResourceAttributes must be set",
 				Type:        []string{"object"},
 				Properties: map[string]spec.Schema{
 					"resourceAttributes": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ResourceAuthorizationAttributes describes information for a resource access request",
+							Description: "resourceAttributes describes information for a resource access request",
 							Ref:         ref(authorizationv1.ResourceAttributes{}.OpenAPIModelName()),
 						},
 					},
 					"nonResourceAttributes": {
 						SchemaProps: spec.SchemaProps{
-							Description: "NonResourceAttributes describes information for a non-resource access request",
+							Description: "nonResourceAttributes describes information for a non-resource access request",
 							Ref:         ref(authorizationv1.NonResourceAttributes{}.OpenAPIModelName()),
 						},
 					},
@@ -13619,21 +14040,21 @@ func schema_k8sio_api_authorization_v1_SelfSubjectRulesReview(ref common.Referen
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Spec holds information about the request being evaluated.",
+							Description: "spec holds information about the request being evaluated.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authorizationv1.SelfSubjectRulesReviewSpec{}.OpenAPIModelName()),
 						},
 					},
 					"status": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Status is filled in by the server and indicates the set of actions a user can perform.",
+							Description: "status is filled in by the server and indicates the set of actions a user can perform.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authorizationv1.SubjectRulesReviewStatus{}.OpenAPIModelName()),
 						},
@@ -13656,7 +14077,7 @@ func schema_k8sio_api_authorization_v1_SelfSubjectRulesReviewSpec(ref common.Ref
 				Properties: map[string]spec.Schema{
 					"namespace": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Namespace to evaluate rules for. Required.",
+							Description: "namespace to evaluate rules for. Required.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -13690,21 +14111,21 @@ func schema_k8sio_api_authorization_v1_SubjectAccessReview(ref common.ReferenceC
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Spec holds information about the request being evaluated",
+							Description: "spec holds information about the request being evaluated",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authorizationv1.SubjectAccessReviewSpec{}.OpenAPIModelName()),
 						},
 					},
 					"status": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Status is filled in by the server and indicates whether the request is allowed or not",
+							Description: "status is filled in by the server and indicates whether the request is allowed or not",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authorizationv1.SubjectAccessReviewStatus{}.OpenAPIModelName()),
 						},
@@ -13722,24 +14143,24 @@ func schema_k8sio_api_authorization_v1_SubjectAccessReviewSpec(ref common.Refere
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
 			SchemaProps: spec.SchemaProps{
-				Description: "SubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set",
+				Description: "SubjectAccessReviewSpec is a description of the access request.  Exactly one of resourceAttributes and nonResourceAttributes must be set",
 				Type:        []string{"object"},
 				Properties: map[string]spec.Schema{
 					"resourceAttributes": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ResourceAuthorizationAttributes describes information for a resource access request",
+							Description: "resourceAttributes describes information for a resource access request",
 							Ref:         ref(authorizationv1.ResourceAttributes{}.OpenAPIModelName()),
 						},
 					},
 					"nonResourceAttributes": {
 						SchemaProps: spec.SchemaProps{
-							Description: "NonResourceAttributes describes information for a non-resource access request",
+							Description: "nonResourceAttributes describes information for a non-resource access request",
 							Ref:         ref(authorizationv1.NonResourceAttributes{}.OpenAPIModelName()),
 						},
 					},
 					"user": {
 						SchemaProps: spec.SchemaProps{
-							Description: "User is the user you're testing for. If you specify \"User\" but not \"Groups\", then is it interpreted as \"What if User were not a member of any groups",
+							Description: "user is the user you're testing for. If you specify \"User\" but not \"Groups\", then is it interpreted as \"What if User were not a member of any groups",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -13751,7 +14172,7 @@ func schema_k8sio_api_authorization_v1_SubjectAccessReviewSpec(ref common.Refere
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Groups is the groups you're testing for.",
+							Description: "groups is the groups you're testing for.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -13766,7 +14187,7 @@ func schema_k8sio_api_authorization_v1_SubjectAccessReviewSpec(ref common.Refere
 					},
 					"extra": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.",
+							Description: "extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.",
 							Type:        []string{"object"},
 							AdditionalProperties: &spec.SchemaOrBool{
 								Allows: true,
@@ -13789,7 +14210,7 @@ func schema_k8sio_api_authorization_v1_SubjectAccessReviewSpec(ref common.Refere
 					},
 					"uid": {
 						SchemaProps: spec.SchemaProps{
-							Description: "UID information about the requesting user.",
+							Description: "uid information about the requesting user.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -13811,7 +14232,7 @@ func schema_k8sio_api_authorization_v1_SubjectAccessReviewStatus(ref common.Refe
 				Properties: map[string]spec.Schema{
 					"allowed": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Allowed is required. True if the action would be allowed, false otherwise.",
+							Description: "allowed is required. True if the action would be allowed, false otherwise.",
 							Default:     false,
 							Type:        []string{"boolean"},
 							Format:      "",
@@ -13819,21 +14240,21 @@ func schema_k8sio_api_authorization_v1_SubjectAccessReviewStatus(ref common.Refe
 					},
 					"denied": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Denied is optional. True if the action would be denied, otherwise false. If both allowed is false and denied is false, then the authorizer has no opinion on whether to authorize the action. Denied may not be true if Allowed is true.",
+							Description: "denied is optional. True if the action would be denied, otherwise false. If both allowed is false and denied is false, then the authorizer has no opinion on whether to authorize the action. Denied may not be true if Allowed is true.",
 							Type:        []string{"boolean"},
 							Format:      "",
 						},
 					},
 					"reason": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Reason is optional.  It indicates why a request was allowed or denied.",
+							Description: "reason is optional.  It indicates why a request was allowed or denied.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"evaluationError": {
 						SchemaProps: spec.SchemaProps{
-							Description: "EvaluationError is an indication that some error occurred during the authorization check. It is entirely possible to get an error and be able to continue determine authorization status in spite of it. For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.",
+							Description: "evaluationError is an indication that some error occurred during the authorization check. It is entirely possible to get an error and be able to continue determine authorization status in spite of it. For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -13859,7 +14280,7 @@ func schema_k8sio_api_authorization_v1_SubjectRulesReviewStatus(ref common.Refer
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "ResourceRules is the list of actions the subject is allowed to perform on resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.",
+							Description: "resourceRules is the list of actions the subject is allowed to perform on resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -13878,7 +14299,7 @@ func schema_k8sio_api_authorization_v1_SubjectRulesReviewStatus(ref common.Refer
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "NonResourceRules is the list of actions the subject is allowed to perform on non-resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.",
+							Description: "nonResourceRules is the list of actions the subject is allowed to perform on non-resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -13892,7 +14313,7 @@ func schema_k8sio_api_authorization_v1_SubjectRulesReviewStatus(ref common.Refer
 					},
 					"incomplete": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Incomplete is true when the rules returned by this call are incomplete. This is most commonly encountered when an authorizer, such as an external authorizer, doesn't support rules evaluation.",
+							Description: "incomplete is true when the rules returned by this call are incomplete. This is most commonly encountered when an authorizer, such as an external authorizer, doesn't support rules evaluation.",
 							Default:     false,
 							Type:        []string{"boolean"},
 							Format:      "",
@@ -13900,7 +14321,7 @@ func schema_k8sio_api_authorization_v1_SubjectRulesReviewStatus(ref common.Refer
 					},
 					"evaluationError": {
 						SchemaProps: spec.SchemaProps{
-							Description: "EvaluationError can appear in combination with Rules. It indicates an error occurred during rule evaluation, such as an authorizer that doesn't support rule evaluation, and that ResourceRules and/or NonResourceRules may be incomplete.",
+							Description: "evaluationError can appear in combination with Rules. It indicates an error occurred during rule evaluation, such as an authorizer that doesn't support rule evaluation, and that ResourceRules and/or NonResourceRules may be incomplete.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -13937,21 +14358,21 @@ func schema_k8sio_api_authorization_v1beta1_LocalSubjectAccessReview(ref common.
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace you made the request against.  If empty, it is defaulted.",
+							Description: "spec holds information about the request being evaluated.  spec.namespace must be equal to the namespace you made the request against.  If empty, it is defaulted.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authorizationv1beta1.SubjectAccessReviewSpec{}.OpenAPIModelName()),
 						},
 					},
 					"status": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Status is filled in by the server and indicates whether the request is allowed or not",
+							Description: "status is filled in by the server and indicates whether the request is allowed or not",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authorizationv1beta1.SubjectAccessReviewStatus{}.OpenAPIModelName()),
 						},
@@ -13974,14 +14395,14 @@ func schema_k8sio_api_authorization_v1beta1_NonResourceAttributes(ref common.Ref
 				Properties: map[string]spec.Schema{
 					"path": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Path is the URL path of the request",
+							Description: "path is the URL path of the request",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"verb": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Verb is the standard HTTP verb",
+							Description: "verb is the standard HTTP verb",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -14006,7 +14427,7 @@ func schema_k8sio_api_authorization_v1beta1_NonResourceRule(ref common.Reference
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  \"*\" means all.",
+							Description: "verbs is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  \"*\" means all.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -14026,7 +14447,7 @@ func schema_k8sio_api_authorization_v1beta1_NonResourceRule(ref common.Reference
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path.  \"*\" means all.",
+							Description: "nonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path.  \"*\" means all.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -14055,49 +14476,49 @@ func schema_k8sio_api_authorization_v1beta1_ResourceAttributes(ref common.Refere
 				Properties: map[string]spec.Schema{
 					"namespace": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \"\" (empty) is defaulted for LocalSubjectAccessReviews \"\" (empty) is empty for cluster-scoped resources \"\" (empty) means \"all\" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview",
+							Description: "namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \"\" (empty) is defaulted for LocalSubjectAccessReviews \"\" (empty) is empty for cluster-scoped resources \"\" (empty) means \"all\" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"verb": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.",
+							Description: "verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"group": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Group is the API Group of the Resource.  \"*\" means all.",
+							Description: "group is the API Group of the Resource.  \"*\" means all.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"version": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Version is the API Version of the Resource.  \"*\" means all.",
+							Description: "version is the API Version of the Resource.  \"*\" means all.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"resource": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Resource is one of the existing resource types.  \"*\" means all.",
+							Description: "resource is one of the existing resource types.  \"*\" means all.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"subresource": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Subresource is one of the existing resource types.  \"\" means none.",
+							Description: "subresource is one of the existing resource types.  \"\" means none.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"name": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Name is the name of the resource being requested for a \"get\" or deleted for a \"delete\". \"\" (empty) means all.",
+							Description: "name is the name of the resource being requested for a \"get\" or deleted for a \"delete\". \"\" (empty) means all.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -14136,7 +14557,7 @@ func schema_k8sio_api_authorization_v1beta1_ResourceRule(ref common.ReferenceCal
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.",
+							Description: "verbs is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -14156,7 +14577,7 @@ func schema_k8sio_api_authorization_v1beta1_ResourceRule(ref common.ReferenceCal
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.  \"*\" means all.",
+							Description: "apiGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.  \"*\" means all.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -14176,7 +14597,7 @@ func schema_k8sio_api_authorization_v1beta1_ResourceRule(ref common.ReferenceCal
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Resources is a list of resources this rule applies to.  \"*\" means all in the specified apiGroups.\n \"*/foo\" represents the subresource 'foo' for all resources in the specified apiGroups.",
+							Description: "resources is a list of resources this rule applies to.  \"*\" means all in the specified apiGroups.\n \"*/foo\" represents the subresource 'foo' for all resources in the specified apiGroups.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -14196,7 +14617,7 @@ func schema_k8sio_api_authorization_v1beta1_ResourceRule(ref common.ReferenceCal
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  \"*\" means all.",
+							Description: "resourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  \"*\" means all.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -14239,21 +14660,21 @@ func schema_k8sio_api_authorization_v1beta1_SelfSubjectAccessReview(ref common.R
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Spec holds information about the request being evaluated.  user and groups must be empty",
+							Description: "spec holds information about the request being evaluated.  user and groups must be empty",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authorizationv1beta1.SelfSubjectAccessReviewSpec{}.OpenAPIModelName()),
 						},
 					},
 					"status": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Status is filled in by the server and indicates whether the request is allowed or not",
+							Description: "status is filled in by the server and indicates whether the request is allowed or not",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authorizationv1beta1.SubjectAccessReviewStatus{}.OpenAPIModelName()),
 						},
@@ -14271,18 +14692,18 @@ func schema_k8sio_api_authorization_v1beta1_SelfSubjectAccessReviewSpec(ref comm
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
 			SchemaProps: spec.SchemaProps{
-				Description: "SelfSubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set",
+				Description: "SelfSubjectAccessReviewSpec is a description of the access request.  Exactly one of resourceAttributes and nonResourceAttributes must be set",
 				Type:        []string{"object"},
 				Properties: map[string]spec.Schema{
 					"resourceAttributes": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ResourceAuthorizationAttributes describes information for a resource access request",
+							Description: "resourceAttributes describes information for a resource access request",
 							Ref:         ref(authorizationv1beta1.ResourceAttributes{}.OpenAPIModelName()),
 						},
 					},
 					"nonResourceAttributes": {
 						SchemaProps: spec.SchemaProps{
-							Description: "NonResourceAttributes describes information for a non-resource access request",
+							Description: "nonResourceAttributes describes information for a non-resource access request",
 							Ref:         ref(authorizationv1beta1.NonResourceAttributes{}.OpenAPIModelName()),
 						},
 					},
@@ -14317,21 +14738,21 @@ func schema_k8sio_api_authorization_v1beta1_SelfSubjectRulesReview(ref common.Re
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Spec holds information about the request being evaluated.",
+							Description: "spec holds information about the request being evaluated.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authorizationv1beta1.SelfSubjectRulesReviewSpec{}.OpenAPIModelName()),
 						},
 					},
 					"status": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Status is filled in by the server and indicates the set of actions a user can perform.",
+							Description: "status is filled in by the server and indicates the set of actions a user can perform.",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authorizationv1beta1.SubjectRulesReviewStatus{}.OpenAPIModelName()),
 						},
@@ -14354,7 +14775,7 @@ func schema_k8sio_api_authorization_v1beta1_SelfSubjectRulesReviewSpec(ref commo
 				Properties: map[string]spec.Schema{
 					"namespace": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Namespace to evaluate rules for. Required.",
+							Description: "namespace to evaluate rules for. Required.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -14388,21 +14809,21 @@ func schema_k8sio_api_authorization_v1beta1_SubjectAccessReview(ref common.Refer
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+							Description: "metadata is the standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
 							Default:     map[string]interface{}{},
 							Ref:         ref(metav1.ObjectMeta{}.OpenAPIModelName()),
 						},
 					},
 					"spec": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Spec holds information about the request being evaluated",
+							Description: "spec holds information about the request being evaluated",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authorizationv1beta1.SubjectAccessReviewSpec{}.OpenAPIModelName()),
 						},
 					},
 					"status": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Status is filled in by the server and indicates whether the request is allowed or not",
+							Description: "status is filled in by the server and indicates whether the request is allowed or not",
 							Default:     map[string]interface{}{},
 							Ref:         ref(authorizationv1beta1.SubjectAccessReviewStatus{}.OpenAPIModelName()),
 						},
@@ -14420,24 +14841,24 @@ func schema_k8sio_api_authorization_v1beta1_SubjectAccessReviewSpec(ref common.R
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
 			SchemaProps: spec.SchemaProps{
-				Description: "SubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set",
+				Description: "SubjectAccessReviewSpec is a description of the access request.  Exactly one of resourceAttributes and nonResourceAttributes must be set",
 				Type:        []string{"object"},
 				Properties: map[string]spec.Schema{
 					"resourceAttributes": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ResourceAuthorizationAttributes describes information for a resource access request",
+							Description: "resourceAttributes describes information for a resource access request",
 							Ref:         ref(authorizationv1beta1.ResourceAttributes{}.OpenAPIModelName()),
 						},
 					},
 					"nonResourceAttributes": {
 						SchemaProps: spec.SchemaProps{
-							Description: "NonResourceAttributes describes information for a non-resource access request",
+							Description: "nonResourceAttributes describes information for a non-resource access request",
 							Ref:         ref(authorizationv1beta1.NonResourceAttributes{}.OpenAPIModelName()),
 						},
 					},
 					"user": {
 						SchemaProps: spec.SchemaProps{
-							Description: "User is the user you're testing for. If you specify \"User\" but not \"Group\", then is it interpreted as \"What if User were not a member of any groups",
+							Description: "user is the user you're testing for. If you specify \"User\" but not \"Group\", then is it interpreted as \"What if User were not a member of any groups",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -14449,7 +14870,7 @@ func schema_k8sio_api_authorization_v1beta1_SubjectAccessReviewSpec(ref common.R
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "Groups is the groups you're testing for.",
+							Description: "group is the groups you're testing for.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -14464,7 +14885,7 @@ func schema_k8sio_api_authorization_v1beta1_SubjectAccessReviewSpec(ref common.R
 					},
 					"extra": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.",
+							Description: "extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.",
 							Type:        []string{"object"},
 							AdditionalProperties: &spec.SchemaOrBool{
 								Allows: true,
@@ -14487,7 +14908,7 @@ func schema_k8sio_api_authorization_v1beta1_SubjectAccessReviewSpec(ref common.R
 					},
 					"uid": {
 						SchemaProps: spec.SchemaProps{
-							Description: "UID information about the requesting user.",
+							Description: "uid information about the requesting user.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -14509,7 +14930,7 @@ func schema_k8sio_api_authorization_v1beta1_SubjectAccessReviewStatus(ref common
 				Properties: map[string]spec.Schema{
 					"allowed": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Allowed is required. True if the action would be allowed, false otherwise.",
+							Description: "allowed is required. True if the action would be allowed, false otherwise.",
 							Default:     false,
 							Type:        []string{"boolean"},
 							Format:      "",
@@ -14517,21 +14938,21 @@ func schema_k8sio_api_authorization_v1beta1_SubjectAccessReviewStatus(ref common
 					},
 					"denied": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Denied is optional. True if the action would be denied, otherwise false. If both allowed is false and denied is false, then the authorizer has no opinion on whether to authorize the action. Denied may not be true if Allowed is true.",
+							Description: "denied is optional. True if the action would be denied, otherwise false. If both allowed is false and denied is false, then the authorizer has no opinion on whether to authorize the action. Denied may not be true if Allowed is true.",
 							Type:        []string{"boolean"},
 							Format:      "",
 						},
 					},
 					"reason": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Reason is optional.  It indicates why a request was allowed or denied.",
+							Description: "reason is optional.  It indicates why a request was allowed or denied.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
 					"evaluationError": {
 						SchemaProps: spec.SchemaProps{
-							Description: "EvaluationError is an indication that some error occurred during the authorization check. It is entirely possible to get an error and be able to continue determine authorization status in spite of it. For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.",
+							Description: "evaluationError is an indication that some error occurred during the authorization check. It is entirely possible to get an error and be able to continue determine authorization status in spite of it. For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -14557,7 +14978,7 @@ func schema_k8sio_api_authorization_v1beta1_SubjectRulesReviewStatus(ref common.
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "ResourceRules is the list of actions the subject is allowed to perform on resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.",
+							Description: "resourceRules is the list of actions the subject is allowed to perform on resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -14576,7 +14997,7 @@ func schema_k8sio_api_authorization_v1beta1_SubjectRulesReviewStatus(ref common.
 							},
 						},
 						SchemaProps: spec.SchemaProps{
-							Description: "NonResourceRules is the list of actions the subject is allowed to perform on non-resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.",
+							Description: "nonResourceRules is the list of actions the subject is allowed to perform on non-resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.",
 							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
@@ -14590,7 +15011,7 @@ func schema_k8sio_api_authorization_v1beta1_SubjectRulesReviewStatus(ref common.
 					},
 					"incomplete": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Incomplete is true when the rules returned by this call are incomplete. This is most commonly encountered when an authorizer, such as an external authorizer, doesn't support rules evaluation.",
+							Description: "incomplete is true when the rules returned by this call are incomplete. This is most commonly encountered when an authorizer, such as an external authorizer, doesn't support rules evaluation.",
 							Default:     false,
 							Type:        []string{"boolean"},
 							Format:      "",
@@ -14598,7 +15019,7 @@ func schema_k8sio_api_authorization_v1beta1_SubjectRulesReviewStatus(ref common.
 					},
 					"evaluationError": {
 						SchemaProps: spec.SchemaProps{
-							Description: "EvaluationError can appear in combination with Rules. It indicates an error occurred during rule evaluation, such as an authorizer that doesn't support rule evaluation, and that ResourceRules and/or NonResourceRules may be incomplete.",
+							Description: "evaluationError can appear in combination with Rules. It indicates an error occurred during rule evaluation, such as an authorizer that doesn't support rule evaluation, and that ResourceRules and/or NonResourceRules may be incomplete.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -14871,6 +15292,7 @@ func schema_k8sio_api_autoscaling_v1_HorizontalPodAutoscaler(ref common.Referenc
 						},
 					},
 				},
+				Required: []string{"spec"},
 			},
 		},
 		Dependencies: []string{
@@ -15532,48 +15954,6 @@ func schema_k8sio_api_autoscaling_v1_ScaleStatus(ref common.ReferenceCallback) c
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 func schema_k8sio_api_batch_v1_CronJob(ref common.ReferenceCallback) common.OpenAPIDefinition {
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
@@ -15617,6 +15997,7 @@ func schema_k8sio_api_batch_v1_CronJob(ref common.ReferenceCallback) common.Open
 						},
 					},
 				},
+				Required: []string{"spec"},
 			},
 		},
 		Dependencies: []string{
@@ -16536,6 +16917,7 @@ func schema_k8sio_api_batch_v1beta1_CronJob(ref common.ReferenceCallback) common
 						},
 					},
 				},
+				Required: []string{"spec"},
 			},
 		},
 		Dependencies: []string{
@@ -17351,14 +17733,21 @@ func schema_k8sio_api_certificates_v1beta1_PodCertificateRequestSpec(ref common.
 					},
 					"pkixPublicKey": {
 						SchemaProps: spec.SchemaProps{
-							Description: "pkixPublicKey is the PKIX-serialized public key the signer will issue the certificate to.\n\nThe key must be one of RSA3072, RSA4096, ECDSAP256, ECDSAP384, ECDSAP521, or ED25519. Note that this list may be expanded in the future.\n\nSigner implementations do not need to support all key types supported by kube-apiserver and kubelet.  If a signer does not support the key type used for a given PodCertificateRequest, it must deny the request by setting a status.conditions entry with a type of \"Denied\" and a reason of \"UnsupportedKeyType\". It may also suggest a key type that it does support in the message field.",
+							Description: "The PKIX-serialized public key the signer will issue the certificate to.\n\nThe key must be one of RSA3072, RSA4096, ECDSAP256, ECDSAP384, ECDSAP521, or ED25519. Note that this list may be expanded in the future.\n\nSigner implementations do not need to support all key types supported by kube-apiserver and kubelet.  If a signer does not support the key type used for a given PodCertificateRequest, it must deny the request by setting a status.conditions entry with a type of \"Denied\" and a reason of \"UnsupportedKeyType\". It may also suggest a key type that it does support in the message field.\n\nDeprecated: This field is replaced by StubPKCS10Request. If StubPKCS10Request is set, this field must be empty.  Signer implementations should extract the public key from the StubPKCS10Request field.",
 							Type:        []string{"string"},
 							Format:      "byte",
 						},
 					},
 					"proofOfPossession": {
 						SchemaProps: spec.SchemaProps{
-							Description: "proofOfPossession proves that the requesting kubelet holds the private key corresponding to pkixPublicKey.\n\nIt is contructed by signing the ASCII bytes of the pod's UID using `pkixPublicKey`.\n\nkube-apiserver validates the proof of possession during creation of the PodCertificateRequest.\n\nIf the key is an RSA key, then the signature is over the ASCII bytes of the pod UID, using RSASSA-PSS from RFC 8017 (as implemented by the golang function crypto/rsa.SignPSS with nil options).\n\nIf the key is an ECDSA key, then the signature is as described by [SEC 1, Version 2.0](https://www.secg.org/sec1-v2.pdf) (as implemented by the golang library function crypto/ecdsa.SignASN1)\n\nIf the key is an ED25519 key, the the signature is as described by the [ED25519 Specification](https://ed25519.cr.yp.to/) (as implemented by the golang library crypto/ed25519.Sign).",
+							Description: "A proof that the requesting kubelet holds the private key corresponding to pkixPublicKey.\n\nIt is contructed by signing the ASCII bytes of the pod's UID using `pkixPublicKey`.\n\nkube-apiserver validates the proof of possession during creation of the PodCertificateRequest.\n\nIf the key is an RSA key, then the signature is over the ASCII bytes of the pod UID, using RSASSA-PSS from RFC 8017 (as implemented by the golang function crypto/rsa.SignPSS with nil options).\n\nIf the key is an ECDSA key, then the signature is as described by [SEC 1, Version 2.0](https://www.secg.org/sec1-v2.pdf) (as implemented by the golang library function crypto/ecdsa.SignASN1)\n\nIf the key is an ED25519 key, the the signature is as described by the [ED25519 Specification](https://ed25519.cr.yp.to/) (as implemented by the golang library crypto/ed25519.Sign).\n\nDeprecated: This field is replaced by StubPKCS10Request. If StubPKCS10Request is set, this field must be empty.",
+							Type:        []string{"string"},
+							Format:      "byte",
+						},
+					},
+					"stubPKCS10Request": {
+						SchemaProps: spec.SchemaProps{
+							Description: "A PKCS#10 certificate signing request (DER-serialized) generated by Kubelet using the subject private key.\n\nMost signer implementations will ignore the contents of the CSR except to extract the subject public key. The API server automatically verifies the CSR signature during admission, so the signer does not need to repeat the verification.  CSRs generated by kubelet are completely empty.\n\nThe subject public key must be one of RSA3072, RSA4096, ECDSAP256, ECDSAP384, ECDSAP521, or ED25519. Note that this list may be expanded in the future.\n\nSigner implementations do not need to support all key types supported by kube-apiserver and kubelet.  If a signer does not support the key type used for a given PodCertificateRequest, it must deny the request by setting a status.conditions entry with a type of \"Denied\" and a reason of \"UnsupportedKeyType\". It may also suggest a key type that it does support in the message field.",
 							Type:        []string{"string"},
 							Format:      "byte",
 						},
@@ -17380,7 +17769,7 @@ func schema_k8sio_api_certificates_v1beta1_PodCertificateRequestSpec(ref common.
 						},
 					},
 				},
-				Required: []string{"signerName", "podName", "podUID", "serviceAccountName", "serviceAccountUID", "nodeName", "nodeUID", "pkixPublicKey", "proofOfPossession"},
+				Required: []string{"signerName", "podName", "podUID", "serviceAccountName", "serviceAccountUID", "nodeName", "nodeUID", "stubPKCS10Request"},
 			},
 		},
 	}
@@ -17685,6 +18074,7 @@ func schema_k8sio_api_coordination_v1beta1_LeaseCandidate(ref common.ReferenceCa
 						},
 					},
 				},
+				Required: []string{"spec"},
 			},
 		},
 		Dependencies: []string{
@@ -22572,6 +22962,27 @@ func schema_k8sio_api_core_v1_ImageVolumeSource(ref common.ReferenceCallback) co
 	}
 }
 
+func schema_k8sio_api_core_v1_ImageVolumeStatus(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "ImageVolumeStatus represents the image-based volume status.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"imageRef": {
+						SchemaProps: spec.SchemaProps{
+							Description: "ImageRef is the digest of the image used for this volume. It should have a value that's similar to the pod's status.containerStatuses[i].imageID. The ImageRef length should not exceed 256 characters.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
+				Required: []string{"imageRef"},
+			},
+		},
+	}
+}
+
 func schema_k8sio_api_core_v1_KeyToPath(ref common.ReferenceCallback) common.OpenAPIDefinition {
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
@@ -23567,6 +23978,64 @@ func schema_k8sio_api_core_v1_NodeAffinity(ref common.ReferenceCallback) common.
 		},
 		Dependencies: []string{
 			corev1.NodeSelector{}.OpenAPIModelName(), corev1.PreferredSchedulingTerm{}.OpenAPIModelName()},
+	}
+}
+
+func schema_k8sio_api_core_v1_NodeAllocatableResourceClaimStatus(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "NodeAllocatableResourceClaimStatus describes the status of node allocatable resources allocated via DRA.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"resourceClaimName": {
+						SchemaProps: spec.SchemaProps{
+							Description: "ResourceClaimName is the resource claim referenced by the pod that resulted in this node allocatable resource allocation.",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"containers": {
+						VendorExtensible: spec.VendorExtensible{
+							Extensions: spec.Extensions{
+								"x-kubernetes-list-type": "set",
+							},
+						},
+						SchemaProps: spec.SchemaProps{
+							Description: "Containers lists the names of all containers in this pod that reference the claim.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: "",
+										Type:    []string{"string"},
+										Format:  "",
+									},
+								},
+							},
+						},
+					},
+					"resources": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Resources is a map of the node-allocatable resource name to the aggregate quantity allocated to the claim.",
+							Type:        []string{"object"},
+							AdditionalProperties: &spec.SchemaOrBool{
+								Allows: true,
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Ref: ref(resource.Quantity{}.OpenAPIModelName()),
+									},
+								},
+							},
+						},
+					},
+				},
+				Required: []string{"resourceClaimName", "resources"},
+			},
+		},
+		Dependencies: []string{
+			resource.Quantity{}.OpenAPIModelName()},
 	}
 }
 
@@ -25206,7 +25675,7 @@ func schema_k8sio_api_core_v1_PersistentVolumeSource(ref common.ReferenceCallbac
 					},
 					"portworxVolume": {
 						SchemaProps: spec.SchemaProps{
-							Description: "portworxVolume represents a portworx volume attached and mounted on kubelets host machine. Deprecated: PortworxVolume is deprecated. All operations for the in-tree portworxVolume type are redirected to the pxd.portworx.com CSI driver when the CSIMigrationPortworx feature-gate is on.",
+							Description: "portworxVolume represents a portworx volume attached and mounted on kubelets host machine. Deprecated: PortworxVolume is deprecated. All operations for the in-tree portworxVolume type are redirected to the pxd.portworx.com CSI driver.",
 							Ref:         ref(corev1.PortworxVolumeSource{}.OpenAPIModelName()),
 						},
 					},
@@ -25367,7 +25836,7 @@ func schema_k8sio_api_core_v1_PersistentVolumeSpec(ref common.ReferenceCallback)
 					},
 					"portworxVolume": {
 						SchemaProps: spec.SchemaProps{
-							Description: "portworxVolume represents a portworx volume attached and mounted on kubelets host machine. Deprecated: PortworxVolume is deprecated. All operations for the in-tree portworxVolume type are redirected to the pxd.portworx.com CSI driver when the CSIMigrationPortworx feature-gate is on.",
+							Description: "portworxVolume represents a portworx volume attached and mounted on kubelets host machine. Deprecated: PortworxVolume is deprecated. All operations for the in-tree portworxVolume type are redirected to the pxd.portworx.com CSI driver.",
 							Ref:         ref(corev1.PortworxVolumeSource{}.OpenAPIModelName()),
 						},
 					},
@@ -25966,7 +26435,7 @@ func schema_k8sio_api_core_v1_PodCondition(ref common.ReferenceCallback) common.
 					},
 					"observedGeneration": {
 						SchemaProps: spec.SchemaProps{
-							Description: "If set, this represents the .metadata.generation that the pod condition was set based upon. The PodObservedGenerationTracking feature gate must be enabled to use this field.",
+							Description: "If set, this represents the .metadata.generation that the pod condition was set based upon.",
 							Type:        []string{"integer"},
 							Format:      "int64",
 						},
@@ -26541,7 +27010,7 @@ func schema_k8sio_api_core_v1_PodResourceClaim(ref common.ReferenceCallback) com
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
 			SchemaProps: spec.SchemaProps{
-				Description: "PodResourceClaim references exactly one ResourceClaim, either directly or by naming a ResourceClaimTemplate which is then turned into a ResourceClaim for the pod.\n\nIt adds a name to it that uniquely identifies the ResourceClaim inside the Pod. Containers that need access to the ResourceClaim reference it with this name.",
+				Description: "PodResourceClaim references exactly one ResourceClaim, either directly or by naming a ResourceClaimTemplate which is then turned into a ResourceClaim for the pod.\n\nIt adds a name to it that uniquely identifies the ResourceClaim inside the Pod. Containers that need access to the ResourceClaim reference it with this name.\n\nWhen the DRAWorkloadResourceClaims feature gate is enabled and this Pod belongs to a PodGroup, a PodResourceClaim is matched to a PodGroupResourceClaim if all of their fields are equal (Name, ResourceClaimName, and ResourceClaimTemplateName). A matched claim references a single ResourceClaim shared across all Pods in the PodGroup, reserved for the PodGroup in ResourceClaimStatus.ReservedFor rather than for individual Pods.",
 				Type:        []string{"object"},
 				Properties: map[string]spec.Schema{
 					"name": {
@@ -26561,7 +27030,7 @@ func schema_k8sio_api_core_v1_PodResourceClaim(ref common.ReferenceCallback) com
 					},
 					"resourceClaimTemplateName": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ResourceClaimTemplateName is the name of a ResourceClaimTemplate object in the same namespace as this pod.\n\nThe template will be used to create a new ResourceClaim, which will be bound to this pod. When this pod is deleted, the ResourceClaim will also be deleted. The pod name and resource name, along with a generated component, will be used to form a unique name for the ResourceClaim, which will be recorded in pod.status.resourceClaimStatuses.\n\nThis field is immutable and no changes will be made to the corresponding ResourceClaim by the control plane after creating the ResourceClaim.\n\nExactly one of ResourceClaimName and ResourceClaimTemplateName must be set.",
+							Description: "ResourceClaimTemplateName is the name of a ResourceClaimTemplate object in the same namespace as this pod.\n\nThe template will be used to create a new ResourceClaim, which will be bound to this pod. When this pod is deleted, the ResourceClaim will also be deleted. The pod name and resource name, along with a generated component, will be used to form a unique name for the ResourceClaim, which will be recorded in pod.status.resourceClaimStatuses.\n\nWhen the DRAWorkloadResourceClaims feature gate is enabled and the pod belongs to a PodGroup that defines a PodGroupResourceClaim with the same Name and ResourceClaimTemplateName, this PodResourceClaim resolves to the ResourceClaim generated for the PodGroup. All pods in the group that define an equivalent PodResourceClaim matching the PodGroupResourceClaim's Name and ResourceClaimTemplateName share the same generated ResourceClaim. ResourceClaims generated for a PodGroup are owned by the PodGroup and their lifecycles are tied to the PodGroup instead of any individual pod.\n\nThis field is immutable and no changes will be made to the corresponding ResourceClaim by the control plane after creating the ResourceClaim.\n\nExactly one of ResourceClaimName and ResourceClaimTemplateName must be set.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -26590,7 +27059,7 @@ func schema_k8sio_api_core_v1_PodResourceClaimStatus(ref common.ReferenceCallbac
 					},
 					"resourceClaimName": {
 						SchemaProps: spec.SchemaProps{
-							Description: "ResourceClaimName is the name of the ResourceClaim that was generated for the Pod in the namespace of the Pod. If this is unset, then generating a ResourceClaim was not necessary. The pod.spec.resourceClaims entry can be ignored in this case.",
+							Description: "ResourceClaimName is the name of the ResourceClaim that was generated for the Pod in the namespace of the Pod.\n\nWhen the DRAWorkloadResourceClaims feature is enabled and the corresponding PodResourceClaim matches a PodGroupResourceClaim made by the Pod's PodGroup, then this is the name of the ResourceClaim generated and reserved for the PodGroup.\n\nIf this is unset, then generating a ResourceClaim was not necessary. The pod.spec.resourceClaims entry can be ignored in this case.",
 							Type:        []string{"string"},
 							Format:      "",
 						},
@@ -26619,6 +27088,37 @@ func schema_k8sio_api_core_v1_PodSchedulingGate(ref common.ReferenceCallback) co
 					},
 				},
 				Required: []string{"name"},
+			},
+		},
+	}
+}
+
+func schema_k8sio_api_core_v1_PodSchedulingGroup(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "PodSchedulingGroup identifies the runtime scheduling group instance that a Pod belongs to. The scheduler uses this information to apply workload-aware scheduling semantics. Exactly one field must be specified.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"podGroupName": {
+						SchemaProps: spec.SchemaProps{
+							Description: "PodGroupName specifies the name of the standalone PodGroup object that represents the runtime instance of this group. Must be a DNS subdomain.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
+			},
+			VendorExtensible: spec.VendorExtensible{
+				Extensions: spec.Extensions{
+					"x-kubernetes-unions": []interface{}{
+						map[string]interface{}{
+							"fields-to-discriminateBy": map[string]interface{}{
+								"podGroupName": "PodGroupName",
+							},
+						},
+					},
+				},
 			},
 		},
 	}
@@ -27199,7 +27699,7 @@ func schema_k8sio_api_core_v1_PodSpec(ref common.ReferenceCallback) common.OpenA
 					},
 					"hostUsers": {
 						SchemaProps: spec.SchemaProps{
-							Description: "Use the host's user namespace. Optional: Default to true. If set to true or not present, the pod will be run in the host user namespace, useful for when the pod needs a feature only available to the host user namespace, such as loading a kernel module with CAP_SYS_MODULE. When set to false, a new userns is created for the pod. Setting false is useful for mitigating container breakout vulnerabilities even allowing users to run their containers as root without actually having root privileges on the host. This field is alpha-level and is only honored by servers that enable the UserNamespacesSupport feature.",
+							Description: "Use the host's user namespace. Optional: Default to true. If set to true or not present, the pod will be run in the host user namespace, useful for when the pod needs a feature only available to the host user namespace, such as loading a kernel module with CAP_SYS_MODULE. When set to false, a new userns is created for the pod. Setting false is useful for mitigating container breakout vulnerabilities even allowing users to run their containers as root without actually having root privileges on the host.",
 							Type:        []string{"boolean"},
 							Format:      "",
 						},
@@ -27265,12 +27765,18 @@ func schema_k8sio_api_core_v1_PodSpec(ref common.ReferenceCallback) common.OpenA
 							Format:      "",
 						},
 					},
+					"schedulingGroup": {
+						SchemaProps: spec.SchemaProps{
+							Description: "SchedulingGroup provides a reference to the immediate scheduling runtime grouping object that this Pod belongs to. This field is used by the scheduler to identify the group and apply the correct group scheduling policies. The association with a group also impacts other lifecycle aspects of a Pod that are relevant in a wider context of scheduling like preemption, resource attachment, etc. If not specified, the Pod is treated as a single unit in all of these aspects. The group object referenced by this field may not exist at the time the Pod is created. This field is immutable, but a group object with the same name may be recreated with different policies. Doing this during pod scheduling may result in the placement not conforming to the expected policies.",
+							Ref:         ref(corev1.PodSchedulingGroup{}.OpenAPIModelName()),
+						},
+					},
 				},
 				Required: []string{"containers"},
 			},
 		},
 		Dependencies: []string{
-			corev1.Affinity{}.OpenAPIModelName(), corev1.Container{}.OpenAPIModelName(), corev1.EphemeralContainer{}.OpenAPIModelName(), corev1.HostAlias{}.OpenAPIModelName(), corev1.LocalObjectReference{}.OpenAPIModelName(), corev1.PodDNSConfig{}.OpenAPIModelName(), corev1.PodOS{}.OpenAPIModelName(), corev1.PodReadinessGate{}.OpenAPIModelName(), corev1.PodResourceClaim{}.OpenAPIModelName(), corev1.PodSchedulingGate{}.OpenAPIModelName(), corev1.PodSecurityContext{}.OpenAPIModelName(), corev1.ResourceRequirements{}.OpenAPIModelName(), corev1.Toleration{}.OpenAPIModelName(), corev1.TopologySpreadConstraint{}.OpenAPIModelName(), corev1.Volume{}.OpenAPIModelName(), resource.Quantity{}.OpenAPIModelName()},
+			corev1.Affinity{}.OpenAPIModelName(), corev1.Container{}.OpenAPIModelName(), corev1.EphemeralContainer{}.OpenAPIModelName(), corev1.HostAlias{}.OpenAPIModelName(), corev1.LocalObjectReference{}.OpenAPIModelName(), corev1.PodDNSConfig{}.OpenAPIModelName(), corev1.PodOS{}.OpenAPIModelName(), corev1.PodReadinessGate{}.OpenAPIModelName(), corev1.PodResourceClaim{}.OpenAPIModelName(), corev1.PodSchedulingGate{}.OpenAPIModelName(), corev1.PodSchedulingGroup{}.OpenAPIModelName(), corev1.PodSecurityContext{}.OpenAPIModelName(), corev1.ResourceRequirements{}.OpenAPIModelName(), corev1.Toleration{}.OpenAPIModelName(), corev1.TopologySpreadConstraint{}.OpenAPIModelName(), corev1.Volume{}.OpenAPIModelName(), resource.Quantity{}.OpenAPIModelName()},
 	}
 }
 
@@ -27528,11 +28034,30 @@ func schema_k8sio_api_core_v1_PodStatus(ref common.ReferenceCallback) common.Ope
 							Ref:         ref(corev1.ResourceRequirements{}.OpenAPIModelName()),
 						},
 					},
+					"nodeAllocatableResourceClaimStatuses": {
+						VendorExtensible: spec.VendorExtensible{
+							Extensions: spec.Extensions{
+								"x-kubernetes-list-type": "atomic",
+							},
+						},
+						SchemaProps: spec.SchemaProps{
+							Description: "NodeAllocatableResourceClaimStatuses contains the status of node-allocatable resources that were allocated for this pod through DRA claims. This includes resources currently reported in v1.Node `status.allocatable` that are not extended resources (see https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#extended-resources). Examples include \"cpu\", \"memory\", \"ephemeral-storage\", and hugepages.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref(corev1.NodeAllocatableResourceClaimStatus{}.OpenAPIModelName()),
+									},
+								},
+							},
+						},
+					},
 				},
 			},
 		},
 		Dependencies: []string{
-			corev1.ContainerStatus{}.OpenAPIModelName(), corev1.HostIP{}.OpenAPIModelName(), corev1.PodCondition{}.OpenAPIModelName(), corev1.PodExtendedResourceClaimStatus{}.OpenAPIModelName(), corev1.PodIP{}.OpenAPIModelName(), corev1.PodResourceClaimStatus{}.OpenAPIModelName(), corev1.ResourceRequirements{}.OpenAPIModelName(), resource.Quantity{}.OpenAPIModelName(), metav1.Time{}.OpenAPIModelName()},
+			corev1.ContainerStatus{}.OpenAPIModelName(), corev1.HostIP{}.OpenAPIModelName(), corev1.NodeAllocatableResourceClaimStatus{}.OpenAPIModelName(), corev1.PodCondition{}.OpenAPIModelName(), corev1.PodExtendedResourceClaimStatus{}.OpenAPIModelName(), corev1.PodIP{}.OpenAPIModelName(), corev1.PodResourceClaimStatus{}.OpenAPIModelName(), corev1.ResourceRequirements{}.OpenAPIModelName(), resource.Quantity{}.OpenAPIModelName(), metav1.Time{}.OpenAPIModelName()},
 	}
 }
 
@@ -28677,6 +29202,13 @@ func schema_k8sio_api_core_v1_ResourceHealth(ref common.ReferenceCallback) commo
 							Format:      "",
 						},
 					},
+					"message": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Message provides human-readable context for Health (e.g. \"ECC error count exceeded threshold\"). This field is populated by the kubelet when ResourceHealthStatusMessage is enabled if the DRA plugin returns a message, and is null otherwise.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
 				},
 				Required: []string{"resourceID"},
 			},
@@ -29754,7 +30286,7 @@ func schema_k8sio_api_core_v1_SecurityContext(ref common.ReferenceCallback) comm
 					},
 					"procMount": {
 						SchemaProps: spec.SchemaProps{
-							Description: "procMount denotes the type of proc mount to use for the containers. The default value is Default which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.\n\nPossible enum values:\n - `\"Default\"` uses the container runtime defaults for readonly and masked paths for /proc. Most container runtimes mask certain paths in /proc to avoid accidental security exposure of special devices or information.\n - `\"Unmasked\"` bypasses the default masking behavior of the container runtime and ensures the newly created /proc the container stays in tact with no modifications.",
+							Description: "procMount denotes the type of proc mount to use for the containers. The default value is Default which uses the container runtime defaults for readonly paths and masked paths. Note that this field cannot be set when spec.os.name is windows.\n\nPossible enum values:\n - `\"Default\"` uses the container runtime defaults for readonly and masked paths for /proc. Most container runtimes mask certain paths in /proc to avoid accidental security exposure of special devices or information.\n - `\"Unmasked\"` bypasses the default masking behavior of the container runtime and ensures the newly created /proc the container stays in tact with no modifications.",
 							Type:        []string{"string"},
 							Format:      "",
 							Enum:        []interface{}{"Default", "Unmasked"},
@@ -31188,7 +31720,7 @@ func schema_k8sio_api_core_v1_Volume(ref common.ReferenceCallback) common.OpenAP
 					},
 					"portworxVolume": {
 						SchemaProps: spec.SchemaProps{
-							Description: "portworxVolume represents a portworx volume attached and mounted on kubelets host machine. Deprecated: PortworxVolume is deprecated. All operations for the in-tree portworxVolume type are redirected to the pxd.portworx.com CSI driver when the CSIMigrationPortworx feature-gate is on.",
+							Description: "portworxVolume represents a portworx volume attached and mounted on kubelets host machine. Deprecated: PortworxVolume is deprecated. All operations for the in-tree portworxVolume type are redirected to the pxd.portworx.com CSI driver.",
 							Ref:         ref(corev1.PortworxVolumeSource{}.OpenAPIModelName()),
 						},
 					},
@@ -31218,7 +31750,7 @@ func schema_k8sio_api_core_v1_Volume(ref common.ReferenceCallback) common.OpenAP
 					},
 					"image": {
 						SchemaProps: spec.SchemaProps{
-							Description: "image represents an OCI object (a container image or artifact) pulled and mounted on the kubelet's host machine. The volume is resolved at pod startup depending on which PullPolicy value is provided:\n\n- Always: the kubelet always attempts to pull the reference. Container creation will fail If the pull fails. - Never: the kubelet never pulls the reference and only uses a local image or artifact. Container creation will fail if the reference isn't present. - IfNotPresent: the kubelet pulls if the reference isn't already present on disk. Container creation will fail if the reference isn't present and the pull fails.\n\nThe volume gets re-resolved if the pod gets deleted and recreated, which means that new remote content will become available on pod recreation. A failure to resolve or pull the image during pod startup will block containers from starting and may add significant latency. Failures will be retried using normal volume backoff and will be reported on the pod reason and message. The types of objects that may be mounted by this volume are defined by the container runtime implementation on a host machine and at minimum must include all valid types supported by the container image field. The OCI object gets mounted in a single directory (spec.containers[*].volumeMounts.mountPath) by merging the manifest layers in the same way as for container images. The volume will be mounted read-only (ro) and non-executable files (noexec). Sub path mounts for containers are not supported (spec.containers[*].volumeMounts.subpath) before 1.33. The field spec.securityContext.fsGroupChangePolicy has no effect on this volume type.",
+							Description: "image represents an OCI object (a container image or artifact) pulled and mounted on the kubelet's host machine. The volume is resolved at pod startup depending on which PullPolicy value is provided:\n\n- Always: the kubelet always attempts to pull the reference. Container creation will fail If the pull fails. - Never: the kubelet never pulls the reference and only uses a local image or artifact. Container creation will fail if the reference isn't present. - IfNotPresent: the kubelet pulls if the reference isn't already present on disk. Container creation will fail if the reference isn't present and the pull fails.\n\nThe volume gets re-resolved if the pod gets deleted and recreated, which means that new remote content will become available on pod recreation. A failure to resolve or pull the image during pod startup will block containers from starting and may add significant latency. Failures will be retried using normal volume backoff and will be reported on the pod reason and message. The types of objects that may be mounted by this volume are defined by the container runtime implementation on a host machine and at minimum must include all valid types supported by the container image field. The OCI object gets mounted in a single directory (spec.containers[*].volumeMounts.mountPath) by merging the manifest layers in the same way as for container images. The volume will be mounted read-only (ro). Sub path mounts for containers are not supported (spec.containers[*].volumeMounts.subpath) before 1.33. The field spec.securityContext.fsGroupChangePolicy has no effect on this volume type.",
 							Ref:         ref(corev1.ImageVolumeSource{}.OpenAPIModelName()),
 						},
 					},
@@ -31364,10 +31896,18 @@ func schema_k8sio_api_core_v1_VolumeMountStatus(ref common.ReferenceCallback) co
 							Format:      "",
 						},
 					},
+					"volumeStatus": {
+						SchemaProps: spec.SchemaProps{
+							Description: "volumeStatus represents volume-type-specific status about the mounted volume.",
+							Ref:         ref(corev1.VolumeStatus{}.OpenAPIModelName()),
+						},
+					},
 				},
 				Required: []string{"name", "mountPath"},
 			},
 		},
+		Dependencies: []string{
+			corev1.VolumeStatus{}.OpenAPIModelName()},
 	}
 }
 
@@ -31639,7 +32179,7 @@ func schema_k8sio_api_core_v1_VolumeSource(ref common.ReferenceCallback) common.
 					},
 					"portworxVolume": {
 						SchemaProps: spec.SchemaProps{
-							Description: "portworxVolume represents a portworx volume attached and mounted on kubelets host machine. Deprecated: PortworxVolume is deprecated. All operations for the in-tree portworxVolume type are redirected to the pxd.portworx.com CSI driver when the CSIMigrationPortworx feature-gate is on.",
+							Description: "portworxVolume represents a portworx volume attached and mounted on kubelets host machine. Deprecated: PortworxVolume is deprecated. All operations for the in-tree portworxVolume type are redirected to the pxd.portworx.com CSI driver.",
 							Ref:         ref(corev1.PortworxVolumeSource{}.OpenAPIModelName()),
 						},
 					},
@@ -31669,7 +32209,7 @@ func schema_k8sio_api_core_v1_VolumeSource(ref common.ReferenceCallback) common.
 					},
 					"image": {
 						SchemaProps: spec.SchemaProps{
-							Description: "image represents an OCI object (a container image or artifact) pulled and mounted on the kubelet's host machine. The volume is resolved at pod startup depending on which PullPolicy value is provided:\n\n- Always: the kubelet always attempts to pull the reference. Container creation will fail If the pull fails. - Never: the kubelet never pulls the reference and only uses a local image or artifact. Container creation will fail if the reference isn't present. - IfNotPresent: the kubelet pulls if the reference isn't already present on disk. Container creation will fail if the reference isn't present and the pull fails.\n\nThe volume gets re-resolved if the pod gets deleted and recreated, which means that new remote content will become available on pod recreation. A failure to resolve or pull the image during pod startup will block containers from starting and may add significant latency. Failures will be retried using normal volume backoff and will be reported on the pod reason and message. The types of objects that may be mounted by this volume are defined by the container runtime implementation on a host machine and at minimum must include all valid types supported by the container image field. The OCI object gets mounted in a single directory (spec.containers[*].volumeMounts.mountPath) by merging the manifest layers in the same way as for container images. The volume will be mounted read-only (ro) and non-executable files (noexec). Sub path mounts for containers are not supported (spec.containers[*].volumeMounts.subpath) before 1.33. The field spec.securityContext.fsGroupChangePolicy has no effect on this volume type.",
+							Description: "image represents an OCI object (a container image or artifact) pulled and mounted on the kubelet's host machine. The volume is resolved at pod startup depending on which PullPolicy value is provided:\n\n- Always: the kubelet always attempts to pull the reference. Container creation will fail If the pull fails. - Never: the kubelet never pulls the reference and only uses a local image or artifact. Container creation will fail if the reference isn't present. - IfNotPresent: the kubelet pulls if the reference isn't already present on disk. Container creation will fail if the reference isn't present and the pull fails.\n\nThe volume gets re-resolved if the pod gets deleted and recreated, which means that new remote content will become available on pod recreation. A failure to resolve or pull the image during pod startup will block containers from starting and may add significant latency. Failures will be retried using normal volume backoff and will be reported on the pod reason and message. The types of objects that may be mounted by this volume are defined by the container runtime implementation on a host machine and at minimum must include all valid types supported by the container image field. The OCI object gets mounted in a single directory (spec.containers[*].volumeMounts.mountPath) by merging the manifest layers in the same way as for container images. The volume will be mounted read-only (ro). Sub path mounts for containers are not supported (spec.containers[*].volumeMounts.subpath) before 1.33. The field spec.securityContext.fsGroupChangePolicy has no effect on this volume type.",
 							Ref:         ref(corev1.ImageVolumeSource{}.OpenAPIModelName()),
 						},
 					},
@@ -31678,6 +32218,27 @@ func schema_k8sio_api_core_v1_VolumeSource(ref common.ReferenceCallback) common.
 		},
 		Dependencies: []string{
 			corev1.AWSElasticBlockStoreVolumeSource{}.OpenAPIModelName(), corev1.AzureDiskVolumeSource{}.OpenAPIModelName(), corev1.AzureFileVolumeSource{}.OpenAPIModelName(), corev1.CSIVolumeSource{}.OpenAPIModelName(), corev1.CephFSVolumeSource{}.OpenAPIModelName(), corev1.CinderVolumeSource{}.OpenAPIModelName(), corev1.ConfigMapVolumeSource{}.OpenAPIModelName(), corev1.DownwardAPIVolumeSource{}.OpenAPIModelName(), corev1.EmptyDirVolumeSource{}.OpenAPIModelName(), corev1.EphemeralVolumeSource{}.OpenAPIModelName(), corev1.FCVolumeSource{}.OpenAPIModelName(), corev1.FlexVolumeSource{}.OpenAPIModelName(), corev1.FlockerVolumeSource{}.OpenAPIModelName(), corev1.GCEPersistentDiskVolumeSource{}.OpenAPIModelName(), corev1.GitRepoVolumeSource{}.OpenAPIModelName(), corev1.GlusterfsVolumeSource{}.OpenAPIModelName(), corev1.HostPathVolumeSource{}.OpenAPIModelName(), corev1.ISCSIVolumeSource{}.OpenAPIModelName(), corev1.ImageVolumeSource{}.OpenAPIModelName(), corev1.NFSVolumeSource{}.OpenAPIModelName(), corev1.PersistentVolumeClaimVolumeSource{}.OpenAPIModelName(), corev1.PhotonPersistentDiskVolumeSource{}.OpenAPIModelName(), corev1.PortworxVolumeSource{}.OpenAPIModelName(), corev1.ProjectedVolumeSource{}.OpenAPIModelName(), corev1.QuobyteVolumeSource{}.OpenAPIModelName(), corev1.RBDVolumeSource{}.OpenAPIModelName(), corev1.ScaleIOVolumeSource{}.OpenAPIModelName(), corev1.SecretVolumeSource{}.OpenAPIModelName(), corev1.StorageOSVolumeSource{}.OpenAPIModelName(), corev1.VsphereVirtualDiskVolumeSource{}.OpenAPIModelName()},
+	}
+}
+
+func schema_k8sio_api_core_v1_VolumeStatus(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "VolumeStatus represents the status of a mounted volume. At most one of its members must be specified.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"image": {
+						SchemaProps: spec.SchemaProps{
+							Description: "image represents an OCI object (a container image or artifact) pulled and mounted on the kubelet's host machine.",
+							Ref:         ref(corev1.ImageVolumeStatus{}.OpenAPIModelName()),
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			corev1.ImageVolumeStatus{}.OpenAPIModelName()},
 	}
 }
 
@@ -31795,7 +32356,6 @@ func schema_k8sio_api_core_v1_WindowsSecurityContextOptions(ref common.Reference
 		},
 	}
 }
-
 
 func schema_k8sio_api_events_v1beta1_Event(ref common.ReferenceCallback) common.OpenAPIDefinition {
 	return common.OpenAPIDefinition{
@@ -34256,6 +34816,7 @@ func schema_k8sio_api_networking_v1_IPAddress(ref common.ReferenceCallback) comm
 						},
 					},
 				},
+				Required: []string{"spec"},
 			},
 		},
 		Dependencies: []string{
@@ -35710,6 +36271,7 @@ func schema_k8sio_api_networking_v1beta1_IPAddress(ref common.ReferenceCallback)
 						},
 					},
 				},
+				Required: []string{"spec"},
 			},
 		},
 		Dependencies: []string{
@@ -37284,7 +37846,6 @@ func schema_k8sio_api_policy_v1beta1_PodDisruptionBudgetStatus(ref common.Refere
 						},
 					},
 				},
-				Required: []string{"disruptionsAllowed", "currentHealthy", "desiredHealthy", "expectedPods"},
 			},
 		},
 		Dependencies: []string{
@@ -37918,7 +38479,7 @@ func schema_k8sio_api_rbac_v1_RoleRef(ref common.ReferenceCallback) common.OpenA
 						},
 					},
 				},
-				Required: []string{"apiGroup", "kind", "name"},
+				Required: []string{"kind", "name"},
 			},
 			VendorExtensible: spec.VendorExtensible{
 				Extensions: spec.Extensions{
@@ -38604,7 +39165,7 @@ func schema_k8sio_api_rbac_v1alpha1_RoleRef(ref common.ReferenceCallback) common
 						},
 					},
 				},
-				Required: []string{"apiGroup", "kind", "name"},
+				Required: []string{"kind", "name"},
 			},
 		},
 	}
@@ -39280,7 +39841,7 @@ func schema_k8sio_api_rbac_v1beta1_RoleRef(ref common.ReferenceCallback) common.
 						},
 					},
 				},
-				Required: []string{"apiGroup", "kind", "name"},
+				Required: []string{"kind", "name"},
 			},
 		},
 	}
@@ -39389,7 +39950,6 @@ func schema_k8sio_api_scheduling_v1_PriorityClass(ref common.ReferenceCallback) 
 						},
 					},
 				},
-				Required: []string{"value"},
 			},
 		},
 		Dependencies: []string{
@@ -39447,16 +40007,6 @@ func schema_k8sio_api_scheduling_v1_PriorityClassList(ref common.ReferenceCallba
 			schedulingv1.PriorityClass{}.OpenAPIModelName(), metav1.ListMeta{}.OpenAPIModelName()},
 	}
 }
-
-
-
-
-
-
-
-
-
-
 
 func schema_k8sio_api_scheduling_v1beta1_PriorityClass(ref common.ReferenceCallback) common.OpenAPIDefinition {
 	return common.OpenAPIDefinition{
@@ -39517,7 +40067,6 @@ func schema_k8sio_api_scheduling_v1beta1_PriorityClass(ref common.ReferenceCallb
 						},
 					},
 				},
-				Required: []string{"value"},
 			},
 		},
 		Dependencies: []string{
@@ -39761,7 +40310,7 @@ func schema_k8sio_api_storage_v1_CSIDriverSpec(ref common.ReferenceCallback) com
 					},
 					"nodeAllocatableUpdatePeriodSeconds": {
 						SchemaProps: spec.SchemaProps{
-							Description: "nodeAllocatableUpdatePeriodSeconds specifies the interval between periodic updates of the CSINode allocatable capacity for this driver. When set, both periodic updates and updates triggered by capacity-related failures are enabled. If not set, no updates occur (neither periodic nor upon detecting capacity-related failures), and the allocatable.count remains static. The minimum allowed value for this field is 10 seconds.\n\nThis is a beta feature and requires the MutableCSINodeAllocatableCount feature gate to be enabled.\n\nThis field is mutable.",
+							Description: "nodeAllocatableUpdatePeriodSeconds specifies the interval between periodic updates of the CSINode allocatable capacity for this driver. When set, both periodic updates and updates triggered by capacity-related failures are enabled. If not set, no updates occur (neither periodic nor upon detecting capacity-related failures), and the allocatable.count remains static. The minimum allowed value for this field is 10 seconds.\n\nThis feature requires the MutableCSINodeAllocatableCount feature gate to be enabled.\n\nThis field is mutable.",
 							Type:        []string{"integer"},
 							Format:      "int64",
 						},
@@ -39769,6 +40318,13 @@ func schema_k8sio_api_storage_v1_CSIDriverSpec(ref common.ReferenceCallback) com
 					"serviceAccountTokenInSecrets": {
 						SchemaProps: spec.SchemaProps{
 							Description: "serviceAccountTokenInSecrets is an opt-in for CSI drivers to indicate that service account tokens should be passed via the Secrets field in NodePublishVolumeRequest instead of the VolumeContext field. The CSI specification provides a dedicated Secrets field for sensitive information like tokens, which is the appropriate mechanism for handling credentials. This addresses security concerns where sensitive tokens were being logged as part of volume context.\n\nWhen \"true\", kubelet will pass the tokens only in the Secrets field with the key \"csi.storage.k8s.io/serviceAccount.tokens\". The CSI driver must be updated to read tokens from the Secrets field instead of VolumeContext.\n\nWhen \"false\" or not set, kubelet will pass the tokens in VolumeContext with the key \"csi.storage.k8s.io/serviceAccount.tokens\" (existing behavior). This maintains backward compatibility with existing CSI drivers.\n\nThis field can only be set when TokenRequests is configured. The API server will reject CSIDriver specs that set this field without TokenRequests.\n\nDefault behavior if unset is to pass tokens in the VolumeContext field.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+					"preventPodSchedulingIfMissing": {
+						SchemaProps: spec.SchemaProps{
+							Description: "PreventPodSchedulingIfMissing indicates that the CSI driver wants to prevent pod scheduling if the CSI driver on the node is missing.\n\nEnabling this option will prevent the scheduler (or any other component which embeds default scheduler such as cluster-autoscaler) from scheduling pods to nodes where CSI driver is not installed.\n\nFor components(such as cluster-autoscaler) that embed the scheduler and run pod placement simulations using scheduler plugins, they MUST be aware of CSI driver registration information via CSINode object. They must create simulated CSINode objects in addition to Node objects during scheduling simulation, otherwise if PreventPodSchedulingIfMissing is enabled globally for CSIDriver object, any newly created node may be rejected by the scheduler because of missing CSI driver information from the node.\n\nThis is an alpha feature and requires the VolumeLimitScaling feature gate to be enabled. Default is \"false\".",
 							Type:        []string{"boolean"},
 							Format:      "",
 						},
@@ -40646,7 +41202,7 @@ func schema_k8sio_api_storage_v1_VolumeError(ref common.ReferenceCallback) commo
 					},
 					"errorCode": {
 						SchemaProps: spec.SchemaProps{
-							Description: "errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.\n\nThis is an optional, beta field that requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.",
+							Description: "errorCode is a numeric gRPC code representing the error encountered during Attach or Detach operations.\n\nThis field requires the MutableCSINodeAllocatableCount feature gate being enabled to be set.",
 							Type:        []string{"integer"},
 							Format:      "int32",
 						},
@@ -41354,6 +41910,13 @@ func schema_k8sio_api_storage_v1beta1_CSIDriverSpec(ref common.ReferenceCallback
 					"serviceAccountTokenInSecrets": {
 						SchemaProps: spec.SchemaProps{
 							Description: "serviceAccountTokenInSecrets is an opt-in for CSI drivers to indicate that service account tokens should be passed via the Secrets field in NodePublishVolumeRequest instead of the VolumeContext field. The CSI specification provides a dedicated Secrets field for sensitive information like tokens, which is the appropriate mechanism for handling credentials. This addresses security concerns where sensitive tokens were being logged as part of volume context.\n\nWhen \"true\", kubelet will pass the tokens only in the Secrets field with the key \"csi.storage.k8s.io/serviceAccount.tokens\". The CSI driver must be updated to read tokens from the Secrets field instead of VolumeContext.\n\nWhen \"false\" or not set, kubelet will pass the tokens in VolumeContext with the key \"csi.storage.k8s.io/serviceAccount.tokens\" (existing behavior). This maintains backward compatibility with existing CSI drivers.\n\nThis field can only be set when TokenRequests is configured. The API server will reject CSIDriver specs that set this field without TokenRequests.\n\nDefault behavior if unset is to pass tokens in the VolumeContext field.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+					"preventPodSchedulingIfMissing": {
+						SchemaProps: spec.SchemaProps{
+							Description: "PreventPodSchedulingIfMissing indicates that the CSI driver wants to prevent pod scheduling if the CSI driver on the node is missing.\n\nEnabling this option will prevent the scheduler (or any other component which embeds default scheduler such as cluster-autoscaler) from scheduling pods to nodes where CSI driver is not installed.\n\nFor components(such as cluster-autoscaler) that embed the scheduler and run pod placement simulations using scheduler plugins, they MUST be aware of CSI driver registration information via CSINode object. They must create simulated CSINode objects in addition to Node objects during scheduling simulation, otherwise if PreventPodSchedulingIfMissing is enabled globally for CSIDriver object, any newly created node may be rejected by the scheduler because of missing CSI driver information from the node.\n\nThis is an alpha feature and requires the VolumeLimitScaling feature gate to be enabled. Default is \"false\".",
 							Type:        []string{"boolean"},
 							Format:      "",
 						},
@@ -43467,9 +44030,17 @@ func schema_pkg_apis_meta_v1_ListMeta(ref common.ReferenceCallback) common.OpenA
 							Format:      "int64",
 						},
 					},
+					"shardInfo": {
+						SchemaProps: spec.SchemaProps{
+							Description: "shardInfo is set when the list is a filtered subset of the full collection, as selected by a shard selector on the request. It echoes back the selector so clients can verify which shard they received and merge sharded responses. Clients should not cache sharded list responses as a full representation of the collection.\n\nThis is an alpha field and requires enabling the ShardedListAndWatch feature gate.",
+							Ref:         ref(metav1.ShardInfo{}.OpenAPIModelName()),
+						},
+					},
 				},
 			},
 		},
+		Dependencies: []string{
+			metav1.ShardInfo{}.OpenAPIModelName()},
 	}
 }
 
@@ -43561,6 +44132,13 @@ func schema_pkg_apis_meta_v1_ListOptions(ref common.ReferenceCallback) common.Op
 						SchemaProps: spec.SchemaProps{
 							Description: "`sendInitialEvents=true` may be set together with `watch=true`. In that case, the watch stream will begin with synthetic events to produce the current state of objects in the collection. Once all such events have been sent, a synthetic \"Bookmark\" event  will be sent. The bookmark will report the ResourceVersion (RV) corresponding to the set of objects, and be marked with `\"k8s.io/initial-events-end\": \"true\"` annotation. Afterwards, the watch stream will proceed as usual, sending watch events corresponding to changes (subsequent to the RV) to objects watched.\n\nWhen `sendInitialEvents` option is set, we require `resourceVersionMatch` option to also be set. The semantic of the watch request is as following: - `resourceVersionMatch` = NotOlderThan\n  is interpreted as \"data at least as new as the provided `resourceVersion`\"\n  and the bookmark event is send when the state is synced\n  to a `resourceVersion` at least as fresh as the one provided by the ListOptions.\n  If `resourceVersion` is unset, this is interpreted as \"consistent read\" and the\n  bookmark event is send when the state is synced at least to the moment\n  when request started being processed.\n- `resourceVersionMatch` set to any other value or unset\n  Invalid error is returned.\n\nDefaults to true if `resourceVersion=\"\"` or `resourceVersion=\"0\"` (for backward compatibility reasons) and to false otherwise.",
 							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+					"shardSelector": {
+						SchemaProps: spec.SchemaProps{
+							Description: "shardSelector restricts the list of returned objects using a CEL-based shard selector expression. The format uses the shardRange() function combined with || (logical OR) to specify one or more hash ranges:\n\n  shardRange(object.metadata.uid, '0x0', '0x8000000000000000')\n  shardRange(object.metadata.uid, '0x0', '0x8000000000000000') || shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')\n\nField paths use CEL-style object-rooted syntax (e.g. \"object.metadata.uid\"), NOT the fieldSelector format (\"metadata.uid\"). Currently supported paths:\n  - object.metadata.uid\n  - object.metadata.namespace\n\nhexStart and hexEnd are single-quoted CEL string literals with a '0x' prefix, defining the inclusive lower and exclusive upper bounds over the 64-bit FNV-1a hash space. The full range is [0x0, 0x10000000000000000), where the exclusive upper bound equals 2^64.\n\nExamples:\n  2-shard split:\n    shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x8000000000000000')\n    shard 1: shardRange(object.metadata.uid, '0x8000000000000000', '0x10000000000000000')\n  4-shard split:\n    shard 0: shardRange(object.metadata.uid, '0x0000000000000000', '0x4000000000000000')\n    shard 1: shardRange(object.metadata.uid, '0x4000000000000000', '0x8000000000000000')\n    shard 2: shardRange(object.metadata.uid, '0x8000000000000000', '0xc000000000000000')\n    shard 3: shardRange(object.metadata.uid, '0xc000000000000000', '0x10000000000000000')\n\nThis is an alpha field and requires enabling the ShardedListAndWatch feature gate.",
+							Type:        []string{"string"},
 							Format:      "",
 						},
 					},
@@ -44140,6 +44718,28 @@ func schema_pkg_apis_meta_v1_ServerAddressByClientCIDR(ref common.ReferenceCallb
 					},
 				},
 				Required: []string{"clientCIDR", "serverAddress"},
+			},
+		},
+	}
+}
+
+func schema_pkg_apis_meta_v1_ShardInfo(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "ShardInfo describes the shard selector that was applied to produce a list response. Its presence on a list response indicates the list is a filtered subset.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"selector": {
+						SchemaProps: spec.SchemaProps{
+							Description: "selector is the shard selector string from the request, echoed back so clients can verify which shard they received and merge responses from multiple shards.",
+							Default:     "",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
+				Required: []string{"selector"},
 			},
 		},
 	}
