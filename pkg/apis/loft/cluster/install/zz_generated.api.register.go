@@ -22,12 +22,8 @@ func Install(scheme *runtime.Scheme) {
 
 func addKnownTypes(scheme *runtime.Scheme) error {
 	scheme.AddKnownTypes(cluster.SchemeGroupVersion,
-		&cluster.ChartInfo{},
-		&cluster.ChartInfoList{},
 		&cluster.Feature{},
 		&cluster.FeatureList{},
-		&cluster.HelmRelease{},
-		&cluster.HelmReleaseList{},
 	)
 	return nil
 }

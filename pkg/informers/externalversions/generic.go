@@ -38,12 +38,8 @@ func (f *genericInformer) Lister() cache.GenericLister {
 func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource) (GenericInformer, error) {
 	switch resource {
 	// Group=cluster.loft.sh, Version=v1
-	case v1.SchemeGroupVersion.WithResource("chartinfos"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Cluster().V1().ChartInfos().Informer()}, nil
 	case v1.SchemeGroupVersion.WithResource("features"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Cluster().V1().Features().Informer()}, nil
-	case v1.SchemeGroupVersion.WithResource("helmreleases"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Cluster().V1().HelmReleases().Informer()}, nil
 
 		// Group=storage.loft.sh, Version=v1
 	case storagev1.SchemeGroupVersion.WithResource("clusterquotas"):
