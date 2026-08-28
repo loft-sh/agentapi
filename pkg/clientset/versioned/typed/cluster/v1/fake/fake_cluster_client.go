@@ -12,16 +12,8 @@ type FakeClusterV1 struct {
 	*testing.Fake
 }
 
-func (c *FakeClusterV1) ChartInfos() v1.ChartInfoInterface {
-	return &FakeChartInfos{c}
-}
-
 func (c *FakeClusterV1) Features() v1.FeatureInterface {
-	return &FakeFeatures{c}
-}
-
-func (c *FakeClusterV1) HelmReleases(namespace string) v1.HelmReleaseInterface {
-	return &FakeHelmReleases{c, namespace}
+	return newFakeFeatures(c)
 }
 
 // RESTClient returns a RESTClient that is used to communicate
