@@ -13,7 +13,7 @@ type FakeStorageV1 struct {
 }
 
 func (c *FakeStorageV1) ClusterQuotas() v1.ClusterQuotaInterface {
-	return &FakeClusterQuotas{c}
+	return newFakeClusterQuotas(c)
 }
 
 // RESTClient returns a RESTClient that is used to communicate
