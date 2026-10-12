@@ -7,8 +7,8 @@ package openapi
 
 import (
 	licenseapi "github.com/loft-sh/admin-apis/pkg/licenseapi"
-	v1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
-	storagev1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1"
+	v1 "github.com/loft-sh/agentapi/v5/pkg/apis/loft/cluster/v1"
+	storagev1 "github.com/loft-sh/agentapi/v5/pkg/apis/loft/storage/v1"
 	admissionregistrationv1 "k8s.io/api/admissionregistration/v1"
 	v1beta1 "k8s.io/api/admissionregistration/v1beta1"
 	appsv1 "k8s.io/api/apps/v1"
@@ -101,6 +101,16 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		v1.FeatureList{}.OpenAPIModelName():                                               schema_apis_loft_cluster_v1_FeatureList(ref),
 		v1.FeatureSpec{}.OpenAPIModelName():                                               schema_apis_loft_cluster_v1_FeatureSpec(ref),
 		v1.FeatureStatus{}.OpenAPIModelName():                                             schema_apis_loft_cluster_v1_FeatureStatus(ref),
+		v1.IronicNode{}.OpenAPIModelName():                                                schema_apis_loft_cluster_v1_IronicNode(ref),
+		v1.IronicNodeAbort{}.OpenAPIModelName():                                           schema_apis_loft_cluster_v1_IronicNodeAbort(ref),
+		v1.IronicNodeAbortList{}.OpenAPIModelName():                                       schema_apis_loft_cluster_v1_IronicNodeAbortList(ref),
+		v1.IronicNodeAgent{}.OpenAPIModelName():                                           schema_apis_loft_cluster_v1_IronicNodeAgent(ref),
+		v1.IronicNodeHistoryEvent{}.OpenAPIModelName():                                    schema_apis_loft_cluster_v1_IronicNodeHistoryEvent(ref),
+		v1.IronicNodeInterfaces{}.OpenAPIModelName():                                      schema_apis_loft_cluster_v1_IronicNodeInterfaces(ref),
+		v1.IronicNodeList{}.OpenAPIModelName():                                            schema_apis_loft_cluster_v1_IronicNodeList(ref),
+		v1.IronicNodeSpec{}.OpenAPIModelName():                                            schema_apis_loft_cluster_v1_IronicNodeSpec(ref),
+		v1.IronicNodeStatus{}.OpenAPIModelName():                                          schema_apis_loft_cluster_v1_IronicNodeStatus(ref),
+		v1.IronicNodeStep{}.OpenAPIModelName():                                            schema_apis_loft_cluster_v1_IronicNodeStep(ref),
 		v1.LastActivityInfo{}.OpenAPIModelName():                                          schema_apis_loft_cluster_v1_LastActivityInfo(ref),
 		v1.SleepModeConfig{}.OpenAPIModelName():                                           schema_apis_loft_cluster_v1_SleepModeConfig(ref),
 		v1.SleepModeConfigSpec{}.OpenAPIModelName():                                       schema_apis_loft_cluster_v1_SleepModeConfigSpec(ref),
@@ -3145,6 +3155,600 @@ func schema_apis_loft_cluster_v1_FeatureStatus(ref common.ReferenceCallback) com
 					},
 				},
 				Required: []string{"name"},
+			},
+		},
+	}
+}
+
+func schema_apis_loft_cluster_v1_IronicNode(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "IronicNode is the Ironic node behind a metal3 BareMetalHost, read live from the Ironic API of this cluster on every request. It carries the same name and namespace as the BareMetalHost.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"kind": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"apiVersion": {
+						SchemaProps: spec.SchemaProps{
+							Description: "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"metadata": {
+						SchemaProps: spec.SchemaProps{
+							Default: map[string]interface{}{},
+							Ref:     ref(metav1.ObjectMeta{}.OpenAPIModelName()),
+						},
+					},
+					"spec": {
+						SchemaProps: spec.SchemaProps{
+							Default: map[string]interface{}{},
+							Ref:     ref(v1.IronicNodeSpec{}.OpenAPIModelName()),
+						},
+					},
+					"status": {
+						SchemaProps: spec.SchemaProps{
+							Default: map[string]interface{}{},
+							Ref:     ref(v1.IronicNodeStatus{}.OpenAPIModelName()),
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			v1.IronicNodeSpec{}.OpenAPIModelName(), v1.IronicNodeStatus{}.OpenAPIModelName(), metav1.ObjectMeta{}.OpenAPIModelName()},
+	}
+}
+
+func schema_apis_loft_cluster_v1_IronicNodeAbort(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "IronicNodeAbort aborts the operation an Ironic node is waiting in. Ironic then fails the operation and the bare metal operator retries it, the same way it does when Ironic's own callback timeout expires.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"kind": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"apiVersion": {
+						SchemaProps: spec.SchemaProps{
+							Description: "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"metadata": {
+						SchemaProps: spec.SchemaProps{
+							Default: map[string]interface{}{},
+							Ref:     ref(metav1.ObjectMeta{}.OpenAPIModelName()),
+						},
+					},
+					"status": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Status is the node as Ironic reports it right after the abort request.",
+							Default:     map[string]interface{}{},
+							Ref:         ref(v1.IronicNodeStatus{}.OpenAPIModelName()),
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			v1.IronicNodeStatus{}.OpenAPIModelName(), metav1.ObjectMeta{}.OpenAPIModelName()},
+	}
+}
+
+func schema_apis_loft_cluster_v1_IronicNodeAbortList(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Type: []string{"object"},
+				Properties: map[string]spec.Schema{
+					"kind": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"apiVersion": {
+						SchemaProps: spec.SchemaProps{
+							Description: "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"metadata": {
+						SchemaProps: spec.SchemaProps{
+							Default: map[string]interface{}{},
+							Ref:     ref(metav1.ListMeta{}.OpenAPIModelName()),
+						},
+					},
+					"items": {
+						SchemaProps: spec.SchemaProps{
+							Type: []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref(v1.IronicNodeAbort{}.OpenAPIModelName()),
+									},
+								},
+							},
+						},
+					},
+				},
+				Required: []string{"items"},
+			},
+		},
+		Dependencies: []string{
+			v1.IronicNodeAbort{}.OpenAPIModelName(), metav1.ListMeta{}.OpenAPIModelName()},
+	}
+}
+
+func schema_apis_loft_cluster_v1_IronicNodeAgent(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "IronicNodeAgent is what Ironic knows about the ramdisk agent of a node.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"started": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Started is true once the agent has looked up its node and been given a token, so the ramdisk booted and reached Ironic.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+					"lastHeartbeat": {
+						SchemaProps: spec.SchemaProps{
+							Description: "LastHeartbeat is when the agent last called back to Ironic.",
+							Ref:         ref(metav1.Time{}.OpenAPIModelName()),
+						},
+					},
+					"version": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Version is the agent version.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			metav1.Time{}.OpenAPIModelName()},
+	}
+}
+
+func schema_apis_loft_cluster_v1_IronicNodeHistoryEvent(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "IronicNodeHistoryEvent is one entry of an Ironic node's history.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"createdAt": {
+						SchemaProps: spec.SchemaProps{
+							Description: "CreatedAt is when Ironic recorded the event.",
+							Ref:         ref(metav1.Time{}.OpenAPIModelName()),
+						},
+					},
+					"severity": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Severity is the event severity, such as \"ERROR\" or \"INFO\".",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"eventType": {
+						SchemaProps: spec.SchemaProps{
+							Description: "EventType is the operation the event belongs to, such as \"deployment\" or \"cleaning\".",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"event": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Event is the event message.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"conductor": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Conductor is the conductor that recorded the event.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
+				Required: []string{"createdAt"},
+			},
+		},
+		Dependencies: []string{
+			metav1.Time{}.OpenAPIModelName()},
+	}
+}
+
+func schema_apis_loft_cluster_v1_IronicNodeInterfaces(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "IronicNodeInterfaces are the driver interfaces of an Ironic node, each the implementation Ironic uses for it, such as \"redfish-virtual-media\" for boot.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"boot": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"deploy": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"power": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"management": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"inspect": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"console": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"network": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"storage": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"raid": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"bios": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"firmware": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"rescue": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+					"vendor": {
+						SchemaProps: spec.SchemaProps{
+							Type:   []string{"string"},
+							Format: "",
+						},
+					},
+				},
+			},
+		},
+	}
+}
+
+func schema_apis_loft_cluster_v1_IronicNodeList(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Type: []string{"object"},
+				Properties: map[string]spec.Schema{
+					"kind": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"apiVersion": {
+						SchemaProps: spec.SchemaProps{
+							Description: "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"metadata": {
+						SchemaProps: spec.SchemaProps{
+							Default: map[string]interface{}{},
+							Ref:     ref(metav1.ListMeta{}.OpenAPIModelName()),
+						},
+					},
+					"items": {
+						SchemaProps: spec.SchemaProps{
+							Type: []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref(v1.IronicNode{}.OpenAPIModelName()),
+									},
+								},
+							},
+						},
+					},
+				},
+				Required: []string{"items"},
+			},
+		},
+		Dependencies: []string{
+			v1.IronicNode{}.OpenAPIModelName(), metav1.ListMeta{}.OpenAPIModelName()},
+	}
+}
+
+func schema_apis_loft_cluster_v1_IronicNodeSpec(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "IronicNodeSpec is empty: an IronicNode is read-only.",
+				Type:        []string{"object"},
+			},
+		},
+	}
+}
+
+func schema_apis_loft_cluster_v1_IronicNodeStatus(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "IronicNodeStatus is what Ironic reports about the node. Only the fields below are copied from Ironic, and driver info without its credentials, so BMC credentials, agent tokens and instance data stay in Ironic.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"uuid": {
+						SchemaProps: spec.SchemaProps{
+							Description: "UUID is the Ironic node uuid, the BareMetalHost's status.provisioning.ID.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"provisionState": {
+						SchemaProps: spec.SchemaProps{
+							Description: "ProvisionState is the Ironic provision state, such as \"wait call-back\" or \"clean wait\".",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"targetProvisionState": {
+						SchemaProps: spec.SchemaProps{
+							Description: "TargetProvisionState is the state Ironic is moving the node to.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"provisionUpdatedAt": {
+						SchemaProps: spec.SchemaProps{
+							Description: "ProvisionUpdatedAt is when ProvisionState last changed.",
+							Ref:         ref(metav1.Time{}.OpenAPIModelName()),
+						},
+					},
+					"powerState": {
+						SchemaProps: spec.SchemaProps{
+							Description: "PowerState is the power state Ironic last read from the BMC.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"targetPowerState": {
+						SchemaProps: spec.SchemaProps{
+							Description: "TargetPowerState is the power state Ironic is moving the node to.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"lastError": {
+						SchemaProps: spec.SchemaProps{
+							Description: "LastError is the last error Ironic recorded for the node.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"maintenance": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Maintenance is set when the node is in maintenance mode, by an operator or by Ironic itself after a fault.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+					"maintenanceReason": {
+						SchemaProps: spec.SchemaProps{
+							Description: "MaintenanceReason says why the node is in maintenance mode.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"fault": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Fault is the fault that made Ironic put the node in maintenance mode, such as \"power failure\" or \"clean failure\".",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"conductor": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Conductor is the Ironic conductor that manages the node, and so the one whose logs cover it.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"reservation": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Reservation is the conductor that currently holds the node's lock.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"deployStep": {
+						SchemaProps: spec.SchemaProps{
+							Description: "DeployStep is the deploy step the node is running or waiting in.",
+							Ref:         ref(v1.IronicNodeStep{}.OpenAPIModelName()),
+						},
+					},
+					"cleanStep": {
+						SchemaProps: spec.SchemaProps{
+							Description: "CleanStep is the clean step the node is running or waiting in.",
+							Ref:         ref(v1.IronicNodeStep{}.OpenAPIModelName()),
+						},
+					},
+					"serviceStep": {
+						SchemaProps: spec.SchemaProps{
+							Description: "ServiceStep is the service step the node is running or waiting in.",
+							Ref:         ref(v1.IronicNodeStep{}.OpenAPIModelName()),
+						},
+					},
+					"agent": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Agent is what Ironic knows about the ironic-python-agent ramdisk.",
+							Default:     map[string]interface{}{},
+							Ref:         ref(v1.IronicNodeAgent{}.OpenAPIModelName()),
+						},
+					},
+					"driver": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Driver is the hardware type Ironic manages the node with, such as \"redfish\" or \"ipmi\".",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"interfaces": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Interfaces are the driver interfaces the node uses.",
+							Default:     map[string]interface{}{},
+							Ref:         ref(v1.IronicNodeInterfaces{}.OpenAPIModelName()),
+						},
+					},
+					"driverInfo": {
+						SchemaProps: spec.SchemaProps{
+							Description: "DriverInfo holds the node's driver settings, such as the BMC address, the deploy ramdisk or force_persistent_boot_device. A value that is not a string is JSON. Credentials are left out: whatever Ironic masks, and every username, password, token, key, secret or certificate.",
+							Type:        []string{"object"},
+							AdditionalProperties: &spec.SchemaOrBool{
+								Allows: true,
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: "",
+										Type:    []string{"string"},
+										Format:  "",
+									},
+								},
+							},
+						},
+					},
+					"bootMode": {
+						SchemaProps: spec.SchemaProps{
+							Description: "BootMode is the boot mode Ironic last read from the BMC, \"uefi\" or \"bios\".",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"secureBoot": {
+						SchemaProps: spec.SchemaProps{
+							Description: "SecureBoot is whether UEFI secure boot is on, as Ironic last read it from the BMC. Unset when the BMC does not report it.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+					"abortable": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Abortable is true when the node waits in a state that the abort subresource accepts.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+					"history": {
+						SchemaProps: spec.SchemaProps{
+							Description: "History holds the node's most recent Ironic history events, newest first. Only a get fills it: a list leaves it empty.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref(v1.IronicNodeHistoryEvent{}.OpenAPIModelName()),
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+		Dependencies: []string{
+			v1.IronicNodeAgent{}.OpenAPIModelName(), v1.IronicNodeHistoryEvent{}.OpenAPIModelName(), v1.IronicNodeInterfaces{}.OpenAPIModelName(), v1.IronicNodeStep{}.OpenAPIModelName(), metav1.Time{}.OpenAPIModelName()},
+	}
+}
+
+func schema_apis_loft_cluster_v1_IronicNodeStep(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Description: "IronicNodeStep is a deploy, clean or service step of an Ironic node.",
+				Type:        []string{"object"},
+				Properties: map[string]spec.Schema{
+					"driverInterface": {
+						SchemaProps: spec.SchemaProps{
+							Description: "DriverInterface is the driver interface the step belongs to, such as \"deploy\" or \"raid\".",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"step": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Step is the step name, such as \"write_image\".",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"abortable": {
+						SchemaProps: spec.SchemaProps{
+							Description: "Abortable is true when Ironic can abort the step while it runs. An abort requested during a step that is not abortable takes effect once the step is done.",
+							Type:        []string{"boolean"},
+							Format:      "",
+						},
+					},
+				},
 			},
 		},
 	}

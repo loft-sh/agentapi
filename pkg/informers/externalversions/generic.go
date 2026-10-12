@@ -5,8 +5,8 @@ package externalversions
 import (
 	fmt "fmt"
 
-	v1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
-	storagev1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1"
+	v1 "github.com/loft-sh/agentapi/v5/pkg/apis/loft/cluster/v1"
+	storagev1 "github.com/loft-sh/agentapi/v5/pkg/apis/loft/storage/v1"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	cache "k8s.io/client-go/tools/cache"
 )
@@ -40,6 +40,8 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 	// Group=cluster.loft.sh, Version=v1
 	case v1.SchemeGroupVersion.WithResource("features"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Cluster().V1().Features().Informer()}, nil
+	case v1.SchemeGroupVersion.WithResource("ironicnodes"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Cluster().V1().IronicNodes().Informer()}, nil
 
 		// Group=storage.loft.sh, Version=v1
 	case storagev1.SchemeGroupVersion.WithResource("clusterquotas"):

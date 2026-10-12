@@ -3,13 +3,15 @@
 package v1
 
 import (
-	internalinterfaces "github.com/loft-sh/agentapi/v4/pkg/informers/externalversions/internalinterfaces"
+	internalinterfaces "github.com/loft-sh/agentapi/v5/pkg/informers/externalversions/internalinterfaces"
 )
 
 // Interface provides access to all the informers in this group version.
 type Interface interface {
 	// Features returns a FeatureInformer.
 	Features() FeatureInformer
+	// IronicNodes returns a IronicNodeInformer.
+	IronicNodes() IronicNodeInformer
 }
 
 type version struct {
@@ -26,4 +28,9 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 // Features returns a FeatureInformer.
 func (v *version) Features() FeatureInformer {
 	return &featureInformer{factory: v.factory, tweakListOptions: v.tweakListOptions}
+}
+
+// IronicNodes returns a IronicNodeInformer.
+func (v *version) IronicNodes() IronicNodeInformer {
+	return &ironicNodeInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }

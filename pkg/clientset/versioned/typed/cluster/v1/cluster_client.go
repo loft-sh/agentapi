@@ -5,14 +5,15 @@ package v1
 import (
 	http "net/http"
 
-	clusterv1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
-	scheme "github.com/loft-sh/agentapi/v4/pkg/clientset/versioned/scheme"
+	clusterv1 "github.com/loft-sh/agentapi/v5/pkg/apis/loft/cluster/v1"
+	scheme "github.com/loft-sh/agentapi/v5/pkg/clientset/versioned/scheme"
 	rest "k8s.io/client-go/rest"
 )
 
 type ClusterV1Interface interface {
 	RESTClient() rest.Interface
 	FeaturesGetter
+	IronicNodesGetter
 }
 
 // ClusterV1Client is used to interact with features provided by the cluster.loft.sh group.
@@ -22,6 +23,10 @@ type ClusterV1Client struct {
 
 func (c *ClusterV1Client) Features() FeatureInterface {
 	return newFeatures(c)
+}
+
+func (c *ClusterV1Client) IronicNodes(namespace string) IronicNodeInterface {
+	return newIronicNodes(c, namespace)
 }
 
 // NewForConfig creates a new ClusterV1Client for the given config.

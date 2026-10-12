@@ -5,3 +5,11 @@ package v1
 // FeatureListerExpansion allows custom methods to be added to
 // FeatureLister.
 type FeatureListerExpansion interface{}
+
+// IronicNodeListerExpansion allows custom methods to be added to
+// IronicNodeLister.
+type IronicNodeListerExpansion interface{}
+
+// IronicNodeNamespaceListerExpansion allows custom methods to be added to
+// IronicNodeNamespaceLister.
+type IronicNodeNamespaceListerExpansion interface{}

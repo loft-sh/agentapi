@@ -3,7 +3,7 @@
 package fake
 
 import (
-	v1 "github.com/loft-sh/agentapi/v4/pkg/clientset/versioned/typed/cluster/v1"
+	v1 "github.com/loft-sh/agentapi/v5/pkg/clientset/versioned/typed/cluster/v1"
 	rest "k8s.io/client-go/rest"
 	testing "k8s.io/client-go/testing"
 )
@@ -14,6 +14,10 @@ type FakeClusterV1 struct {
 
 func (c *FakeClusterV1) Features() v1.FeatureInterface {
 	return newFakeFeatures(c)
+}
+
+func (c *FakeClusterV1) IronicNodes(namespace string) v1.IronicNodeInterface {
+	return newFakeIronicNodes(c, namespace)
 }
 
 // RESTClient returns a RESTClient that is used to communicate

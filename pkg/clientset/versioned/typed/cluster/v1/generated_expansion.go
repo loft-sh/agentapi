@@ -3,3 +3,5 @@
 package v1
 
 type FeatureExpansion interface{}
+
+type IronicNodeExpansion interface{}
