@@ -2,18 +2,14 @@
 
 package v1
 
-// ChartInfoListerExpansion allows custom methods to be added to
-// ChartInfoLister.
-type ChartInfoListerExpansion interface{}
-
 // FeatureListerExpansion allows custom methods to be added to
 // FeatureLister.
 type FeatureListerExpansion interface{}
 
-// HelmReleaseListerExpansion allows custom methods to be added to
-// HelmReleaseLister.
-type HelmReleaseListerExpansion interface{}
+// IronicNodeListerExpansion allows custom methods to be added to
+// IronicNodeLister.
+type IronicNodeListerExpansion interface{}
 
-// HelmReleaseNamespaceListerExpansion allows custom methods to be added to
-// HelmReleaseNamespaceLister.
-type HelmReleaseNamespaceListerExpansion interface{}
+// IronicNodeNamespaceListerExpansion allows custom methods to be added to
+// IronicNodeNamespaceLister.
+type IronicNodeNamespaceListerExpansion interface{}
