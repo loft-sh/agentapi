@@ -27,6 +27,10 @@ func addKnownTypes(scheme *runtime.Scheme) error {
 		&cluster.IronicNode{},
 		&cluster.IronicNodeList{},
 		&cluster.IronicNodeAbort{},
+		&cluster.Metal3BMC{},
+		&cluster.Metal3BMCList{},
+		&cluster.Metal3BMCConsole{},
+		&cluster.Metal3BMCRedfish{},
 	)
 	return nil
 }
