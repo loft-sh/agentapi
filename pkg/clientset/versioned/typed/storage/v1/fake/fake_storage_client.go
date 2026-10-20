@@ -3,7 +3,7 @@
 package fake
 
 import (
-	v1 "github.com/loft-sh/agentapi/v4/pkg/clientset/versioned/typed/storage/v1"
+	v1 "github.com/loft-sh/agentapi/v5/pkg/clientset/versioned/typed/storage/v1"
 	rest "k8s.io/client-go/rest"
 	testing "k8s.io/client-go/testing"
 )
@@ -13,7 +13,7 @@ type FakeStorageV1 struct {
 }
 
 func (c *FakeStorageV1) ClusterQuotas() v1.ClusterQuotaInterface {
-	return &FakeClusterQuotas{c}
+	return newFakeClusterQuotas(c)
 }
 
 // RESTClient returns a RESTClient that is used to communicate
