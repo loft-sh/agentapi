@@ -3,15 +3,16 @@
 package v1
 
 import (
-	"context"
+	context "context"
 	time "time"
 
-	clusterv1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
+	loftclusterv1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
 	versioned "github.com/loft-sh/agentapi/v4/pkg/clientset/versioned"
 	internalinterfaces "github.com/loft-sh/agentapi/v4/pkg/informers/externalversions/internalinterfaces"
-	v1 "github.com/loft-sh/agentapi/v4/pkg/listers/cluster/v1"
+	clusterv1 "github.com/loft-sh/agentapi/v4/pkg/listers/cluster/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
+	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	watch "k8s.io/apimachinery/pkg/watch"
 	cache "k8s.io/client-go/tools/cache"
 )
@@ -20,7 +21,7 @@ import (
 // HelmReleases.
 type HelmReleaseInformer interface {
 	Informer() cache.SharedIndexInformer
-	Lister() v1.HelmReleaseLister
+	Lister() clusterv1.HelmReleaseLister
 }
 
 type helmReleaseInformer struct {
@@ -33,42 +34,67 @@ type helmReleaseInformer struct {
 // Always prefer using an informer factory to get a shared informer instead of getting an independent
 // one. This reduces memory footprint and number of connections to the server.
 func NewHelmReleaseInformer(client versioned.Interface, namespace string, resyncPeriod time.Duration, indexers cache.Indexers) cache.SharedIndexInformer {
-	return NewFilteredHelmReleaseInformer(client, namespace, resyncPeriod, indexers, nil)
+	return NewHelmReleaseInformerWithOptions(client, namespace, internalinterfaces.InformerOptions{ResyncPeriod: resyncPeriod, Indexers: indexers})
 }
 
 // NewFilteredHelmReleaseInformer constructs a new informer for HelmRelease type.
 // Always prefer using an informer factory to get a shared informer instead of getting an independent
 // one. This reduces memory footprint and number of connections to the server.
 func NewFilteredHelmReleaseInformer(client versioned.Interface, namespace string, resyncPeriod time.Duration, indexers cache.Indexers, tweakListOptions internalinterfaces.TweakListOptionsFunc) cache.SharedIndexInformer {
-	return cache.NewSharedIndexInformer(
-		&cache.ListWatch{
-			ListFunc: func(options metav1.ListOptions) (runtime.Object, error) {
+	return NewHelmReleaseInformerWithOptions(client, namespace, internalinterfaces.InformerOptions{ResyncPeriod: resyncPeriod, Indexers: indexers, TweakListOptions: tweakListOptions})
+}
+
+// NewHelmReleaseInformerWithOptions constructs a new informer for HelmRelease type with additional options.
+// Always prefer using an informer factory to get a shared informer instead of getting an independent
+// one. This reduces memory footprint and number of connections to the server.
+func NewHelmReleaseInformerWithOptions(client versioned.Interface, namespace string, options internalinterfaces.InformerOptions) cache.SharedIndexInformer {
+	gvr := schema.GroupVersionResource{Group: "cluster.loft.sh", Version: "v1", Resource: "helmreleases"}
+	identifier := options.InformerName.WithResource(gvr)
+	tweakListOptions := options.TweakListOptions
+	return cache.NewSharedIndexInformerWithOptions(
+		cache.ToListWatcherWithWatchListSemantics(&cache.ListWatch{
+			ListFunc: func(opts metav1.ListOptions) (runtime.Object, error) {
 				if tweakListOptions != nil {
-					tweakListOptions(&options)
+					tweakListOptions(&opts)
 				}
-				return client.ClusterV1().HelmReleases(namespace).List(context.TODO(), options)
+				return client.ClusterV1().HelmReleases(namespace).List(context.Background(), opts)
 			},
-			WatchFunc: func(options metav1.ListOptions) (watch.Interface, error) {
+			WatchFunc: func(opts metav1.ListOptions) (watch.Interface, error) {
 				if tweakListOptions != nil {
-					tweakListOptions(&options)
+					tweakListOptions(&opts)
 				}
-				return client.ClusterV1().HelmReleases(namespace).Watch(context.TODO(), options)
+				return client.ClusterV1().HelmReleases(namespace).Watch(context.Background(), opts)
 			},
+			ListWithContextFunc: func(ctx context.Context, opts metav1.ListOptions) (runtime.Object, error) {
+				if tweakListOptions != nil {
+					tweakListOptions(&opts)
+				}
+				return client.ClusterV1().HelmReleases(namespace).List(ctx, opts)
+			},
+			WatchFuncWithContext: func(ctx context.Context, opts metav1.ListOptions) (watch.Interface, error) {
+				if tweakListOptions != nil {
+					tweakListOptions(&opts)
+				}
+				return client.ClusterV1().HelmReleases(namespace).Watch(ctx, opts)
+			},
+		}, client),
+		&loftclusterv1.HelmRelease{},
+		cache.SharedIndexInformerOptions{
+			ResyncPeriod: options.ResyncPeriod,
+			Indexers:     options.Indexers,
+			Identifier:   identifier,
 		},
-		&clusterv1.HelmRelease{},
-		resyncPeriod,
-		indexers,
 	)
 }
 
 func (f *helmReleaseInformer) defaultInformer(client versioned.Interface, resyncPeriod time.Duration) cache.SharedIndexInformer {
-	return NewFilteredHelmReleaseInformer(client, f.namespace, resyncPeriod, cache.Indexers{cache.NamespaceIndex: cache.MetaNamespaceIndexFunc}, f.tweakListOptions)
+	return NewHelmReleaseInformerWithOptions(client, f.namespace, internalinterfaces.InformerOptions{ResyncPeriod: resyncPeriod, Indexers: cache.Indexers{cache.NamespaceIndex: cache.MetaNamespaceIndexFunc}, InformerName: f.factory.InformerName(), TweakListOptions: f.tweakListOptions})
 }
 
 func (f *helmReleaseInformer) Informer() cache.SharedIndexInformer {
-	return f.factory.InformerFor(&clusterv1.HelmRelease{}, f.defaultInformer)
+	return f.factory.InformerFor(&loftclusterv1.HelmRelease{}, f.defaultInformer)
 }
 
-func (f *helmReleaseInformer) Lister() v1.HelmReleaseLister {
-	return v1.NewHelmReleaseLister(f.Informer().GetIndexer())
+func (f *helmReleaseInformer) Lister() clusterv1.HelmReleaseLister {
+	return clusterv1.NewHelmReleaseLister(f.Informer().GetIndexer())
 }
