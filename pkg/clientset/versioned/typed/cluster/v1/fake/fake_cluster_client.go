@@ -13,15 +13,15 @@ type FakeClusterV1 struct {
 }
 
 func (c *FakeClusterV1) ChartInfos() v1.ChartInfoInterface {
-	return &FakeChartInfos{c}
+	return newFakeChartInfos(c)
 }
 
 func (c *FakeClusterV1) Features() v1.FeatureInterface {
-	return &FakeFeatures{c}
+	return newFakeFeatures(c)
 }
 
 func (c *FakeClusterV1) HelmReleases(namespace string) v1.HelmReleaseInterface {
-	return &FakeHelmReleases{c, namespace}
+	return newFakeHelmReleases(c, namespace)
 }
 
 // RESTClient returns a RESTClient that is used to communicate
