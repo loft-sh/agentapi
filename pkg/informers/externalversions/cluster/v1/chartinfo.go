@@ -3,13 +3,13 @@
 package v1
 
 import (
-	"context"
+	context "context"
 	time "time"
 
-	clusterv1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
+	loftclusterv1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
 	versioned "github.com/loft-sh/agentapi/v4/pkg/clientset/versioned"
 	internalinterfaces "github.com/loft-sh/agentapi/v4/pkg/informers/externalversions/internalinterfaces"
-	v1 "github.com/loft-sh/agentapi/v4/pkg/listers/cluster/v1"
+	clusterv1 "github.com/loft-sh/agentapi/v4/pkg/listers/cluster/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	watch "k8s.io/apimachinery/pkg/watch"
@@ -20,7 +20,7 @@ import (
 // ChartInfos.
 type ChartInfoInformer interface {
 	Informer() cache.SharedIndexInformer
-	Lister() v1.ChartInfoLister
+	Lister() clusterv1.ChartInfoLister
 }
 
 type chartInfoInformer struct {
@@ -40,21 +40,33 @@ func NewChartInfoInformer(client versioned.Interface, resyncPeriod time.Duration
 // one. This reduces memory footprint and number of connections to the server.
 func NewFilteredChartInfoInformer(client versioned.Interface, resyncPeriod time.Duration, indexers cache.Indexers, tweakListOptions internalinterfaces.TweakListOptionsFunc) cache.SharedIndexInformer {
 	return cache.NewSharedIndexInformer(
-		&cache.ListWatch{
+		cache.ToListWatcherWithWatchListSemantics(&cache.ListWatch{
 			ListFunc: func(options metav1.ListOptions) (runtime.Object, error) {
 				if tweakListOptions != nil {
 					tweakListOptions(&options)
 				}
-				return client.ClusterV1().ChartInfos().List(context.TODO(), options)
+				return client.ClusterV1().ChartInfos().List(context.Background(), options)
 			},
 			WatchFunc: func(options metav1.ListOptions) (watch.Interface, error) {
 				if tweakListOptions != nil {
 					tweakListOptions(&options)
 				}
-				return client.ClusterV1().ChartInfos().Watch(context.TODO(), options)
+				return client.ClusterV1().ChartInfos().Watch(context.Background(), options)
 			},
-		},
-		&clusterv1.ChartInfo{},
+			ListWithContextFunc: func(ctx context.Context, options metav1.ListOptions) (runtime.Object, error) {
+				if tweakListOptions != nil {
+					tweakListOptions(&options)
+				}
+				return client.ClusterV1().ChartInfos().List(ctx, options)
+			},
+			WatchFuncWithContext: func(ctx context.Context, options metav1.ListOptions) (watch.Interface, error) {
+				if tweakListOptions != nil {
+					tweakListOptions(&options)
+				}
+				return client.ClusterV1().ChartInfos().Watch(ctx, options)
+			},
+		}, client),
+		&loftclusterv1.ChartInfo{},
 		resyncPeriod,
 		indexers,
 	)
@@ -65,9 +77,9 @@ func (f *chartInfoInformer) defaultInformer(client versioned.Interface, resyncPe
 }
 
 func (f *chartInfoInformer) Informer() cache.SharedIndexInformer {
-	return f.factory.InformerFor(&clusterv1.ChartInfo{}, f.defaultInformer)
+	return f.factory.InformerFor(&loftclusterv1.ChartInfo{}, f.defaultInformer)
 }
 
-func (f *chartInfoInformer) Lister() v1.ChartInfoLister {
-	return v1.NewChartInfoLister(f.Informer().GetIndexer())
+func (f *chartInfoInformer) Lister() clusterv1.ChartInfoLister {
+	return clusterv1.NewChartInfoLister(f.Informer().GetIndexer())
 }
