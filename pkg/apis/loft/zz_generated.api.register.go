@@ -34,7 +34,6 @@ func GetClusterAPIBuilder() *builders.APIGroupBuilder {
 			clusterv1.ApiVersion,
 		).
 		WithRootScopedKinds(
-			"ChartInfo",
 			"Feature",
 		)
 }

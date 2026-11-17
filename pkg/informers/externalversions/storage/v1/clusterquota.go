@@ -3,15 +3,16 @@
 package v1
 
 import (
-	"context"
+	context "context"
 	time "time"
 
-	storagev1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1"
+	loftstoragev1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1"
 	versioned "github.com/loft-sh/agentapi/v4/pkg/clientset/versioned"
 	internalinterfaces "github.com/loft-sh/agentapi/v4/pkg/informers/externalversions/internalinterfaces"
-	v1 "github.com/loft-sh/agentapi/v4/pkg/listers/storage/v1"
+	storagev1 "github.com/loft-sh/agentapi/v4/pkg/listers/storage/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
+	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	watch "k8s.io/apimachinery/pkg/watch"
 	cache "k8s.io/client-go/tools/cache"
 )
@@ -20,7 +21,7 @@ import (
 // ClusterQuotas.
 type ClusterQuotaInformer interface {
 	Informer() cache.SharedIndexInformer
-	Lister() v1.ClusterQuotaLister
+	Lister() storagev1.ClusterQuotaLister
 }
 
 type clusterQuotaInformer struct {
@@ -32,42 +33,67 @@ type clusterQuotaInformer struct {
 // Always prefer using an informer factory to get a shared informer instead of getting an independent
 // one. This reduces memory footprint and number of connections to the server.
 func NewClusterQuotaInformer(client versioned.Interface, resyncPeriod time.Duration, indexers cache.Indexers) cache.SharedIndexInformer {
-	return NewFilteredClusterQuotaInformer(client, resyncPeriod, indexers, nil)
+	return NewClusterQuotaInformerWithOptions(client, internalinterfaces.InformerOptions{ResyncPeriod: resyncPeriod, Indexers: indexers})
 }
 
 // NewFilteredClusterQuotaInformer constructs a new informer for ClusterQuota type.
 // Always prefer using an informer factory to get a shared informer instead of getting an independent
 // one. This reduces memory footprint and number of connections to the server.
 func NewFilteredClusterQuotaInformer(client versioned.Interface, resyncPeriod time.Duration, indexers cache.Indexers, tweakListOptions internalinterfaces.TweakListOptionsFunc) cache.SharedIndexInformer {
-	return cache.NewSharedIndexInformer(
-		&cache.ListWatch{
-			ListFunc: func(options metav1.ListOptions) (runtime.Object, error) {
+	return NewClusterQuotaInformerWithOptions(client, internalinterfaces.InformerOptions{ResyncPeriod: resyncPeriod, Indexers: indexers, TweakListOptions: tweakListOptions})
+}
+
+// NewClusterQuotaInformerWithOptions constructs a new informer for ClusterQuota type with additional options.
+// Always prefer using an informer factory to get a shared informer instead of getting an independent
+// one. This reduces memory footprint and number of connections to the server.
+func NewClusterQuotaInformerWithOptions(client versioned.Interface, options internalinterfaces.InformerOptions) cache.SharedIndexInformer {
+	gvr := schema.GroupVersionResource{Group: "storage.loft.sh", Version: "v1", Resource: "clusterquotas"}
+	identifier := options.InformerName.WithResource(gvr)
+	tweakListOptions := options.TweakListOptions
+	return cache.NewSharedIndexInformerWithOptions(
+		cache.ToListWatcherWithWatchListSemantics(&cache.ListWatch{
+			ListFunc: func(opts metav1.ListOptions) (runtime.Object, error) {
 				if tweakListOptions != nil {
-					tweakListOptions(&options)
+					tweakListOptions(&opts)
 				}
-				return client.StorageV1().ClusterQuotas().List(context.TODO(), options)
+				return client.StorageV1().ClusterQuotas().List(context.Background(), opts)
 			},
-			WatchFunc: func(options metav1.ListOptions) (watch.Interface, error) {
+			WatchFunc: func(opts metav1.ListOptions) (watch.Interface, error) {
 				if tweakListOptions != nil {
-					tweakListOptions(&options)
+					tweakListOptions(&opts)
 				}
-				return client.StorageV1().ClusterQuotas().Watch(context.TODO(), options)
+				return client.StorageV1().ClusterQuotas().Watch(context.Background(), opts)
 			},
+			ListWithContextFunc: func(ctx context.Context, opts metav1.ListOptions) (runtime.Object, error) {
+				if tweakListOptions != nil {
+					tweakListOptions(&opts)
+				}
+				return client.StorageV1().ClusterQuotas().List(ctx, opts)
+			},
+			WatchFuncWithContext: func(ctx context.Context, opts metav1.ListOptions) (watch.Interface, error) {
+				if tweakListOptions != nil {
+					tweakListOptions(&opts)
+				}
+				return client.StorageV1().ClusterQuotas().Watch(ctx, opts)
+			},
+		}, client),
+		&loftstoragev1.ClusterQuota{},
+		cache.SharedIndexInformerOptions{
+			ResyncPeriod: options.ResyncPeriod,
+			Indexers:     options.Indexers,
+			Identifier:   identifier,
 		},
-		&storagev1.ClusterQuota{},
-		resyncPeriod,
-		indexers,
 	)
 }
 
 func (f *clusterQuotaInformer) defaultInformer(client versioned.Interface, resyncPeriod time.Duration) cache.SharedIndexInformer {
-	return NewFilteredClusterQuotaInformer(client, resyncPeriod, cache.Indexers{cache.NamespaceIndex: cache.MetaNamespaceIndexFunc}, f.tweakListOptions)
+	return NewClusterQuotaInformerWithOptions(client, internalinterfaces.InformerOptions{ResyncPeriod: resyncPeriod, Indexers: cache.Indexers{cache.NamespaceIndex: cache.MetaNamespaceIndexFunc}, InformerName: f.factory.InformerName(), TweakListOptions: f.tweakListOptions})
 }
 
 func (f *clusterQuotaInformer) Informer() cache.SharedIndexInformer {
-	return f.factory.InformerFor(&storagev1.ClusterQuota{}, f.defaultInformer)
+	return f.factory.InformerFor(&loftstoragev1.ClusterQuota{}, f.defaultInformer)
 }
 
-func (f *clusterQuotaInformer) Lister() v1.ClusterQuotaLister {
-	return v1.NewClusterQuotaLister(f.Informer().GetIndexer())
+func (f *clusterQuotaInformer) Lister() storagev1.ClusterQuotaLister {
+	return storagev1.NewClusterQuotaLister(f.Informer().GetIndexer())
 }
