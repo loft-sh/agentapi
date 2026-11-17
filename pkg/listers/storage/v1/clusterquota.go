@@ -3,10 +3,10 @@
 package v1
 
 import (
-	v1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1"
-	"k8s.io/apimachinery/pkg/labels"
-	"k8s.io/client-go/listers"
-	"k8s.io/client-go/tools/cache"
+	storagev1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/storage/v1"
+	labels "k8s.io/apimachinery/pkg/labels"
+	listers "k8s.io/client-go/listers"
+	cache "k8s.io/client-go/tools/cache"
 )
 
 // ClusterQuotaLister helps list ClusterQuotas.
@@ -14,19 +14,19 @@ import (
 type ClusterQuotaLister interface {
 	// List lists all ClusterQuotas in the indexer.
 	// Objects returned here must be treated as read-only.
-	List(selector labels.Selector) (ret []*v1.ClusterQuota, err error)
+	List(selector labels.Selector) (ret []*storagev1.ClusterQuota, err error)
 	// Get retrieves the ClusterQuota from the index for a given name.
 	// Objects returned here must be treated as read-only.
-	Get(name string) (*v1.ClusterQuota, error)
+	Get(name string) (*storagev1.ClusterQuota, error)
 	ClusterQuotaListerExpansion
 }
 
 // clusterQuotaLister implements the ClusterQuotaLister interface.
 type clusterQuotaLister struct {
-	listers.ResourceIndexer[*v1.ClusterQuota]
+	listers.ResourceIndexer[*storagev1.ClusterQuota]
 }
 
 // NewClusterQuotaLister returns a new ClusterQuotaLister.
 func NewClusterQuotaLister(indexer cache.Indexer) ClusterQuotaLister {
-	return &clusterQuotaLister{listers.New[*v1.ClusterQuota](indexer, v1.Resource("clusterquota"))}
+	return &clusterQuotaLister{listers.New[*storagev1.ClusterQuota](indexer, storagev1.Resource("clusterquota"))}
 }
