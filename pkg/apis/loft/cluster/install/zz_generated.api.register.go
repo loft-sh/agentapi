@@ -3,8 +3,8 @@
 package install
 
 import (
-	"github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster"
-	v1 "github.com/loft-sh/agentapi/v4/pkg/apis/loft/cluster/v1"
+	"github.com/loft-sh/agentapi/v5/pkg/apis/loft/cluster"
+	"github.com/loft-sh/agentapi/v5/pkg/apis/loft/cluster/v1"
 	"github.com/loft-sh/apiserver/pkg/builders"
 	"k8s.io/apimachinery/pkg/runtime"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
@@ -22,12 +22,15 @@ func Install(scheme *runtime.Scheme) {
 
 func addKnownTypes(scheme *runtime.Scheme) error {
 	scheme.AddKnownTypes(cluster.SchemeGroupVersion,
-		&cluster.ChartInfo{},
-		&cluster.ChartInfoList{},
 		&cluster.Feature{},
 		&cluster.FeatureList{},
-		&cluster.HelmRelease{},
-		&cluster.HelmReleaseList{},
+		&cluster.IronicNode{},
+		&cluster.IronicNodeList{},
+		&cluster.IronicNodeAbort{},
+		&cluster.Metal3BMC{},
+		&cluster.Metal3BMCList{},
+		&cluster.Metal3BMCConsole{},
+		&cluster.Metal3BMCRedfish{},
 	)
 	return nil
 }
