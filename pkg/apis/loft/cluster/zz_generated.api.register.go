@@ -8,7 +8,6 @@ import (
 
 	pkglicenseapi "github.com/loft-sh/admin-apis/pkg/licenseapi"
 	"github.com/loft-sh/apiserver/pkg/builders"
-	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/apis/meta/internalversion"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
@@ -22,16 +21,6 @@ import (
 type NewRESTFunc func(config *configrest.Config, cachedClient, uncachedClient, cachedManagementClient, uncachedManagementClient client.Client) rest.Storage
 
 var (
-	ClusterChartInfoStorage = builders.NewApiResourceWithStorage( // Resource status endpoint
-		InternalChartInfo,
-		func() runtime.Object { return &ChartInfo{} },     // Register versioned resource
-		func() runtime.Object { return &ChartInfoList{} }, // Register versioned resource list
-		NewChartInfoREST,
-	)
-	NewChartInfoREST = func(getter generic.RESTOptionsGetter) rest.Storage {
-		return NewChartInfoRESTFunc(Config, CachedClient, UncachedClient, CachedManagementClient, UncachedManagementClient)
-	}
-	NewChartInfoRESTFunc  NewRESTFunc
 	ClusterFeatureStorage = builders.NewApiResourceWithStorage( // Resource status endpoint
 		InternalFeature,
 		func() runtime.Object { return &Feature{} },     // Register versioned resource
@@ -41,30 +30,28 @@ var (
 	NewFeatureREST = func(getter generic.RESTOptionsGetter) rest.Storage {
 		return NewFeatureRESTFunc(Config, CachedClient, UncachedClient, CachedManagementClient, UncachedManagementClient)
 	}
-	NewFeatureRESTFunc        NewRESTFunc
-	ClusterHelmReleaseStorage = builders.NewApiResourceWithStorage( // Resource status endpoint
-		InternalHelmRelease,
-		func() runtime.Object { return &HelmRelease{} },     // Register versioned resource
-		func() runtime.Object { return &HelmReleaseList{} }, // Register versioned resource list
-		NewHelmReleaseREST,
+	NewFeatureRESTFunc       NewRESTFunc
+	ClusterIronicNodeStorage = builders.NewApiResourceWithStorage( // Resource status endpoint
+		InternalIronicNode,
+		func() runtime.Object { return &IronicNode{} },     // Register versioned resource
+		func() runtime.Object { return &IronicNodeList{} }, // Register versioned resource list
+		NewIronicNodeREST,
 	)
-	NewHelmReleaseREST = func(getter generic.RESTOptionsGetter) rest.Storage {
-		return NewHelmReleaseRESTFunc(Config, CachedClient, UncachedClient, CachedManagementClient, UncachedManagementClient)
+	NewIronicNodeREST = func(getter generic.RESTOptionsGetter) rest.Storage {
+		return NewIronicNodeRESTFunc(Config, CachedClient, UncachedClient, CachedManagementClient, UncachedManagementClient)
 	}
-	NewHelmReleaseRESTFunc NewRESTFunc
-	InternalChartInfo      = builders.NewInternalResource(
-		"chartinfos",
-		"ChartInfo",
-		func() runtime.Object { return &ChartInfo{} },
-		func() runtime.Object { return &ChartInfoList{} },
+	NewIronicNodeRESTFunc   NewRESTFunc
+	ClusterMetal3BMCStorage = builders.NewApiResourceWithStorage( // Resource status endpoint
+		InternalMetal3BMC,
+		func() runtime.Object { return &Metal3BMC{} },     // Register versioned resource
+		func() runtime.Object { return &Metal3BMCList{} }, // Register versioned resource list
+		NewMetal3BMCREST,
 	)
-	InternalChartInfoStatus = builders.NewInternalResourceStatus(
-		"chartinfos",
-		"ChartInfoStatus",
-		func() runtime.Object { return &ChartInfo{} },
-		func() runtime.Object { return &ChartInfoList{} },
-	)
-	InternalFeature = builders.NewInternalResource(
+	NewMetal3BMCREST = func(getter generic.RESTOptionsGetter) rest.Storage {
+		return NewMetal3BMCRESTFunc(Config, CachedClient, UncachedClient, CachedManagementClient, UncachedManagementClient)
+	}
+	NewMetal3BMCRESTFunc NewRESTFunc
+	InternalFeature      = builders.NewInternalResource(
 		"features",
 		"Feature",
 		func() runtime.Object { return &Feature{} },
@@ -76,26 +63,65 @@ var (
 		func() runtime.Object { return &Feature{} },
 		func() runtime.Object { return &FeatureList{} },
 	)
-	InternalHelmRelease = builders.NewInternalResource(
-		"helmreleases",
-		"HelmRelease",
-		func() runtime.Object { return &HelmRelease{} },
-		func() runtime.Object { return &HelmReleaseList{} },
+	InternalIronicNode = builders.NewInternalResource(
+		"ironicnodes",
+		"IronicNode",
+		func() runtime.Object { return &IronicNode{} },
+		func() runtime.Object { return &IronicNodeList{} },
 	)
-	InternalHelmReleaseStatus = builders.NewInternalResourceStatus(
-		"helmreleases",
-		"HelmReleaseStatus",
-		func() runtime.Object { return &HelmRelease{} },
-		func() runtime.Object { return &HelmReleaseList{} },
+	InternalIronicNodeStatus = builders.NewInternalResourceStatus(
+		"ironicnodes",
+		"IronicNodeStatus",
+		func() runtime.Object { return &IronicNode{} },
+		func() runtime.Object { return &IronicNodeList{} },
 	)
+	InternalIronicNodeAbortREST = builders.NewInternalSubresource(
+		"ironicnodes", "IronicNodeAbort", "abort",
+		func() runtime.Object { return &IronicNodeAbort{} },
+	)
+	NewIronicNodeAbortREST = func(getter generic.RESTOptionsGetter) rest.Storage {
+		return NewIronicNodeAbortRESTFunc(Config, CachedClient, UncachedClient, CachedManagementClient, UncachedManagementClient)
+	}
+	NewIronicNodeAbortRESTFunc NewRESTFunc
+	InternalMetal3BMC          = builders.NewInternalResource(
+		"metal3bmcs",
+		"Metal3BMC",
+		func() runtime.Object { return &Metal3BMC{} },
+		func() runtime.Object { return &Metal3BMCList{} },
+	)
+	InternalMetal3BMCStatus = builders.NewInternalResourceStatus(
+		"metal3bmcs",
+		"Metal3BMCStatus",
+		func() runtime.Object { return &Metal3BMC{} },
+		func() runtime.Object { return &Metal3BMCList{} },
+	)
+	InternalMetal3BMCConsoleREST = builders.NewInternalSubresource(
+		"metal3bmcs", "Metal3BMCConsole", "console",
+		func() runtime.Object { return &Metal3BMCConsole{} },
+	)
+	NewMetal3BMCConsoleREST = func(getter generic.RESTOptionsGetter) rest.Storage {
+		return NewMetal3BMCConsoleRESTFunc(Config, CachedClient, UncachedClient, CachedManagementClient, UncachedManagementClient)
+	}
+	NewMetal3BMCConsoleRESTFunc  NewRESTFunc
+	InternalMetal3BMCRedfishREST = builders.NewInternalSubresource(
+		"metal3bmcs", "Metal3BMCRedfish", "redfish",
+		func() runtime.Object { return &Metal3BMCRedfish{} },
+	)
+	NewMetal3BMCRedfishREST = func(getter generic.RESTOptionsGetter) rest.Storage {
+		return NewMetal3BMCRedfishRESTFunc(Config, CachedClient, UncachedClient, CachedManagementClient, UncachedManagementClient)
+	}
+	NewMetal3BMCRedfishRESTFunc NewRESTFunc
 	// Registered resources and subresources
 	ApiVersion = builders.NewApiGroup("cluster.loft.sh").WithKinds(
-		InternalChartInfo,
-		InternalChartInfoStatus,
 		InternalFeature,
 		InternalFeatureStatus,
-		InternalHelmRelease,
-		InternalHelmReleaseStatus,
+		InternalIronicNode,
+		InternalIronicNodeStatus,
+		InternalIronicNodeAbortREST,
+		InternalMetal3BMC,
+		InternalMetal3BMCStatus,
+		InternalMetal3BMCConsoleREST,
+		InternalMetal3BMCRedfishREST,
 	)
 
 	// Required by code generated by go2idl
@@ -118,52 +144,6 @@ func Kind(kind string) schema.GroupKind {
 // Resource takes an unqualified resource and returns a Group qualified GroupResource
 func Resource(resource string) schema.GroupResource {
 	return SchemeGroupVersion.WithResource(resource).GroupResource()
-}
-
-type Status string
-
-type Bash struct {
-	Script             string                     `json:"script,omitempty"`
-	Image              string                     `json:"image,omitempty"`
-	ClusterRole        string                     `json:"clusterRole,omitempty"`
-	PodSecurityContext *corev1.PodSecurityContext `json:"podSecurityContext,omitempty"`
-	SecurityContext    *corev1.SecurityContext    `json:"securityContext,omitempty"`
-}
-
-type Chart struct {
-	Name                  string          `json:"name,omitempty"`
-	Version               string          `json:"version,omitempty"`
-	RepoURL               string          `json:"repoURL,omitempty"`
-	Username              string          `json:"username,omitempty"`
-	UsernameRef           *ChartSecretRef `json:"usernameRef,omitempty"`
-	Password              string          `json:"password,omitempty"`
-	PasswordRef           *ChartSecretRef `json:"passwordRef,omitempty"`
-	InsecureSkipTlsVerify bool            `json:"insecureSkipTlsVerify,omitempty"`
-}
-
-// +genclient
-// +genclient:nonNamespaced
-// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
-
-type ChartInfo struct {
-	metav1.TypeMeta   `json:",inline"`
-	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              ChartInfoSpec   `json:"spec,omitempty"`
-	Status            ChartInfoStatus `json:"status,omitempty"`
-}
-
-type ChartInfoSpec struct {
-	Chart Chart `json:"chart,omitempty"`
-}
-
-type ChartInfoStatus struct {
-	Metadata *Metadata `json:"metadata,omitempty"`
-	Readme   string    `json:"readme,omitempty"`
-	Values   string    `json:"values,omitempty"`
-}
-
-type ChartSecretRef struct {
-	ProjectSecretRef *ProjectSecretRef `json:"projectSecretRef,omitempty"`
 }
 
 // +genclient
@@ -190,190 +170,129 @@ type FeatureStatus struct {
 // +genclient
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-type HelmRelease struct {
+type IronicNode struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              HelmReleaseSpec   `json:"spec,omitempty"`
-	Status            HelmReleaseStatus `json:"status,omitempty"`
-}
-
-type HelmReleaseConfig struct {
-	Chart       Chart             `json:"chart,omitempty"`
-	Manifests   string            `json:"manifests,omitempty"`
-	Bash        *Bash             `json:"bash,omitempty"`
-	Values      string            `json:"values,omitempty"`
-	Parameters  string            `json:"parameters,omitempty"`
-	Annotations map[string]string `json:"annotations,omitempty"`
-}
-
-type HelmReleaseSpec struct {
-	HelmReleaseConfig `json:",inline"`
-}
-
-type HelmReleaseStatus struct {
-	Revision int       `json:"version,omitempty"`
-	Info     *Info     `json:"info,omitempty"`
-	Metadata *Metadata `json:"metadata,omitempty"`
-}
-
-type Info struct {
-	FirstDeployed metav1.Time `json:"first_deployed,omitempty"`
-	LastDeployed  metav1.Time `json:"last_deployed,omitempty"`
-	Deleted       metav1.Time `json:"deleted"`
-	Description   string      `json:"description,omitempty"`
-	Status        Status      `json:"status,omitempty"`
-	Notes         string      `json:"notes,omitempty"`
-}
-
-type Maintainer struct {
-	Name  string `json:"name,omitempty"`
-	Email string `json:"email,omitempty"`
-	URL   string `json:"url,omitempty"`
-}
-
-type Metadata struct {
-	Name        string            `json:"name,omitempty"`
-	Home        string            `json:"home,omitempty"`
-	Sources     []string          `json:"sources,omitempty"`
-	Version     string            `json:"version,omitempty"`
-	Description string            `json:"description,omitempty"`
-	Keywords    []string          `json:"keywords,omitempty"`
-	Maintainers []*Maintainer     `json:"maintainers,omitempty"`
-	Icon        string            `json:"icon,omitempty"`
-	APIVersion  string            `json:"apiVersion,omitempty"`
-	Condition   string            `json:"condition,omitempty"`
-	Tags        string            `json:"tags,omitempty"`
-	AppVersion  string            `json:"appVersion,omitempty"`
-	Deprecated  bool              `json:"deprecated,omitempty"`
-	Annotations map[string]string `json:"annotations,omitempty"`
-	KubeVersion string            `json:"kubeVersion,omitempty"`
-	Type        string            `json:"type,omitempty"`
-	Urls        []string          `json:"urls,omitempty"`
-}
-
-type ProjectSecretRef struct {
-	Project string `json:"project,omitempty"`
-	Name    string `json:"name,omitempty"`
-	Key     string `json:"key,omitempty"`
-}
-
-// ChartInfo Functions and Structs
-//
-// +k8s:deepcopy-gen=false
-type ChartInfoStrategy struct {
-	builders.DefaultStorageStrategy
-}
-
-// +k8s:deepcopy-gen=false
-type ChartInfoStatusStrategy struct {
-	builders.DefaultStatusStorageStrategy
+	Spec              IronicNodeSpec   `json:"spec,omitempty"`
+	Status            IronicNodeStatus `json:"status,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-type ChartInfoList struct {
-	metav1.TypeMeta `json:",inline"`
-	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []ChartInfo `json:"items"`
+type IronicNodeAbort struct {
+	metav1.TypeMeta   `json:",inline"`
+	metav1.ObjectMeta `json:"metadata,omitempty"`
+	Status            IronicNodeStatus `json:"status,omitempty"`
 }
 
-func (ChartInfo) NewStatus() interface{} {
-	return ChartInfoStatus{}
+type IronicNodeAgent struct {
+	Started       bool         `json:"started,omitempty"`
+	LastHeartbeat *metav1.Time `json:"lastHeartbeat,omitempty"`
+	Version       string       `json:"version,omitempty"`
 }
 
-func (pc *ChartInfo) GetStatus() interface{} {
-	return pc.Status
+type IronicNodeHistoryEvent struct {
+	CreatedAt metav1.Time `json:"createdAt"`
+	Severity  string      `json:"severity,omitempty"`
+	EventType string      `json:"eventType,omitempty"`
+	Event     string      `json:"event,omitempty"`
+	Conductor string      `json:"conductor,omitempty"`
 }
 
-func (pc *ChartInfo) SetStatus(s interface{}) {
-	pc.Status = s.(ChartInfoStatus)
+type IronicNodeInterfaces struct {
+	Boot       string `json:"boot,omitempty"`
+	Deploy     string `json:"deploy,omitempty"`
+	Power      string `json:"power,omitempty"`
+	Management string `json:"management,omitempty"`
+	Inspect    string `json:"inspect,omitempty"`
+	Console    string `json:"console,omitempty"`
+	Network    string `json:"network,omitempty"`
+	Storage    string `json:"storage,omitempty"`
+	RAID       string `json:"raid,omitempty"`
+	BIOS       string `json:"bios,omitempty"`
+	Firmware   string `json:"firmware,omitempty"`
+	Rescue     string `json:"rescue,omitempty"`
+	Vendor     string `json:"vendor,omitempty"`
 }
 
-func (pc *ChartInfo) GetSpec() interface{} {
-	return pc.Spec
+type IronicNodeSpec struct {
 }
 
-func (pc *ChartInfo) SetSpec(s interface{}) {
-	pc.Spec = s.(ChartInfoSpec)
+type IronicNodeStatus struct {
+	UUID                 string                   `json:"uuid,omitempty"`
+	ProvisionState       string                   `json:"provisionState,omitempty"`
+	TargetProvisionState string                   `json:"targetProvisionState,omitempty"`
+	ProvisionUpdatedAt   *metav1.Time             `json:"provisionUpdatedAt,omitempty"`
+	PowerState           string                   `json:"powerState,omitempty"`
+	TargetPowerState     string                   `json:"targetPowerState,omitempty"`
+	LastError            string                   `json:"lastError,omitempty"`
+	Maintenance          bool                     `json:"maintenance,omitempty"`
+	MaintenanceReason    string                   `json:"maintenanceReason,omitempty"`
+	Fault                string                   `json:"fault,omitempty"`
+	Conductor            string                   `json:"conductor,omitempty"`
+	Reservation          string                   `json:"reservation,omitempty"`
+	DeployStep           *IronicNodeStep          `json:"deployStep,omitempty"`
+	CleanStep            *IronicNodeStep          `json:"cleanStep,omitempty"`
+	ServiceStep          *IronicNodeStep          `json:"serviceStep,omitempty"`
+	Agent                IronicNodeAgent          `json:"agent,omitempty"`
+	Driver               string                   `json:"driver,omitempty"`
+	Interfaces           IronicNodeInterfaces     `json:"interfaces,omitempty"`
+	DriverInfo           map[string]string        `json:"driverInfo,omitempty"`
+	BootMode             string                   `json:"bootMode,omitempty"`
+	SecureBoot           *bool                    `json:"secureBoot,omitempty"`
+	Abortable            bool                     `json:"abortable,omitempty"`
+	History              []IronicNodeHistoryEvent `json:"history,omitempty"`
 }
 
-func (pc *ChartInfo) GetObjectMeta() *metav1.ObjectMeta {
-	return &pc.ObjectMeta
+type IronicNodeStep struct {
+	DriverInterface string `json:"driverInterface,omitempty"`
+	Step            string `json:"step,omitempty"`
+	Abortable       bool   `json:"abortable,omitempty"`
 }
 
-func (pc *ChartInfo) SetGeneration(generation int64) {
-	pc.ObjectMeta.Generation = generation
+// +genclient
+// +genclient
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+
+type Metal3BMC struct {
+	metav1.TypeMeta   `json:",inline"`
+	metav1.ObjectMeta `json:"metadata,omitempty"`
+	Spec              Metal3BMCSpec   `json:"spec,omitempty"`
+	Status            Metal3BMCStatus `json:"status,omitempty"`
 }
 
-func (pc ChartInfo) GetGeneration() int64 {
-	return pc.ObjectMeta.Generation
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+
+type Metal3BMCConsole struct {
+	metav1.TypeMeta   `json:",inline"`
+	metav1.ObjectMeta `json:"metadata,omitempty"`
 }
 
-// Registry is an interface for things that know how to store ChartInfo.
-// +k8s:deepcopy-gen=false
-type ChartInfoRegistry interface {
-	ListChartInfos(ctx context.Context, options *internalversion.ListOptions) (*ChartInfoList, error)
-	GetChartInfo(ctx context.Context, id string, options *metav1.GetOptions) (*ChartInfo, error)
-	CreateChartInfo(ctx context.Context, id *ChartInfo) (*ChartInfo, error)
-	UpdateChartInfo(ctx context.Context, id *ChartInfo) (*ChartInfo, error)
-	DeleteChartInfo(ctx context.Context, id string) (bool, error)
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+
+type Metal3BMCRedfish struct {
+	metav1.TypeMeta   `json:",inline"`
+	metav1.ObjectMeta `json:"metadata,omitempty"`
+	Spec              Metal3BMCRedfishSpec   `json:"spec,omitempty"`
+	Status            Metal3BMCRedfishStatus `json:"status,omitempty"`
 }
 
-// NewRegistry returns a new Registry interface for the given Storage. Any mismatched types will panic.
-func NewChartInfoRegistry(sp builders.StandardStorageProvider) ChartInfoRegistry {
-	return &storageChartInfo{sp}
+type Metal3BMCRedfishSpec struct {
+	Method string `json:"method,omitempty"`
+	Path   string `json:"path,omitempty"`
+	Body   []byte `json:"body,omitempty"`
 }
 
-// Implement Registry
-// storage puts strong typing around storage calls
-// +k8s:deepcopy-gen=false
-type storageChartInfo struct {
-	builders.StandardStorageProvider
+type Metal3BMCRedfishStatus struct {
+	StatusCode int                 `json:"statusCode,omitempty"`
+	Header     map[string][]string `json:"header,omitempty"`
+	Body       []byte              `json:"body,omitempty"`
 }
 
-func (s *storageChartInfo) ListChartInfos(ctx context.Context, options *internalversion.ListOptions) (*ChartInfoList, error) {
-	if options != nil && options.FieldSelector != nil && !options.FieldSelector.Empty() {
-		return nil, fmt.Errorf("field selector not supported yet")
-	}
-	st := s.GetStandardStorage()
-	obj, err := st.List(ctx, options)
-	if err != nil {
-		return nil, err
-	}
-	return obj.(*ChartInfoList), err
+type Metal3BMCSpec struct {
 }
 
-func (s *storageChartInfo) GetChartInfo(ctx context.Context, id string, options *metav1.GetOptions) (*ChartInfo, error) {
-	st := s.GetStandardStorage()
-	obj, err := st.Get(ctx, id, options)
-	if err != nil {
-		return nil, err
-	}
-	return obj.(*ChartInfo), nil
-}
-
-func (s *storageChartInfo) CreateChartInfo(ctx context.Context, object *ChartInfo) (*ChartInfo, error) {
-	st := s.GetStandardStorage()
-	obj, err := st.Create(ctx, object, nil, &metav1.CreateOptions{})
-	if err != nil {
-		return nil, err
-	}
-	return obj.(*ChartInfo), nil
-}
-
-func (s *storageChartInfo) UpdateChartInfo(ctx context.Context, object *ChartInfo) (*ChartInfo, error) {
-	st := s.GetStandardStorage()
-	obj, _, err := st.Update(ctx, object.Name, rest.DefaultUpdatedObjectInfo(object), nil, nil, false, &metav1.UpdateOptions{})
-	if err != nil {
-		return nil, err
-	}
-	return obj.(*ChartInfo), nil
-}
-
-func (s *storageChartInfo) DeleteChartInfo(ctx context.Context, id string) (bool, error) {
-	st := s.GetStandardStorage()
-	_, sync, err := st.Delete(ctx, id, nil, &metav1.DeleteOptions{})
-	return sync, err
+type Metal3BMCStatus struct {
 }
 
 // Feature Functions and Structs
@@ -495,81 +414,89 @@ func (s *storageFeature) DeleteFeature(ctx context.Context, id string) (bool, er
 	return sync, err
 }
 
-// HelmRelease Functions and Structs
+// IronicNode Functions and Structs
 //
 // +k8s:deepcopy-gen=false
-type HelmReleaseStrategy struct {
+type IronicNodeStrategy struct {
 	builders.DefaultStorageStrategy
 }
 
 // +k8s:deepcopy-gen=false
-type HelmReleaseStatusStrategy struct {
+type IronicNodeStatusStrategy struct {
 	builders.DefaultStatusStorageStrategy
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
-type HelmReleaseList struct {
+type IronicNodeList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	Items           []HelmRelease `json:"items"`
+	Items           []IronicNode `json:"items"`
 }
 
-func (HelmRelease) NewStatus() interface{} {
-	return HelmReleaseStatus{}
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+
+type IronicNodeAbortList struct {
+	metav1.TypeMeta `json:",inline"`
+	metav1.ListMeta `json:"metadata,omitempty"`
+	Items           []IronicNodeAbort `json:"items"`
 }
 
-func (pc *HelmRelease) GetStatus() interface{} {
+func (IronicNode) NewStatus() interface{} {
+	return IronicNodeStatus{}
+}
+
+func (pc *IronicNode) GetStatus() interface{} {
 	return pc.Status
 }
 
-func (pc *HelmRelease) SetStatus(s interface{}) {
-	pc.Status = s.(HelmReleaseStatus)
+func (pc *IronicNode) SetStatus(s interface{}) {
+	pc.Status = s.(IronicNodeStatus)
 }
 
-func (pc *HelmRelease) GetSpec() interface{} {
+func (pc *IronicNode) GetSpec() interface{} {
 	return pc.Spec
 }
 
-func (pc *HelmRelease) SetSpec(s interface{}) {
-	pc.Spec = s.(HelmReleaseSpec)
+func (pc *IronicNode) SetSpec(s interface{}) {
+	pc.Spec = s.(IronicNodeSpec)
 }
 
-func (pc *HelmRelease) GetObjectMeta() *metav1.ObjectMeta {
+func (pc *IronicNode) GetObjectMeta() *metav1.ObjectMeta {
 	return &pc.ObjectMeta
 }
 
-func (pc *HelmRelease) SetGeneration(generation int64) {
+func (pc *IronicNode) SetGeneration(generation int64) {
 	pc.ObjectMeta.Generation = generation
 }
 
-func (pc HelmRelease) GetGeneration() int64 {
+func (pc IronicNode) GetGeneration() int64 {
 	return pc.ObjectMeta.Generation
 }
 
-// Registry is an interface for things that know how to store HelmRelease.
+// Registry is an interface for things that know how to store IronicNode.
 // +k8s:deepcopy-gen=false
-type HelmReleaseRegistry interface {
-	ListHelmReleases(ctx context.Context, options *internalversion.ListOptions) (*HelmReleaseList, error)
-	GetHelmRelease(ctx context.Context, id string, options *metav1.GetOptions) (*HelmRelease, error)
-	CreateHelmRelease(ctx context.Context, id *HelmRelease) (*HelmRelease, error)
-	UpdateHelmRelease(ctx context.Context, id *HelmRelease) (*HelmRelease, error)
-	DeleteHelmRelease(ctx context.Context, id string) (bool, error)
+type IronicNodeRegistry interface {
+	ListIronicNodes(ctx context.Context, options *internalversion.ListOptions) (*IronicNodeList, error)
+	GetIronicNode(ctx context.Context, id string, options *metav1.GetOptions) (*IronicNode, error)
+	CreateIronicNode(ctx context.Context, id *IronicNode) (*IronicNode, error)
+	UpdateIronicNode(ctx context.Context, id *IronicNode) (*IronicNode, error)
+	DeleteIronicNode(ctx context.Context, id string) (bool, error)
 }
 
 // NewRegistry returns a new Registry interface for the given Storage. Any mismatched types will panic.
-func NewHelmReleaseRegistry(sp builders.StandardStorageProvider) HelmReleaseRegistry {
-	return &storageHelmRelease{sp}
+func NewIronicNodeRegistry(sp builders.StandardStorageProvider) IronicNodeRegistry {
+	return &storageIronicNode{sp}
 }
 
 // Implement Registry
 // storage puts strong typing around storage calls
 // +k8s:deepcopy-gen=false
-type storageHelmRelease struct {
+type storageIronicNode struct {
 	builders.StandardStorageProvider
 }
 
-func (s *storageHelmRelease) ListHelmReleases(ctx context.Context, options *internalversion.ListOptions) (*HelmReleaseList, error) {
+func (s *storageIronicNode) ListIronicNodes(ctx context.Context, options *internalversion.ListOptions) (*IronicNodeList, error) {
 	if options != nil && options.FieldSelector != nil && !options.FieldSelector.Empty() {
 		return nil, fmt.Errorf("field selector not supported yet")
 	}
@@ -578,37 +505,172 @@ func (s *storageHelmRelease) ListHelmReleases(ctx context.Context, options *inte
 	if err != nil {
 		return nil, err
 	}
-	return obj.(*HelmReleaseList), err
+	return obj.(*IronicNodeList), err
 }
 
-func (s *storageHelmRelease) GetHelmRelease(ctx context.Context, id string, options *metav1.GetOptions) (*HelmRelease, error) {
+func (s *storageIronicNode) GetIronicNode(ctx context.Context, id string, options *metav1.GetOptions) (*IronicNode, error) {
 	st := s.GetStandardStorage()
 	obj, err := st.Get(ctx, id, options)
 	if err != nil {
 		return nil, err
 	}
-	return obj.(*HelmRelease), nil
+	return obj.(*IronicNode), nil
 }
 
-func (s *storageHelmRelease) CreateHelmRelease(ctx context.Context, object *HelmRelease) (*HelmRelease, error) {
+func (s *storageIronicNode) CreateIronicNode(ctx context.Context, object *IronicNode) (*IronicNode, error) {
 	st := s.GetStandardStorage()
 	obj, err := st.Create(ctx, object, nil, &metav1.CreateOptions{})
 	if err != nil {
 		return nil, err
 	}
-	return obj.(*HelmRelease), nil
+	return obj.(*IronicNode), nil
 }
 
-func (s *storageHelmRelease) UpdateHelmRelease(ctx context.Context, object *HelmRelease) (*HelmRelease, error) {
+func (s *storageIronicNode) UpdateIronicNode(ctx context.Context, object *IronicNode) (*IronicNode, error) {
 	st := s.GetStandardStorage()
 	obj, _, err := st.Update(ctx, object.Name, rest.DefaultUpdatedObjectInfo(object), nil, nil, false, &metav1.UpdateOptions{})
 	if err != nil {
 		return nil, err
 	}
-	return obj.(*HelmRelease), nil
+	return obj.(*IronicNode), nil
 }
 
-func (s *storageHelmRelease) DeleteHelmRelease(ctx context.Context, id string) (bool, error) {
+func (s *storageIronicNode) DeleteIronicNode(ctx context.Context, id string) (bool, error) {
+	st := s.GetStandardStorage()
+	_, sync, err := st.Delete(ctx, id, nil, &metav1.DeleteOptions{})
+	return sync, err
+}
+
+// Metal3BMC Functions and Structs
+//
+// +k8s:deepcopy-gen=false
+type Metal3BMCStrategy struct {
+	builders.DefaultStorageStrategy
+}
+
+// +k8s:deepcopy-gen=false
+type Metal3BMCStatusStrategy struct {
+	builders.DefaultStatusStorageStrategy
+}
+
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+
+type Metal3BMCList struct {
+	metav1.TypeMeta `json:",inline"`
+	metav1.ListMeta `json:"metadata,omitempty"`
+	Items           []Metal3BMC `json:"items"`
+}
+
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+
+type Metal3BMCConsoleList struct {
+	metav1.TypeMeta `json:",inline"`
+	metav1.ListMeta `json:"metadata,omitempty"`
+	Items           []Metal3BMCConsole `json:"items"`
+}
+
+// +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
+
+type Metal3BMCRedfishList struct {
+	metav1.TypeMeta `json:",inline"`
+	metav1.ListMeta `json:"metadata,omitempty"`
+	Items           []Metal3BMCRedfish `json:"items"`
+}
+
+func (Metal3BMC) NewStatus() interface{} {
+	return Metal3BMCStatus{}
+}
+
+func (pc *Metal3BMC) GetStatus() interface{} {
+	return pc.Status
+}
+
+func (pc *Metal3BMC) SetStatus(s interface{}) {
+	pc.Status = s.(Metal3BMCStatus)
+}
+
+func (pc *Metal3BMC) GetSpec() interface{} {
+	return pc.Spec
+}
+
+func (pc *Metal3BMC) SetSpec(s interface{}) {
+	pc.Spec = s.(Metal3BMCSpec)
+}
+
+func (pc *Metal3BMC) GetObjectMeta() *metav1.ObjectMeta {
+	return &pc.ObjectMeta
+}
+
+func (pc *Metal3BMC) SetGeneration(generation int64) {
+	pc.ObjectMeta.Generation = generation
+}
+
+func (pc Metal3BMC) GetGeneration() int64 {
+	return pc.ObjectMeta.Generation
+}
+
+// Registry is an interface for things that know how to store Metal3BMC.
+// +k8s:deepcopy-gen=false
+type Metal3BMCRegistry interface {
+	ListMetal3BMCs(ctx context.Context, options *internalversion.ListOptions) (*Metal3BMCList, error)
+	GetMetal3BMC(ctx context.Context, id string, options *metav1.GetOptions) (*Metal3BMC, error)
+	CreateMetal3BMC(ctx context.Context, id *Metal3BMC) (*Metal3BMC, error)
+	UpdateMetal3BMC(ctx context.Context, id *Metal3BMC) (*Metal3BMC, error)
+	DeleteMetal3BMC(ctx context.Context, id string) (bool, error)
+}
+
+// NewRegistry returns a new Registry interface for the given Storage. Any mismatched types will panic.
+func NewMetal3BMCRegistry(sp builders.StandardStorageProvider) Metal3BMCRegistry {
+	return &storageMetal3BMC{sp}
+}
+
+// Implement Registry
+// storage puts strong typing around storage calls
+// +k8s:deepcopy-gen=false
+type storageMetal3BMC struct {
+	builders.StandardStorageProvider
+}
+
+func (s *storageMetal3BMC) ListMetal3BMCs(ctx context.Context, options *internalversion.ListOptions) (*Metal3BMCList, error) {
+	if options != nil && options.FieldSelector != nil && !options.FieldSelector.Empty() {
+		return nil, fmt.Errorf("field selector not supported yet")
+	}
+	st := s.GetStandardStorage()
+	obj, err := st.List(ctx, options)
+	if err != nil {
+		return nil, err
+	}
+	return obj.(*Metal3BMCList), err
+}
+
+func (s *storageMetal3BMC) GetMetal3BMC(ctx context.Context, id string, options *metav1.GetOptions) (*Metal3BMC, error) {
+	st := s.GetStandardStorage()
+	obj, err := st.Get(ctx, id, options)
+	if err != nil {
+		return nil, err
+	}
+	return obj.(*Metal3BMC), nil
+}
+
+func (s *storageMetal3BMC) CreateMetal3BMC(ctx context.Context, object *Metal3BMC) (*Metal3BMC, error) {
+	st := s.GetStandardStorage()
+	obj, err := st.Create(ctx, object, nil, &metav1.CreateOptions{})
+	if err != nil {
+		return nil, err
+	}
+	return obj.(*Metal3BMC), nil
+}
+
+func (s *storageMetal3BMC) UpdateMetal3BMC(ctx context.Context, object *Metal3BMC) (*Metal3BMC, error) {
+	st := s.GetStandardStorage()
+	obj, _, err := st.Update(ctx, object.Name, rest.DefaultUpdatedObjectInfo(object), nil, nil, false, &metav1.UpdateOptions{})
+	if err != nil {
+		return nil, err
+	}
+	return obj.(*Metal3BMC), nil
+}
+
+func (s *storageMetal3BMC) DeleteMetal3BMC(ctx context.Context, id string) (bool, error) {
 	st := s.GetStandardStorage()
 	_, sync, err := st.Delete(ctx, id, nil, &metav1.DeleteOptions{})
 	return sync, err
