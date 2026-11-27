@@ -8,12 +8,8 @@ import (
 
 // Interface provides access to all the informers in this group version.
 type Interface interface {
-	// ChartInfos returns a ChartInfoInformer.
-	ChartInfos() ChartInfoInformer
 	// Features returns a FeatureInformer.
 	Features() FeatureInformer
-	// HelmReleases returns a HelmReleaseInformer.
-	HelmReleases() HelmReleaseInformer
 }
 
 type version struct {
@@ -27,17 +23,7 @@ func New(f internalinterfaces.SharedInformerFactory, namespace string, tweakList
 	return &version{factory: f, namespace: namespace, tweakListOptions: tweakListOptions}
 }
 
-// ChartInfos returns a ChartInfoInformer.
-func (v *version) ChartInfos() ChartInfoInformer {
-	return &chartInfoInformer{factory: v.factory, tweakListOptions: v.tweakListOptions}
-}
-
 // Features returns a FeatureInformer.
 func (v *version) Features() FeatureInformer {
 	return &featureInformer{factory: v.factory, tweakListOptions: v.tweakListOptions}
-}
-
-// HelmReleases returns a HelmReleaseInformer.
-func (v *version) HelmReleases() HelmReleaseInformer {
-	return &helmReleaseInformer{factory: v.factory, namespace: v.namespace, tweakListOptions: v.tweakListOptions}
 }
